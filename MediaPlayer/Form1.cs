@@ -16,5 +16,25 @@ namespace MediaPlayer
         {
             InitializeComponent();
         }
+        bool sideBarExpand = false;
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gunaTrackBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
+
+        private void gunaImageButton2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
