@@ -29,3 +29,38 @@ C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\Me
 C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
 C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
 C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Home.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Search.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Library.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Music.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Setting.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Video.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\bin\Debug\Interop.WMPLib.dll
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\Interop.WMPLib.dll
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.ResolveComReference.cache
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.exe.config
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.exe
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.pdb
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Interop.WMPLib.dll
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.AssemblyReference.cache
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.SuggestedBindingRedirects.cache
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\Interop.WMPLib.dll
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.ResolveComReference.cache
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form1.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Home.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Library.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Music.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Search.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Setting.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Video.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Properties.Resources.resources
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.GenerateResource.cache
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.licenses
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CoreCompileInputs.cache
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
+C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb
