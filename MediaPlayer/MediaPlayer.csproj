@@ -37,6 +37,9 @@
     <Reference Include="Bunifu.UI.WinForms.1.5.3">
       <HintPath>..\..\..\..\Downloads\Res\BUNIFU UI\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
+      <HintPath>..\..\..\..\Downloads\Res\BUNIFU UI\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
       <HintPath>..\..\..\..\Downloads\Res\BUNIFU UI\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
     </Reference>
@@ -71,46 +74,46 @@
     <Compile Include="Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_DashBoard.cs">
+    <Compile Include="Widgets\Form_Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_DashBoard.Designer.cs">
-      <DependentUpon>Form_DashBoard.cs</DependentUpon>
+    <Compile Include="Widgets\Form_Home.Designer.cs">
+      <DependentUpon>Form_Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Library.cs">
+    <Compile Include="Widgets\Form_Library.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Library.Designer.cs">
+    <Compile Include="Widgets\Form_Library.Designer.cs">
       <DependentUpon>Form_Library.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Music.cs">
+    <Compile Include="Widgets\Form_Music.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Music.Designer.cs">
+    <Compile Include="Widgets\Form_Music.Designer.cs">
       <DependentUpon>Form_Music.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_MusicControl.cs">
+    <Compile Include="Items\Form_MusicControl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_MusicControl.Designer.cs">
+    <Compile Include="Items\Form_MusicControl.Designer.cs">
       <DependentUpon>Form_MusicControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Search.cs">
+    <Compile Include="Widgets\Form_Search.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Search.Designer.cs">
+    <Compile Include="Widgets\Form_Search.Designer.cs">
       <DependentUpon>Form_Search.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Setting.cs">
+    <Compile Include="Widgets\Form_Setting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Setting.Designer.cs">
+    <Compile Include="Widgets\Form_Setting.Designer.cs">
       <DependentUpon>Form_Setting.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Video.cs">
+    <Compile Include="Widgets\Form_Video.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Video.Designer.cs">
+    <Compile Include="Widgets\Form_Video.Designer.cs">
       <DependentUpon>Form_Video.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -118,25 +121,25 @@
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_DashBoard.resx">
-      <DependentUpon>Form_DashBoard.cs</DependentUpon>
+    <EmbeddedResource Include="Widgets\Form_Home.resx">
+      <DependentUpon>Form_Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Library.resx">
+    <EmbeddedResource Include="Widgets\Form_Library.resx">
       <DependentUpon>Form_Library.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Music.resx">
+    <EmbeddedResource Include="Widgets\Form_Music.resx">
       <DependentUpon>Form_Music.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_MusicControl.resx">
+    <EmbeddedResource Include="Items\Form_MusicControl.resx">
       <DependentUpon>Form_MusicControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Search.resx">
+    <EmbeddedResource Include="Widgets\Form_Search.resx">
       <DependentUpon>Form_Search.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Setting.resx">
+    <EmbeddedResource Include="Widgets\Form_Setting.resx">
       <DependentUpon>Form_Setting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Video.resx">
+    <EmbeddedResource Include="Widgets\Form_Video.resx">
       <DependentUpon>Form_Video.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -164,19 +167,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Images\home_hover.png" />
-    <Content Include="Resources\Images\home.png" />
-    <Content Include="Resources\Images\shuffle - off.png" />
-    <Content Include="Resources\Images\shuffle.png" />
-    <None Include="Resources\Images\video_hover.png" />
-    <None Include="Resources\Images\video.png" />
-    <None Include="Resources\Images\menu-burger.png" />
-    <None Include="Resources\Images\music.png" />
-    <None Include="Resources\Images\music_hover.png" />
-    <Content Include="Resources\Images\search.png" />
-    <Content Include="Resources\Images\search_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="AxWMPLib">
       <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -194,6 +184,59 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Icons\001-next-button - Copy.png" />
+    <Content Include="Resources\Icons\001-next-button.png" />
+    <Content Include="Resources\Icons\001-play-button.png" />
+    <Content Include="Resources\Icons\002-next - Copy.png" />
+    <Content Include="Resources\Icons\002-next.png" />
+    <Content Include="Resources\Icons\002-play-button-1.png" />
+    <Content Include="Resources\Icons\003-repeat.png" />
+    <Content Include="Resources\Icons\003-video-pause-button.png" />
+    <Content Include="Resources\Icons\004-repeat-1.png" />
+    <Content Include="Resources\Icons\004-video-pause-button-1.png" />
+    <Content Include="Resources\Icons\005-next.png" />
+    <Content Include="Resources\Icons\005-shuffle.png" />
+    <Content Include="Resources\Icons\006-next-button.png" />
+    <Content Include="Resources\Icons\books %281%29.png" />
+    <Content Include="Resources\Icons\books.png" />
+    <Content Include="Resources\Icons\home.png" />
+    <Content Include="Resources\Icons\home_hover.png" />
+    <Content Include="Resources\Icons\library.png" />
+    <Content Include="Resources\Icons\library_hover.png" />
+    <Content Include="Resources\Icons\music-alt.png" />
+    <Content Include="Resources\Icons\music.png" />
+    <Content Include="Resources\Icons\music_hover.png" />
+    <Content Include="Resources\Icons\next_left.png" />
+    <Content Include="Resources\Icons\next_left_hover.png" />
+    <Content Include="Resources\Icons\next_right.png" />
+    <Content Include="Resources\Icons\next_right_hover.png" />
+    <Content Include="Resources\Icons\pause.png" />
+    <Content Include="Resources\Icons\pause_hover.png" />
+    <Content Include="Resources\Icons\play-alt %281%29.png" />
+    <Content Include="Resources\Icons\play-alt.png" />
+    <Content Include="Resources\Icons\play.png" />
+    <Content Include="Resources\Icons\play_hover.png" />
+    <Content Include="Resources\Icons\repeat.png" />
+    <Content Include="Resources\Icons\repeat_hover.png" />
+    <Content Include="Resources\Icons\search %281%29.png" />
+    <Content Include="Resources\Icons\search.png" />
+    <Content Include="Resources\Icons\search_hover.png" />
+    <Content Include="Resources\Icons\settings %281%29.png" />
+    <Content Include="Resources\Icons\settings-sliders %281%29.png" />
+    <Content Include="Resources\Icons\settings-sliders.png" />
+    <Content Include="Resources\Icons\settings.png" />
+    <Content Include="Resources\Icons\settings_hover.png" />
+    <Content Include="Resources\Icons\settings_slider.png" />
+    <Content Include="Resources\Icons\settings_slider_hover.png" />
+    <Content Include="Resources\Icons\shuffle.png" />
+    <Content Include="Resources\Icons\shuffle_hover.png" />
+    <Content Include="Resources\Icons\skip_left_hover.png" />
+    <Content Include="Resources\Icons\skip_right.png" />
+    <Content Include="Resources\Icons\skip_right_hover.png" />
+    <Content Include="Resources\Icons\video.png" />
+    <Content Include="Resources\Icons\video_hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
