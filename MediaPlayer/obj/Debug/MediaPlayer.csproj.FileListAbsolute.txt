@@ -8,7 +8,6 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CoreCompileInputs.cache
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form1.resources
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.licenses
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
@@ -64,3 +63,16 @@ C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj
 C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
 C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
 C:\Users\tuanb\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Interop.WMPLib.dll
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\Interop.WMPLib.dll
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.ResolveComReference.cache
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Library.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Music.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Search.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Setting.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Video.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Main.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_DashBoard.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_MusicControl.resources

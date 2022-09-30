@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace MediaPlayer
 {
-    public partial class Form1 : Form
+    public partial class Form_Main : Form
     {
-        public Form1()
+        public Form_Main()
         {
             InitializeComponent();
 
             this.panel_base.Controls.Clear();
-            Form_Home formHome = new Form_Home()
+            Form_DashBoard formHome = new Form_DashBoard()
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,
@@ -35,7 +35,14 @@ namespace MediaPlayer
 
         private void gunaPanel1_Paint(object sender, PaintEventArgs e)
         {
-
+            Form_MusicControl form_MusicControl = new Form_MusicControl()
+            {
+                Dock = DockStyle.Fill,
+                TopLevel = false,
+                TopMost = true,
+            };
+            gunaPanel_MusicControl.Controls.Add(form_MusicControl);
+            form_MusicControl.Show();
         }
 
         private void gunaTrackBar1_Scroll(object sender, ScrollEventArgs e)
@@ -81,7 +88,7 @@ namespace MediaPlayer
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
             //this.panel_base.Controls.Clear();
-            Form_Home formHome = new Form_Home()
+            Form_DashBoard formHome = new Form_DashBoard()
             {
                 Dock = DockStyle.Fill,
                 TopLevel = false,

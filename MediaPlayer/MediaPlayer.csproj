@@ -65,17 +65,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Form_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form_Main.Designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form_Home.cs">
+    <Compile Include="Form_DashBoard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form_Home.Designer.cs">
-      <DependentUpon>Form_Home.cs</DependentUpon>
+    <Compile Include="Form_DashBoard.Designer.cs">
+      <DependentUpon>Form_DashBoard.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Library.cs">
       <SubType>Form</SubType>
@@ -88,6 +88,12 @@
     </Compile>
     <Compile Include="Form_Music.Designer.cs">
       <DependentUpon>Form_Music.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_MusicControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_MusicControl.Designer.cs">
+      <DependentUpon>Form_MusicControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form_Search.cs">
       <SubType>Form</SubType>
@@ -109,17 +115,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form_Home.resx">
-      <DependentUpon>Form_Home.cs</DependentUpon>
+    <EmbeddedResource Include="Form_DashBoard.resx">
+      <DependentUpon>Form_DashBoard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Library.resx">
       <DependentUpon>Form_Library.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Music.resx">
       <DependentUpon>Form_Music.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_MusicControl.resx">
+      <DependentUpon>Form_MusicControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Search.resx">
       <DependentUpon>Form_Search.cs</DependentUpon>
