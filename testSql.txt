@@ -1,0 +1,9 @@
+Bảo
+- Lấy dữ liệu từ file nhạc và video -> transfer vô sql database -> lấy ra dữ liệu và hiển thị nó
+- Mở file nhạc -> giữ nó vẫn chạy trong khi chuyển tab
+
+Hào
+- Làm UI các tab 
+
+Minh
+- Làm chuyển tab, và tạo khung tab ban đầu
