@@ -16,3 +16,16 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Guna.UI.dll
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.exe.config
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.exe
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.pdb
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.AssemblyReference.cache
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.SuggestedBindingRedirects.cache
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form1.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Properties.Resources.resources
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.GenerateResource.cache
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.licenses
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CoreCompileInputs.cache
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
+C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb

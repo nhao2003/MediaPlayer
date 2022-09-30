@@ -39,6 +39,7 @@
             this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
             this.gunaTileButton1 = new Guna.UI.WinForms.GunaTileButton();
             this.gunaGradient2Panel1 = new Guna.UI.WinForms.GunaGradient2Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.gunaTrackBar1 = new Guna.UI.WinForms.GunaTrackBar();
             this.gunaImageButton2 = new Guna.UI.WinForms.GunaImageButton();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
@@ -51,6 +52,7 @@
             this.gunaImageButton3 = new Guna.UI.WinForms.GunaImageButton();
             this.gunaPanel2.SuspendLayout();
             this.gunaPanel3.SuspendLayout();
+            this.gunaGradient2Panel1.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             this.gunaButton6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.gunaButton6.Size = new System.Drawing.Size(289, 50);
             this.gunaButton6.TabIndex = 6;
-            this.gunaButton6.Text = "Video";
+            this.gunaButton6.Text = "Thư viện ";
             // 
             // gunaButton5
             // 
@@ -153,6 +155,7 @@
             this.gunaButton4.Size = new System.Drawing.Size(289, 50);
             this.gunaButton4.TabIndex = 4;
             this.gunaButton4.Text = "Video";
+            this.gunaButton4.Click += new System.EventHandler(this.gunaButton4_Click);
             // 
             // gunaButton3
             // 
@@ -277,6 +280,7 @@
             // gunaGradient2Panel1
             // 
             this.gunaGradient2Panel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaGradient2Panel1.Controls.Add(this.button1);
             this.gunaGradient2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaGradient2Panel1.GradientColor1 = System.Drawing.Color.SeaGreen;
             this.gunaGradient2Panel1.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
@@ -287,6 +291,23 @@
             this.gunaGradient2Panel1.Name = "gunaGradient2Panel1";
             this.gunaGradient2Panel1.Size = new System.Drawing.Size(932, 653);
             this.gunaGradient2Panel1.TabIndex = 2;
+            this.gunaGradient2Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gunaGradient2Panel1_MouseDown);
+            this.gunaGradient2Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gunaGradient2Panel1_MouseMove);
+            this.gunaGradient2Panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.gunaGradient2Panel1_MouseUp);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(880, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // gunaTrackBar1
             // 
@@ -440,12 +461,14 @@
             this.Controls.Add(this.gunaGradient2Panel1);
             this.Controls.Add(this.gunaPanel2);
             this.Controls.Add(this.gunaPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.gunaPanel2.ResumeLayout(false);
             this.gunaPanel3.ResumeLayout(false);
+            this.gunaGradient2Panel1.ResumeLayout(false);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel1.PerformLayout();
             this.ResumeLayout(false);
@@ -473,6 +496,7 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaImageButton gunaImageButton1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
