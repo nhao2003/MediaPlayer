@@ -32,7 +32,10 @@ namespace MediaPlayer
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
             this.panel_base.Controls.Clear();
-            UserControl_Home userControl_Home = new UserControl_Home();
+            UserControl_Home userControl_Home = new UserControl_Home()
+            {
+                Dock = DockStyle.Fill,
+            };
             this.panel_base.Controls.Add(userControl_Home);
             userControl_Home.Show();
         }
@@ -56,15 +59,20 @@ namespace MediaPlayer
         private void gunaButton_Search_Click(object sender, EventArgs e)
         {
             this.panel_base.Controls.Clear();
-            UserControl_Search userControl_Search = new UserControl_Search();
-            this.panel_base.Controls.Add(userControl_Search);
+            UserControl_Search userControl_Search = new UserControl_Search()
+            {
+                Dock = DockStyle.Fill,
+            };
             userControl_Search.Show();
         }
 
         private void gunaButton_Music_Click(object sender, EventArgs e)
         {
             this.panel_base.Controls.Clear();
-            UserControl_Music userControl_Music = new UserControl_Music();
+            UserControl_Music userControl_Music = new UserControl_Music()
+            {
+                Dock = DockStyle.Fill,
+            };
             this.panel_base.Controls.Add(userControl_Music);
             userControl_Music.Show();
         }
@@ -72,7 +80,7 @@ namespace MediaPlayer
         private void gunaButton_Video_Click(object sender, EventArgs e)
         {
             this.panel_base.Controls.Clear();
-            UserControl_Video userControl_Video = new UserControl_Video();
+            UserControl_Video userControl_Video = new UserControl_Video() { Dock = DockStyle.Fill };
             this.panel_base.Controls.Add(userControl_Video);
             userControl_Video.Show();
         }
@@ -80,7 +88,7 @@ namespace MediaPlayer
         private void gunaButton_Library_Click(object sender, EventArgs e)
         {
             this.panel_base.Controls.Clear();
-            UserControl_Library userControl_Library = new UserControl_Library();
+            UserControl_Library userControl_Library = new UserControl_Library() { Dock = DockStyle.Fill };
             this.panel_base.Controls.Add(userControl_Library);
             userControl_Library.Show();
         }
@@ -88,7 +96,7 @@ namespace MediaPlayer
         private void gunaButton_Settings_Click(object sender, EventArgs e)
         {
             this.panel_base.Controls.Clear();
-            UserControl_Settings userControl_Settings = new UserControl_Settings();
+            UserControl_Settings userControl_Settings = new UserControl_Settings() { Dock = DockStyle.Fill };
             this.panel_base.Controls.Add(userControl_Settings);
             userControl_Settings.Show();
         }

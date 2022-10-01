@@ -60,6 +60,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.Controls.Add(this.gunaElipsePanel1);
             this.Name = "UserControl_Home";
             this.Size = new System.Drawing.Size(1084, 645);
