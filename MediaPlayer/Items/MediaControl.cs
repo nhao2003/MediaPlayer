@@ -16,5 +16,10 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
         }
+
+        private void gunaTrackBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+
+        }
     }
 }

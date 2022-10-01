@@ -125,7 +125,7 @@ namespace MediaPlayer
             this.gunaButton_Settings.Size = new System.Drawing.Size(228, 54);
             this.gunaButton_Settings.TabIndex = 12;
             this.gunaButton_Settings.Text = "Cài đặt";
-            this.gunaButton_Settings.Click += new System.EventHandler(this.gunaButton_Setting_Click);
+            this.gunaButton_Settings.Click += new System.EventHandler(this.gunaButton_Settings_Click);
             // 
             // gunaButton_Video
             // 
@@ -263,8 +263,8 @@ namespace MediaPlayer
             this.gunaGradientTileButton2.AnimationHoverSpeed = 0.07F;
             this.gunaGradientTileButton2.AnimationSpeed = 0.03F;
             this.gunaGradientTileButton2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGradientTileButton2.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.gunaGradientTileButton2.BaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.gunaGradientTileButton2.BaseColor1 = System.Drawing.Color.Aqua;
+            this.gunaGradientTileButton2.BaseColor2 = System.Drawing.Color.LawnGreen;
             this.gunaGradientTileButton2.BorderColor = System.Drawing.Color.Black;
             this.gunaGradientTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaGradientTileButton2.FocusedColor = System.Drawing.Color.Empty;
@@ -288,7 +288,7 @@ namespace MediaPlayer
             // 
             // gunaPanel_MediaControl
             // 
-            this.gunaPanel_MediaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.gunaPanel_MediaControl.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanel_MediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gunaPanel_MediaControl.Location = new System.Drawing.Point(228, 645);
             this.gunaPanel_MediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -298,7 +298,7 @@ namespace MediaPlayer
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.IndianRed;
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.gunaButton1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.Color.Coral;

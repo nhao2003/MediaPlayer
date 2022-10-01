@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MediaPlayer
+namespace MediaPlayer.Widgets
 {
-    public partial class Form_Video : Form
+    public partial class UserControl_Library : UserControl
     {
-        public Form_Video()
+        public UserControl_Library()
         {
             InitializeComponent();
         }

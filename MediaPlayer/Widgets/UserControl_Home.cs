@@ -8,16 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MediaPlayer
+namespace MediaPlayer.Widgets
 {
-    public partial class Form_Search : Form
+    public partial class UserControl_Home : UserControl
     {
-        public Form_Search()
+        public UserControl_Home()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void gunaElipsePanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gunaLabel_Recent_Click(object sender, EventArgs e)
         {
 
         }
