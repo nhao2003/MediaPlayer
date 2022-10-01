@@ -61,7 +61,7 @@ namespace MediaPlayer
             this.gunaPanel2.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(289, 653);
+            this.gunaPanel2.Size = new System.Drawing.Size(284, 789);
             this.gunaPanel2.TabIndex = 1;
             // 
             // gunaButton_Library
@@ -81,6 +81,7 @@ namespace MediaPlayer
             this.gunaButton_Library.ImageOffsetX = 10;
             this.gunaButton_Library.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaButton_Library.Location = new System.Drawing.Point(0, 344);
+            this.gunaButton_Library.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaButton_Library.Name = "gunaButton_Library";
             this.gunaButton_Library.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gunaButton_Library.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -88,7 +89,7 @@ namespace MediaPlayer
             this.gunaButton_Library.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Library.OnHoverImage")));
             this.gunaButton_Library.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
             this.gunaButton_Library.Radius = 10;
-            this.gunaButton_Library.Size = new System.Drawing.Size(289, 54);
+            this.gunaButton_Library.Size = new System.Drawing.Size(284, 54);
             this.gunaButton_Library.TabIndex = 6;
             this.gunaButton_Library.Text = "Thư viện";
             this.gunaButton_Library.Click += new System.EventHandler(this.gunaButton_Library_Click);
@@ -109,7 +110,8 @@ namespace MediaPlayer
             this.gunaButton_Setting.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Setting.Image")));
             this.gunaButton_Setting.ImageOffsetX = 10;
             this.gunaButton_Setting.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Setting.Location = new System.Drawing.Point(0, 599);
+            this.gunaButton_Setting.Location = new System.Drawing.Point(0, 735);
+            this.gunaButton_Setting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaButton_Setting.Name = "gunaButton_Setting";
             this.gunaButton_Setting.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gunaButton_Setting.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -117,7 +119,7 @@ namespace MediaPlayer
             this.gunaButton_Setting.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Setting.OnHoverImage")));
             this.gunaButton_Setting.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
             this.gunaButton_Setting.Radius = 10;
-            this.gunaButton_Setting.Size = new System.Drawing.Size(289, 54);
+            this.gunaButton_Setting.Size = new System.Drawing.Size(284, 54);
             this.gunaButton_Setting.TabIndex = 5;
             this.gunaButton_Setting.Text = "Cài đặt";
             this.gunaButton_Setting.Click += new System.EventHandler(this.gunaButton_Setting_Click);
@@ -139,6 +141,7 @@ namespace MediaPlayer
             this.gunaButton_Video.ImageOffsetX = 10;
             this.gunaButton_Video.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaButton_Video.Location = new System.Drawing.Point(0, 290);
+            this.gunaButton_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaButton_Video.Name = "gunaButton_Video";
             this.gunaButton_Video.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gunaButton_Video.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -146,7 +149,7 @@ namespace MediaPlayer
             this.gunaButton_Video.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Video.OnHoverImage")));
             this.gunaButton_Video.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
             this.gunaButton_Video.Radius = 10;
-            this.gunaButton_Video.Size = new System.Drawing.Size(289, 54);
+            this.gunaButton_Video.Size = new System.Drawing.Size(284, 54);
             this.gunaButton_Video.TabIndex = 4;
             this.gunaButton_Video.Text = "Video";
             this.gunaButton_Video.Click += new System.EventHandler(this.gunaButton_Video_Click);
@@ -168,6 +171,7 @@ namespace MediaPlayer
             this.gunaButton_Music.ImageOffsetX = 10;
             this.gunaButton_Music.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaButton_Music.Location = new System.Drawing.Point(0, 236);
+            this.gunaButton_Music.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaButton_Music.Name = "gunaButton_Music";
             this.gunaButton_Music.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gunaButton_Music.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -175,7 +179,7 @@ namespace MediaPlayer
             this.gunaButton_Music.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Music.OnHoverImage")));
             this.gunaButton_Music.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
             this.gunaButton_Music.Radius = 10;
-            this.gunaButton_Music.Size = new System.Drawing.Size(289, 54);
+            this.gunaButton_Music.Size = new System.Drawing.Size(284, 54);
             this.gunaButton_Music.TabIndex = 3;
             this.gunaButton_Music.Text = "Nhạc";
             this.gunaButton_Music.Click += new System.EventHandler(this.gunaButton_Music_Click);
@@ -197,6 +201,7 @@ namespace MediaPlayer
             this.gunaButton_Search.ImageOffsetX = 10;
             this.gunaButton_Search.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaButton_Search.Location = new System.Drawing.Point(0, 182);
+            this.gunaButton_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaButton_Search.Name = "gunaButton_Search";
             this.gunaButton_Search.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gunaButton_Search.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -204,7 +209,7 @@ namespace MediaPlayer
             this.gunaButton_Search.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Search.OnHoverImage")));
             this.gunaButton_Search.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
             this.gunaButton_Search.Radius = 10;
-            this.gunaButton_Search.Size = new System.Drawing.Size(289, 54);
+            this.gunaButton_Search.Size = new System.Drawing.Size(284, 54);
             this.gunaButton_Search.TabIndex = 2;
             this.gunaButton_Search.Text = "Tìm kiếm";
             this.gunaButton_Search.Click += new System.EventHandler(this.gunaButton_Search_Click);
@@ -226,6 +231,7 @@ namespace MediaPlayer
             this.gunaButton_Home.ImageOffsetX = 10;
             this.gunaButton_Home.ImageSize = new System.Drawing.Size(20, 20);
             this.gunaButton_Home.Location = new System.Drawing.Point(0, 128);
+            this.gunaButton_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaButton_Home.Name = "gunaButton_Home";
             this.gunaButton_Home.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.gunaButton_Home.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -233,7 +239,7 @@ namespace MediaPlayer
             this.gunaButton_Home.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Home.OnHoverImage")));
             this.gunaButton_Home.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
             this.gunaButton_Home.Radius = 10;
-            this.gunaButton_Home.Size = new System.Drawing.Size(289, 54);
+            this.gunaButton_Home.Size = new System.Drawing.Size(284, 54);
             this.gunaButton_Home.TabIndex = 1;
             this.gunaButton_Home.Text = "Trang chủ";
             this.gunaButton_Home.Click += new System.EventHandler(this.gunaButton_Home_Click);
@@ -245,7 +251,7 @@ namespace MediaPlayer
             this.gunaPanel3.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaPanel3.Name = "gunaPanel3";
-            this.gunaPanel3.Size = new System.Drawing.Size(289, 128);
+            this.gunaPanel3.Size = new System.Drawing.Size(284, 128);
             this.gunaPanel3.TabIndex = 0;
             // 
             // gunaGradientTileButton1
@@ -263,6 +269,7 @@ namespace MediaPlayer
             this.gunaGradientTileButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientTileButton1.Image")));
             this.gunaGradientTileButton1.ImageSize = new System.Drawing.Size(52, 52);
             this.gunaGradientTileButton1.Location = new System.Drawing.Point(12, 6);
+            this.gunaGradientTileButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaGradientTileButton1.Name = "gunaGradientTileButton1";
             this.gunaGradientTileButton1.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
             this.gunaGradientTileButton1.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(211)))), ((int)(((byte)(187)))), ((int)(((byte)(255)))));
@@ -280,19 +287,20 @@ namespace MediaPlayer
             this.panel_base.BackColor = System.Drawing.Color.Teal;
             this.panel_base.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_base.ForeColor = System.Drawing.Color.Coral;
-            this.panel_base.Location = new System.Drawing.Point(289, 0);
+            this.panel_base.Location = new System.Drawing.Point(284, 0);
+            this.panel_base.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_base.Name = "panel_base";
-            this.panel_base.Size = new System.Drawing.Size(933, 653);
+            this.panel_base.Size = new System.Drawing.Size(1028, 789);
             this.panel_base.TabIndex = 2;
             // 
             // gunaPanel_MusicControl
             // 
             this.gunaPanel_MusicControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.gunaPanel_MusicControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gunaPanel_MusicControl.Location = new System.Drawing.Point(0, 653);
+            this.gunaPanel_MusicControl.Location = new System.Drawing.Point(284, 665);
             this.gunaPanel_MusicControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaPanel_MusicControl.Name = "gunaPanel_MusicControl";
-            this.gunaPanel_MusicControl.Size = new System.Drawing.Size(1222, 124);
+            this.gunaPanel_MusicControl.Size = new System.Drawing.Size(1028, 124);
             this.gunaPanel_MusicControl.TabIndex = 0;
             this.gunaPanel_MusicControl.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaPanel_MusicControl_Paint);
             // 
@@ -300,12 +308,12 @@ namespace MediaPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1222, 777);
+            this.ClientSize = new System.Drawing.Size(1312, 789);
+            this.Controls.Add(this.gunaPanel_MusicControl);
             this.Controls.Add(this.panel_base);
             this.Controls.Add(this.gunaPanel2);
-            this.Controls.Add(this.gunaPanel_MusicControl);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1240, 824);
+            this.MinimumSize = new System.Drawing.Size(1327, 826);
             this.Name = "Form_Main";
             this.Text = "Form1";
             this.gunaPanel2.ResumeLayout(false);
