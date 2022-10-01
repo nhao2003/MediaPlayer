@@ -28,31 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
+            this.gunaElipsePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // gunaElipsePanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(33, 38);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(472, 165);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel1.Controls.Add(this.gunaLabel_Recent);
+            this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 645);
+            this.gunaElipsePanel1.TabIndex = 0;
+            // 
+            // gunaLabel_Recent
+            // 
+            this.gunaLabel_Recent.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel_Recent.ForeColor = System.Drawing.Color.Black;
+            this.gunaLabel_Recent.Location = new System.Drawing.Point(3, 0);
+            this.gunaLabel_Recent.Name = "gunaLabel_Recent";
+            this.gunaLabel_Recent.Size = new System.Drawing.Size(173, 65);
+            this.gunaLabel_Recent.TabIndex = 0;
+            this.gunaLabel_Recent.Text = "Home";
             // 
             // Form_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(933, 653);
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.ClientSize = new System.Drawing.Size(1084, 645);
+            this.Controls.Add(this.gunaElipsePanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Home";
             this.Text = "FormHome";
+            this.gunaElipsePanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel_Recent;
     }
 }

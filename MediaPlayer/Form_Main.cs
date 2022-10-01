@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaPlayer.Items;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,7 +37,7 @@ namespace MediaPlayer
                 TopLevel = false,
                 TopMost = true,
             };
-            gunaPanel_MusicControl.Controls.Add(form_MusicControl);
+            panel_base.Controls.Add(form_MusicControl);
             form_MusicControl.Show();
         }
 
@@ -125,6 +126,30 @@ namespace MediaPlayer
         }
 
         private void panel_base_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void gunaGradientTileButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+            this.gunaPanel_MediaControl.Controls.Clear();
+            MediaControl form_MusicControl = new MediaControl()
+            {
+                Dock = DockStyle.Fill,
+                //TopLevel = false,
+                //TopMost = true,
+            };
+            //form_MusicControl.FormBorderStyle = FormBorderStyle.None;
+            this.gunaPanel_MediaControl.Controls.Add(form_MusicControl);
+            form_MusicControl.Show();
+        }
+
+        private void Form_Main_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -77,3 +77,5 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_M
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_MusicControl.resources
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Home.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Items.MediaItem.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Items.MediaControl.resources

@@ -74,6 +74,18 @@
     <Compile Include="Form_Main.Designer.cs">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\MediaItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\MediaItem.Designer.cs">
+      <DependentUpon>MediaItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\MediaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\MediaControl.Designer.cs">
+      <DependentUpon>MediaControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Widgets\Form_Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,12 +103,6 @@
     </Compile>
     <Compile Include="Widgets\Form_Music.Designer.cs">
       <DependentUpon>Form_Music.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Items\Form_MusicControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Items\Form_MusicControl.Designer.cs">
-      <DependentUpon>Form_MusicControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Widgets\Form_Search.cs">
       <SubType>Form</SubType>
@@ -121,6 +127,12 @@
     <EmbeddedResource Include="Form_Main.resx">
       <DependentUpon>Form_Main.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Items\MediaItem.resx">
+      <DependentUpon>MediaItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\MediaControl.resx">
+      <DependentUpon>MediaControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Widgets\Form_Home.resx">
       <DependentUpon>Form_Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -129,9 +141,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Widgets\Form_Music.resx">
       <DependentUpon>Form_Music.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Items\Form_MusicControl.resx">
-      <DependentUpon>Form_MusicControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Widgets\Form_Search.resx">
       <DependentUpon>Form_Search.cs</DependentUpon>
