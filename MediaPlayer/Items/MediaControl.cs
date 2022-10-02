@@ -21,5 +21,10 @@ namespace MediaPlayer.Items
         {
 
         }
+
+        private void gunaCircleButton5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

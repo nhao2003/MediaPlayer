@@ -92,5 +92,15 @@ namespace MediaPlayer
             this.panel_base.Controls.Add(userControl_Settings);
             userControl_Settings.Show();
         }
+
+        private void panel_base_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void mediaControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
