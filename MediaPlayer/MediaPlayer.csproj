@@ -80,6 +80,12 @@
     <Compile Include="Items\AppBar.Designer.cs">
       <DependentUpon>AppBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\DisplayMediaItems.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\DisplayMediaItems.Designer.cs">
+      <DependentUpon>DisplayMediaItems.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items\MediaItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,40 +100,40 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Widgets\UserControl_Home.cs">
+    <Compile Include="Screens\UserControl_Home.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Widgets\UserControl_Home.Designer.cs">
+    <Compile Include="Screens\UserControl_Home.Designer.cs">
       <DependentUpon>UserControl_Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\UserControl_Library.cs">
+    <Compile Include="Screens\UserControl_Library.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Widgets\UserControl_Library.Designer.cs">
+    <Compile Include="Screens\UserControl_Library.Designer.cs">
       <DependentUpon>UserControl_Library.cs</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\UserControl_Music.cs">
+    <Compile Include="Screens\UserControl_Music.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Widgets\UserControl_Music.Designer.cs">
+    <Compile Include="Screens\UserControl_Music.Designer.cs">
       <DependentUpon>UserControl_Music.cs</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\UserControl_Search.cs">
+    <Compile Include="Screens\UserControl_Search.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Widgets\UserControl_Search.Designer.cs">
+    <Compile Include="Screens\UserControl_Search.Designer.cs">
       <DependentUpon>UserControl_Search.cs</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\UserControl_Settings.cs">
+    <Compile Include="Screens\UserControl_Settings.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Widgets\UserControl_Settings.Designer.cs">
+    <Compile Include="Screens\UserControl_Settings.Designer.cs">
       <DependentUpon>UserControl_Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Widgets\UserControl_Video.cs">
+    <Compile Include="Screens\UserControl_Video.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Widgets\UserControl_Video.Designer.cs">
+    <Compile Include="Screens\UserControl_Video.Designer.cs">
       <DependentUpon>UserControl_Video.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form_Main.resx">
@@ -135,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\AppBar.resx">
       <DependentUpon>AppBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\DisplayMediaItems.resx">
+      <DependentUpon>DisplayMediaItems.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\MediaItem.resx">
       <DependentUpon>MediaItem.cs</DependentUpon>
@@ -148,22 +157,22 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Widgets\UserControl_Home.resx">
+    <EmbeddedResource Include="Screens\UserControl_Home.resx">
       <DependentUpon>UserControl_Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Widgets\UserControl_Library.resx">
+    <EmbeddedResource Include="Screens\UserControl_Library.resx">
       <DependentUpon>UserControl_Library.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Widgets\UserControl_Music.resx">
+    <EmbeddedResource Include="Screens\UserControl_Music.resx">
       <DependentUpon>UserControl_Music.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Widgets\UserControl_Search.resx">
+    <EmbeddedResource Include="Screens\UserControl_Search.resx">
       <DependentUpon>UserControl_Search.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Widgets\UserControl_Settings.resx">
+    <EmbeddedResource Include="Screens\UserControl_Settings.resx">
       <DependentUpon>UserControl_Settings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Widgets\UserControl_Video.resx">
+    <EmbeddedResource Include="Screens\UserControl_Video.resx">
       <DependentUpon>UserControl_Video.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

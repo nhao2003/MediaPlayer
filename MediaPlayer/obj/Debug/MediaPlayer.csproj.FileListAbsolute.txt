@@ -79,3 +79,4 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Widget
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Widgets.UserControl_Settings.resources
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Widgets.UserControl_Video.resources
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Items.AppBar.resources
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Items.DisplayMediaItems.resources

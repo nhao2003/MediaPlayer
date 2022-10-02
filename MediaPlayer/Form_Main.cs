@@ -14,9 +14,7 @@ namespace MediaPlayer
 
         private void gunaPanel_MusicControl_Paint(object sender, PaintEventArgs e)
         {
-            MediaControl mediaControl = new MediaControl();
-            panel_base.Controls.Add(mediaControl);
-            mediaControl.Show();
+
         }
 
         private void panel_base_Paint(object sender, PaintEventArgs e)
@@ -42,12 +40,6 @@ namespace MediaPlayer
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            MediaControl mediaControl = new MediaControl()
-            {
-                Dock = DockStyle.Fill
-            };
-            this.gunaPanel_MediaControl.Controls.Add(mediaControl);
-            mediaControl.Show();
             gunaButton_Home_Click(sender, e);
         }
 
