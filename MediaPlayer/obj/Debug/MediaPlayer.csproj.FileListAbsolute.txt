@@ -8,12 +8,8 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CoreCompileInputs.cache
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuSlider.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.licenses
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.1.5.3.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuLabel.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPanel.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Guna.UI.dll
 C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.exe.config
 C:\Users\tuanb\Downloads\C# Projects\Visual Programming Project\2\MediaPlayer\MediaPlayer\bin\Debug\MediaPlayer.exe
@@ -69,7 +65,6 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\Interop.WMPLib.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\AxInterop.WMPLib.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.ResolveComReference.cache
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Form_Main.resources
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuImageButton.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Items.MediaItem.resources
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Items.MediaControl.resources
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.Widgets.UserControl_Search.resources
@@ -108,22 +103,7 @@ D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CoreCompileI
 D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
 D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
 D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Siticone.Desktop.UI.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.config
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu_UI_v1.5.3.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu_UI_v1.5.3.xml
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
-C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml
 D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
 D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml
 D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml
@@ -132,3 +112,4 @@ D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuTextbo
 D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
 D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu_UI_v1.5.3.xml
 D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.config
+C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Siticone.UI.dll
