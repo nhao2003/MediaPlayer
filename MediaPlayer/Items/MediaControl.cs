@@ -33,7 +33,33 @@ namespace MediaPlayer.Items
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
             Player.URL = "C:\\Users\\haosi\\source\\repos\\MediaPlayer\\MediaPlayer\\Resources\\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3";
+            gunaLabel_Start.Text = Player.controls.currentPosition.ToString();
             Player.controls.play();
+            gunaTrackBar_Music.Maximum = int.Parse(Player.currentMedia.duration.ToString());
+            //TODO: FIx cai nay ho
+            /*HELP 
+             HELP 
+            HELP 
+            HELP 
+            HELP 
+            HELP */
+            MessageBox.Show(Player.currentMedia.duration.ToString());
+            gunaLabel_End.Text = Player.currentMedia.duration.ToString();
+        }
+
+        private void gunaCircleButton2_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gunaCircleButton3_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void gunaTrackBar_Music_ValueChanged(object sender, EventArgs e)
+        {
+            Player.controls.currentPosition = gunaTrackBar_Music.Value;
         }
     }
 }

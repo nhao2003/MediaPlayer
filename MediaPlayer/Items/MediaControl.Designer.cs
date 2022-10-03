@@ -32,7 +32,7 @@
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaLabel_End = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel_Start = new Guna.UI.WinForms.GunaLabel();
-            this.gunaTrackBar1 = new Guna.UI.WinForms.GunaTrackBar();
+            this.gunaTrackBar_Music = new Guna.UI.WinForms.GunaTrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaTrackBar2 = new Guna.UI.WinForms.GunaTrackBar();
             this.gunaCircleButton8 = new Guna.UI.WinForms.GunaCircleButton();
@@ -64,7 +64,7 @@
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel_End);
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel_Start);
-            this.gunaElipsePanel1.Controls.Add(this.gunaTrackBar1);
+            this.gunaElipsePanel1.Controls.Add(this.gunaTrackBar_Music);
             this.gunaElipsePanel1.Controls.Add(this.panel1);
             this.gunaElipsePanel1.Controls.Add(this.panel_MediaInfo);
             this.gunaElipsePanel1.Controls.Add(this.gunaPanel);
@@ -97,20 +97,21 @@
             this.gunaLabel_Start.TabIndex = 16;
             this.gunaLabel_Start.Text = "00:00";
             // 
-            // gunaTrackBar1
+            // gunaTrackBar_Music
             // 
-            this.gunaTrackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaTrackBar1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gunaTrackBar1.Location = new System.Drawing.Point(335, 14);
-            this.gunaTrackBar1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaTrackBar1.MouseWheelBarPartitions = 100;
-            this.gunaTrackBar1.Name = "gunaTrackBar1";
-            this.gunaTrackBar1.Size = new System.Drawing.Size(345, 26);
-            this.gunaTrackBar1.TabIndex = 15;
-            this.gunaTrackBar1.TrackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gunaTrackBar1.TrackHoverColor = System.Drawing.Color.DodgerBlue;
-            this.gunaTrackBar1.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
-            this.gunaTrackBar1.TrackPressedColor = System.Drawing.Color.DodgerBlue;
+            this.gunaTrackBar_Music.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaTrackBar_Music.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gunaTrackBar_Music.Location = new System.Drawing.Point(335, 14);
+            this.gunaTrackBar_Music.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gunaTrackBar_Music.MouseWheelBarPartitions = 100;
+            this.gunaTrackBar_Music.Name = "gunaTrackBar_Music";
+            this.gunaTrackBar_Music.Size = new System.Drawing.Size(345, 26);
+            this.gunaTrackBar_Music.TabIndex = 15;
+            this.gunaTrackBar_Music.TrackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gunaTrackBar_Music.TrackHoverColor = System.Drawing.Color.DodgerBlue;
+            this.gunaTrackBar_Music.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
+            this.gunaTrackBar_Music.TrackPressedColor = System.Drawing.Color.DodgerBlue;
+            this.gunaTrackBar_Music.ValueChanged += new System.EventHandler(this.gunaTrackBar_Music_ValueChanged);
             // 
             // panel1
             // 
@@ -326,6 +327,7 @@
             this.gunaCircleButton3.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton3.Size = new System.Drawing.Size(49, 49);
             this.gunaCircleButton3.TabIndex = 19;
+            this.gunaCircleButton3.Click += new System.EventHandler(this.gunaCircleButton3_Click);
             // 
             // gunaCircleButton5
             // 
@@ -377,6 +379,7 @@
             this.gunaCircleButton2.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton2.Size = new System.Drawing.Size(49, 49);
             this.gunaCircleButton2.TabIndex = 18;
+            this.gunaCircleButton2.Click += new System.EventHandler(this.gunaCircleButton2_Click);
             // 
             // gunaCircleButton1
             // 
@@ -428,7 +431,7 @@
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel_End;
         private Guna.UI.WinForms.GunaLabel gunaLabel_Start;
-        private Guna.UI.WinForms.GunaTrackBar gunaTrackBar1;
+        private Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Music;
         private System.Windows.Forms.Panel panel_MediaInfo;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox_Media;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
