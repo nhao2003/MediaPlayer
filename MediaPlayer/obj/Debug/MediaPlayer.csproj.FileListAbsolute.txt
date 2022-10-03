@@ -124,3 +124,11 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu_UI_v1.5.3.xml
+D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.config
