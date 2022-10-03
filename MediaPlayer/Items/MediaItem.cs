@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace MediaPlayer.Items
 {
-    public partial class MediaItem : UserControl
+    public partial class MediaItem : BunifuUserControl
     {
         public MediaItem()
         {
