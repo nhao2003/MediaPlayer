@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaPlayer.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,8 +13,10 @@ namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
     {
+        WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
         public MediaControl()
         {
+            WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
             InitializeComponent();
         }
 
@@ -25,6 +28,12 @@ namespace MediaPlayer.Items
         private void gunaCircleButton5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void gunaCircleButton_Play_Click(object sender, EventArgs e)
+        {
+            Player.URL = "C:\\Users\\haosi\\source\\repos\\MediaPlayer\\MediaPlayer\\Resources\\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3";
+            Player.controls.play();
         }
     }
 }
