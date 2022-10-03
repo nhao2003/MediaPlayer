@@ -50,20 +50,20 @@
             // 
             // gunaLabel_Title
             // 
-            this.gunaLabel_Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaLabel_Title.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel_Title.ForeColor = System.Drawing.Color.Black;
             this.gunaLabel_Title.Location = new System.Drawing.Point(3, 0);
             this.gunaLabel_Title.Name = "gunaLabel_Title";
-            this.gunaLabel_Title.Size = new System.Drawing.Size(197, 65);
+            this.gunaLabel_Title.Size = new System.Drawing.Size(1078, 65);
             this.gunaLabel_Title.TabIndex = 3;
             this.gunaLabel_Title.Text = "Home";
+            this.gunaLabel_Title.Click += new System.EventHandler(this.gunaLabel_Title_Click);
             // 
             // UserControl_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.Controls.Add(this.flowLayoutPanel_Home);
             this.Name = "UserControl_Home";
             this.Size = new System.Drawing.Size(1084, 583);

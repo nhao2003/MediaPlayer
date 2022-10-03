@@ -85,6 +85,7 @@
             this.gunaPictureBox1.Size = new System.Drawing.Size(200, 200);
             this.gunaPictureBox1.TabIndex = 3;
             this.gunaPictureBox1.TabStop = false;
+            this.gunaPictureBox1.Click += new System.EventHandler(this.gunaPictureBox1_Click);
             // 
             // MediaItem
             // 

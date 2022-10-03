@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.flowLayoutPanel_Media = new System.Windows.Forms.FlowLayoutPanel();
+            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +46,14 @@
             this.gunaElipsePanel1.Size = new System.Drawing.Size(1040, 347);
             this.gunaElipsePanel1.TabIndex = 0;
             // 
+            // flowLayoutPanel_Media
+            // 
+            this.flowLayoutPanel_Media.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel_Media.Location = new System.Drawing.Point(0, 43);
+            this.flowLayoutPanel_Media.Name = "flowLayoutPanel_Media";
+            this.flowLayoutPanel_Media.Size = new System.Drawing.Size(1040, 304);
+            this.flowLayoutPanel_Media.TabIndex = 3;
+            // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
@@ -55,14 +63,6 @@
             this.gunaLabel1.Size = new System.Drawing.Size(91, 46);
             this.gunaLabel1.TabIndex = 2;
             this.gunaLabel1.Text = "Title";
-            // 
-            // flowLayoutPanel_Media
-            // 
-            this.flowLayoutPanel_Media.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel_Media.Location = new System.Drawing.Point(0, 43);
-            this.flowLayoutPanel_Media.Name = "flowLayoutPanel_Media";
-            this.flowLayoutPanel_Media.Size = new System.Drawing.Size(1040, 304);
-            this.flowLayoutPanel_Media.TabIndex = 3;
             // 
             // DisplayMediaItems
             // 

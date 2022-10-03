@@ -42,7 +42,7 @@
             this.gunaPictureBox_Media = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.bunifuPanel1 = new Bunifu.UI.WinForms.BunifuPanel();
+            this.gunaPanel = new Guna.UI.WinForms.GunaPanel();
             this.gunaCircleButton4 = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton3 = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton5 = new Guna.UI.WinForms.GunaCircleButton();
@@ -52,7 +52,7 @@
             this.panel1.SuspendLayout();
             this.panel_MediaInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox_Media)).BeginInit();
-            this.bunifuPanel1.SuspendLayout();
+            this.gunaPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaElipsePanel1
@@ -67,7 +67,7 @@
             this.gunaElipsePanel1.Controls.Add(this.gunaTrackBar1);
             this.gunaElipsePanel1.Controls.Add(this.panel1);
             this.gunaElipsePanel1.Controls.Add(this.panel_MediaInfo);
-            this.gunaElipsePanel1.Controls.Add(this.bunifuPanel1);
+            this.gunaElipsePanel1.Controls.Add(this.gunaPanel);
             this.gunaElipsePanel1.Location = new System.Drawing.Point(2, 2);
             this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
@@ -266,26 +266,22 @@
             this.gunaLabel2.TabIndex = 7;
             this.gunaLabel2.Text = "Tên ca sĩ";
             // 
-            // bunifuPanel1
+            // gunaPanel
             // 
-            this.bunifuPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.bunifuPanel1.BackgroundColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel1.BackgroundImage")));
-            this.bunifuPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel1.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel1.BorderRadius = 3;
-            this.bunifuPanel1.BorderThickness = 1;
-            this.bunifuPanel1.Controls.Add(this.gunaCircleButton4);
-            this.bunifuPanel1.Controls.Add(this.gunaCircleButton3);
-            this.bunifuPanel1.Controls.Add(this.gunaCircleButton5);
-            this.bunifuPanel1.Controls.Add(this.gunaCircleButton2);
-            this.bunifuPanel1.Controls.Add(this.gunaCircleButton1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(222, 36);
-            this.bunifuPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.bunifuPanel1.Name = "bunifuPanel1";
-            this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(326, 67);
-            this.bunifuPanel1.TabIndex = 13;
+            this.gunaPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gunaPanel.BackgroundImage")));
+            this.gunaPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
+            this.gunaPanel.Controls.Add(this.gunaCircleButton4);
+            this.gunaPanel.Controls.Add(this.gunaCircleButton3);
+            this.gunaPanel.Controls.Add(this.gunaCircleButton5);
+            this.gunaPanel.Controls.Add(this.gunaCircleButton2);
+            this.gunaPanel.Controls.Add(this.gunaCircleButton1);
+            this.gunaPanel.Location = new System.Drawing.Point(222, 36);
+            this.gunaPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gunaPanel.Name = "gunaPanel";
+            this.gunaPanel.Size = new System.Drawing.Size(326, 67);
+            this.gunaPanel.TabIndex = 13;
             // 
             // gunaCircleButton4
             // 
@@ -427,7 +423,7 @@
             this.panel_MediaInfo.ResumeLayout(false);
             this.panel_MediaInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox_Media)).EndInit();
-            this.bunifuPanel1.ResumeLayout(false);
+            this.gunaPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -442,7 +438,7 @@
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox_Media;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel1;
+        private Guna.UI.WinForms.GunaPanel gunaPanel;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton2;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton4;

@@ -15,7 +15,6 @@ namespace MediaPlayer.Widgets
     {
         DisplayMediaItems RecentMusic = new DisplayMediaItems();
         DisplayMediaItems RecentVideo = new DisplayMediaItems();
-        DisplayMediaItems Top100 = new DisplayMediaItems();
         public UserControl_Home()
         {
             InitializeComponent();
@@ -35,7 +34,6 @@ namespace MediaPlayer.Widgets
         {
             flowLayoutPanel_Home.Controls.Add(RecentMusic);
             flowLayoutPanel_Home.Controls.Add(RecentVideo);
-            flowLayoutPanel_Home.Controls.Add(Top100);
         }
 
         private void flowLayoutPanel_Recent_Paint(object sender, PaintEventArgs e)
@@ -49,10 +47,7 @@ namespace MediaPlayer.Widgets
 
         private void flowLayoutPanel_Home_Resize(object sender, EventArgs e)
         {
-            int width = flowLayoutPanel_Home.Width - 30;
-            Top100.Width = width;
-            RecentMusic.Width = width;
-            RecentVideo.Width = width;
+            
         }
 
         private void UserControl_Home_Resize(object sender, EventArgs e)
@@ -62,7 +57,14 @@ namespace MediaPlayer.Widgets
 
         private void UserControl_Home_SizeChanged(object sender, EventArgs e)
         {
-            
+            int width = flowLayoutPanel_Home.Width - 30;
+            RecentMusic.Width = width;
+            RecentVideo.Width = width;
+        }
+
+        private void gunaLabel_Title_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
