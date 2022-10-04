@@ -75,19 +75,10 @@ namespace MediaPlayer.Items
             }
             else
             {
+                //gunaCircleButton_Play.OnHoverImage = Image.FromFile("pause.png");
                 Player.controls.stop();
                 timerSong.Stop();
             }
-            //if (Player.status.ToLower().Contains("playing"))
-            //{
-            //    timerSong.Stop();
-            //    Player.controls.pause();
-            //}
-            //else
-            //{
-            //    timerSong.Start();
-            //    Player.controls.play();
-            //}
         }
 
         private void gunaTrackBar_Music_ValueChanged(object sender, EventArgs e)

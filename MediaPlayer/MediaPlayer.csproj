@@ -115,6 +115,7 @@
     <Compile Include="Items\MediaControl.Designer.cs">
       <DependentUpon>MediaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,6 +232,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\video.png" />
     <None Include="Resources\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3" />
     <Content Include="Resources\Icons\001-next-button - Copy.png" />
     <Content Include="Resources\Icons\001-next-button.png" />
