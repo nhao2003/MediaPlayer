@@ -64,6 +64,7 @@ namespace MediaPlayer
             this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
+            this.NameLabel = new Guna.UI.WinForms.GunaLabel();
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel_MediaControl.SuspendLayout();
@@ -366,9 +367,10 @@ namespace MediaPlayer
             this.gunaElipsePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.gunaElipsePanel1.Controls.Add(this.NameLabel);
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel1);
             this.gunaElipsePanel1.Controls.Add(this.gunaCirclePictureBox1);
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(612, 5);
+            this.gunaElipsePanel1.Location = new System.Drawing.Point(611, 5);
             this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(2);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Radius = 20;
@@ -383,9 +385,9 @@ namespace MediaPlayer
             this.gunaLabel1.Location = new System.Drawing.Point(40, 7);
             this.gunaLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(132, 25);
+            this.gunaLabel1.Size = new System.Drawing.Size(91, 25);
             this.gunaLabel1.TabIndex = 3;
-            this.gunaLabel1.Text = "Xin chào, user";
+            this.gunaLabel1.Text = "Xin chào,";
             // 
             // gunaCirclePictureBox1
             // 
@@ -394,7 +396,7 @@ namespace MediaPlayer
             this.gunaCirclePictureBox1.Location = new System.Drawing.Point(0, 0);
             this.gunaCirclePictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
-            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(36, 39);
+            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(39, 39);
             this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaCirclePictureBox1.TabIndex = 2;
             this.gunaCirclePictureBox1.TabStop = false;
@@ -614,6 +616,19 @@ namespace MediaPlayer
             this.userControl_Settings1.Size = new System.Drawing.Size(802, 412);
             this.userControl_Settings1.TabIndex = 0;
             // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.NameLabel.ForeColor = System.Drawing.Color.Black;
+            this.NameLabel.Location = new System.Drawing.Point(126, 7);
+            this.NameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(62, 25);
+            this.NameLabel.TabIndex = 3;
+            this.NameLabel.Text = "Name";
+            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -678,6 +693,7 @@ namespace MediaPlayer
         private TabPage tabPage_Settings;
         private Widgets.UserControl_Settings userControl_Settings1;
         private Panel indicater;
+        private GunaLabel NameLabel;
     }
 }
 
