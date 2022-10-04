@@ -50,7 +50,6 @@
             this.gunaCircleButton_next = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton_Play = new Guna.UI.WinForms.GunaCircleButton();
             this.timerSong = new System.Windows.Forms.Timer(this.components);
-            this.statusLabel = new System.Windows.Forms.Label();
             this.gunaElipsePanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel_MediaInfo.SuspendLayout();
@@ -62,7 +61,6 @@
             // 
             this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaElipsePanel1.Controls.Add(this.statusLabel);
             this.gunaElipsePanel1.Controls.Add(this.timeSongEnd);
             this.gunaElipsePanel1.Controls.Add(this.Slider);
             this.gunaElipsePanel1.Controls.Add(this.panel1);
@@ -417,15 +415,6 @@
             this.timerSong.Interval = 1;
             this.timerSong.Tick += new System.EventHandler(this.timerSong_Tick);
             // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(379, 104);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(35, 13);
-            this.statusLabel.TabIndex = 18;
-            this.statusLabel.Text = "status";
-            // 
             // MediaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -467,6 +456,5 @@
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_Volume;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_Open;
         private System.Windows.Forms.Timer timerSong;
-        private System.Windows.Forms.Label statusLabel;
     }
 }

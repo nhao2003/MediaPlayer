@@ -52,7 +52,9 @@ namespace MediaPlayer.Items
                 filePath = openFileDialog.FileName;
                 fileName = openFileDialog.SafeFileName;
                 gunaLabel_SongName.Text = fileName;
+                //=============================================
                 currentTimePlay = 0.0;
+               // timeSongEnd.Text = Player.currentMedia.duration.ToString();
             }
         }
         //============================================
@@ -60,12 +62,11 @@ namespace MediaPlayer.Items
         {
 
         }
-
+        
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
             if (filePath == null) return;
             Player.URL = filePath;
-            statusLabel.Text = timerSong.Enabled.ToString();
             if (!timerSong.Enabled)
             {
                 Player.controls.currentPosition = currentTimePlay;
@@ -74,7 +75,7 @@ namespace MediaPlayer.Items
             }
             else
             {
-                Player.controls.pause();
+                Player.controls.stop();
                 timerSong.Stop();
             }
             //if (Player.status.ToLower().Contains("playing"))
