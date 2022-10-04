@@ -14,10 +14,36 @@ namespace MediaPlayer.Items
     public partial class MediaControl : UserControl
     {
         WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
+        OpenFileDialog openFileDialog;
+        String fileName;
+        String filePath;
         public MediaControl()
         {
-            WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
+            Player.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(Player_PlayStateChange);
+            Player.MediaError += new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
             InitializeComponent();
+        }
+        private void Player_PlayStateChange(int NewState)
+        {
+            //trangThai.Text = Player.status;
+        }
+
+        private void Player_MediaError(object pMediaObject)
+        {
+            MessageBox.Show("Cannot play media file.");
+        }
+
+        private void gunaCircleButton_Open_Click(object sender, EventArgs e)
+        {
+            openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Mp3 files, mp4 files (*.mp3, *.mp4)|*.mp*";
+            openFileDialog.Title = "Open";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog.FileName;
+                fileName = openFileDialog.SafeFileName;
+                gunaLabel_SongName.Text = fileName;
+            }
         }
 
         private void gunaTrackBar2_Scroll(object sender, ScrollEventArgs e)
@@ -32,34 +58,29 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
-            Player.URL = "C:\\Users\\haosi\\source\\repos\\MediaPlayer\\MediaPlayer\\Resources\\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3";
-            gunaLabel_Start.Text = Player.controls.currentPosition.ToString();
-            Player.controls.play();
-            gunaTrackBar_Music.Maximum = int.Parse(Player.currentMedia.duration.ToString());
-            //TODO: FIx cai nay ho
-            /*HELP 
-             HELP 
-            HELP 
-            HELP 
-            HELP 
-            HELP */
-            MessageBox.Show(Player.currentMedia.duration.ToString());
-            gunaLabel_End.Text = Player.currentMedia.duration.ToString();
-        }
+            Player.URL = filePath;
 
-        private void gunaCircleButton2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void gunaCircleButton3_Click(object sender, EventArgs e)
-        {
-            
+            if (Player.status.ToLower().Contains("playing"))
+            {
+                timerSong.Stop();
+                Player.controls.pause();
+            }
+            else
+            {
+                timerSong.Start();
+                Player.controls.play();
+            }
         }
 
         private void gunaTrackBar_Music_ValueChanged(object sender, EventArgs e)
         {
-            Player.controls.currentPosition = gunaTrackBar_Music.Value;
+            Player.controls.currentPosition = Slider.Value;
+        }
+
+        private void timerSong_Tick(object sender, EventArgs e)
+        {
+            timeSongPlay.Text = Player.controls.currentPositionString;
+            Slider.Value = (int)Player.controls.currentPosition;
         }
     }
 }

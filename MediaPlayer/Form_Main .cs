@@ -46,10 +46,5 @@ namespace MediaPlayer
         {
             MainPages.SetPage(5);
         }
-
-        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

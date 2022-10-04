@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="gunaCircleButton8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Open.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAClMSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAClMSURBVHhe7d0H
         uF9VmajxQxIIECBEIEhRQEZGEKQOIB0EqUGKCIIgvangvYrMdXSkqSg6yp37zB0EpVwuaFCKWIAA0otE
         pBiidIZeDS0CAZz3C0hOPN8pOTllr7Xf93l+zzMeT/tvM3v9z95rr9VhNpeNw5rYCZ/HybgIV2EypuJ+
         PIfp+CtewrO4D1MQn3clfobv4ghMwGpYGGZmZjaMLYfdcBJigJ+GGNAH2zO4DCfgY1gaZmZmNkitgqPx
@@ -301,10 +301,10 @@
         Ov4bPHeoxSLLFe4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaCircleButton8.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Open.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAClMSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAClMSURBVHhe7d0H
         uF9VmajxQxIIECBEIEhRQEZGEKQOIB0EqUGKCIIgvangvYrMdXSkqSg6yp37zB0EpVwuaFCKWIAA0otE
         pBiidIZeDS0CAZz3C0hOPN8pOTllr7Xf93l+zzMeT/tvM3v9z95rr9VhNpeNw5rYCZ/HybgIV2EypuJ+
         PIfp+CtewrO4D1MQn3clfobv4ghMwGpYGGZmZjaMLYfdcBJigJ+GGNAH2zO4DCfgY1gaZmZmNkitgqPx
@@ -484,10 +484,10 @@
         Ov4bPHeoxSLLFe4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaCircleButton7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Volume.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADiaSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADiaSURBVHhe7d0H
         lGxllfZxUD4yEmRAkoAoSUEBBQNiQBADKCriDH4mRjDjmMAxoTNmRTEMIgYM4DAqqBgQUNQBFROoiFmC
         gCI5X+L3Pc/Fe71hd3dV96mqvd/z/631X2vG7ns559Ttqt1V57xnGQAAAAAAAAAAAAAYv9XVmmqN+f8f
         AABoyirq4eqV6jj1C3Wd+n+LdIu6SJ2k/kPtqpZTAACggLuqbdT+6qPqbHWrWvTFftAuV0eoLRQAAEhk
@@ -732,10 +732,10 @@
         WlP57oYAAAAAAAAAAAAAprLMMv8fAr6CAa51LjQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="gunaCircleButton7.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Volume.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADKJSURBVHhe7d15
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADKJSURBVHhe7d15
         vLX1vPj/m2bNg0pEgwZfEhUJX0P4HRwyJDkHZZ49cnIUGU4y5RyH4oj8jIWjSGbfg0pKJFOhKEWJNEmT
         SuX7fb3v7R723u+199prX2uta13v1+vxeP7T3vfdvj773mu991rX9bmWmJmZmZmZmZmZmZmZmZmNpvWx
         Cbb5u01xB5iZmVkHuhuegnfgS/gZbsD/TdyK3+NMHIXnYSc4GJiZmbW4+K3+UTgEJyKezLMn+oX6Hd6H
@@ -954,10 +954,10 @@
         E/we2Albw5P5zMzMzMzMzMzMzMzMzHq1ZMn/A+MyuEBfqquJAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="gunaCircleButton6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Like.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADVrSURBVHhe7d0F
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADVrSURBVHhe7d0F
         tGVl/f/xS3c3UtINo3S3hJQKggoqqaCAAo78aEVKpLtUWglBSkq6G+kcOgcEho7///MZmOFe5zs3Tzzx
         fq31Xot1mblz7zn72fucs/d+ng4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -1189,7 +1189,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="gunaCircleButton6.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Like.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAB3RJTUUH5goBDwA01C2ecwAAHoNJREFU
@@ -1770,7 +1770,7 @@
         AAC07M8L/j8g+2NvKAuqLwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="gunaCircleButton3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_prev.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEwSSURBVHhe7d0J
@@ -2101,7 +2101,7 @@
         +Rp8Lb4mX5s5MBfmxNyYo79tbxbef43+f+SCqKquDCnLAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="gunaCircleButton3.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_prev.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEwSSURBVHhe7d0J
@@ -2435,7 +2435,7 @@
   <data name="gunaCircleButton5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0QAADdEBwivf4wAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACe/SURBVHhe7d0L
+        0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACe/SURBVHhe7d0L
         tF1Vfe/xHRJCiDxiHgUTRREG4SUEKHKDWKHQUaggKlBULANfBQpIGT5qeejlKlIVoeADHTysVu4QQZEB
         aEUUFYo8LFEZiAX0YkEDSiBACIEkeH8zWSEzK7+TnLP32nvNOff3N8YnI/mT5Mw15876T85ee63On/70
         JwAAMGRsEQAAlM0WAQBA2WwRAACUzRYBAEDZbBEAAJTNFgEAQNlsEQAAlM0WAQBA2WwRAACUzRYBAEDZ
@@ -2611,7 +2611,7 @@
   <data name="gunaCircleButton5.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
-        0wAADdMBvdUcagAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACe/SURBVHhe7d0L
+        0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACe/SURBVHhe7d0L
         tF1Vfe/xHRJCiDxiHgUTRREG4SUEKHKDWKHQUaggKlBULANfBQpIGT5qeejlKlIVoeADHTysVu4QQZEB
         aEUUFYo8LFEZiAX0YkEDSiBACIEkeH8zWSEzK7+TnLP32nvNOff3N8YnI/mT5Mw15876T85ee63On/70
         JwAAMGRsEQAAlM0WAQBA2WwRAACUzRYBAEDZbBEAAJTNFgEAQNlsEQAAlM0WAQBA2WwRAACUzRYBAEDZ
@@ -2784,7 +2784,7 @@
         bBEAAJTNFgEAQNlsEQAAlM0WAQBAyf7U+f9VamgF4MkKaAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="gunaCircleButton2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_next.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEwuSURBVHhe7d0J
@@ -3116,7 +3116,7 @@
         +AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="gunaCircleButton2.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_next.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEwuSURBVHhe7d0J
@@ -3448,10 +3448,10 @@
         +AAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="gunaCircleButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Play.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADxiSURBVHhe7d0H
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADxiSURBVHhe7d0H
         tC1FnbbxA0rOSZAgQQUEJIujgyQBRwdEENQZRcngp6OoDJjGQBIMn+PoiAlBwECQYEYQFCSKgkQVARHJ
         OUq6ft/7gvu6Ofd/7klV1dXdz2+tZy3X8XJid+/q3t1VIwCqN5daVq2rtlZvUHupA9Qn1BHqW+o0dYY6
         X12irlU3qHtG9bj6f6Pyx0b/u+uVP4c/lz+nP7e/hr/WF9Whan/l72UntZVaR/l7fbYCAABjWEqtp16r
@@ -3712,7 +3712,7 @@
         9tfw1/LX9Nf297C7er3y9+bv0d8rl+mBqo2M/H8bi+zSH0hzUgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="gunaCircleButton1.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="gunaCircleButton_Play.OnHoverImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAADr
         zgAA684BMO5eDAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAEQ3SURBVHhe7d0H
@@ -4010,4 +4010,10 @@
         uxgAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="timerSong.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>85</value>
+  </metadata>
 </root>

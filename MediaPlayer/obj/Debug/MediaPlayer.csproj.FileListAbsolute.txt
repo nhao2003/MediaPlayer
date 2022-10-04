@@ -104,14 +104,6 @@ D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.csproj.CopyComplete
 D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe
 D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.pdb
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll
-D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.xml
-D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.xml
-D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPages.xml
-D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuScrollBar.xml
-D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
-D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.xml
-D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu_UI_v1.5.3.xml
-D:\development\MediaPlayer\MediaPlayer\obj\Debug\MediaPlayer.exe.config
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Siticone.UI.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.1.5.3.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll
@@ -120,3 +112,11 @@ C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuShapes.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll
 C:\Users\haosi\source\repos\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.1.5.3.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuCircleProgress.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuDataGridView.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuFormDock.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuPages.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuShapes.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuSnackbar.dll
+D:\development\MediaPlayer\MediaPlayer\bin\Debug\Bunifu.UI.WinForms.BunifuUserControl.dll
