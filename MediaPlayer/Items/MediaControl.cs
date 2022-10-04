@@ -21,14 +21,14 @@ namespace MediaPlayer.Items
 
         WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
         OpenFileDialog openFileDialog;
-        double currentTimePlay = 0.0;
+        public double currentTimePlay = 0.0;
         public MediaControl()
         {
             Player.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(Player_PlayStateChange);
             Player.MediaError += new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
             
             InitializeComponent();
-            Slider.Value = 0b0;
+            //Slider.Value = 0b0;
         }
         private void Player_PlayStateChange(int NewState)
         {
@@ -52,6 +52,7 @@ namespace MediaPlayer.Items
                 filePath = openFileDialog.FileName;
                 fileName = openFileDialog.SafeFileName;
                 gunaLabel_SongName.Text = fileName;
+                currentTimePlay = 0.0;
             }
         }
         //============================================
@@ -62,8 +63,9 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
+            if (filePath == null) return;
             Player.URL = filePath;
-            timeSongEnd.Text = Player.currentMedia.duration.ToString();
+            statusLabel.Text = timerSong.Enabled.ToString();
             if (!timerSong.Enabled)
             {
                 Player.controls.currentPosition = currentTimePlay;
@@ -72,8 +74,8 @@ namespace MediaPlayer.Items
             }
             else
             {
-                timerSong.Stop();
                 Player.controls.pause();
+                timerSong.Stop();
             }
             //if (Player.status.ToLower().Contains("playing"))
             //{
@@ -94,15 +96,18 @@ namespace MediaPlayer.Items
 
         private void timerSong_Tick(object sender, EventArgs e)
         {
+            timeSongEnd.Text = Player.currentMedia.duration.ToString();
             currentTimePlay = Player.controls.currentPosition;
             timeSongPlay.Text = Player.controls.currentPositionString;
+            //timeSongPlay.Text = currentTimePlay.ToString();
             Slider.Value = (int)Player.controls.currentPosition;
         }
 
+        // chỉnh âm thanh
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
             //Player.settings.volume = Slider.Value;
-            gunaLabel_NameAthor.Text = Slider.Value.ToString();
+            //gunaLabel_NameAthor.Text = Slider.Value.ToString();
         }
     }
 }
