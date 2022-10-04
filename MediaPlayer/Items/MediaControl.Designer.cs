@@ -298,7 +298,7 @@
             this.gunaCircleButton4.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton4.Image")));
             this.gunaCircleButton4.ImageSize = new System.Drawing.Size(32, 32);
-            this.gunaCircleButton4.Location = new System.Drawing.Point(4, 19);
+            this.gunaCircleButton4.Location = new System.Drawing.Point(17, 19);
             this.gunaCircleButton4.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton4.Name = "gunaCircleButton4";
             this.gunaCircleButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
@@ -323,7 +323,7 @@
             this.gunaCircleButton_prev.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_prev.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_prev.Image")));
             this.gunaCircleButton_prev.ImageSize = new System.Drawing.Size(49, 49);
-            this.gunaCircleButton_prev.Location = new System.Drawing.Point(64, 9);
+            this.gunaCircleButton_prev.Location = new System.Drawing.Point(77, 9);
             this.gunaCircleButton_prev.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton_prev.Name = "gunaCircleButton_prev";
             this.gunaCircleButton_prev.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
@@ -348,7 +348,7 @@
             this.gunaCircleButton5.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton5.Image")));
             this.gunaCircleButton5.ImageSize = new System.Drawing.Size(32, 32);
-            this.gunaCircleButton5.Location = new System.Drawing.Point(287, 19);
+            this.gunaCircleButton5.Location = new System.Drawing.Point(295, 19);
             this.gunaCircleButton5.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton5.Name = "gunaCircleButton5";
             this.gunaCircleButton5.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
@@ -374,7 +374,7 @@
             this.gunaCircleButton_next.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_next.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_next.Image")));
             this.gunaCircleButton_next.ImageSize = new System.Drawing.Size(49, 49);
-            this.gunaCircleButton_next.Location = new System.Drawing.Point(210, 9);
+            this.gunaCircleButton_next.Location = new System.Drawing.Point(223, 9);
             this.gunaCircleButton_next.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton_next.Name = "gunaCircleButton_next";
             this.gunaCircleButton_next.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
@@ -399,7 +399,7 @@
             this.gunaCircleButton_Play.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Play.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Play.Image")));
             this.gunaCircleButton_Play.ImageSize = new System.Drawing.Size(64, 64);
-            this.gunaCircleButton_Play.Location = new System.Drawing.Point(133, 3);
+            this.gunaCircleButton_Play.Location = new System.Drawing.Point(146, 3);
             this.gunaCircleButton_Play.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton_Play.Name = "gunaCircleButton_Play";
             this.gunaCircleButton_Play.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));

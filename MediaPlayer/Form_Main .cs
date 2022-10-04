@@ -19,26 +19,31 @@ namespace MediaPlayer
 
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
+            indicater.Top = gunaButton_Home.Top;
             MainPages.SetPage(0);
         }
 
         private void gunaButton_Search_Click(object sender, EventArgs e)
         {
+            indicater.Top = gunaButton_Search.Top;
             MainPages.SetPage(1);
         }
 
         private void gunaButton_Music_Click(object sender, EventArgs e)
         {
+            indicater.Top = gunaButton_Music.Top;
             MainPages.SetPage(2);
         }
 
         private void gunaButton_Video_Click(object sender, EventArgs e)
         {
+            indicater.Top = gunaButton_Video.Top;
             MainPages.SetPage(3);
         }
 
         private void gunaButton_Library_Click(object sender, EventArgs e)
         {
+            indicater.Top = gunaButton_Library.Top;
             MainPages.SetPage(4);
         }
 
