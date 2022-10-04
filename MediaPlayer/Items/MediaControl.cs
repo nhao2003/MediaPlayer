@@ -16,6 +16,7 @@ namespace MediaPlayer.Items
         // làm sao gắn được data dô hai cái này là được
         String fileName;
         String filePath;
+
         //=============================================
 
         WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
@@ -39,6 +40,7 @@ namespace MediaPlayer.Items
             MessageBox.Show("Cannot play media file.");
         }
 
+        // chức năng thêm nhạc ở đây nè
         private void gunaCircleButton_Open_Click(object sender, EventArgs e)
         {
             openFileDialog = new OpenFileDialog();
@@ -46,13 +48,13 @@ namespace MediaPlayer.Items
             openFileDialog.Title = "Open";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
+                // ở đây lấy file name với path của bài nhạc nè
                 filePath = openFileDialog.FileName;
                 fileName = openFileDialog.SafeFileName;
                 gunaLabel_SongName.Text = fileName;
-                //currentTimePlay = 0;
             }
         }
-
+        //============================================
         private void gunaCircleButton5_Click(object sender, EventArgs e)
         {
 
