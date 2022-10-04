@@ -32,8 +32,9 @@ namespace MediaPlayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.GunaElipsePanel_SlidingBar = new Guna.UI.WinForms.GunaElipsePanel();
+            this.indicater = new System.Windows.Forms.Panel();
             this.gunaButton_Library = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Settings = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Video = new Guna.UI.WinForms.GunaButton();
@@ -41,15 +42,15 @@ namespace MediaPlayer
             this.gunaButton_Search = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Home = new Guna.UI.WinForms.GunaButton();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaGradientTileButton2 = new Guna.UI.WinForms.GunaGradientTileButton();
+            this.Logo = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaPanel_MediaControl = new Guna.UI.WinForms.GunaPanel();
             this.mediaControl = new MediaPlayer.Items.MediaControl();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Appbar = new System.Windows.Forms.Panel();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
-            this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
+            this.Button_Redo = new Guna.UI.WinForms.GunaCircleButton();
+            this.Button_Undo = new Guna.UI.WinForms.GunaCircleButton();
             this.MainPages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage_Home = new System.Windows.Forms.TabPage();
             this.userControl_Home1 = new MediaPlayer.Widgets.UserControl_Home();
@@ -63,11 +64,10 @@ namespace MediaPlayer
             this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
-            this.indicater = new System.Windows.Forms.Panel();
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel_MediaControl.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.Appbar.SuspendLayout();
             this.gunaElipsePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
             this.MainPages.SuspendLayout();
@@ -95,8 +95,18 @@ namespace MediaPlayer
             this.GunaElipsePanel_SlidingBar.Location = new System.Drawing.Point(0, 0);
             this.GunaElipsePanel_SlidingBar.Margin = new System.Windows.Forms.Padding(2);
             this.GunaElipsePanel_SlidingBar.Name = "GunaElipsePanel_SlidingBar";
+            this.GunaElipsePanel_SlidingBar.Radius = 1;
             this.GunaElipsePanel_SlidingBar.Size = new System.Drawing.Size(171, 609);
             this.GunaElipsePanel_SlidingBar.TabIndex = 5;
+            // 
+            // indicater
+            // 
+            this.indicater.BackColor = System.Drawing.Color.SeaGreen;
+            this.indicater.ForeColor = System.Drawing.Color.Teal;
+            this.indicater.Location = new System.Drawing.Point(3, 108);
+            this.indicater.Name = "indicater";
+            this.indicater.Size = new System.Drawing.Size(5, 44);
+            this.indicater.TabIndex = 20;
             // 
             // gunaButton_Library
             // 
@@ -281,7 +291,7 @@ namespace MediaPlayer
             // gunaPanel1
             // 
             this.gunaPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaPanel1.Controls.Add(this.gunaGradientTileButton2);
+            this.gunaPanel1.Controls.Add(this.Logo);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaPanel1.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel1.Margin = new System.Windows.Forms.Padding(2);
@@ -289,33 +299,33 @@ namespace MediaPlayer
             this.gunaPanel1.Size = new System.Drawing.Size(171, 104);
             this.gunaPanel1.TabIndex = 7;
             // 
-            // gunaGradientTileButton2
+            // Logo
             // 
-            this.gunaGradientTileButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaGradientTileButton2.AnimationSpeed = 0.03F;
-            this.gunaGradientTileButton2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaGradientTileButton2.BaseColor1 = System.Drawing.Color.Aqua;
-            this.gunaGradientTileButton2.BaseColor2 = System.Drawing.Color.LawnGreen;
-            this.gunaGradientTileButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaGradientTileButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaGradientTileButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaGradientTileButton2.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
-            this.gunaGradientTileButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaGradientTileButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaGradientTileButton2.Image")));
-            this.gunaGradientTileButton2.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaGradientTileButton2.Location = new System.Drawing.Point(9, 5);
-            this.gunaGradientTileButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.gunaGradientTileButton2.Name = "gunaGradientTileButton2";
-            this.gunaGradientTileButton2.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
-            this.gunaGradientTileButton2.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(211)))), ((int)(((byte)(187)))), ((int)(((byte)(255)))));
-            this.gunaGradientTileButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaGradientTileButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaGradientTileButton2.OnHoverImage = null;
-            this.gunaGradientTileButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaGradientTileButton2.Radius = 15;
-            this.gunaGradientTileButton2.Size = new System.Drawing.Size(153, 94);
-            this.gunaGradientTileButton2.TabIndex = 0;
-            this.gunaGradientTileButton2.Text = "User name";
+            this.Logo.AnimationHoverSpeed = 0.07F;
+            this.Logo.AnimationSpeed = 0.03F;
+            this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.BaseColor1 = System.Drawing.Color.Aqua;
+            this.Logo.BaseColor2 = System.Drawing.Color.LawnGreen;
+            this.Logo.BorderColor = System.Drawing.Color.Black;
+            this.Logo.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Logo.FocusedColor = System.Drawing.Color.Empty;
+            this.Logo.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.Logo.ForeColor = System.Drawing.Color.White;
+            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.ImageSize = new System.Drawing.Size(52, 52);
+            this.Logo.Location = new System.Drawing.Point(9, 5);
+            this.Logo.Margin = new System.Windows.Forms.Padding(2);
+            this.Logo.Name = "Logo";
+            this.Logo.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
+            this.Logo.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(211)))), ((int)(((byte)(187)))), ((int)(((byte)(255)))));
+            this.Logo.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.Logo.OnHoverForeColor = System.Drawing.Color.White;
+            this.Logo.OnHoverImage = null;
+            this.Logo.OnPressedColor = System.Drawing.Color.Black;
+            this.Logo.Radius = 15;
+            this.Logo.Size = new System.Drawing.Size(153, 94);
+            this.Logo.TabIndex = 0;
+            this.Logo.Text = "User name";
             // 
             // gunaPanel_MediaControl
             // 
@@ -337,19 +347,19 @@ namespace MediaPlayer
             this.mediaControl.Size = new System.Drawing.Size(814, 117);
             this.mediaControl.TabIndex = 0;
             // 
-            // panel1
+            // Appbar
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.gunaElipsePanel1);
-            this.panel1.Controls.Add(this.gunaCircleButton2);
-            this.panel1.Controls.Add(this.gunaCircleButton1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.Coral;
-            this.panel1.Location = new System.Drawing.Point(171, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(814, 50);
-            this.panel1.TabIndex = 8;
+            this.Appbar.BackColor = System.Drawing.Color.Transparent;
+            this.Appbar.Controls.Add(this.gunaElipsePanel1);
+            this.Appbar.Controls.Add(this.Button_Redo);
+            this.Appbar.Controls.Add(this.Button_Undo);
+            this.Appbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Appbar.ForeColor = System.Drawing.Color.Coral;
+            this.Appbar.Location = new System.Drawing.Point(171, 0);
+            this.Appbar.Margin = new System.Windows.Forms.Padding(2);
+            this.Appbar.Name = "Appbar";
+            this.Appbar.Size = new System.Drawing.Size(814, 50);
+            this.Appbar.TabIndex = 8;
             // 
             // gunaElipsePanel1
             // 
@@ -390,51 +400,51 @@ namespace MediaPlayer
             this.gunaCirclePictureBox1.TabStop = false;
             this.gunaCirclePictureBox1.UseTransfarantBackground = false;
             // 
-            // gunaCircleButton2
+            // Button_Redo
             // 
-            this.gunaCircleButton2.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton2.AnimationSpeed = 0.03F;
-            this.gunaCircleButton2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaCircleButton2.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton2.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton2.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton2.Image")));
-            this.gunaCircleButton2.ImageSize = new System.Drawing.Size(24, 24);
-            this.gunaCircleButton2.Location = new System.Drawing.Point(53, 5);
-            this.gunaCircleButton2.Margin = new System.Windows.Forms.Padding(2);
-            this.gunaCircleButton2.Name = "gunaCircleButton2";
-            this.gunaCircleButton2.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaCircleButton2.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton2.OnHoverImage = null;
-            this.gunaCircleButton2.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton2.Size = new System.Drawing.Size(36, 39);
-            this.gunaCircleButton2.TabIndex = 1;
+            this.Button_Redo.AnimationHoverSpeed = 0.07F;
+            this.Button_Redo.AnimationSpeed = 0.03F;
+            this.Button_Redo.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.Button_Redo.BorderColor = System.Drawing.Color.Black;
+            this.Button_Redo.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Button_Redo.FocusedColor = System.Drawing.Color.Empty;
+            this.Button_Redo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_Redo.ForeColor = System.Drawing.Color.White;
+            this.Button_Redo.Image = ((System.Drawing.Image)(resources.GetObject("Button_Redo.Image")));
+            this.Button_Redo.ImageSize = new System.Drawing.Size(24, 24);
+            this.Button_Redo.Location = new System.Drawing.Point(53, 5);
+            this.Button_Redo.Margin = new System.Windows.Forms.Padding(2);
+            this.Button_Redo.Name = "Button_Redo";
+            this.Button_Redo.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.Button_Redo.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.Button_Redo.OnHoverForeColor = System.Drawing.Color.White;
+            this.Button_Redo.OnHoverImage = null;
+            this.Button_Redo.OnPressedColor = System.Drawing.Color.Black;
+            this.Button_Redo.Size = new System.Drawing.Size(36, 39);
+            this.Button_Redo.TabIndex = 1;
             // 
-            // gunaCircleButton1
+            // Button_Undo
             // 
-            this.gunaCircleButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton1.AnimationSpeed = 0.03F;
-            this.gunaCircleButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaCircleButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.Image = global::MediaPlayer.Properties.Resources.next_page_right;
-            this.gunaCircleButton1.ImageSize = new System.Drawing.Size(24, 24);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(13, 5);
-            this.gunaCircleButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.gunaCircleButton1.Name = "gunaCircleButton1";
-            this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.OnHoverImage = null;
-            this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.Size = new System.Drawing.Size(36, 39);
-            this.gunaCircleButton1.TabIndex = 1;
+            this.Button_Undo.AnimationHoverSpeed = 0.07F;
+            this.Button_Undo.AnimationSpeed = 0.03F;
+            this.Button_Undo.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.Button_Undo.BorderColor = System.Drawing.Color.Black;
+            this.Button_Undo.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Button_Undo.FocusedColor = System.Drawing.Color.Empty;
+            this.Button_Undo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Button_Undo.ForeColor = System.Drawing.Color.White;
+            this.Button_Undo.Image = global::MediaPlayer.Properties.Resources.next_page_right;
+            this.Button_Undo.ImageSize = new System.Drawing.Size(24, 24);
+            this.Button_Undo.Location = new System.Drawing.Point(13, 5);
+            this.Button_Undo.Margin = new System.Windows.Forms.Padding(2);
+            this.Button_Undo.Name = "Button_Undo";
+            this.Button_Undo.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.Button_Undo.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.Button_Undo.OnHoverForeColor = System.Drawing.Color.White;
+            this.Button_Undo.OnHoverImage = null;
+            this.Button_Undo.OnPressedColor = System.Drawing.Color.Black;
+            this.Button_Undo.Size = new System.Drawing.Size(36, 39);
+            this.Button_Undo.TabIndex = 1;
             // 
             // MainPages
             // 
@@ -459,22 +469,22 @@ namespace MediaPlayer
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(814, 442);
             this.MainPages.TabIndex = 9;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 1F;
-            this.MainPages.Transition = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this.MainPages.Transition = animation1;
             this.MainPages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             // 
             // tabPage_Home
@@ -599,19 +609,10 @@ namespace MediaPlayer
             // 
             this.userControl_Settings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControl_Settings1.Location = new System.Drawing.Point(2, 2);
-            this.userControl_Settings1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userControl_Settings1.Margin = new System.Windows.Forms.Padding(2);
             this.userControl_Settings1.Name = "userControl_Settings1";
             this.userControl_Settings1.Size = new System.Drawing.Size(802, 412);
             this.userControl_Settings1.TabIndex = 0;
-            // 
-            // indicater
-            // 
-            this.indicater.BackColor = System.Drawing.Color.SeaGreen;
-            this.indicater.ForeColor = System.Drawing.Color.Teal;
-            this.indicater.Location = new System.Drawing.Point(3, 108);
-            this.indicater.Name = "indicater";
-            this.indicater.Size = new System.Drawing.Size(5, 44);
-            this.indicater.TabIndex = 20;
             // 
             // Form_Main
             // 
@@ -620,7 +621,7 @@ namespace MediaPlayer
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
             this.ClientSize = new System.Drawing.Size(985, 609);
             this.Controls.Add(this.MainPages);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Appbar);
             this.Controls.Add(this.gunaPanel_MediaControl);
             this.Controls.Add(this.GunaElipsePanel_SlidingBar);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -630,7 +631,7 @@ namespace MediaPlayer
             this.GunaElipsePanel_SlidingBar.ResumeLayout(false);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel_MediaControl.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.Appbar.ResumeLayout(false);
             this.gunaElipsePanel1.ResumeLayout(false);
             this.gunaElipsePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
@@ -648,11 +649,11 @@ namespace MediaPlayer
         #endregion
         private GunaElipsePanel GunaElipsePanel_SlidingBar;
         private GunaPanel gunaPanel1;
-        private GunaGradientTileButton gunaGradientTileButton2;
+        private GunaGradientTileButton Logo;
         private GunaPanel gunaPanel_MediaControl;
-        private Panel panel1;
-        private GunaCircleButton gunaCircleButton1;
-        private GunaCircleButton gunaCircleButton2;
+        private Panel Appbar;
+        private GunaCircleButton Button_Undo;
+        private GunaCircleButton Button_Redo;
         private GunaElipsePanel gunaElipsePanel1;
         private GunaCirclePictureBox gunaCirclePictureBox1;
         private GunaLabel gunaLabel1;
