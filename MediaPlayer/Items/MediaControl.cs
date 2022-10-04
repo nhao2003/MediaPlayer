@@ -13,10 +13,13 @@ namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
     {
-        WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
-        OpenFileDialog openFileDialog;
+        // làm sao gắn được data dô hai cái này là được
         String fileName;
         String filePath;
+        //=============================================
+
+        WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
+        OpenFileDialog openFileDialog;
         double currentTimePlay = 0.0;
         public MediaControl()
         {
