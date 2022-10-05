@@ -49,6 +49,7 @@ namespace MediaPlayer
 
         private void gunaButton_Settings_Click(object sender, EventArgs e)
         {
+            indicater.Top = gunaButton_Settings.Top;
             MainPages.SetPage(5);
         }
     }

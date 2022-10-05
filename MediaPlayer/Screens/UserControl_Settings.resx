@@ -117,4 +117,53 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bunifuButtonAdd.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFYAAAAcCAYAAAD7lUj9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFHSURBVGhD7dqxTsMwEAZgj4yMjIw8AiNjN0TsiAnxCh06
+        QM4lKxIbL3DmIVi7MvIGSEyVCCjqApUYih1aBPQEaaLb/pO+JT4vvxI7imO+1ymXW46LoQ1064KvogX8
+        qXJMk4zp7JDL7WWMP8syHVj2j7F5/msy/IvebfBPMeTBMs7PShfiwEyeBK0xzRxfnDShpsc/hjoVG2Fz
+        7J9zLndMWh/SrSw2QQe0sDy+ScvARG6AruJe9ZA2rVdpEPox0kXoD8EqQbBKEKwSBKsEwSpBsEoQrBIE
+        qwTBKkGwShCsEgSrBMEqSZ8N8ZFbgbHB30sD0EtlHPurGK40CB2l3wfMMZe7LlAtNUAn9REX+81JbR5o
+        ZEPxJjTBZuZ5GF83oa4qY7qMS8KL0Azt1Guhrirj8710ahvfFPDzRkvpMDbekHdfj39TxnwAB82ZjjfV
+        /FUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bunifuButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFYAAAAcCAYAAAD7lUj9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFHSURBVGhD7dqxTsMwEAZgj4yMjIw8AiNjN0TsiAnxCh06
+        QM4lKxIbL3DmIVi7MvIGSEyVCCjqApUYih1aBPQEaaLb/pO+JT4vvxI7imO+1ymXW46LoQ1064KvogX8
+        qXJMk4zp7JDL7WWMP8syHVj2j7F5/msy/IvebfBPMeTBMs7PShfiwEyeBK0xzRxfnDShpsc/hjoVG2Fz
+        7J9zLndMWh/SrSw2QQe0sDy+ScvARG6AruJe9ZA2rVdpEPox0kXoD8EqQbBKEKwSBKsEwSpBsEoQrBIE
+        qwTBKkGwShCsEgSrBMEqSZ8N8ZFbgbHB30sD0EtlHPurGK40CB2l3wfMMZe7LlAtNUAn9REX+81JbR5o
+        ZEPxJjTBZuZ5GF83oa4qY7qMS8KL0Azt1Guhrirj8710ahvfFPDzRkvpMDbekHdfj39TxnwAB82ZjjfV
+        /FUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bunifuButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFYAAAAcCAYAAAD7lUj9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFHSURBVGhD7dqxTsMwEAZgj4yMjIw8AiNjN0TsiAnxCh06
+        QM4lKxIbL3DmIVi7MvIGSEyVCCjqApUYih1aBPQEaaLb/pO+JT4vvxI7imO+1ymXW46LoQ1064KvogX8
+        qXJMk4zp7JDL7WWMP8syHVj2j7F5/msy/IvebfBPMeTBMs7PShfiwEyeBK0xzRxfnDShpsc/hjoVG2Fz
+        7J9zLndMWh/SrSw2QQe0sDy+ScvARG6AruJe9ZA2rVdpEPox0kXoD8EqQbBKEKwSBKsEwSpBsEoQrBIE
+        qwTBKkGwShCsEgSrBMEqSZ8N8ZFbgbHB30sD0EtlHPurGK40CB2l3wfMMZe7LlAtNUAn9REX+81JbR5o
+        ZEPxJjTBZuZ5GF83oa4qY7qMS8KL0Azt1Guhrirj8710ahvfFPDzRkvpMDbekHdfj39TxnwAB82ZjjfV
+        /FUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="bunifuButton3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAFYAAAAcCAYAAAD7lUj9AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFHSURBVGhD7dqxTsMwEAZgj4yMjIw8AiNjN0TsiAnxCh06
+        QM4lKxIbL3DmIVi7MvIGSEyVCCjqApUYih1aBPQEaaLb/pO+JT4vvxI7imO+1ymXW46LoQ1064KvogX8
+        qXJMk4zp7JDL7WWMP8syHVj2j7F5/msy/IvebfBPMeTBMs7PShfiwEyeBK0xzRxfnDShpsc/hjoVG2Fz
+        7J9zLndMWh/SrSw2QQe0sDy+ScvARG6AruJe9ZA2rVdpEPox0kXoD8EqQbBKEKwSBKsEwSpBsEoQrBIE
+        qwTBKkGwShCsEgSrBMEqSZ8N8ZFbgbHB30sD0EtlHPurGK40CB2l3wfMMZe7LlAtNUAn9REX+81JbR5o
+        ZEPxJjTBZuZ5GF83oa4qY7qMS8KL0Azt1Guhrirj8710ahvfFPDzRkvpMDbekHdfj39TxnwAB82ZjjfV
+        /FUAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
