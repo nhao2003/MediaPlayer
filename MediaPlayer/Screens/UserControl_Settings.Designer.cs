@@ -36,9 +36,9 @@
             this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bunifuButtonAdd = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.bunifuButton1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -96,28 +96,8 @@
             this.gunaElipsePanel1.Location = new System.Drawing.Point(12, 103);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Radius = 12;
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(779, 53);
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(784, 53);
             this.gunaElipsePanel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(46, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Music labrary locations";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::MediaPlayer.Properties.Resources.folder;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(37, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // bunifuButtonAdd
             // 
@@ -167,7 +147,7 @@
             this.bunifuButtonAdd.IdleIconLeftImage = null;
             this.bunifuButtonAdd.IdleIconRightImage = null;
             this.bunifuButtonAdd.IndicateFocus = false;
-            this.bunifuButtonAdd.Location = new System.Drawing.Point(678, 13);
+            this.bunifuButtonAdd.Location = new System.Drawing.Point(683, 13);
             this.bunifuButtonAdd.Name = "bunifuButtonAdd";
             this.bunifuButtonAdd.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButtonAdd.OnDisabledState.BorderRadius = 12;
@@ -209,6 +189,26 @@
             this.bunifuButtonAdd.TextPadding = new System.Windows.Forms.Padding(0);
             this.bunifuButtonAdd.UseDefaultRadiusAndThickness = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::MediaPlayer.Properties.Resources.folder;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 14);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(37, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(46, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(143, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Music labrary locations";
+            // 
             // gunaElipsePanel2
             // 
             this.gunaElipsePanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -221,7 +221,7 @@
             this.gunaElipsePanel2.Location = new System.Drawing.Point(11, 162);
             this.gunaElipsePanel2.Name = "gunaElipsePanel2";
             this.gunaElipsePanel2.Radius = 12;
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(779, 53);
+            this.gunaElipsePanel2.Size = new System.Drawing.Size(785, 53);
             this.gunaElipsePanel2.TabIndex = 3;
             // 
             // bunifuButton1
@@ -272,7 +272,7 @@
             this.bunifuButton1.IdleIconLeftImage = null;
             this.bunifuButton1.IdleIconRightImage = null;
             this.bunifuButton1.IndicateFocus = false;
-            this.bunifuButton1.Location = new System.Drawing.Point(678, 13);
+            this.bunifuButton1.Location = new System.Drawing.Point(684, 13);
             this.bunifuButton1.Name = "bunifuButton1";
             this.bunifuButton1.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton1.OnDisabledState.BorderRadius = 12;
@@ -357,7 +357,7 @@
             this.gunaElipsePanel3.Location = new System.Drawing.Point(12, 270);
             this.gunaElipsePanel3.Name = "gunaElipsePanel3";
             this.gunaElipsePanel3.Radius = 12;
-            this.gunaElipsePanel3.Size = new System.Drawing.Size(779, 53);
+            this.gunaElipsePanel3.Size = new System.Drawing.Size(784, 53);
             this.gunaElipsePanel3.TabIndex = 3;
             // 
             // bunifuButton2
@@ -408,7 +408,7 @@
             this.bunifuButton2.IdleIconLeftImage = null;
             this.bunifuButton2.IdleIconRightImage = null;
             this.bunifuButton2.IndicateFocus = false;
-            this.bunifuButton2.Location = new System.Drawing.Point(678, 13);
+            this.bunifuButton2.Location = new System.Drawing.Point(683, 13);
             this.bunifuButton2.Name = "bunifuButton2";
             this.bunifuButton2.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton2.OnDisabledState.BorderRadius = 12;
@@ -482,7 +482,7 @@
             this.gunaElipsePanel4.Location = new System.Drawing.Point(11, 329);
             this.gunaElipsePanel4.Name = "gunaElipsePanel4";
             this.gunaElipsePanel4.Radius = 12;
-            this.gunaElipsePanel4.Size = new System.Drawing.Size(779, 53);
+            this.gunaElipsePanel4.Size = new System.Drawing.Size(785, 53);
             this.gunaElipsePanel4.TabIndex = 3;
             // 
             // bunifuButton3
@@ -533,7 +533,7 @@
             this.bunifuButton3.IdleIconLeftImage = null;
             this.bunifuButton3.IdleIconRightImage = null;
             this.bunifuButton3.IndicateFocus = false;
-            this.bunifuButton3.Location = new System.Drawing.Point(678, 13);
+            this.bunifuButton3.Location = new System.Drawing.Point(684, 13);
             this.bunifuButton3.Name = "bunifuButton3";
             this.bunifuButton3.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.bunifuButton3.OnDisabledState.BorderRadius = 12;

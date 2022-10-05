@@ -32,7 +32,7 @@ namespace MediaPlayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.GunaElipsePanel_SlidingBar = new Guna.UI.WinForms.GunaElipsePanel();
             this.indicater = new System.Windows.Forms.Panel();
             this.gunaButton_Library = new Guna.UI.WinForms.GunaButton();
@@ -355,6 +355,7 @@ namespace MediaPlayer
             // 
             // labelName
             // 
+            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.labelName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -366,6 +367,7 @@ namespace MediaPlayer
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -377,6 +379,7 @@ namespace MediaPlayer
             // 
             // avatar
             // 
+            this.avatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.avatar.BaseColor = System.Drawing.Color.White;
             this.avatar.Location = new System.Drawing.Point(622, 7);
             this.avatar.Name = "avatar";
@@ -455,22 +458,22 @@ namespace MediaPlayer
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(814, 442);
             this.MainPages.TabIndex = 9;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.MainPages.Transition = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 1F;
+            this.MainPages.Transition = animation2;
             this.MainPages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             // 
             // tabPage_Home
@@ -602,10 +605,11 @@ namespace MediaPlayer
             // 
             // mediaControl
             // 
+            this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mediaControl.Location = new System.Drawing.Point(0, 0);
             this.mediaControl.Margin = new System.Windows.Forms.Padding(2);
             this.mediaControl.Name = "mediaControl";
-            this.mediaControl.Size = new System.Drawing.Size(771, 117);
+            this.mediaControl.Size = new System.Drawing.Size(814, 117);
             this.mediaControl.TabIndex = 0;
             // 
             // Form_Main
