@@ -22,6 +22,8 @@ namespace MediaPlayer.Items
         WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
         OpenFileDialog openFileDialog;
         public double currentTimePlay = 0.0;
+        public bool begin = false;
+
         public MediaControl()
         {
             Player.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(Player_PlayStateChange);
@@ -53,20 +55,19 @@ namespace MediaPlayer.Items
                 fileName = openFileDialog.SafeFileName;
                 gunaLabel_SongName.Text = fileName;
                 //=============================================
+                Player.URL = filePath;
+                Player.controls.stop();
+                // chọn bài hát thì trả về 0
                 currentTimePlay = 0.0;
-               // timeSongEnd.Text = Player.currentMedia.duration.ToString();
+                timeSongPlay.Text = "00:00";
+                MediaTrackBar.Value = (int)Player.controls.currentPosition;
             }
-        }
-        //============================================
-        private void gunaCircleButton5_Click(object sender, EventArgs e)
-        {
-
         }
         
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
             if (filePath == null) return;
-            Player.URL = filePath;
+            //MediaTrackBar.Maximum = Convert.ToInt32(Player.currentMedia.duration);
             if (!timerSong.Enabled)
             {
                 Player.controls.currentPosition = currentTimePlay;
@@ -83,16 +84,21 @@ namespace MediaPlayer.Items
 
         private void gunaTrackBar_Music_ValueChanged(object sender, EventArgs e)
         {
-            Player.controls.currentPosition = Slider.Value;
+            Player.controls.currentPosition = MediaTrackBar.Value;
         }
 
+        public String convert(int n)
+        {
+            return n > 9 ? "" + n : "0" + n;
+        }
         private void timerSong_Tick(object sender, EventArgs e)
         {
-            timeSongEnd.Text = Player.currentMedia.duration.ToString();
+            timeSongEnd.Text = convert((int)Player.currentMedia.duration / 100) + ":" + convert((int)Player.currentMedia.duration % 100);
             currentTimePlay = Player.controls.currentPosition;
             timeSongPlay.Text = Player.controls.currentPositionString;
             //timeSongPlay.Text = currentTimePlay.ToString();
-            Slider.Value = (int)Player.controls.currentPosition;
+            MediaTrackBar.Value = (int)Player.controls.currentPosition;
+
         }
 
         // chỉnh âm thanh
@@ -100,6 +106,11 @@ namespace MediaPlayer.Items
         {
             //Player.settings.volume = Slider.Value;
             //gunaLabel_NameAthor.Text = Slider.Value.ToString();
+        }
+
+        private void MediaTrackBar_Scroll(object sender, ScrollEventArgs e)
+        {
+
         }
     }
 }

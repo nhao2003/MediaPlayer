@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaControl));
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.timeSongEnd = new Guna.UI.WinForms.GunaLabel();
-            this.Slider = new Guna.UI.WinForms.GunaTrackBar();
+            this.MediaTrackBar = new Guna.UI.WinForms.GunaTrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gunaTrackBar_Volume = new Guna.UI.WinForms.GunaTrackBar();
             this.gunaCircleButton_Open = new Guna.UI.WinForms.GunaCircleButton();
@@ -62,7 +62,7 @@
             this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaElipsePanel1.Controls.Add(this.timeSongEnd);
-            this.gunaElipsePanel1.Controls.Add(this.Slider);
+            this.gunaElipsePanel1.Controls.Add(this.MediaTrackBar);
             this.gunaElipsePanel1.Controls.Add(this.panel1);
             this.gunaElipsePanel1.Controls.Add(this.panel_MediaInfo);
             this.gunaElipsePanel1.Controls.Add(this.gunaPanel);
@@ -86,21 +86,22 @@
             this.timeSongEnd.TabIndex = 17;
             this.timeSongEnd.Text = "00:00";
             // 
-            // Slider
+            // MediaTrackBar
             // 
-            this.Slider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.Slider.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Slider.Location = new System.Drawing.Point(225, 10);
-            this.Slider.Margin = new System.Windows.Forms.Padding(2);
-            this.Slider.MouseWheelBarPartitions = 100;
-            this.Slider.Name = "Slider";
-            this.Slider.Size = new System.Drawing.Size(356, 21);
-            this.Slider.TabIndex = 15;
-            this.Slider.TrackColor = System.Drawing.Color.DeepSkyBlue;
-            this.Slider.TrackHoverColor = System.Drawing.Color.DodgerBlue;
-            this.Slider.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
-            this.Slider.TrackPressedColor = System.Drawing.Color.DodgerBlue;
-            this.Slider.Value = 0;
+            this.MediaTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.MediaTrackBar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.MediaTrackBar.Location = new System.Drawing.Point(225, 10);
+            this.MediaTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.MediaTrackBar.MouseWheelBarPartitions = 1000;
+            this.MediaTrackBar.Name = "MediaTrackBar";
+            this.MediaTrackBar.Size = new System.Drawing.Size(356, 21);
+            this.MediaTrackBar.TabIndex = 15;
+            this.MediaTrackBar.TrackColor = System.Drawing.Color.DeepSkyBlue;
+            this.MediaTrackBar.TrackHoverColor = System.Drawing.Color.DodgerBlue;
+            this.MediaTrackBar.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
+            this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.DodgerBlue;
+            this.MediaTrackBar.Value = 0;
+            this.MediaTrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.MediaTrackBar_Scroll);
             // 
             // panel1
             // 
@@ -357,7 +358,6 @@
             this.gunaCircleButton5.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton5.Size = new System.Drawing.Size(24, 26);
             this.gunaCircleButton5.TabIndex = 18;
-            this.gunaCircleButton5.Click += new System.EventHandler(this.gunaCircleButton5_Click);
             // 
             // gunaCircleButton_next
             // 
@@ -439,7 +439,7 @@
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
         private Guna.UI.WinForms.GunaLabel timeSongEnd;
         private Guna.UI.WinForms.GunaLabel timeSongPlay;
-        private Guna.UI.WinForms.GunaTrackBar Slider;
+        private Guna.UI.WinForms.GunaTrackBar MediaTrackBar;
         private System.Windows.Forms.Panel panel_MediaInfo;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox_SongImage;
         private Guna.UI.WinForms.GunaLabel gunaLabel_SongName;
