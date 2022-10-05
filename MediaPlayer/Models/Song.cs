@@ -27,7 +27,7 @@ namespace MediaPlayer.Models
                     double duration,
                     DateTime dateAdded)
         {
-            String id = Guid.NewGuid().ToString("N");
+            this.id = Guid.NewGuid().ToString("N");
             this.name = name;
             this.author = author;
             this.path = path;
