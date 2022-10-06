@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
-
+using CsvHelper;
 
 namespace MediaPlayer.Widgets
 {
@@ -22,6 +22,7 @@ namespace MediaPlayer.Widgets
      
         static string[] filePaths;
         static string[] fileNames;
+        static string[] joins;
         TagLib.File[] f;
         static Song[] SongList;
         private void gunaButton1_Click(object sender, EventArgs e)
@@ -38,6 +39,7 @@ namespace MediaPlayer.Widgets
 
             f = new TagLib.File[filePaths.Length];
             SongList = new Song[filePaths.Length];
+            joins = new string[filePaths.Length];
 
             for (int i = 0; i < filePaths.Length; i++)
             {
@@ -57,11 +59,32 @@ namespace MediaPlayer.Widgets
                 SongList[i].setDateAdded(DateTime.Now);
                 SongList[i].setisLiked();
 
+                object[] array = { SongList[i].getId(), SongList[i].getTitle(), SongList[i].getArtists(),
+                SongList[i].getFilePath(), SongList[i].getDuration(), SongList[i].getDateAdded()
+                , SongList[i].getisLiked() };
+
+                joins[i] = String.Join(", ", array);
             }
 
-
+            //using (var writer = new StreamWriter("Songs.csv"))
+            //using (var csv = new CsvWriter(writer, System.Globalization.CultureInfo.InvariantCulture))
+            //{
+            //    csv.WriteField("Id");
+            //    csv.WriteField("Title");
+            //    csv.WriteField("Artists");
+            //    csv.WriteField("FilePath");
+            //    csv.WriteField("Duration");
+            //    csv.WriteField("DateAdded");
+            //    csv.WriteField("isLiked");
+            //    for (int i = 0; i < filePaths.Length; i++)
+            //    {
+            //        string[] write = joins[i].Split(',');
+            //        csv.WriteRecord(write.AsEnumerable());
+            //    }
+            //}
+  
         }
 
-        
+
     }
 }
