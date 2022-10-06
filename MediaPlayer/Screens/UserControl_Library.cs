@@ -34,8 +34,8 @@ namespace MediaPlayer.Widgets
             {
                 filePaths = openFileDialog.FileNames;
                 fileNames = openFileDialog.SafeFileNames;
-                
             }
+
             f = new TagLib.File[filePaths.Length];
             SongList = new Song[filePaths.Length];
 
@@ -46,16 +46,17 @@ namespace MediaPlayer.Widgets
 
             for (int i = 0; i < filePaths.Length; i++)
             {
+                SongList[i] = new Song();
                 // Id, Title, Artists, FilePath, SongImage, Duration, DateAdded, isLiked
                 SongList[i].setId(Guid.NewGuid().ToString("N"));
                 SongList[i].setTitle(f[i].Tag.Title);
                 SongList[i].setArtists(String.Join(", ", f[i].Tag.AlbumArtists));
                 SongList[i].setFilePath(filePaths[i]);
-                // SongList[i].setSongImage();
+                SongList[i].setSongImage();
                 SongList[i].setDuration(f[i].Properties.Duration.ToString().Substring(3, 5));
                 SongList[i].setDateAdded(DateTime.Now);
                 SongList[i].setisLiked();
-                
+
             }
 
 

@@ -15,7 +15,7 @@ namespace MediaPlayer.Models
         private String Title;
         private String Artists;
         private String FilePath;
-        // private Image SongImage; // Ảnh bìa
+        private Image SongImage; // Ảnh bìa
         private string Duration; // thời lượng bài hát
         private DateTime DateAdded; // ngày thêm bài hát
         private bool isLiked; // check bài hát được thích hay chưa
@@ -55,15 +55,15 @@ namespace MediaPlayer.Models
         {
             this.FilePath = filepath;
         }
-      
-        //public Image getSongImage()
-        //{
-        //    return SongImage;
-        //}
-        //public void setSongImage(Image image = null)
-        //{
-        //    this.SongImage = image;
-        //}
+
+        public Image getSongImage()
+        {
+            return SongImage;
+        }
+        public void setSongImage(Image image = null)
+        {
+            this.SongImage = image;
+        }
 
         public string getDuration()
         {
@@ -101,14 +101,14 @@ namespace MediaPlayer.Models
                     String artist,
                     String path, 
                     string duration,
-                    DateTime dateAdded)
-                    // Image SongImage = null)
+                    DateTime dateAdded,
+                    Image SongImage = null)
         {
             this.Id = Guid.NewGuid().ToString("N");
             this.Title = name;
             this.Artists = author;
             this.FilePath = path;
-            // this.SongImage = SongImage;
+            this.SongImage = SongImage;
             this.Duration = duration;
             this.DateAdded = dateAdded;
             this.isLiked = false;
