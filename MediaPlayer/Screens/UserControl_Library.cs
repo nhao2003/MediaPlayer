@@ -60,29 +60,23 @@ namespace MediaPlayer.Widgets
                 SongList[i].setisLiked();
 
                 object[] array = { SongList[i].getId(), SongList[i].getTitle(), SongList[i].getArtists(),
-                SongList[i].getFilePath(), SongList[i].getDuration(), SongList[i].getDateAdded()
+                SongList[i].getFilePath(), "", SongList[i].getDuration(), SongList[i].getDateAdded().ToString("f")
                 , SongList[i].getisLiked() };
 
-                joins[i] = String.Join(", ", array);
+                joins[i] = String.Join(";", array);
             }
 
-            //using (var writer = new StreamWriter("Songs.csv"))
-            //using (var csv = new CsvWriter(writer, System.Globalization.CultureInfo.InvariantCulture))
-            //{
-            //    csv.WriteField("Id");
-            //    csv.WriteField("Title");
-            //    csv.WriteField("Artists");
-            //    csv.WriteField("FilePath");
-            //    csv.WriteField("Duration");
-            //    csv.WriteField("DateAdded");
-            //    csv.WriteField("isLiked");
-            //    for (int i = 0; i < filePaths.Length; i++)
-            //    {
-            //        string[] write = joins[i].Split(',');
-            //        csv.WriteRecord(write.AsEnumerable());
-            //    }
-            //}
-  
+            string csv_FilePath = @"C:\Users\tuanb\source\repos\New UI\MediaPlayer\MediaPlayer\Resources\Song.csv";
+            StringBuilder sbOutput = new StringBuilder();
+            sbOutput.AppendLine("sep=;");
+            sbOutput.AppendLine("Id;Title;Artists;FilePath;SongImage;Duration;DateAdded;isLiked");
+            for (int i = 0; i < filePaths.Length; i++)
+            {
+                sbOutput.AppendLine(joins[i]);
+            }
+            File.WriteAllText(csv_FilePath, sbOutput.ToString());
+            // File.AppendAllText(csv_FilePath, sbOutput.ToString()); (for appending use)
+
         }
 
 
