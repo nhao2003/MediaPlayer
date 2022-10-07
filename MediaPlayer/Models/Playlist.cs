@@ -9,12 +9,12 @@ namespace MediaPlayer.Models
 {
     internal class Playlist
     {
-        private String id;
-        private String name;
-        private List<Song> listSongs;
-        private int numOfSong;
-        private Image backroundImage;
-        private DateTime dateCreated;
+        private String Id;
+        private String ListName;
+        private List<Song> ListSongs;
+        private int NumOfSong;
+        private Image BackroundImage;
+        private DateTime DateCreated;
 
         public Playlist(String name,
                         List<Song> listSongs,
@@ -22,12 +22,12 @@ namespace MediaPlayer.Models
                         Image backroundImage,
                         DateTime dateCreated)
         {
-            this.id = Guid.NewGuid().ToString("N");
-            this.name = name;
-            this.listSongs = listSongs;
-            this.numOfSong = numOfSong;
-            this.backroundImage = backroundImage;
-            this.dateCreated = dateCreated;
+            this.Id = Guid.NewGuid().ToString("N");
+            this.ListName = name;
+            this.ListSongs = listSongs;
+            this.NumOfSong = numOfSong;
+            this.BackroundImage = backroundImage;
+            this.DateCreated = dateCreated;
         }
     }
 }

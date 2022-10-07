@@ -2,6 +2,7 @@
 using MediaPlayer.Widgets;
 using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace MediaPlayer
 {
@@ -14,7 +15,7 @@ namespace MediaPlayer
 
         private void userControl_Home1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void gunaButton_Home_Click(object sender, EventArgs e)
@@ -45,6 +46,7 @@ namespace MediaPlayer
         {
             indicater.Top = gunaButton_Library.Top;
             MainPages.SetPage(4);
+
         }
 
         private void gunaButton_Settings_Click(object sender, EventArgs e)
