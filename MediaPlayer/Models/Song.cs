@@ -108,6 +108,7 @@ namespace MediaPlayer.Models
             this.Title = name;
             this.Artists = author;
             this.FilePath = path;
+
             this.SongImage = SongImage;
             this.Duration = duration;
             this.DateAdded = dateAdded;

@@ -42,31 +42,31 @@
             this.flowLayoutPanel_Home.Controls.Add(this.gunaLabel_Title);
             this.flowLayoutPanel_Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel_Home.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel_Home.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanel_Home.Name = "flowLayoutPanel_Home";
-            this.flowLayoutPanel_Home.Size = new System.Drawing.Size(1084, 583);
+            this.flowLayoutPanel_Home.Size = new System.Drawing.Size(813, 474);
             this.flowLayoutPanel_Home.TabIndex = 0;
-            this.flowLayoutPanel_Home.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel_Home_Paint);
-            this.flowLayoutPanel_Home.Resize += new System.EventHandler(this.flowLayoutPanel_Home_Resize);
             // 
             // gunaLabel_Title
             // 
             this.gunaLabel_Title.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel_Title.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel_Title.Location = new System.Drawing.Point(3, 0);
+            this.gunaLabel_Title.Location = new System.Drawing.Point(2, 0);
+            this.gunaLabel_Title.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.gunaLabel_Title.Name = "gunaLabel_Title";
-            this.gunaLabel_Title.Size = new System.Drawing.Size(1078, 65);
+            this.gunaLabel_Title.Size = new System.Drawing.Size(808, 53);
             this.gunaLabel_Title.TabIndex = 3;
             this.gunaLabel_Title.Text = "Home";
-            this.gunaLabel_Title.Click += new System.EventHandler(this.gunaLabel_Title_Click);
             // 
             // UserControl_Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.Controls.Add(this.flowLayoutPanel_Home);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "UserControl_Home";
-            this.Size = new System.Drawing.Size(1084, 583);
+            this.Size = new System.Drawing.Size(813, 474);
             this.Load += new System.EventHandler(this.Home_Load);
             this.SizeChanged += new System.EventHandler(this.UserControl_Home_SizeChanged);
             this.Resize += new System.EventHandler(this.UserControl_Home_Resize);

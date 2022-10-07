@@ -32,7 +32,9 @@ namespace MediaPlayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+
             this.GunaElipsePanel_SlidingBar = new Guna.UI.WinForms.GunaElipsePanel();
             this.indicater = new System.Windows.Forms.Panel();
             this.gunaButton_Library = new Guna.UI.WinForms.GunaButton();
@@ -45,10 +47,11 @@ namespace MediaPlayer
             this.Logo = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaPanel_MediaControl = new Guna.UI.WinForms.GunaPanel();
             this.Appbar = new System.Windows.Forms.Panel();
-            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.NameLabel = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaCirclePictureBox1 = new Guna.UI.WinForms.GunaCirclePictureBox();
+
+            this.labelName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.avatar = new Guna.UI.WinForms.GunaCirclePictureBox();
+
             this.Button_Redo = new Guna.UI.WinForms.GunaCircleButton();
             this.Button_Undo = new Guna.UI.WinForms.GunaCircleButton();
             this.MainPages = new Bunifu.UI.WinForms.BunifuPages();
@@ -64,13 +67,14 @@ namespace MediaPlayer
             this.userControl_Video1 = new MediaPlayer.Widgets.UserControl_Video();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
             this.mediaControl = new MediaPlayer.Items.MediaControl();
-            this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
+
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel_MediaControl.SuspendLayout();
             this.Appbar.SuspendLayout();
-            this.gunaElipsePanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).BeginInit();
+
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).BeginInit();
+
             this.MainPages.SuspendLayout();
             this.tabPage_Home.SuspendLayout();
             this.tabPage_Search.SuspendLayout();
@@ -94,7 +98,9 @@ namespace MediaPlayer
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaPanel1);
             this.GunaElipsePanel_SlidingBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.GunaElipsePanel_SlidingBar.Location = new System.Drawing.Point(0, 0);
-            this.GunaElipsePanel_SlidingBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.GunaElipsePanel_SlidingBar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.GunaElipsePanel_SlidingBar.Name = "GunaElipsePanel_SlidingBar";
             this.GunaElipsePanel_SlidingBar.Radius = 1;
             this.GunaElipsePanel_SlidingBar.Size = new System.Drawing.Size(228, 750);
@@ -104,10 +110,11 @@ namespace MediaPlayer
             // 
             this.indicater.BackColor = System.Drawing.Color.SeaGreen;
             this.indicater.ForeColor = System.Drawing.Color.Teal;
-            this.indicater.Location = new System.Drawing.Point(4, 133);
-            this.indicater.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+
+            this.indicater.Location = new System.Drawing.Point(3, 108);
             this.indicater.Name = "indicater";
-            this.indicater.Size = new System.Drawing.Size(7, 54);
+            this.indicater.Size = new System.Drawing.Size(5, 44);
+
             this.indicater.TabIndex = 20;
             // 
             // gunaButton_Library
@@ -126,8 +133,10 @@ namespace MediaPlayer
             this.gunaButton_Library.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Library.Image")));
             this.gunaButton_Library.ImageOffsetX = 10;
             this.gunaButton_Library.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Library.Location = new System.Drawing.Point(0, 344);
-            this.gunaButton_Library.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaButton_Library.Location = new System.Drawing.Point(0, 280);
+            this.gunaButton_Library.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.gunaButton_Library.Name = "gunaButton_Library";
             this.gunaButton_Library.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaButton_Library.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -156,8 +165,10 @@ namespace MediaPlayer
             this.gunaButton_Settings.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Settings.Image")));
             this.gunaButton_Settings.ImageOffsetX = 10;
             this.gunaButton_Settings.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Settings.Location = new System.Drawing.Point(0, 696);
-            this.gunaButton_Settings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaButton_Settings.Location = new System.Drawing.Point(0, 565);
+            this.gunaButton_Settings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.gunaButton_Settings.Name = "gunaButton_Settings";
             this.gunaButton_Settings.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaButton_Settings.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
@@ -186,8 +197,10 @@ namespace MediaPlayer
             this.gunaButton_Video.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Video.Image")));
             this.gunaButton_Video.ImageOffsetX = 10;
             this.gunaButton_Video.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Video.Location = new System.Drawing.Point(0, 290);
-            this.gunaButton_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaButton_Video.Location = new System.Drawing.Point(0, 236);
+            this.gunaButton_Video.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.gunaButton_Video.Name = "gunaButton_Video";
             this.gunaButton_Video.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaButton_Video.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -216,8 +229,10 @@ namespace MediaPlayer
             this.gunaButton_Music.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Music.Image")));
             this.gunaButton_Music.ImageOffsetX = 10;
             this.gunaButton_Music.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Music.Location = new System.Drawing.Point(0, 236);
-            this.gunaButton_Music.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaButton_Music.Location = new System.Drawing.Point(0, 192);
+            this.gunaButton_Music.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.gunaButton_Music.Name = "gunaButton_Music";
             this.gunaButton_Music.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaButton_Music.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -246,8 +261,10 @@ namespace MediaPlayer
             this.gunaButton_Search.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Search.Image")));
             this.gunaButton_Search.ImageOffsetX = 10;
             this.gunaButton_Search.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Search.Location = new System.Drawing.Point(0, 182);
-            this.gunaButton_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaButton_Search.Location = new System.Drawing.Point(0, 148);
+            this.gunaButton_Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.gunaButton_Search.Name = "gunaButton_Search";
             this.gunaButton_Search.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaButton_Search.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -276,8 +293,10 @@ namespace MediaPlayer
             this.gunaButton_Home.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Home.Image")));
             this.gunaButton_Home.ImageOffsetX = 10;
             this.gunaButton_Home.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Home.Location = new System.Drawing.Point(0, 128);
-            this.gunaButton_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaButton_Home.Location = new System.Drawing.Point(0, 104);
+            this.gunaButton_Home.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.gunaButton_Home.Name = "gunaButton_Home";
             this.gunaButton_Home.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaButton_Home.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -296,9 +315,11 @@ namespace MediaPlayer
             this.gunaPanel1.Controls.Add(this.Logo);
             this.gunaPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaPanel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gunaPanel1.Name = "gunaPanel1";
-            this.gunaPanel1.Size = new System.Drawing.Size(228, 128);
+            this.gunaPanel1.Size = new System.Drawing.Size(171, 104);
+
             this.gunaPanel1.TabIndex = 7;
             // 
             // Logo
@@ -315,8 +336,10 @@ namespace MediaPlayer
             this.Logo.ForeColor = System.Drawing.Color.White;
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
             this.Logo.ImageSize = new System.Drawing.Size(52, 52);
-            this.Logo.Location = new System.Drawing.Point(12, 6);
-            this.Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.Logo.Location = new System.Drawing.Point(9, 5);
+            this.Logo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.Logo.Name = "Logo";
             this.Logo.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
             this.Logo.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(211)))), ((int)(((byte)(187)))), ((int)(((byte)(255)))));
@@ -334,76 +357,69 @@ namespace MediaPlayer
             this.gunaPanel_MediaControl.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanel_MediaControl.Controls.Add(this.mediaControl);
             this.gunaPanel_MediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gunaPanel_MediaControl.Location = new System.Drawing.Point(228, 606);
-            this.gunaPanel_MediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.gunaPanel_MediaControl.Location = new System.Drawing.Point(171, 492);
+            this.gunaPanel_MediaControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gunaPanel_MediaControl.Name = "gunaPanel_MediaControl";
-            this.gunaPanel_MediaControl.Size = new System.Drawing.Size(1085, 144);
+            this.gunaPanel_MediaControl.Size = new System.Drawing.Size(814, 117);
+
             this.gunaPanel_MediaControl.TabIndex = 6;
             // 
             // Appbar
             // 
             this.Appbar.BackColor = System.Drawing.Color.Transparent;
-            this.Appbar.Controls.Add(this.gunaElipsePanel1);
+
+            this.Appbar.Controls.Add(this.labelName);
+            this.Appbar.Controls.Add(this.label1);
+            this.Appbar.Controls.Add(this.avatar);
+
             this.Appbar.Controls.Add(this.Button_Redo);
             this.Appbar.Controls.Add(this.Button_Undo);
             this.Appbar.Dock = System.Windows.Forms.DockStyle.Top;
             this.Appbar.ForeColor = System.Drawing.Color.Coral;
-            this.Appbar.Location = new System.Drawing.Point(228, 0);
-            this.Appbar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.Appbar.Location = new System.Drawing.Point(171, 0);
+            this.Appbar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Appbar.Name = "Appbar";
-            this.Appbar.Size = new System.Drawing.Size(1085, 62);
+            this.Appbar.Size = new System.Drawing.Size(814, 50);
             this.Appbar.TabIndex = 8;
             // 
-            // gunaElipsePanel1
+            // labelName
             // 
-            this.gunaElipsePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaElipsePanel1.Controls.Add(this.NameLabel);
-            this.gunaElipsePanel1.Controls.Add(this.gunaLabel1);
-            this.gunaElipsePanel1.Controls.Add(this.gunaCirclePictureBox1);
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(815, 6);
-            this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Radius = 20;
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(257, 48);
-            this.gunaElipsePanel1.TabIndex = 3;
+            this.labelName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.labelName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelName.Location = new System.Drawing.Point(721, 15);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(59, 25);
+            this.labelName.TabIndex = 5;
+            this.labelName.Text = "name";
             // 
-            // NameLabel
+            // label1
             // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.NameLabel.ForeColor = System.Drawing.Color.Black;
-            this.NameLabel.Location = new System.Drawing.Point(163, 9);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(74, 30);
-            this.NameLabel.TabIndex = 3;
-            this.NameLabel.Text = "Name";
-            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(667, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Hello,";
             // 
-            // gunaLabel1
+            // avatar
             // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel1.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel1.Location = new System.Drawing.Point(53, 9);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(107, 30);
-            this.gunaLabel1.TabIndex = 3;
-            this.gunaLabel1.Text = "Xin chào,";
-            // 
-            // gunaCirclePictureBox1
-            // 
-            this.gunaCirclePictureBox1.BaseColor = System.Drawing.Color.DimGray;
-            this.gunaCirclePictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gunaCirclePictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.gunaCirclePictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaCirclePictureBox1.Name = "gunaCirclePictureBox1";
-            this.gunaCirclePictureBox1.Size = new System.Drawing.Size(52, 48);
-            this.gunaCirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gunaCirclePictureBox1.TabIndex = 2;
-            this.gunaCirclePictureBox1.TabStop = false;
-            this.gunaCirclePictureBox1.UseTransfarantBackground = false;
+            this.avatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.avatar.BaseColor = System.Drawing.Color.White;
+            this.avatar.Location = new System.Drawing.Point(622, 7);
+            this.avatar.Name = "avatar";
+            this.avatar.Size = new System.Drawing.Size(39, 39);
+            this.avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.avatar.TabIndex = 4;
+            this.avatar.TabStop = false;
+            this.avatar.UseTransfarantBackground = false;
+
             // 
             // Button_Redo
             // 
@@ -417,15 +433,19 @@ namespace MediaPlayer
             this.Button_Redo.ForeColor = System.Drawing.Color.White;
             this.Button_Redo.Image = ((System.Drawing.Image)(resources.GetObject("Button_Redo.Image")));
             this.Button_Redo.ImageSize = new System.Drawing.Size(24, 24);
-            this.Button_Redo.Location = new System.Drawing.Point(71, 6);
-            this.Button_Redo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.Button_Redo.Location = new System.Drawing.Point(53, 5);
+            this.Button_Redo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.Button_Redo.Name = "Button_Redo";
             this.Button_Redo.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.Button_Redo.OnHoverBorderColor = System.Drawing.Color.Black;
             this.Button_Redo.OnHoverForeColor = System.Drawing.Color.White;
             this.Button_Redo.OnHoverImage = null;
             this.Button_Redo.OnPressedColor = System.Drawing.Color.Black;
-            this.Button_Redo.Size = new System.Drawing.Size(48, 48);
+
+            this.Button_Redo.Size = new System.Drawing.Size(36, 39);
+
             this.Button_Redo.TabIndex = 1;
             // 
             // Button_Undo
@@ -440,15 +460,19 @@ namespace MediaPlayer
             this.Button_Undo.ForeColor = System.Drawing.Color.White;
             this.Button_Undo.Image = global::MediaPlayer.Properties.Resources.next_page_right;
             this.Button_Undo.ImageSize = new System.Drawing.Size(24, 24);
-            this.Button_Undo.Location = new System.Drawing.Point(17, 6);
-            this.Button_Undo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.Button_Undo.Location = new System.Drawing.Point(13, 5);
+            this.Button_Undo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
             this.Button_Undo.Name = "Button_Undo";
             this.Button_Undo.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.Button_Undo.OnHoverBorderColor = System.Drawing.Color.Black;
             this.Button_Undo.OnHoverForeColor = System.Drawing.Color.White;
             this.Button_Undo.OnHoverImage = null;
             this.Button_Undo.OnPressedColor = System.Drawing.Color.Black;
-            this.Button_Undo.Size = new System.Drawing.Size(48, 48);
+
+            this.Button_Undo.Size = new System.Drawing.Size(36, 39);
+
             this.Button_Undo.TabIndex = 1;
             // 
             // MainPages
@@ -462,43 +486,49 @@ namespace MediaPlayer
             this.MainPages.Controls.Add(this.tabPage_Library);
             this.MainPages.Controls.Add(this.tabPage_Settings);
             this.MainPages.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainPages.Location = new System.Drawing.Point(228, 62);
+
+            this.MainPages.Location = new System.Drawing.Point(171, 50);
+
             this.MainPages.Margin = new System.Windows.Forms.Padding(0);
             this.MainPages.Multiline = true;
             this.MainPages.Name = "MainPages";
             this.MainPages.Padding = new System.Drawing.Point(0, 0);
-            this.MainPages.Page = this.tabPage_Library;
-            this.MainPages.PageIndex = 4;
-            this.MainPages.PageName = "tabPage_Library";
-            this.MainPages.PageTitle = "tabPage_Library";
+
+            this.MainPages.Page = this.tabPage_Settings;
+            this.MainPages.PageIndex = 5;
+            this.MainPages.PageName = "tabPage_Settings";
+            this.MainPages.PageTitle = "tabPage_Settings";
             this.MainPages.SelectedIndex = 0;
-            this.MainPages.Size = new System.Drawing.Size(1085, 544);
+            this.MainPages.Size = new System.Drawing.Size(814, 442);
             this.MainPages.TabIndex = 9;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.MainPages.Transition = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 1F;
+            this.MainPages.Transition = animation2;
+
             this.MainPages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             // 
             // tabPage_Home
             // 
             this.tabPage_Home.Controls.Add(this.userControl_Home1);
             this.tabPage_Home.Location = new System.Drawing.Point(4, 4);
-            this.tabPage_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.tabPage_Home.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Home.Name = "tabPage_Home";
-            this.tabPage_Home.Size = new System.Drawing.Size(1077, 515);
+            this.tabPage_Home.Size = new System.Drawing.Size(806, 416);
+
             this.tabPage_Home.TabIndex = 0;
             this.tabPage_Home.Text = "tabPage_Home";
             this.tabPage_Home.UseVisualStyleBackColor = true;
@@ -507,10 +537,12 @@ namespace MediaPlayer
             // 
             this.tabPage_Search.Controls.Add(this.userControl_Search1);
             this.tabPage_Search.Location = new System.Drawing.Point(4, 4);
-            this.tabPage_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.tabPage_Search.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage_Search.Name = "tabPage_Search";
-            this.tabPage_Search.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_Search.Size = new System.Drawing.Size(1077, 515);
+            this.tabPage_Search.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_Search.Size = new System.Drawing.Size(806, 416);
+
             this.tabPage_Search.TabIndex = 1;
             this.tabPage_Search.Text = "tabPage_Search";
             this.tabPage_Search.UseVisualStyleBackColor = true;
@@ -519,10 +551,12 @@ namespace MediaPlayer
             // 
             this.tabPage_Music.Controls.Add(this.userControl_Music1);
             this.tabPage_Music.Location = new System.Drawing.Point(4, 4);
-            this.tabPage_Music.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.tabPage_Music.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage_Music.Name = "tabPage_Music";
-            this.tabPage_Music.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_Music.Size = new System.Drawing.Size(1077, 515);
+            this.tabPage_Music.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_Music.Size = new System.Drawing.Size(806, 416);
+
             this.tabPage_Music.TabIndex = 2;
             this.tabPage_Music.Text = "tabPage_Music";
             this.tabPage_Music.UseVisualStyleBackColor = true;
@@ -531,10 +565,12 @@ namespace MediaPlayer
             // 
             this.tabPage_Video.Controls.Add(this.userControl_Video1);
             this.tabPage_Video.Location = new System.Drawing.Point(4, 4);
-            this.tabPage_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.tabPage_Video.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage_Video.Name = "tabPage_Video";
-            this.tabPage_Video.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_Video.Size = new System.Drawing.Size(1077, 515);
+            this.tabPage_Video.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_Video.Size = new System.Drawing.Size(806, 416);
+
             this.tabPage_Video.TabIndex = 3;
             this.tabPage_Video.Text = "tabPage_Video";
             this.tabPage_Video.UseVisualStyleBackColor = true;
@@ -543,10 +579,12 @@ namespace MediaPlayer
             // 
             this.tabPage_Library.Controls.Add(this.userControl_Library1);
             this.tabPage_Library.Location = new System.Drawing.Point(4, 4);
-            this.tabPage_Library.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.tabPage_Library.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage_Library.Name = "tabPage_Library";
-            this.tabPage_Library.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_Library.Size = new System.Drawing.Size(1077, 515);
+            this.tabPage_Library.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage_Library.Size = new System.Drawing.Size(806, 416);
+
             this.tabPage_Library.TabIndex = 4;
             this.tabPage_Library.Text = "tabPage_Library";
             this.tabPage_Library.UseVisualStyleBackColor = true;
@@ -555,10 +593,11 @@ namespace MediaPlayer
             // 
             this.tabPage_Settings.Controls.Add(this.userControl_Settings1);
             this.tabPage_Settings.Location = new System.Drawing.Point(4, 4);
-            this.tabPage_Settings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.tabPage_Settings.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage_Settings.Name = "tabPage_Settings";
-            this.tabPage_Settings.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage_Settings.Size = new System.Drawing.Size(1077, 515);
+            this.tabPage_Settings.Size = new System.Drawing.Size(806, 416);
+
             this.tabPage_Settings.TabIndex = 5;
             this.tabPage_Settings.Text = "tabPage_Settings";
             this.tabPage_Settings.UseVisualStyleBackColor = true;
@@ -568,66 +607,77 @@ namespace MediaPlayer
             this.userControl_Home1.BackColor = System.Drawing.Color.Transparent;
             this.userControl_Home1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControl_Home1.Location = new System.Drawing.Point(0, 0);
-            this.userControl_Home1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.userControl_Home1.Margin = new System.Windows.Forms.Padding(2);
             this.userControl_Home1.Name = "userControl_Home1";
-            this.userControl_Home1.Size = new System.Drawing.Size(1077, 515);
+            this.userControl_Home1.Size = new System.Drawing.Size(806, 416);
+
             this.userControl_Home1.TabIndex = 0;
             this.userControl_Home1.Load += new System.EventHandler(this.userControl_Home1_Load);
             // 
             // userControl_Search1
             // 
             this.userControl_Search1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Search1.Location = new System.Drawing.Point(3, 2);
+
+            this.userControl_Search1.Location = new System.Drawing.Point(2, 2);
             this.userControl_Search1.Margin = new System.Windows.Forms.Padding(0);
             this.userControl_Search1.Name = "userControl_Search1";
-            this.userControl_Search1.Size = new System.Drawing.Size(1071, 511);
+            this.userControl_Search1.Size = new System.Drawing.Size(802, 412);
+
             this.userControl_Search1.TabIndex = 0;
             // 
             // userControl_Music1
             // 
             this.userControl_Music1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Music1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Music1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.userControl_Music1.Location = new System.Drawing.Point(2, 2);
+            this.userControl_Music1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.userControl_Music1.Name = "userControl_Music1";
-            this.userControl_Music1.Size = new System.Drawing.Size(1071, 511);
+            this.userControl_Music1.Size = new System.Drawing.Size(802, 412);
+
             this.userControl_Music1.TabIndex = 0;
             // 
             // userControl_Video1
             // 
             this.userControl_Video1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Video1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Video1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.userControl_Video1.Location = new System.Drawing.Point(2, 2);
+            this.userControl_Video1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.userControl_Video1.Name = "userControl_Video1";
-            this.userControl_Video1.Size = new System.Drawing.Size(1071, 511);
+            this.userControl_Video1.Size = new System.Drawing.Size(802, 412);
             this.userControl_Video1.TabIndex = 0;
+            // 
+            // userControl_Library1
+            // 
+            this.userControl_Library1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Library1.Location = new System.Drawing.Point(2, 2);
+            this.userControl_Library1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userControl_Library1.Name = "userControl_Library1";
+            this.userControl_Library1.Size = new System.Drawing.Size(802, 412);
+            this.userControl_Library1.TabIndex = 0;
             // 
             // userControl_Settings1
             // 
+            this.userControl_Settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
             this.userControl_Settings1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Settings1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Settings1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userControl_Settings1.Location = new System.Drawing.Point(0, 0);
+            this.userControl_Settings1.Margin = new System.Windows.Forms.Padding(2);
             this.userControl_Settings1.Name = "userControl_Settings1";
-            this.userControl_Settings1.Size = new System.Drawing.Size(1071, 511);
+            this.userControl_Settings1.Size = new System.Drawing.Size(806, 416);
+
             this.userControl_Settings1.TabIndex = 0;
             // 
             // mediaControl
             // 
             this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mediaControl.Location = new System.Drawing.Point(0, 0);
-            this.mediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+
+            this.mediaControl.Margin = new System.Windows.Forms.Padding(2);
             this.mediaControl.Name = "mediaControl";
-            this.mediaControl.Size = new System.Drawing.Size(1085, 144);
+            this.mediaControl.Size = new System.Drawing.Size(814, 117);
             this.mediaControl.TabIndex = 0;
             // 
-            // userControl_Library1
-            // 
-            this.userControl_Library1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Library1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Library1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userControl_Library1.Name = "userControl_Library1";
-            this.userControl_Library1.Size = new System.Drawing.Size(1071, 511);
-            this.userControl_Library1.TabIndex = 0;
-            // 
+
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -638,17 +688,20 @@ namespace MediaPlayer
             this.Controls.Add(this.Appbar);
             this.Controls.Add(this.gunaPanel_MediaControl);
             this.Controls.Add(this.GunaElipsePanel_SlidingBar);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1329, 724);
+
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MinimumSize = new System.Drawing.Size(1001, 596);
+
             this.Name = "Form_Main";
             this.Text = "Form1";
             this.GunaElipsePanel_SlidingBar.ResumeLayout(false);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel_MediaControl.ResumeLayout(false);
             this.Appbar.ResumeLayout(false);
-            this.gunaElipsePanel1.ResumeLayout(false);
-            this.gunaElipsePanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaCirclePictureBox1)).EndInit();
+
+            this.Appbar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.avatar)).EndInit();
+
             this.MainPages.ResumeLayout(false);
             this.tabPage_Home.ResumeLayout(false);
             this.tabPage_Search.ResumeLayout(false);
@@ -668,9 +721,6 @@ namespace MediaPlayer
         private Panel Appbar;
         private GunaCircleButton Button_Undo;
         private GunaCircleButton Button_Redo;
-        private GunaElipsePanel gunaElipsePanel1;
-        private GunaCirclePictureBox gunaCirclePictureBox1;
-        private GunaLabel gunaLabel1;
         private Items.MediaControl mediaControl;
         private GunaButton gunaButton_Library;
         private GunaButton gunaButton_Settings;
@@ -691,8 +741,11 @@ namespace MediaPlayer
         private TabPage tabPage_Settings;
         private Widgets.UserControl_Settings userControl_Settings1;
         private Panel indicater;
-        private GunaLabel NameLabel;
-        private Widgets.UserControl_Library userControl_Library1;
+
+        private GunaCirclePictureBox avatar;
+        private Label labelName;
+        private Label label1;
+
     }
 }
 

@@ -207,8 +207,8 @@
             this.gunaCircleButton_Like.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_Like.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Like.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Like.Image")));
-            this.gunaCircleButton_Like.ImageSize = new System.Drawing.Size(24, 24);
-            this.gunaCircleButton_Like.Location = new System.Drawing.Point(173, 47);
+            this.gunaCircleButton_Like.ImageSize = new System.Drawing.Size(18, 18);
+            this.gunaCircleButton_Like.Location = new System.Drawing.Point(173, 44);
             this.gunaCircleButton_Like.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton_Like.Name = "gunaCircleButton_Like";
             this.gunaCircleButton_Like.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
@@ -297,7 +297,7 @@
             this.gunaCircleButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton4.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton4.Image")));
-            this.gunaCircleButton4.ImageSize = new System.Drawing.Size(32, 32);
+            this.gunaCircleButton4.ImageSize = new System.Drawing.Size(24, 24);
             this.gunaCircleButton4.Location = new System.Drawing.Point(22, 19);
             this.gunaCircleButton4.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton4.Name = "gunaCircleButton4";
@@ -322,7 +322,7 @@
             this.gunaCircleButton_prev.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_prev.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_prev.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_prev.Image")));
-            this.gunaCircleButton_prev.ImageSize = new System.Drawing.Size(49, 49);
+            this.gunaCircleButton_prev.ImageSize = new System.Drawing.Size(37, 37);
             this.gunaCircleButton_prev.Location = new System.Drawing.Point(82, 12);
             this.gunaCircleButton_prev.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton_prev.Name = "gunaCircleButton_prev";
@@ -347,7 +347,7 @@
             this.gunaCircleButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton5.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton5.Image")));
-            this.gunaCircleButton5.ImageSize = new System.Drawing.Size(32, 32);
+            this.gunaCircleButton5.ImageSize = new System.Drawing.Size(24, 24);
             this.gunaCircleButton5.Location = new System.Drawing.Point(300, 19);
             this.gunaCircleButton5.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton5.Name = "gunaCircleButton5";
@@ -372,7 +372,7 @@
             this.gunaCircleButton_next.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_next.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_next.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_next.Image")));
-            this.gunaCircleButton_next.ImageSize = new System.Drawing.Size(49, 49);
+            this.gunaCircleButton_next.ImageSize = new System.Drawing.Size(37, 37);
             this.gunaCircleButton_next.Location = new System.Drawing.Point(228, 13);
             this.gunaCircleButton_next.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton_next.Name = "gunaCircleButton_next";
@@ -397,7 +397,7 @@
             this.gunaCircleButton_Play.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_Play.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Play.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Play.Image")));
-            this.gunaCircleButton_Play.ImageSize = new System.Drawing.Size(64, 64);
+            this.gunaCircleButton_Play.ImageSize = new System.Drawing.Size(48, 48);
             this.gunaCircleButton_Play.Location = new System.Drawing.Point(151, 5);
             this.gunaCircleButton_Play.Margin = new System.Windows.Forms.Padding(2);
             this.gunaCircleButton_Play.Name = "gunaCircleButton_Play";

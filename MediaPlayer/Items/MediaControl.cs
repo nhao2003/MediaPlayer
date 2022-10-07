@@ -16,7 +16,11 @@ namespace MediaPlayer.Items
         // làm sao gắn được data dô hai cái này là được
         String fileName;
         String filePath;
-
+        public MediaControl(String fileName, String filePath) 
+        {
+            this.fileName = fileName;
+            this.filePath = filePath;
+        }
         //=============================================
 
         WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();

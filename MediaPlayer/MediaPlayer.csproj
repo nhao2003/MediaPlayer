@@ -38,6 +38,9 @@
     <Reference Include="Bunifu.UI.WinForms.1.5.3">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuCircleProgress">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuCircleProgress.dll</HintPath>
     </Reference>
@@ -263,6 +266,7 @@
   <ItemGroup>
     <None Include="Resources\video.png" />
     <None Include="Resources\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3" />
+    <None Include="Resources\folder.png" />
     <Content Include="Resources\Icons\001-next-button - Copy.png" />
     <Content Include="Resources\Icons\001-next-button.png" />
     <Content Include="Resources\Icons\001-play-button.png" />

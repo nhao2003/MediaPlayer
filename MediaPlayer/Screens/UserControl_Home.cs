@@ -20,34 +20,10 @@ namespace MediaPlayer.Widgets
             InitializeComponent();
         }
 
-        private void gunaElipsePanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void gunaLabel_Recent_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Home_Load(object sender, EventArgs e)
         {
             flowLayoutPanel_Home.Controls.Add(RecentMusic);
             flowLayoutPanel_Home.Controls.Add(RecentVideo);
-        }
-
-        private void flowLayoutPanel_Recent_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel_Home_Paint(object sender, PaintEventArgs e)
-        {
-        }
-
-        private void flowLayoutPanel_Home_Resize(object sender, EventArgs e)
-        {
-            
         }
 
         private void UserControl_Home_Resize(object sender, EventArgs e)
@@ -60,11 +36,6 @@ namespace MediaPlayer.Widgets
             int width = flowLayoutPanel_Home.Width - 30;
             RecentMusic.Width = width;
             RecentVideo.Width = width;
-        }
-
-        private void gunaLabel_Title_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
