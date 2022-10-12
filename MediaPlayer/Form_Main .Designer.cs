@@ -66,6 +66,7 @@ namespace MediaPlayer
             this.userControl_Music1 = new MediaPlayer.Widgets.UserControl_Music();
             this.userControl_Video1 = new MediaPlayer.Widgets.UserControl_Video();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
+            this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
             this.mediaControl = new MediaPlayer.Items.MediaControl();
 
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
@@ -741,6 +742,7 @@ namespace MediaPlayer
         private TabPage tabPage_Settings;
         private Widgets.UserControl_Settings userControl_Settings1;
         private Panel indicater;
+        private Widgets.UserControl_Library userControl_Library1;
 
         private GunaCirclePictureBox avatar;
         private Label labelName;
