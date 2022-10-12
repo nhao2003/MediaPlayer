@@ -68,10 +68,10 @@
             this.gunaElipsePanel1.Controls.Add(this.gunaPanel);
             this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Radius = 1;
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(771, 117);
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(1085, 117);
             this.gunaElipsePanel1.TabIndex = 1;
             // 
             // timeSongEnd
@@ -79,10 +79,9 @@
             this.timeSongEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.timeSongEnd.AutoSize = true;
             this.timeSongEnd.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.timeSongEnd.Location = new System.Drawing.Point(586, 12);
-            this.timeSongEnd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.timeSongEnd.Location = new System.Drawing.Point(840, 11);
             this.timeSongEnd.Name = "timeSongEnd";
-            this.timeSongEnd.Size = new System.Drawing.Size(34, 15);
+            this.timeSongEnd.Size = new System.Drawing.Size(44, 20);
             this.timeSongEnd.TabIndex = 17;
             this.timeSongEnd.Text = "00:00";
             // 
@@ -90,11 +89,11 @@
             // 
             this.MediaTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.MediaTrackBar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.MediaTrackBar.Location = new System.Drawing.Point(225, 10);
-            this.MediaTrackBar.Margin = new System.Windows.Forms.Padding(2);
+            this.MediaTrackBar.Location = new System.Drawing.Point(300, 7);
+            this.MediaTrackBar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MediaTrackBar.MouseWheelBarPartitions = 1000;
             this.MediaTrackBar.Name = "MediaTrackBar";
-            this.MediaTrackBar.Size = new System.Drawing.Size(356, 21);
+            this.MediaTrackBar.Size = new System.Drawing.Size(532, 26);
             this.MediaTrackBar.TabIndex = 15;
             this.MediaTrackBar.TrackColor = System.Drawing.Color.DeepSkyBlue;
             this.MediaTrackBar.TrackHoverColor = System.Drawing.Color.DodgerBlue;
@@ -109,20 +108,20 @@
             this.panel1.Controls.Add(this.gunaTrackBar_Volume);
             this.panel1.Controls.Add(this.gunaCircleButton_Open);
             this.panel1.Controls.Add(this.gunaCircleButton_Volume);
-            this.panel1.Location = new System.Drawing.Point(577, 32);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(827, 23);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(192, 70);
+            this.panel1.Size = new System.Drawing.Size(256, 86);
             this.panel1.TabIndex = 14;
             // 
             // gunaTrackBar_Volume
             // 
             this.gunaTrackBar_Volume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTrackBar_Volume.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gunaTrackBar_Volume.Location = new System.Drawing.Point(81, 26);
-            this.gunaTrackBar_Volume.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaTrackBar_Volume.Location = new System.Drawing.Point(108, 32);
+            this.gunaTrackBar_Volume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaTrackBar_Volume.Name = "gunaTrackBar_Volume";
-            this.gunaTrackBar_Volume.Size = new System.Drawing.Size(102, 21);
+            this.gunaTrackBar_Volume.Size = new System.Drawing.Size(136, 26);
             this.gunaTrackBar_Volume.TabIndex = 20;
             this.gunaTrackBar_Volume.TrackColor = System.Drawing.Color.DeepSkyBlue;
             this.gunaTrackBar_Volume.TrackHoverColor = System.Drawing.Color.DodgerBlue;
@@ -144,15 +143,15 @@
             this.gunaCircleButton_Open.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Open.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Open.Image")));
             this.gunaCircleButton_Open.ImageSize = new System.Drawing.Size(24, 24);
-            this.gunaCircleButton_Open.Location = new System.Drawing.Point(11, 22);
-            this.gunaCircleButton_Open.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton_Open.Location = new System.Drawing.Point(15, 27);
+            this.gunaCircleButton_Open.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_Open.Name = "gunaCircleButton_Open";
             this.gunaCircleButton_Open.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Open.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Open.OnHoverForeColor = System.Drawing.Color.Transparent;
             this.gunaCircleButton_Open.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Open.OnHoverImage")));
             this.gunaCircleButton_Open.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_Open.Size = new System.Drawing.Size(24, 26);
+            this.gunaCircleButton_Open.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton_Open.TabIndex = 19;
             this.gunaCircleButton_Open.Click += new System.EventHandler(this.gunaCircleButton_Open_Click);
             // 
@@ -170,28 +169,28 @@
             this.gunaCircleButton_Volume.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Volume.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Volume.Image")));
             this.gunaCircleButton_Volume.ImageSize = new System.Drawing.Size(24, 24);
-            this.gunaCircleButton_Volume.Location = new System.Drawing.Point(50, 22);
-            this.gunaCircleButton_Volume.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton_Volume.Location = new System.Drawing.Point(67, 27);
+            this.gunaCircleButton_Volume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_Volume.Name = "gunaCircleButton_Volume";
             this.gunaCircleButton_Volume.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Volume.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Volume.OnHoverForeColor = System.Drawing.Color.Transparent;
             this.gunaCircleButton_Volume.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Volume.OnHoverImage")));
             this.gunaCircleButton_Volume.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_Volume.Size = new System.Drawing.Size(24, 26);
+            this.gunaCircleButton_Volume.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton_Volume.TabIndex = 19;
             // 
             // panel_MediaInfo
             // 
+            this.panel_MediaInfo.Controls.Add(this.gunaLabel_SongName);
             this.panel_MediaInfo.Controls.Add(this.gunaCircleButton_Like);
             this.panel_MediaInfo.Controls.Add(this.timeSongPlay);
             this.panel_MediaInfo.Controls.Add(this.gunaPictureBox_SongImage);
-            this.panel_MediaInfo.Controls.Add(this.gunaLabel_SongName);
             this.panel_MediaInfo.Controls.Add(this.gunaLabel_NameAthor);
-            this.panel_MediaInfo.Location = new System.Drawing.Point(5, 13);
-            this.panel_MediaInfo.Margin = new System.Windows.Forms.Padding(2);
+            this.panel_MediaInfo.Location = new System.Drawing.Point(7, 8);
+            this.panel_MediaInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_MediaInfo.Name = "panel_MediaInfo";
-            this.panel_MediaInfo.Size = new System.Drawing.Size(214, 90);
+            this.panel_MediaInfo.Size = new System.Drawing.Size(285, 111);
             this.panel_MediaInfo.TabIndex = 14;
             // 
             // gunaCircleButton_Like
@@ -207,16 +206,16 @@
             this.gunaCircleButton_Like.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_Like.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Like.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Like.Image")));
-            this.gunaCircleButton_Like.ImageSize = new System.Drawing.Size(18, 18);
-            this.gunaCircleButton_Like.Location = new System.Drawing.Point(173, 44);
-            this.gunaCircleButton_Like.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton_Like.ImageSize = new System.Drawing.Size(25, 25);
+            this.gunaCircleButton_Like.Location = new System.Drawing.Point(225, 42);
+            this.gunaCircleButton_Like.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_Like.Name = "gunaCircleButton_Like";
             this.gunaCircleButton_Like.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Like.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Like.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Like.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Like.OnHoverImage")));
             this.gunaCircleButton_Like.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_Like.Size = new System.Drawing.Size(18, 20);
+            this.gunaCircleButton_Like.Size = new System.Drawing.Size(35, 37);
             this.gunaCircleButton_Like.TabIndex = 19;
             // 
             // timeSongPlay
@@ -224,10 +223,9 @@
             this.timeSongPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.timeSongPlay.AutoSize = true;
             this.timeSongPlay.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.timeSongPlay.Location = new System.Drawing.Point(180, 0);
-            this.timeSongPlay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.timeSongPlay.Location = new System.Drawing.Point(238, 2);
             this.timeSongPlay.Name = "timeSongPlay";
-            this.timeSongPlay.Size = new System.Drawing.Size(34, 15);
+            this.timeSongPlay.Size = new System.Drawing.Size(44, 20);
             this.timeSongPlay.TabIndex = 16;
             this.timeSongPlay.Text = "00:00";
             // 
@@ -235,11 +233,11 @@
             // 
             this.gunaPictureBox_SongImage.BackColor = System.Drawing.Color.Transparent;
             this.gunaPictureBox_SongImage.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox_SongImage.Location = new System.Drawing.Point(3, 9);
-            this.gunaPictureBox_SongImage.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaPictureBox_SongImage.Location = new System.Drawing.Point(4, 9);
+            this.gunaPictureBox_SongImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaPictureBox_SongImage.Name = "gunaPictureBox_SongImage";
             this.gunaPictureBox_SongImage.Radius = 10;
-            this.gunaPictureBox_SongImage.Size = new System.Drawing.Size(68, 73);
+            this.gunaPictureBox_SongImage.Size = new System.Drawing.Size(91, 90);
             this.gunaPictureBox_SongImage.TabIndex = 8;
             this.gunaPictureBox_SongImage.TabStop = false;
             // 
@@ -249,10 +247,9 @@
             this.gunaLabel_SongName.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel_SongName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.gunaLabel_SongName.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel_SongName.Location = new System.Drawing.Point(74, 21);
-            this.gunaLabel_SongName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel_SongName.Location = new System.Drawing.Point(99, 26);
             this.gunaLabel_SongName.Name = "gunaLabel_SongName";
-            this.gunaLabel_SongName.Size = new System.Drawing.Size(82, 19);
+            this.gunaLabel_SongName.Size = new System.Drawing.Size(98, 23);
             this.gunaLabel_SongName.TabIndex = 6;
             this.gunaLabel_SongName.Text = "Tên bài hát";
             // 
@@ -262,10 +259,9 @@
             this.gunaLabel_NameAthor.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel_NameAthor.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaLabel_NameAthor.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel_NameAthor.Location = new System.Drawing.Point(74, 49);
-            this.gunaLabel_NameAthor.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.gunaLabel_NameAthor.Location = new System.Drawing.Point(99, 60);
             this.gunaLabel_NameAthor.Name = "gunaLabel_NameAthor";
-            this.gunaLabel_NameAthor.Size = new System.Drawing.Size(60, 19);
+            this.gunaLabel_NameAthor.Size = new System.Drawing.Size(74, 23);
             this.gunaLabel_NameAthor.TabIndex = 7;
             this.gunaLabel_NameAthor.Text = "Tên ca sĩ";
             // 
@@ -278,10 +274,10 @@
             this.gunaPanel.Controls.Add(this.gunaCircleButton5);
             this.gunaPanel.Controls.Add(this.gunaCircleButton_next);
             this.gunaPanel.Controls.Add(this.gunaCircleButton_Play);
-            this.gunaPanel.Location = new System.Drawing.Point(223, 35);
-            this.gunaPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaPanel.Location = new System.Drawing.Point(297, 30);
+            this.gunaPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaPanel.Name = "gunaPanel";
-            this.gunaPanel.Size = new System.Drawing.Size(350, 67);
+            this.gunaPanel.Size = new System.Drawing.Size(524, 82);
             this.gunaPanel.TabIndex = 13;
             // 
             // gunaCircleButton4
@@ -298,15 +294,15 @@
             this.gunaCircleButton4.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton4.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton4.Image")));
             this.gunaCircleButton4.ImageSize = new System.Drawing.Size(24, 24);
-            this.gunaCircleButton4.Location = new System.Drawing.Point(22, 19);
-            this.gunaCircleButton4.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton4.Location = new System.Drawing.Point(57, 23);
+            this.gunaCircleButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton4.Name = "gunaCircleButton4";
             this.gunaCircleButton4.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton4.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaCircleButton4.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton4.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton4.OnHoverImage")));
             this.gunaCircleButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton4.Size = new System.Drawing.Size(24, 26);
+            this.gunaCircleButton4.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton4.TabIndex = 19;
             // 
             // gunaCircleButton_prev
@@ -322,16 +318,16 @@
             this.gunaCircleButton_prev.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_prev.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_prev.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_prev.Image")));
-            this.gunaCircleButton_prev.ImageSize = new System.Drawing.Size(37, 37);
-            this.gunaCircleButton_prev.Location = new System.Drawing.Point(82, 12);
-            this.gunaCircleButton_prev.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton_prev.ImageSize = new System.Drawing.Size(40, 40);
+            this.gunaCircleButton_prev.Location = new System.Drawing.Point(148, 15);
+            this.gunaCircleButton_prev.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_prev.Name = "gunaCircleButton_prev";
             this.gunaCircleButton_prev.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_prev.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaCircleButton_prev.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_prev.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_prev.OnHoverImage")));
             this.gunaCircleButton_prev.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_prev.Size = new System.Drawing.Size(37, 40);
+            this.gunaCircleButton_prev.Size = new System.Drawing.Size(49, 49);
             this.gunaCircleButton_prev.TabIndex = 19;
             // 
             // gunaCircleButton5
@@ -348,15 +344,15 @@
             this.gunaCircleButton5.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton5.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton5.Image")));
             this.gunaCircleButton5.ImageSize = new System.Drawing.Size(24, 24);
-            this.gunaCircleButton5.Location = new System.Drawing.Point(300, 19);
-            this.gunaCircleButton5.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton5.Location = new System.Drawing.Point(433, 22);
+            this.gunaCircleButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton5.Name = "gunaCircleButton5";
             this.gunaCircleButton5.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton5.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaCircleButton5.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton5.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton5.OnHoverImage")));
             this.gunaCircleButton5.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton5.Size = new System.Drawing.Size(24, 26);
+            this.gunaCircleButton5.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton5.TabIndex = 18;
             // 
             // gunaCircleButton_next
@@ -372,16 +368,16 @@
             this.gunaCircleButton_next.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_next.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_next.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_next.Image")));
-            this.gunaCircleButton_next.ImageSize = new System.Drawing.Size(37, 37);
-            this.gunaCircleButton_next.Location = new System.Drawing.Point(228, 13);
-            this.gunaCircleButton_next.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton_next.ImageSize = new System.Drawing.Size(40, 40);
+            this.gunaCircleButton_next.Location = new System.Drawing.Point(325, 15);
+            this.gunaCircleButton_next.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_next.Name = "gunaCircleButton_next";
             this.gunaCircleButton_next.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_next.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaCircleButton_next.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_next.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_next.OnHoverImage")));
             this.gunaCircleButton_next.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_next.Size = new System.Drawing.Size(37, 40);
+            this.gunaCircleButton_next.Size = new System.Drawing.Size(49, 49);
             this.gunaCircleButton_next.TabIndex = 18;
             // 
             // gunaCircleButton_Play
@@ -397,16 +393,16 @@
             this.gunaCircleButton_Play.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaCircleButton_Play.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Play.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Play.Image")));
-            this.gunaCircleButton_Play.ImageSize = new System.Drawing.Size(48, 48);
-            this.gunaCircleButton_Play.Location = new System.Drawing.Point(151, 5);
-            this.gunaCircleButton_Play.Margin = new System.Windows.Forms.Padding(2);
+            this.gunaCircleButton_Play.ImageSize = new System.Drawing.Size(50, 50);
+            this.gunaCircleButton_Play.Location = new System.Drawing.Point(229, 6);
+            this.gunaCircleButton_Play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_Play.Name = "gunaCircleButton_Play";
             this.gunaCircleButton_Play.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Play.OnHoverBorderColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Play.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.gunaCircleButton_Play.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Play.OnHoverImage")));
             this.gunaCircleButton_Play.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_Play.Size = new System.Drawing.Size(48, 52);
+            this.gunaCircleButton_Play.Size = new System.Drawing.Size(64, 64);
             this.gunaCircleButton_Play.TabIndex = 18;
             this.gunaCircleButton_Play.Click += new System.EventHandler(this.gunaCircleButton_Play_Click);
             // 
@@ -417,12 +413,12 @@
             // 
             // MediaControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gunaElipsePanel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MediaControl";
-            this.Size = new System.Drawing.Size(771, 117);
+            this.Size = new System.Drawing.Size(1085, 117);
             this.gunaElipsePanel1.ResumeLayout(false);
             this.gunaElipsePanel1.PerformLayout();
             this.panel1.ResumeLayout(false);
