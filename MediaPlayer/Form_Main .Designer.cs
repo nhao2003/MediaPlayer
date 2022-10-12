@@ -677,7 +677,7 @@ namespace MediaPlayer
         private Widgets.UserControl_Settings userControl_Settings1;
         private UserControl_Library userControl_Library1;
         private Panel indicater;
-        private Widgets.UserControl_Library userControl_Library1;
+        //private Widgets.UserControl_Library userControl_Library1;
 
         private GunaCirclePictureBox avatar;
         private Label labelName;
