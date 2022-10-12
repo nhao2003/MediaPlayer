@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
 using CsvHelper;
+using Guna.UI.WinForms;
 
 namespace MediaPlayer.Widgets
 {
@@ -77,8 +78,25 @@ namespace MediaPlayer.Widgets
             File.WriteAllText(csv_FilePath, sbOutput.ToString());
             // File.AppendAllText(csv_FilePath, sbOutput.ToString()); (for appending use)
 
+            gunaDataGridView1.Rows.Add(filePaths.Length);
+            int id = 1;
+            for (int i = 0; i < filePaths.Length; i++)
+            {
+                gunaDataGridView1.Rows[i].Cells[0].Value = id++;
+                gunaDataGridView1.Rows[i].Cells[1].Value = SongList[i].getTitle() + Environment.NewLine + SongList[i].getArtists();
+                gunaDataGridView1.Rows[i].Cells[2].Value = SongList[i].getDateAdded().ToString("f");
+                gunaDataGridView1.Rows[i].Cells[3].Value = SongList[i].getisLiked();
+                gunaDataGridView1.Rows[i].Cells[4].Value = SongList[i].getDuration();
+            }
         }
 
+        private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
 
+        private void gunaLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
