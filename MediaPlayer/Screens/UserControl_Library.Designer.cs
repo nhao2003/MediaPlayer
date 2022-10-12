@@ -229,7 +229,11 @@ namespace MediaPlayer.Widgets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.Controls.Add(this.gunaDataGridView1);
+
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+
             this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.gunaLabel_Recent);
             this.Name = "UserControl_Library";
