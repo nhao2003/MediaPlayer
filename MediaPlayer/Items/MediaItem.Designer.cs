@@ -93,6 +93,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.gunaElipsePanel1);
+            this.MaximumSize = new System.Drawing.Size(200, 300);
+            this.MinimumSize = new System.Drawing.Size(200, 300);
             this.Name = "MediaItem";
             this.Size = new System.Drawing.Size(200, 300);
             this.gunaElipsePanel1.ResumeLayout(false);
