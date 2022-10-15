@@ -65,7 +65,6 @@ namespace MediaPlayer
             this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
-
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel_MediaControl.SuspendLayout();
@@ -677,12 +676,11 @@ namespace MediaPlayer
         private Widgets.UserControl_Settings userControl_Settings1;
         private UserControl_Library userControl_Library1;
         private Panel indicater;
-        private Widgets.UserControl_Library userControl_Library1;
+        // private Widgets.UserControl_Library userControl_Library1;
 
         private GunaCirclePictureBox avatar;
         private Label labelName;
         private Label label1;
-
     }
 }
 

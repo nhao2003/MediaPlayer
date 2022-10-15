@@ -57,6 +57,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuShapes">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuShapes.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSnackbar">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
     </Reference>

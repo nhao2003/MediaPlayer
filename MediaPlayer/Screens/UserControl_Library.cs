@@ -79,15 +79,16 @@ namespace MediaPlayer.Widgets
             // File.AppendAllText(csv_FilePath, sbOutput.ToString()); (for appending use)
 
             gunaDataGridView1.Rows.Add(filePaths.Length);
-            int id = 1;
             for (int i = 0; i < filePaths.Length; i++)
             {
-                gunaDataGridView1.Rows[i].Cells[0].Value = id++;
+                gunaDataGridView1.Rows[i].Cells[0].Value = Image.FromFile(@"C:\Users\tuanb\source\repos\LibraryBranch\MediaPlayer\MediaPlayer\Resources\921f72eb0b0a345c3ffe1e83283037ab.png");
                 gunaDataGridView1.Rows[i].Cells[1].Value = SongList[i].getTitle() + Environment.NewLine + SongList[i].getArtists();
-                gunaDataGridView1.Rows[i].Cells[2].Value = SongList[i].getDateAdded().ToString("f");
-                gunaDataGridView1.Rows[i].Cells[3].Value = SongList[i].getisLiked();
+                gunaDataGridView1.Rows[i].Cells[2].Value = SongList[i].getDateAdded().ToShortDateString();
+                if (SongList[i].getisLiked()) gunaDataGridView1.Rows[i].Cells[3].Value = Image.FromFile(@"C:\Users\tuanb\source\repos\LibraryBranch\MediaPlayer\MediaPlayer\Resources\heart (1).png");
+                else gunaDataGridView1.Rows[i].Cells[3].Value = Image.FromFile(@"C:\Users\tuanb\source\repos\LibraryBranch\MediaPlayer\MediaPlayer\Resources\heart.png");
                 gunaDataGridView1.Rows[i].Cells[4].Value = SongList[i].getDuration();
             }
+            
         }
 
         private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
