@@ -17,12 +17,11 @@ namespace MediaPlayer.Widgets
     {
         DisplayMediaItems RecentMusic = new DisplayMediaItems()
         {
-            Anchor = AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left
+            Dock = DockStyle.Bottom,
         };
         DisplayMediaItems RecentVideo = new DisplayMediaItems()
         {
-            Anchor = AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Left,
-            Location = new Point(0, 350)
+            Dock = DockStyle.Bottom,
         };
         public UserControl_Home()
         {
@@ -32,10 +31,9 @@ namespace MediaPlayer.Widgets
         }
         private void Home_Load(object sender, EventArgs e)
         {
-            RecentMusic.Parent = panel_Home;
             RecentVideo.Parent = panel_Home;
-            panel_Home.Controls.Add(RecentMusic);
             panel_Home.Controls.Add(RecentVideo);
+            panel_Home.Controls.Add(RecentMusic);
             //RecentMusic.Show();
             //panel_Home.
 

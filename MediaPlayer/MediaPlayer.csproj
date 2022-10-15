@@ -152,6 +152,12 @@
     <Compile Include="Items\SuggestBar.Designer.cs">
       <DependentUpon>SuggestBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\MusicRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\MusicRow.Designer.cs">
+      <DependentUpon>MusicRow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Program.cs" />
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\MediaControl.resx">
       <DependentUpon>MediaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\MusicRow.resx">
+      <DependentUpon>MusicRow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\SuggestBar.resx">
       <DependentUpon>SuggestBar.cs</DependentUpon>
