@@ -72,8 +72,13 @@ namespace MediaPlayer.Items
         }
         public void continueSong()
         {
-            myPlayer.Ctlcontrols.currentPosition = currentTimePlay;
-            myPlayer.Ctlcontrols.play();
+            if (myPlayer.playState == WMPLib.WMPPlayState.wmppsPaused)
+            {
+                myPlayer.Ctlcontrols.currentPosition = currentTimePlay;
+                myPlayer.Ctlcontrols.play();
+            }
+
+                
         }
         public void playSong()
         {

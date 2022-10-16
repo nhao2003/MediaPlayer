@@ -76,7 +76,7 @@ namespace MediaPlayer.Widgets
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "82");
+                MessageBox.Show("Ban chua chon bai hat!", "82");
             }
             
             player1.playSong();

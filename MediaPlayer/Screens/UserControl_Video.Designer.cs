@@ -79,7 +79,7 @@
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_title.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbl_title.Location = new System.Drawing.Point(790, 68);
+            this.lbl_title.Location = new System.Drawing.Point(777, 68);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(64, 20);
             this.lbl_title.TabIndex = 4;
@@ -90,7 +90,7 @@
             this.lb_album.AutoSize = true;
             this.lb_album.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_album.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lb_album.Location = new System.Drawing.Point(790, 106);
+            this.lb_album.Location = new System.Drawing.Point(777, 106);
             this.lb_album.Name = "lb_album";
             this.lb_album.Size = new System.Drawing.Size(73, 20);
             this.lb_album.TabIndex = 4;
@@ -101,7 +101,7 @@
             this.lb_year.AutoSize = true;
             this.lb_year.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_year.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lb_year.Location = new System.Drawing.Point(790, 142);
+            this.lb_year.Location = new System.Drawing.Point(777, 142);
             this.lb_year.Name = "lb_year";
             this.lb_year.Size = new System.Drawing.Size(59, 20);
             this.lb_year.TabIndex = 4;
@@ -260,7 +260,7 @@
             // 
             this.player1.Location = new System.Drawing.Point(21, 68);
             this.player1.Name = "player1";
-            this.player1.Size = new System.Drawing.Size(331, 348);
+            this.player1.Size = new System.Drawing.Size(615, 406);
             this.player1.TabIndex = 13;
             // 
             // UserControl_Video

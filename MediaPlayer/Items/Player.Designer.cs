@@ -39,7 +39,7 @@
             this.myPlayer.Location = new System.Drawing.Point(0, 0);
             this.myPlayer.Name = "myPlayer";
             this.myPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("myPlayer.OcxState")));
-            this.myPlayer.Size = new System.Drawing.Size(331, 348);
+            this.myPlayer.Size = new System.Drawing.Size(615, 393);
             this.myPlayer.TabIndex = 0;
             // 
             // Player
@@ -48,7 +48,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.myPlayer);
             this.Name = "Player";
-            this.Size = new System.Drawing.Size(331, 348);
+            this.Size = new System.Drawing.Size(615, 393);
             ((System.ComponentModel.ISupportInitialize)(this.myPlayer)).EndInit();
             this.ResumeLayout(false);
 
