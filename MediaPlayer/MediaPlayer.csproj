@@ -146,6 +146,12 @@
     <Compile Include="Items\MediaControl.Designer.cs">
       <DependentUpon>MediaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\Player.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\Player.Designer.cs">
+      <DependentUpon>Player.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Program.cs" />
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\MediaControl.resx">
       <DependentUpon>MediaControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\Player.resx">
+      <DependentUpon>Player.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
