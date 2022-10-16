@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -47,13 +48,21 @@ namespace MediaPlayer.Items
         {
             return myPlayer.Ctlcontrols.currentPositionString;
         }
-        public void playSong()
+        // methold
+        public void setURL(String Path = null)
         {
+            if( Path != null)
+            {
+                this.path = Path;
+            }
             if (this.path != null)
             {
                 myPlayer.URL = path;
-                myPlayer.Ctlcontrols.play();
             }
+        }
+        public void playSong()
+        {
+            myPlayer.Ctlcontrols.play();
         }
         public void stopSong()
         {
@@ -63,11 +72,11 @@ namespace MediaPlayer.Items
         {
             myPlayer.Ctlcontrols.pause();
         }
-        public void changeVolume(int volume)
+        public void setVolume(int volume)
         {
             myPlayer.settings.volume = volume;
         }
-        public void changeCurrentPosition(int mousePosition, int progressBarWidth)
+        public void setCurrentPosition(int mousePosition, int progressBarWidth)
         {
             myPlayer.Ctlcontrols.currentPosition = myPlayer.currentMedia.duration * mousePosition / progressBarWidth;
         }

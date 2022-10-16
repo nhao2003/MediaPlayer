@@ -39,7 +39,6 @@
             this.textBox_Search = new System.Windows.Forms.TextBox();
             this.button_Open = new System.Windows.Forms.Button();
             this.button_Play = new System.Windows.Forms.Button();
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.button_next = new System.Windows.Forms.Button();
             this.button_pause = new System.Windows.Forms.Button();
             this.button_stop = new System.Windows.Forms.Button();
@@ -50,9 +49,11 @@
             this.label_strack_end = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.player = new AxWMPLib.AxWindowsMediaPlayer();
+            this.player1 = new MediaPlayer.Items.Player();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaLabel_Recent
@@ -154,15 +155,6 @@
             this.button_Play.UseVisualStyleBackColor = true;
             this.button_Play.Click += new System.EventHandler(this.button_Play_Click);
             // 
-            // player
-            // 
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(14, 68);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(622, 378);
-            this.player.TabIndex = 8;
-            // 
             // button_next
             // 
             this.button_next.Location = new System.Drawing.Point(125, 525);
@@ -256,11 +248,28 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // player
+            // 
+            this.player.Enabled = true;
+            this.player.Location = new System.Drawing.Point(14, 68);
+            this.player.Name = "player";
+            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
+            this.player.Size = new System.Drawing.Size(197, 150);
+            this.player.TabIndex = 8;
+            // 
+            // player1
+            // 
+            this.player1.Location = new System.Drawing.Point(226, 68);
+            this.player1.Name = "player1";
+            this.player1.Size = new System.Drawing.Size(331, 348);
+            this.player1.TabIndex = 13;
+            // 
             // UserControl_Video
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.Controls.Add(this.player1);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label_strack_end);
             this.Controls.Add(this.label_track_start);
@@ -284,8 +293,8 @@
             this.Size = new System.Drawing.Size(1085, 583);
             this.Load += new System.EventHandler(this.UserControl_Video_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,5 +322,6 @@
         private System.Windows.Forms.Label label_strack_end;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Timer timer1;
+        private Items.Player player1;
     }
 }

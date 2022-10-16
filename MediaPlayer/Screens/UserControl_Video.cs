@@ -71,8 +71,18 @@ namespace MediaPlayer.Widgets
         }
         private void button_Play_Click(object sender, EventArgs e)
         {
-            player.URL = paths[listBox_title.SelectedIndex];
+            try
+            {
+                player.URL = paths[listBox_title.SelectedIndex];
+                player1.setURL(paths[listBox_title.SelectedIndex]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "82");
+            }
+            
             player.Ctlcontrols.play();
+            player1.playSong();
             textBox_Search.Text = "Search";
         }
 
@@ -84,12 +94,14 @@ namespace MediaPlayer.Widgets
         private void button_stop_Click(object sender, EventArgs e)
         {
             player.Ctlcontrols.stop();
+            player1.stopSong();
             progressBar.Value = 0;
         }
 
         private void button_pause_Click(object sender, EventArgs e)
         {
             player.Ctlcontrols.pause();
+            player1.pauseSong();
         }
 
         private void button_next_Click(object sender, EventArgs e)
@@ -98,7 +110,9 @@ namespace MediaPlayer.Widgets
             {
                 listBox_title.SelectedIndex += 1;
                 listBox_title_SelectedIndexChanged(sender, e);
+
                 player.URL = paths[listBox_title.SelectedIndex];
+                player1.setURL(paths[listBox_title.SelectedIndex]);
             }
         }
 
@@ -108,19 +122,24 @@ namespace MediaPlayer.Widgets
             {
                 listBox_title.SelectedIndex -= 1;
                 listBox_title_SelectedIndexChanged(sender, e);
+
                 player.URL = paths[listBox_title.SelectedIndex];
+                player1.playSong();
             }
         }
 
         private void track_volume_Scroll(object sender, EventArgs e)
         {
             player.settings.volume = track_volume.Value;
+            player1.setVolume(track_volume.Value);
+
             label_volume.Text = track_volume.Value.ToString() + "%";
         }
 
         private void progressBar_MouseDown(object sender, MouseEventArgs e)
         {
             player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / progressBar.Width;
+            player1.setCurrentPosition(e.X, progressBar.Width);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -140,11 +159,14 @@ namespace MediaPlayer.Widgets
             try
             {
                 label_track_start.Text = player.Ctlcontrols.currentPositionString;
-                label_strack_end.Text = player.Ctlcontrols.currentItem.durationString.ToString();
+                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                {
+                    label_strack_end.Text = player.Ctlcontrols.currentItem.durationString;
+                }
             }
-            catch
+            catch ( Exception ex )
             {
-
+                MessageBox.Show(ex.ToString(), "169");
             }
         }
     }
