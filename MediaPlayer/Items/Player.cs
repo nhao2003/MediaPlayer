@@ -77,8 +77,6 @@ namespace MediaPlayer.Items
                 myPlayer.Ctlcontrols.currentPosition = currentTimePlay;
                 myPlayer.Ctlcontrols.play();
             }
-
-                
         }
         public void playSong()
         {
