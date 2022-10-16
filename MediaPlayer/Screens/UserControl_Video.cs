@@ -20,7 +20,6 @@ namespace MediaPlayer.Widgets
         }
         private void UserControl_Video_Load(object sender, EventArgs e)
         {
-            player.uiMode = "none";
         }
 
         String[] paths, files;
@@ -73,7 +72,6 @@ namespace MediaPlayer.Widgets
         {
             try
             {
-                player.URL = paths[listBox_title.SelectedIndex];
                 player1.setURL(paths[listBox_title.SelectedIndex]);
             }
             catch (Exception ex)
@@ -81,7 +79,6 @@ namespace MediaPlayer.Widgets
                 MessageBox.Show(ex.ToString(), "82");
             }
             
-            player.Ctlcontrols.play();
             player1.playSong();
             textBox_Search.Text = "Search";
         }
@@ -93,14 +90,12 @@ namespace MediaPlayer.Widgets
 
         private void button_stop_Click(object sender, EventArgs e)
         {
-            player.Ctlcontrols.stop();
             player1.stopSong();
             progressBar.Value = 0;
         }
 
         private void button_pause_Click(object sender, EventArgs e)
         {
-            player.Ctlcontrols.pause();
             player1.pauseSong();
         }
 
@@ -111,7 +106,6 @@ namespace MediaPlayer.Widgets
                 listBox_title.SelectedIndex += 1;
                 listBox_title_SelectedIndexChanged(sender, e);
 
-                player.URL = paths[listBox_title.SelectedIndex];
                 player1.setURL(paths[listBox_title.SelectedIndex]);
             }
         }
@@ -123,32 +117,28 @@ namespace MediaPlayer.Widgets
                 listBox_title.SelectedIndex -= 1;
                 listBox_title_SelectedIndexChanged(sender, e);
 
-                player.URL = paths[listBox_title.SelectedIndex];
                 player1.playSong();
             }
         }
 
         private void track_volume_Scroll(object sender, EventArgs e)
         {
-            player.settings.volume = track_volume.Value;
             player1.setVolume(track_volume.Value);
-
             label_volume.Text = track_volume.Value.ToString() + "%";
         }
 
         private void progressBar_MouseDown(object sender, MouseEventArgs e)
         {
-            player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / progressBar.Width;
             player1.setCurrentPosition(e.X, progressBar.Width);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            if(player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                progressBar.Maximum = (int)player.Ctlcontrols.currentItem.duration;
-                progressBar.Value = (int)player.Ctlcontrols.currentPosition;
-                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                progressBar.Maximum = (int)player1.getDurationSong();
+                progressBar.Value = (int)player1.getCurrentPositionSong();
+                if (player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     if (progressBar.Value >= progressBar.Maximum)
                     {
@@ -158,10 +148,10 @@ namespace MediaPlayer.Widgets
             }
             try
             {
-                label_track_start.Text = player.Ctlcontrols.currentPositionString;
-                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                label_track_start.Text = player1.getCurrentPositionStringSong();
+                if (player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
                 {
-                    label_strack_end.Text = player.Ctlcontrols.currentItem.durationString;
+                    label_strack_end.Text = player1.getDurationStringSong();
                 }
             }
             catch ( Exception ex )

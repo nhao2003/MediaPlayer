@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_Video));
             this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
             this.pic_art = new System.Windows.Forms.PictureBox();
             this.lbl_title = new System.Windows.Forms.Label();
@@ -49,11 +48,9 @@
             this.label_strack_end = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.player1 = new MediaPlayer.Items.Player();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaLabel_Recent
@@ -248,18 +245,9 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // player
-            // 
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(14, 68);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(197, 150);
-            this.player.TabIndex = 8;
-            // 
             // player1
             // 
-            this.player1.Location = new System.Drawing.Point(226, 68);
+            this.player1.Location = new System.Drawing.Point(21, 68);
             this.player1.Name = "player1";
             this.player1.Size = new System.Drawing.Size(331, 348);
             this.player1.TabIndex = 13;
@@ -274,7 +262,6 @@
             this.Controls.Add(this.label_strack_end);
             this.Controls.Add(this.label_track_start);
             this.Controls.Add(this.label_volume);
-            this.Controls.Add(this.player);
             this.Controls.Add(this.button_stop);
             this.Controls.Add(this.button_pause);
             this.Controls.Add(this.button1);
@@ -294,7 +281,6 @@
             this.Load += new System.EventHandler(this.UserControl_Video_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +297,6 @@
         private System.Windows.Forms.TextBox textBox_Search;
         private System.Windows.Forms.Button button_Open;
         private System.Windows.Forms.Button button_Play;
-        private AxWMPLib.AxWindowsMediaPlayer player;
         private System.Windows.Forms.Button button_next;
         private System.Windows.Forms.Button button_pause;
         private System.Windows.Forms.Button button_stop;
