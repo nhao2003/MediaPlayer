@@ -48,6 +48,7 @@
             this.label_strack_end = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.button_continue = new System.Windows.Forms.Button();
             this.player1 = new MediaPlayer.Items.Player();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
@@ -144,7 +145,7 @@
             // 
             // button_Play
             // 
-            this.button_Play.Location = new System.Drawing.Point(330, 525);
+            this.button_Play.Location = new System.Drawing.Point(234, 525);
             this.button_Play.Name = "button_Play";
             this.button_Play.Size = new System.Drawing.Size(86, 28);
             this.button_Play.TabIndex = 7;
@@ -154,7 +155,7 @@
             // 
             // button_next
             // 
-            this.button_next.Location = new System.Drawing.Point(125, 525);
+            this.button_next.Location = new System.Drawing.Point(112, 525);
             this.button_next.Name = "button_next";
             this.button_next.Size = new System.Drawing.Size(86, 28);
             this.button_next.TabIndex = 7;
@@ -245,6 +246,16 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // button_continue
+            // 
+            this.button_continue.Location = new System.Drawing.Point(335, 525);
+            this.button_continue.Name = "button_continue";
+            this.button_continue.Size = new System.Drawing.Size(86, 28);
+            this.button_continue.TabIndex = 7;
+            this.button_continue.Text = "Continue";
+            this.button_continue.UseVisualStyleBackColor = true;
+            this.button_continue.Click += new System.EventHandler(this.button_continue_Click);
+            // 
             // player1
             // 
             this.player1.Location = new System.Drawing.Point(21, 68);
@@ -266,6 +277,7 @@
             this.Controls.Add(this.button_pause);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button_next);
+            this.Controls.Add(this.button_continue);
             this.Controls.Add(this.button_Play);
             this.Controls.Add(this.button_Open);
             this.Controls.Add(this.textBox_Search);
@@ -308,5 +320,6 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Timer timer1;
         private Items.Player player1;
+        private System.Windows.Forms.Button button_continue;
     }
 }

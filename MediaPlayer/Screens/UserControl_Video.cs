@@ -83,6 +83,11 @@ namespace MediaPlayer.Widgets
             textBox_Search.Text = "Search";
         }
 
+        private void button_continue_Click(object sender, EventArgs e)
+        {
+            player1.continueSong();
+        }
+
         private void textBox_name_MouseClick(object sender, MouseEventArgs e)
         {
             textBox_Search.Text = "";
@@ -117,7 +122,7 @@ namespace MediaPlayer.Widgets
                 listBox_title.SelectedIndex -= 1;
                 listBox_title_SelectedIndexChanged(sender, e);
 
-                player1.playSong();
+                player1.setURL(paths[listBox_title.SelectedIndex]);
             }
         }
 
@@ -138,6 +143,7 @@ namespace MediaPlayer.Widgets
             {
                 progressBar.Maximum = (int)player1.getDurationSong();
                 progressBar.Value = (int)player1.getCurrentPositionSong();
+                player1.setCurrentTimePlay();
                 if (player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     if (progressBar.Value >= progressBar.Maximum)
@@ -148,9 +154,9 @@ namespace MediaPlayer.Widgets
             }
             try
             {
-                label_track_start.Text = player1.getCurrentPositionStringSong();
                 if (player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
                 {
+                    label_track_start.Text = player1.getCurrentPositionStringSong();
                     label_strack_end.Text = player1.getDurationStringSong();
                 }
             }

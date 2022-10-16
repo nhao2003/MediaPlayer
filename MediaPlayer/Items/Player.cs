@@ -15,6 +15,7 @@ namespace MediaPlayer.Items
     public partial class Player : UserControl
     {
         string path = null;
+        double currentTimePlay = 0.0;
 
         public Player()
         {
@@ -26,7 +27,15 @@ namespace MediaPlayer.Items
         {
             this.path = path;
         }
+        public void setCurrentTimePlay()
+        {
+            this.currentTimePlay = myPlayer.Ctlcontrols.currentPosition;
+        }
         // get function
+        public double getCurrentTimePlay()
+        {
+            return currentTimePlay;
+        }
         public WMPLib.WMPPlayState getStatus()
         {
             return myPlayer.playState;
@@ -57,15 +66,23 @@ namespace MediaPlayer.Items
             }
             if (this.path != null)
             {
+                currentTimePlay = 0.0;
                 myPlayer.URL = path;
             }
         }
+        public void continueSong()
+        {
+            myPlayer.Ctlcontrols.currentPosition = currentTimePlay;
+            myPlayer.Ctlcontrols.play();
+        }
         public void playSong()
         {
+            currentTimePlay = 0.0;
             myPlayer.Ctlcontrols.play();
         }
         public void stopSong()
         {
+            currentTimePlay = 0.0;
             myPlayer.Ctlcontrols.stop();
         }
         public void pauseSong()
