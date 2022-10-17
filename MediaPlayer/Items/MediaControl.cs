@@ -25,7 +25,10 @@ namespace MediaPlayer.Items
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
             if(playSong != null)
+            {
                 playSong(sender, e);
+            }
+                
         }
 
         private void gunaCircleButton_next_Click(object sender, EventArgs e)

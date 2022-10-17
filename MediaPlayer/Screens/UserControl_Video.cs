@@ -18,9 +18,9 @@ namespace MediaPlayer.Widgets
         public Player player1 = new Player();
         public UserControl_Video()
         {
-            player1.setCurrentPosition(21,68);
             player1.Height = 406;
             player1.Width = 615;
+            player1.Location = new Point(21,68);
             this.Controls.Add(player1);
             InitializeComponent();
         }
