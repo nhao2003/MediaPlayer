@@ -290,7 +290,6 @@
             this.Controls.Add(this.track_volume);
             this.Name = "UserControl_Video";
             this.Size = new System.Drawing.Size(1085, 583);
-            this.Load += new System.EventHandler(this.UserControl_Video_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).EndInit();
             this.ResumeLayout(false);

@@ -18,9 +18,6 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
         }
-        private void UserControl_Video_Load(object sender, EventArgs e)
-        {
-        }
 
         String[] paths, files;
 
@@ -68,15 +65,16 @@ namespace MediaPlayer.Widgets
                 listBox_title.SelectedIndex = index;
             }
         }
-        private void button_Play_Click(object sender, EventArgs e)
+        public void button_Play_Click(object sender, EventArgs e)
         {
             try
             {
                 player1.setURL(paths[listBox_title.SelectedIndex]);
+               
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ban chua chon bai hat!", "82");
+                MessageBox.Show("Ban chua chon bai hat!", "line 82");
             }
             
             player1.playSong();
@@ -162,7 +160,7 @@ namespace MediaPlayer.Widgets
             }
             catch ( Exception ex )
             {
-                MessageBox.Show(ex.ToString(), "169");
+                MessageBox.Show(ex.ToString(), "line 169");
             }
         }
     }

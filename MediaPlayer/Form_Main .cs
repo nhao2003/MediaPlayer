@@ -13,11 +13,6 @@ namespace MediaPlayer
             InitializeComponent();
         }
 
-        private void userControl_Home1_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
             indicater.Top = gunaButton_Home.Top;
@@ -46,13 +41,21 @@ namespace MediaPlayer
         {
             indicater.Top = gunaButton_Library.Top;
             MainPages.SetPage(4);
-
         }
 
         private void gunaButton_Settings_Click(object sender, EventArgs e)
         {
             indicater.Top = gunaButton_Settings.Top;
             MainPages.SetPage(5);
+        }
+        //===== xử lý sự kiện phát nhạc =====================================
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+            mediaControl.play = new MediaControl.pessTheButton(playSong);
+        }
+        public void playSong(object sender, EventArgs e)
+        {
+            userControl_Video1.button_Play_Click(sender, e);
         }
     }
 }

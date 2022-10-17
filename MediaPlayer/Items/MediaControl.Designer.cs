@@ -34,6 +34,7 @@
             this.timeSongEnd = new Guna.UI.WinForms.GunaLabel();
             this.MediaTrackBar = new Guna.UI.WinForms.GunaTrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_volume = new System.Windows.Forms.Label();
             this.gunaTrackBar_Volume = new Guna.UI.WinForms.GunaTrackBar();
             this.gunaCircleButton_Open = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton_Volume = new Guna.UI.WinForms.GunaCircleButton();
@@ -50,7 +51,6 @@
             this.gunaCircleButton_next = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton_Play = new Guna.UI.WinForms.GunaCircleButton();
             this.timerSong = new System.Windows.Forms.Timer(this.components);
-            this.label_volume = new System.Windows.Forms.Label();
             this.gunaElipsePanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel_MediaInfo.SuspendLayout();
@@ -114,6 +114,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(256, 86);
             this.panel1.TabIndex = 14;
+            // 
+            // label_volume
+            // 
+            this.label_volume.AutoSize = true;
+            this.label_volume.Location = new System.Drawing.Point(220, 34);
+            this.label_volume.Name = "label_volume";
+            this.label_volume.Size = new System.Drawing.Size(33, 16);
+            this.label_volume.TabIndex = 21;
+            this.label_volume.Text = "50%";
             // 
             // gunaTrackBar_Volume
             // 
@@ -403,19 +412,11 @@
             this.gunaCircleButton_Play.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Play.Size = new System.Drawing.Size(64, 64);
             this.gunaCircleButton_Play.TabIndex = 18;
+            this.gunaCircleButton_Play.Click += new System.EventHandler(this.gunaCircleButton_Play_Click);
             // 
             // timerSong
             // 
             this.timerSong.Interval = 1;
-            // 
-            // label_volume
-            // 
-            this.label_volume.AutoSize = true;
-            this.label_volume.Location = new System.Drawing.Point(220, 34);
-            this.label_volume.Name = "label_volume";
-            this.label_volume.Size = new System.Drawing.Size(33, 16);
-            this.label_volume.TabIndex = 21;
-            this.label_volume.Text = "50%";
             // 
             // MediaControl
             // 

@@ -13,9 +13,17 @@ namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
     {
+        public delegate void pessTheButton(object sender, EventArgs e);
+        public pessTheButton play;
         public MediaControl()
         {
             InitializeComponent();
+        }
+
+        private void gunaCircleButton_Play_Click(object sender, EventArgs e)
+        {
+            if(play != null)
+                play(sender, e);
         }
     }
 }
