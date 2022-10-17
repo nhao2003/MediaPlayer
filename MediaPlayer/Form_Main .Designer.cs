@@ -35,7 +35,6 @@ namespace MediaPlayer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.GunaElipsePanel_SlidingBar = new Guna.UI.WinForms.GunaElipsePanel();
-            this.indicater = new System.Windows.Forms.Panel();
             this.gunaButton_Library = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Settings = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Video = new Guna.UI.WinForms.GunaButton();
@@ -65,7 +64,6 @@ namespace MediaPlayer
             this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
-
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel_MediaControl.SuspendLayout();
@@ -84,7 +82,6 @@ namespace MediaPlayer
             // 
             this.GunaElipsePanel_SlidingBar.BackColor = System.Drawing.Color.Transparent;
             this.GunaElipsePanel_SlidingBar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(183)))), ((int)(((byte)(136)))));
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.indicater);
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Library);
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Settings);
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Video);
@@ -99,16 +96,6 @@ namespace MediaPlayer
             this.GunaElipsePanel_SlidingBar.Radius = 1;
             this.GunaElipsePanel_SlidingBar.Size = new System.Drawing.Size(228, 750);
             this.GunaElipsePanel_SlidingBar.TabIndex = 5;
-            // 
-            // indicater
-            // 
-            this.indicater.BackColor = System.Drawing.Color.SeaGreen;
-            this.indicater.ForeColor = System.Drawing.Color.Teal;
-            this.indicater.Location = new System.Drawing.Point(3, 108);
-            this.indicater.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.indicater.Name = "indicater";
-            this.indicater.Size = new System.Drawing.Size(5, 44);
-            this.indicater.TabIndex = 20;
             // 
             // gunaButton_Library
             // 
@@ -676,7 +663,6 @@ namespace MediaPlayer
         private TabPage tabPage_Settings;
         private Widgets.UserControl_Settings userControl_Settings1;
         private UserControl_Library userControl_Library1;
-        private Panel indicater;
         //private Widgets.UserControl_Library userControl_Library1;
 
         private GunaCirclePictureBox avatar;

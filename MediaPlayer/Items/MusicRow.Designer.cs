@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicRow));
             this.panel_MusicRow = new Guna.UI.WinForms.GunaElipsePanel();
+            this.label_Duration = new System.Windows.Forms.Label();
             this.btn_Like = new Guna.UI.WinForms.GunaCircleButton();
             this.label_NameSinger = new Guna.UI.WinForms.GunaLabel();
             this.label_NameSong = new Guna.UI.WinForms.GunaLabel();
             this.label_Index = new Guna.UI.WinForms.GunaLabel();
-            this.label_Duration = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel_MusicRow.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,18 @@
             this.panel_MusicRow.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
             this.panel_MusicRow.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             this.panel_MusicRow.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
+            // 
+            // label_Duration
+            // 
+            this.label_Duration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_Duration.AutoSize = true;
+            this.label_Duration.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label_Duration.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_Duration.Location = new System.Drawing.Point(624, 23);
+            this.label_Duration.Name = "label_Duration";
+            this.label_Duration.Size = new System.Drawing.Size(49, 23);
+            this.label_Duration.TabIndex = 23;
+            this.label_Duration.Text = "3:18";
             // 
             // btn_Like
             // 
@@ -103,10 +115,10 @@
             // label_NameSong
             // 
             this.label_NameSong.AutoSize = true;
-            this.label_NameSong.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_NameSong.Location = new System.Drawing.Point(113, 6);
+            this.label_NameSong.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label_NameSong.Location = new System.Drawing.Point(114, 12);
             this.label_NameSong.Name = "label_NameSong";
-            this.label_NameSong.Size = new System.Drawing.Size(197, 29);
+            this.label_NameSong.Size = new System.Drawing.Size(171, 26);
             this.label_NameSong.TabIndex = 21;
             this.label_NameSong.Text = "Waitting for you";
             this.label_NameSong.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
@@ -116,27 +128,15 @@
             // label_Index
             // 
             this.label_Index.AutoSize = true;
-            this.label_Index.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Index.Location = new System.Drawing.Point(17, 18);
+            this.label_Index.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label_Index.Location = new System.Drawing.Point(13, 21);
             this.label_Index.Name = "label_Index";
-            this.label_Index.Size = new System.Drawing.Size(29, 32);
+            this.label_Index.Size = new System.Drawing.Size(24, 26);
             this.label_Index.TabIndex = 21;
             this.label_Index.Text = "1";
             this.label_Index.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
             this.label_Index.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             this.label_Index.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
-            // 
-            // label_Duration
-            // 
-            this.label_Duration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label_Duration.AutoSize = true;
-            this.label_Duration.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Duration.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label_Duration.Location = new System.Drawing.Point(624, 23);
-            this.label_Duration.Name = "label_Duration";
-            this.label_Duration.Size = new System.Drawing.Size(54, 25);
-            this.label_Duration.TabIndex = 23;
-            this.label_Duration.Text = "3:18";
             // 
             // MusicRow
             // 
