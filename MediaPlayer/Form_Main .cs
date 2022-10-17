@@ -57,8 +57,18 @@ namespace MediaPlayer
         }
         public void play(object sender, EventArgs e)
         {
-            if(userControl_Video1.pl)
-            userControl_Video1.button_Play_Click(sender, e);
+            if(userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                userControl_Video1.button_pause_Click(sender, e);
+            }
+            else if (userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPaused)
+            {
+                userControl_Video1.button_continue_Click(sender, e);
+            }
+            else
+            {
+                userControl_Video1.button_Play_Click(sender, e);
+            }
         }
         public void next(object sender, EventArgs e)
         {

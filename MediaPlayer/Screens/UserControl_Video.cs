@@ -18,9 +18,9 @@ namespace MediaPlayer.Widgets
         public Player player1 = new Player();
         public UserControl_Video()
         {
-            player1.setCurrentPosition(21, 68);
-            player1.Height = 615;
-            player1.Width = 406;
+            player1.setCurrentPosition(21,68);
+            player1.Height = 406;
+            player1.Width = 615;
             this.Controls.Add(player1);
             InitializeComponent();
         }
@@ -62,6 +62,10 @@ namespace MediaPlayer.Widgets
             {
 
             }
+            finally
+            {
+                button_Play.PerformClick();
+            }
         }
         private void textBox_Search_KeyUp(object sender, KeyEventArgs e)
         {
@@ -78,7 +82,7 @@ namespace MediaPlayer.Widgets
                 player1.setURL(paths[listBox_title.SelectedIndex]);
                
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Ban chua chon bai hat!", "line 82");
             }
@@ -87,7 +91,7 @@ namespace MediaPlayer.Widgets
             textBox_Search.Text = "Search";
         }
 
-        private void button_continue_Click(object sender, EventArgs e)
+        public void button_continue_Click(object sender, EventArgs e)
         {
             player1.continueSong();
         }
@@ -103,7 +107,7 @@ namespace MediaPlayer.Widgets
             progressBar.Value = 0;
         }
 
-        private void button_pause_Click(object sender, EventArgs e)
+        public void button_pause_Click(object sender, EventArgs e)
         {
             player1.pauseSong();
         }

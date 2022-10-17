@@ -96,9 +96,18 @@ namespace MediaPlayer.Items
         {
             myPlayer.settings.volume = volume;
         }
-        public void setCurrentPosition(int mousePosition, int progressBarWidth)
+        public void setCurrentPosition(int mousePosition , int progressBarWidth)
         {
-            myPlayer.Ctlcontrols.currentPosition = myPlayer.currentMedia.duration * mousePosition / progressBarWidth;
+            try
+            {
+                if(myPlayer.currentMedia != null)
+                    myPlayer.Ctlcontrols.currentPosition = myPlayer.currentMedia.duration * mousePosition / progressBarWidth;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
