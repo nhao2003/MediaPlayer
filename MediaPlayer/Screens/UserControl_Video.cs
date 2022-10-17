@@ -1,4 +1,5 @@
 ﻿using AxWMPLib;
+using MediaPlayer.Items;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,13 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Video : UserControl
     {
+        public Player player1 = new Player();
         public UserControl_Video()
         {
+            player1.setCurrentPosition(21, 68);
+            player1.Height = 615;
+            player1.Width = 406;
+            this.Controls.Add(player1);
             InitializeComponent();
         }
 
@@ -102,7 +108,7 @@ namespace MediaPlayer.Widgets
             player1.pauseSong();
         }
 
-        private void button_next_Click(object sender, EventArgs e)
+        public void button_next_Click(object sender, EventArgs e)
         {
             if(listBox_title.SelectedIndex < listBox_title.Items.Count - 1)
             {
@@ -113,7 +119,7 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             if (listBox_title.SelectedIndex > 0)
             {

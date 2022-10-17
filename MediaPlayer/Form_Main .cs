@@ -51,11 +51,22 @@ namespace MediaPlayer
         //===== xử lý sự kiện phát nhạc =====================================
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            mediaControl.play = new MediaControl.pessTheButton(playSong);
+            mediaControl.playSong = new MediaControl.pessTheButton(play);
+            mediaControl.nextSong = new MediaControl.pessTheButton(next);
+            mediaControl.previewSong = new MediaControl.pessTheButton(preview);
         }
-        public void playSong(object sender, EventArgs e)
+        public void play(object sender, EventArgs e)
         {
+            if(userControl_Video1.pl)
             userControl_Video1.button_Play_Click(sender, e);
+        }
+        public void next(object sender, EventArgs e)
+        {
+            userControl_Video1.button_next_Click(sender, e);
+        }
+        public void preview(object sender, EventArgs e)
+        {
+            userControl_Video1.button1_Click(sender, e);
         }
     }
 }

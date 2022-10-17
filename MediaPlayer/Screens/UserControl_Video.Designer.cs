@@ -49,7 +49,6 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button_continue = new System.Windows.Forms.Button();
-            this.player1 = new MediaPlayer.Items.Player();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
             this.SuspendLayout();
@@ -256,19 +255,11 @@
             this.button_continue.UseVisualStyleBackColor = true;
             this.button_continue.Click += new System.EventHandler(this.button_continue_Click);
             // 
-            // player1
-            // 
-            this.player1.Location = new System.Drawing.Point(21, 68);
-            this.player1.Name = "player1";
-            this.player1.Size = new System.Drawing.Size(615, 406);
-            this.player1.TabIndex = 13;
-            // 
             // UserControl_Video
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.Controls.Add(this.player1);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label_strack_end);
             this.Controls.Add(this.label_track_start);
@@ -318,7 +309,6 @@
         private System.Windows.Forms.Label label_strack_end;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Timer timer1;
-        private Items.Player player1;
         private System.Windows.Forms.Button button_continue;
     }
 }

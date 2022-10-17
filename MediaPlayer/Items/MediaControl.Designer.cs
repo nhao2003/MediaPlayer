@@ -337,6 +337,7 @@
             this.gunaCircleButton_prev.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_prev.Size = new System.Drawing.Size(49, 49);
             this.gunaCircleButton_prev.TabIndex = 19;
+            this.gunaCircleButton_prev.Click += new System.EventHandler(this.gunaCircleButton_prev_Click);
             // 
             // gunaCircleButton5
             // 
@@ -387,6 +388,7 @@
             this.gunaCircleButton_next.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_next.Size = new System.Drawing.Size(49, 49);
             this.gunaCircleButton_next.TabIndex = 18;
+            this.gunaCircleButton_next.Click += new System.EventHandler(this.gunaCircleButton_next_Click);
             // 
             // gunaCircleButton_Play
             // 
