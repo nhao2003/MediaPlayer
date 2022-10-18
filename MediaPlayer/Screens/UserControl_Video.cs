@@ -23,9 +23,11 @@ namespace MediaPlayer.Widgets
         
         public UserControl_Video()
         {
-            player1.Height = 406;
-            player1.Width = 615;
-            player1.Location = new Point(21,68);
+            player1.Width = 633;
+            player1.Height = 485;
+            player1.Location = new Point(14, 68);
+            player1.BackColor = Color.White;
+            player1.Anchor = (AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left);
             this.Controls.Add(player1);
             InitializeComponent();
         }
@@ -100,25 +102,9 @@ namespace MediaPlayer.Widgets
             textBox_Search.Text = "Search";
         }
 
-        public void button_continue_Click(object sender, EventArgs e)
-        {
-            player1.continueSong();
-        }
-
         private void textBox_name_MouseClick(object sender, MouseEventArgs e)
         {
             textBox_Search.Text = "";
-        }
-
-        private void button_stop_Click(object sender, EventArgs e)
-        {
-            player1.stopSong();
-            progressBar.Value = 0;
-        }
-
-        public void button_pause_Click(object sender, EventArgs e)
-        {
-            player1.pauseSong();
         }
 
         public void button_next_Click(object sender, EventArgs e)
@@ -143,43 +129,15 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        private void track_volume_Scroll(object sender, EventArgs e)
-        {
-            player1.setVolume(track_volume.Value);
-            label_volume.Text = track_volume.Value.ToString() + "%";
-        }
-
-        private void progressBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            player1.setCurrentPosition(e.X, progressBar.Width);
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             if(player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                progressBar.Maximum = (int)player1.getDurationSong();
-                progressBar.Value = (int)player1.getCurrentPositionSong();
                 player1.setCurrentTimePlay();
-                if (player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                /*if (progressBar.Value >= progressBar.Maximum)
                 {
-                    if (progressBar.Value >= progressBar.Maximum)
-                    {
-                        button_next.PerformClick();
-                    }
-                }
-            }
-            try
-            {
-                if (player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
-                {
-                    label_track_start.Text = player1.getCurrentPositionStringSong();
-                    label_strack_end.Text = player1.getDurationStringSong();
-                }
-            }
-            catch ( Exception ex )
-            {
-                MessageBox.Show(ex.ToString(), "line 169");
+                    button_next.PerformClick();
+                }*/
             }
         }
     }

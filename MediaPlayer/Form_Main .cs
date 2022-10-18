@@ -102,11 +102,11 @@ namespace MediaPlayer
         {
             if(userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                userControl_Video1.button_pause_Click(sender, e);
+                userControl_Video1.player1.pauseSong();
             }
             else if (userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPaused)
             {
-                userControl_Video1.button_continue_Click(sender, e);
+                userControl_Video1.player1.continueSong();
             }
             else
             {
