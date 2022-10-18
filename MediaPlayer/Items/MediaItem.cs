@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaPlayer.Models;
 
 namespace MediaPlayer.Items
 {
@@ -26,17 +27,28 @@ namespace MediaPlayer.Items
             //label_NameSong.Text = songAuthor;
             //pic_SongPic.Image = songImage;
             var request = WebRequest.Create("https://i.scdn.co/image/ab67616d00001e02771323ba8f7fe1d93fe094ed");
-
-            using (var response = request.GetResponse())
-            using (var stream = response.GetResponseStream())
+            try
             {
-                pic_SongPic.Image = Bitmap.FromStream(stream);
-            }
+                using (var response = request.GetResponse())
+                using (var stream = response.GetResponseStream())
+                {
+                    pic_SongPic.Image = Bitmap.FromStream(stream);
+                }
 
-            pic_SongPic.SizeMode = PictureBoxSizeMode.CenterImage;
+                pic_SongPic.SizeMode = PictureBoxSizeMode.CenterImage;
+            }
+            catch
+            {
+
+            }
         }
         private void gunaPictureBox1_Click(object sender, EventArgs e)
         {
+        }
+
+        private void MediaItem_Click(object sender, EventArgs e)
+        {
+            PlayMedia.Play("C:\\Users\\haosi\\Music\\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3");
         }
     }
 }

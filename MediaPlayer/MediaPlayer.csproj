@@ -158,6 +158,7 @@
     <Compile Include="Items\MusicRow.Designer.cs">
       <DependentUpon>MusicRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\PlayMedia.cs" />
     <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Program.cs" />

@@ -49,6 +49,7 @@
             this.panel_MediaItem.Radius = 10;
             this.panel_MediaItem.Size = new System.Drawing.Size(200, 300);
             this.panel_MediaItem.TabIndex = 0;
+            this.panel_MediaItem.Click += new System.EventHandler(this.MediaItem_Click);
             // 
             // label_Author
             // 
@@ -60,6 +61,7 @@
             this.label_Author.Size = new System.Drawing.Size(86, 20);
             this.label_Author.TabIndex = 5;
             this.label_Author.Text = "gunaLabel2";
+            this.label_Author.Click += new System.EventHandler(this.MediaItem_Click);
             // 
             // label_NameSong
             // 
@@ -73,6 +75,7 @@
             this.label_NameSong.Size = new System.Drawing.Size(127, 28);
             this.label_NameSong.TabIndex = 4;
             this.label_NameSong.Text = "MediaName";
+            this.label_NameSong.Click += new System.EventHandler(this.MediaItem_Click);
             // 
             // pic_SongPic
             // 
@@ -85,7 +88,7 @@
             this.pic_SongPic.Size = new System.Drawing.Size(200, 200);
             this.pic_SongPic.TabIndex = 3;
             this.pic_SongPic.TabStop = false;
-            this.pic_SongPic.Click += new System.EventHandler(this.gunaPictureBox1_Click);
+            this.pic_SongPic.Click += new System.EventHandler(this.MediaItem_Click);
             // 
             // MediaItem
             // 

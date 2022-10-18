@@ -1,8 +1,12 @@
 ﻿using MediaPlayer.Items;
 using MediaPlayer.Widgets;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
+using WMPLib;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace MediaPlayer
 {
@@ -17,7 +21,6 @@ namespace MediaPlayer
         {
             
         }
-
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(0);
@@ -47,6 +50,16 @@ namespace MediaPlayer
         private void gunaButton_Settings_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(5);
+        }
+
+        private void mediaControl_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

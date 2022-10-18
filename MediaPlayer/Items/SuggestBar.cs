@@ -15,6 +15,7 @@ namespace MediaPlayer.Items
         public SuggestBar()
         {
             InitializeComponent();
+            gunaPictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
         }
     }
 }
