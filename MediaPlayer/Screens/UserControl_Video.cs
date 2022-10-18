@@ -16,6 +16,11 @@ namespace MediaPlayer.Widgets
     public partial class UserControl_Video : UserControl
     {
         public Player player1 = new Player();
+
+        // gui du lieu qua ben form cha
+        public delegate void sendStringData(String data);
+        public sendStringData sendPathSong;
+        
         public UserControl_Video()
         {
             player1.Height = 406;
@@ -48,6 +53,10 @@ namespace MediaPlayer.Widgets
         }
         private void listBox_title_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // data can gui ==========================================================
+            if (sendPathSong != null)
+                sendPathSong(paths[listBox_title.SelectedIndex]);
+            //========================================================================
             TagLib.File file = TagLib.File.Create(paths[listBox_title.SelectedIndex]);
             lbl_title.Text = ("Title: " + file.Tag.Title);
             lb_album.Text = ("Album: " + file.Tag.Album);

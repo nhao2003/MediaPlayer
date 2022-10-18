@@ -65,7 +65,7 @@
             // 
             // pic_art
             // 
-            this.pic_art.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pic_art.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.pic_art.Location = new System.Drawing.Point(665, 68);
             this.pic_art.Name = "pic_art";
             this.pic_art.Size = new System.Drawing.Size(100, 100);
@@ -77,7 +77,7 @@
             // 
             this.lbl_title.AutoSize = true;
             this.lbl_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_title.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lbl_title.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbl_title.Location = new System.Drawing.Point(777, 68);
             this.lbl_title.Name = "lbl_title";
             this.lbl_title.Size = new System.Drawing.Size(64, 20);
@@ -88,7 +88,7 @@
             // 
             this.lb_album.AutoSize = true;
             this.lb_album.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_album.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_album.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lb_album.Location = new System.Drawing.Point(777, 106);
             this.lb_album.Name = "lb_album";
             this.lb_album.Size = new System.Drawing.Size(73, 20);
@@ -99,7 +99,7 @@
             // 
             this.lb_year.AutoSize = true;
             this.lb_year.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_year.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lb_year.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lb_year.Location = new System.Drawing.Point(777, 142);
             this.lb_year.Name = "lb_year";
             this.lb_year.Size = new System.Drawing.Size(59, 20);
@@ -108,9 +108,9 @@
             // 
             // listBox_title
             // 
-            this.listBox_title.BackColor = System.Drawing.Color.Gray;
+            this.listBox_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.listBox_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBox_title.ForeColor = System.Drawing.Color.Silver;
+            this.listBox_title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.listBox_title.FormattingEnabled = true;
             this.listBox_title.ItemHeight = 20;
             this.listBox_title.Location = new System.Drawing.Point(665, 309);
@@ -121,9 +121,9 @@
             // 
             // textBox_Search
             // 
-            this.textBox_Search.BackColor = System.Drawing.Color.Gray;
+            this.textBox_Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
             this.textBox_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_Search.ForeColor = System.Drawing.Color.Silver;
+            this.textBox_Search.ForeColor = System.Drawing.Color.Gray;
             this.textBox_Search.Location = new System.Drawing.Point(665, 279);
             this.textBox_Search.Name = "textBox_Search";
             this.textBox_Search.Size = new System.Drawing.Size(376, 24);

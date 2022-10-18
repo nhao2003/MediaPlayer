@@ -51,9 +51,52 @@ namespace MediaPlayer
         //===== xử lý sự kiện phát nhạc =====================================
         private void Form_Main_Load(object sender, EventArgs e)
         {
+            userControl_Video1.sendPathSong = new UserControl_Video.sendStringData(setDataOfSong);
+
+
             mediaControl.playSong = new MediaControl.pessTheButton(play);
             mediaControl.nextSong = new MediaControl.pessTheButton(next);
             mediaControl.previewSong = new MediaControl.pessTheButton(preview);
+            mediaControl.setCurrentPosition = new MediaControl.scrollTheTrackBar(changeCurrentPosition);
+            mediaControl.setVolume = new MediaControl.scrollTheTrackBar(setVolume);
+
+            mediaControl.getDurationSong = new MediaControl.getIntData(getDurationSong);
+            mediaControl.getCurrentPositionSong = new MediaControl.getIntData(getCurrentPositionSong);
+            mediaControl.getDurationStringSong = new MediaControl.getStringData(getDurationStringSong);
+            mediaControl.getCurrentPositionStringSong = new MediaControl.getStringData(getCurrentPositionStringSong);
+            mediaControl.getStatusSong = new MediaControl.getStatus(getStatus);
+        }
+        public WMPLib.WMPPlayState getStatus()
+        {
+            return userControl_Video1.player1.getStatus();
+        }
+        public int getDurationSong()
+        {
+            if (userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                return (int)userControl_Video1.player1.getDurationSong();
+            return 0;
+        }
+        public int getCurrentPositionSong()
+        {
+            if (userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                return (int)userControl_Video1.player1.getCurrentPositionSong();
+            return 0;
+        }
+        public string getDurationStringSong()
+        {
+            if (userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                return userControl_Video1.player1.getDurationStringSong();
+            return "00:00";
+        }
+        public string getCurrentPositionStringSong()
+        {
+            if (userControl_Video1.player1.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                return userControl_Video1.player1.getCurrentPositionStringSong();
+            return "00:00";
+        }
+        public void setDataOfSong(String path)
+        {
+            mediaControl.getPathOfSong(path);
         }
         public void play(object sender, EventArgs e)
         {
@@ -77,6 +120,14 @@ namespace MediaPlayer
         public void preview(object sender, EventArgs e)
         {
             userControl_Video1.button1_Click(sender, e);
+        }
+        public void changeCurrentPosition(object sender, EventArgs e, int value, int progressBarWidth)
+        {
+            userControl_Video1.player1.setCurrentPosition(value, progressBarWidth);
+        }
+        public void setVolume(object sender, EventArgs e, int value, int progressBarWidth)
+        {
+            userControl_Video1.player1.setVolume(value);
         }
     }
 }
