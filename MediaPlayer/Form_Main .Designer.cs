@@ -445,10 +445,10 @@ namespace MediaPlayer
             this.MainPages.Multiline = true;
             this.MainPages.Name = "MainPages";
             this.MainPages.Padding = new System.Drawing.Point(0, 0);
-            this.MainPages.Page = this.tabPage_Home;
-            this.MainPages.PageIndex = 0;
-            this.MainPages.PageName = "tabPage_Home";
-            this.MainPages.PageTitle = "tabPage_Home";
+            this.MainPages.Page = this.tabPage_Search;
+            this.MainPages.PageIndex = 1;
+            this.MainPages.PageName = "tabPage_Search";
+            this.MainPages.PageTitle = "tabPage_Search";
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(1085, 583);
             this.MainPages.TabIndex = 9;

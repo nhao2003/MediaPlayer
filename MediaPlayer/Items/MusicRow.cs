@@ -46,7 +46,7 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            PlayMedia.Play("C:\\Users\\haosi\\Music\\Head In the Clouds - Hayd.mp3");
+            //PlayMedia.Play("C:\\Users\\haosi\\Music\\Head In the Clouds - Hayd.mp3");
         }
     }
 }

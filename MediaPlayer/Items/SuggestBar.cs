@@ -18,7 +18,7 @@ namespace MediaPlayer.Items
             InitializeComponent();
             for (int i = 0; i < ListSong.listSongs.Count; i++)
             {
-                panel_MusicRow.Controls.Add(MusicRow());
+                panel_MusicRow.Controls.Add(new MusicRow());
             }
         }
     }

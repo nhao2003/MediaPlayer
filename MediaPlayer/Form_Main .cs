@@ -60,7 +60,7 @@ namespace MediaPlayer
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            ListSong.fetchListSong();
+            //ListSong.fetchListSong();
         }
     }
 }
