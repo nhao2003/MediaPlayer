@@ -38,10 +38,10 @@
             this.gunaCircleButton_Open = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton_Volume = new Guna.UI.WinForms.GunaCircleButton();
             this.panel_MediaInfo = new System.Windows.Forms.Panel();
+            this.gunaLabel_SongName = new Guna.UI.WinForms.GunaLabel();
             this.gunaCircleButton_Like = new Guna.UI.WinForms.GunaCircleButton();
             this.timeSongPlay = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox_SongImage = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaLabel_SongName = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel_NameAthor = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel = new Guna.UI.WinForms.GunaPanel();
             this.gunaCircleButton4 = new Guna.UI.WinForms.GunaCircleButton();
@@ -100,7 +100,6 @@
             this.MediaTrackBar.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
             this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.DodgerBlue;
             this.MediaTrackBar.Value = 0;
-            this.MediaTrackBar.Scroll += new System.Windows.Forms.ScrollEventHandler(this.MediaTrackBar_Scroll);
             // 
             // panel1
             // 
@@ -127,7 +126,6 @@
             this.gunaTrackBar_Volume.TrackHoverColor = System.Drawing.Color.DodgerBlue;
             this.gunaTrackBar_Volume.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
             this.gunaTrackBar_Volume.TrackPressedColor = System.Drawing.Color.DodgerBlue;
-            this.gunaTrackBar_Volume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.gunaTrackBar_Volume_Scroll);
             // 
             // gunaCircleButton_Open
             // 
@@ -153,7 +151,6 @@
             this.gunaCircleButton_Open.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Open.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton_Open.TabIndex = 19;
-            this.gunaCircleButton_Open.Click += new System.EventHandler(this.gunaCircleButton_Open_Click);
             // 
             // gunaCircleButton_Volume
             // 
@@ -192,6 +189,18 @@
             this.panel_MediaInfo.Name = "panel_MediaInfo";
             this.panel_MediaInfo.Size = new System.Drawing.Size(285, 111);
             this.panel_MediaInfo.TabIndex = 14;
+            // 
+            // gunaLabel_SongName
+            // 
+            this.gunaLabel_SongName.AutoSize = true;
+            this.gunaLabel_SongName.BackColor = System.Drawing.Color.Transparent;
+            this.gunaLabel_SongName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.gunaLabel_SongName.ForeColor = System.Drawing.Color.Black;
+            this.gunaLabel_SongName.Location = new System.Drawing.Point(99, 26);
+            this.gunaLabel_SongName.Name = "gunaLabel_SongName";
+            this.gunaLabel_SongName.Size = new System.Drawing.Size(98, 23);
+            this.gunaLabel_SongName.TabIndex = 6;
+            this.gunaLabel_SongName.Text = "Tên bài hát";
             // 
             // gunaCircleButton_Like
             // 
@@ -240,18 +249,6 @@
             this.gunaPictureBox_SongImage.Size = new System.Drawing.Size(91, 90);
             this.gunaPictureBox_SongImage.TabIndex = 8;
             this.gunaPictureBox_SongImage.TabStop = false;
-            // 
-            // gunaLabel_SongName
-            // 
-            this.gunaLabel_SongName.AutoSize = true;
-            this.gunaLabel_SongName.BackColor = System.Drawing.Color.Transparent;
-            this.gunaLabel_SongName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel_SongName.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel_SongName.Location = new System.Drawing.Point(99, 26);
-            this.gunaLabel_SongName.Name = "gunaLabel_SongName";
-            this.gunaLabel_SongName.Size = new System.Drawing.Size(98, 23);
-            this.gunaLabel_SongName.TabIndex = 6;
-            this.gunaLabel_SongName.Text = "Tên bài hát";
             // 
             // gunaLabel_NameAthor
             // 
@@ -404,12 +401,10 @@
             this.gunaCircleButton_Play.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Play.Size = new System.Drawing.Size(64, 64);
             this.gunaCircleButton_Play.TabIndex = 18;
-            this.gunaCircleButton_Play.Click += new System.EventHandler(this.gunaCircleButton_Play_Click);
             // 
             // timerSong
             // 
-            this.timerSong.Interval = 1;
-            this.timerSong.Tick += new System.EventHandler(this.timerSong_Tick);
+            this.timerSong.Enabled = true;
             // 
             // MediaControl
             // 
