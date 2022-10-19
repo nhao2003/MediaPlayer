@@ -7,6 +7,7 @@ using System.Drawing;
 using WMPLib;
 using System.Threading;
 using System.Threading.Tasks;
+using MediaPlayer.Models;
 
 namespace MediaPlayer
 {
@@ -59,7 +60,7 @@ namespace MediaPlayer
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-
+            ListSong.fetchListSong();
         }
     }
 }

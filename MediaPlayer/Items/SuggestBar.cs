@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaPlayer.Models;
 
 namespace MediaPlayer.Items
 {
@@ -15,7 +16,10 @@ namespace MediaPlayer.Items
         public SuggestBar()
         {
             InitializeComponent();
-            gunaPictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
+            for (int i = 0; i < ListSong.listSongs.Count; i++)
+            {
+                panel_MusicRow.Controls.Add(MusicRow());
+            }
         }
     }
 }
