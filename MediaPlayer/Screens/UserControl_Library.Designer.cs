@@ -29,25 +29,17 @@ namespace MediaPlayer.Widgets
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_Library));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
-            this.gunaDataGridView1 = new Guna.UI.WinForms.GunaDataGridView();
-            this.Picture = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateAdded = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsLiked = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Duration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).BeginInit();
+            this.bunifuSnackbar1 = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
+            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaElipsePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // gunaLabel_Recent
@@ -69,11 +61,11 @@ namespace MediaPlayer.Widgets
             this.gunaButton1.BorderColor = System.Drawing.Color.Black;
             this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaButton1.ForeColor = System.Drawing.Color.White;
             this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
-            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(877, 29);
+            this.gunaButton1.ImageSize = new System.Drawing.Size(30, 30);
+            this.gunaButton1.Location = new System.Drawing.Point(883, 26);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -82,167 +74,162 @@ namespace MediaPlayer.Widgets
             this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaButton1.Size = new System.Drawing.Size(188, 39);
             this.gunaButton1.TabIndex = 6;
-            this.gunaButton1.Text = "Add music ...";
+            this.gunaButton1.Text = "Add folder";
             this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
-            // gunaDataGridView1
+            // bunifuSnackbar1
             // 
-            this.gunaDataGridView1.AllowUserToAddRows = false;
-            this.gunaDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.gunaDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.gunaDataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gunaDataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.gunaDataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaDataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.gunaDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Inter", 14F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gunaDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.gunaDataGridView1.ColumnHeadersHeight = 30;
-            this.gunaDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Picture,
-            this.Title,
-            this.DateAdded,
-            this.IsLiked,
-            this.Duration});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gunaDataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.gunaDataGridView1.EnableHeadersVisualStyles = false;
-            this.gunaDataGridView1.GridColor = System.Drawing.Color.Silver;
-            this.gunaDataGridView1.Location = new System.Drawing.Point(14, 91);
-            this.gunaDataGridView1.Name = "gunaDataGridView1";
-            this.gunaDataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gunaDataGridView1.RowHeadersVisible = false;
-            this.gunaDataGridView1.RowHeadersWidth = 51;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gunaDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.gunaDataGridView1.RowTemplate.Height = 80;
-            this.gunaDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gunaDataGridView1.Size = new System.Drawing.Size(1051, 535);
-            this.gunaDataGridView1.TabIndex = 7;
-            this.gunaDataGridView1.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Guna;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.gunaDataGridView1.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.gunaDataGridView1.ThemeStyle.GridColor = System.Drawing.Color.Silver;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Inter", 14F);
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.gunaDataGridView1.ThemeStyle.HeaderStyle.Height = 30;
-            this.gunaDataGridView1.ThemeStyle.ReadOnly = false;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.Height = 80;
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gunaDataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.gunaDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gunaDataGridView1_CellContentClick);
+            this.bunifuSnackbar1.AllowDragging = false;
+            this.bunifuSnackbar1.AllowMultipleViews = true;
+            this.bunifuSnackbar1.ClickToClose = true;
+            this.bunifuSnackbar1.DoubleClickToClose = true;
+            this.bunifuSnackbar1.DurationAfterIdle = 3000;
+            this.bunifuSnackbar1.ErrorOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.ErrorOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.ErrorOptions.ActionBorderRadius = 1;
+            this.bunifuSnackbar1.ErrorOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.bunifuSnackbar1.ErrorOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.ErrorOptions.BackColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.ErrorOptions.BorderColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.ErrorOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(199)))));
+            this.bunifuSnackbar1.ErrorOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuSnackbar1.ErrorOptions.ForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.ErrorOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon")));
+            this.bunifuSnackbar1.ErrorOptions.IconLeftMargin = 12;
+            this.bunifuSnackbar1.FadeCloseIcon = false;
+            this.bunifuSnackbar1.Host = Bunifu.UI.WinForms.BunifuSnackbar.Hosts.FormOwner;
+            this.bunifuSnackbar1.InformationOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.InformationOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.InformationOptions.ActionBorderRadius = 1;
+            this.bunifuSnackbar1.InformationOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.bunifuSnackbar1.InformationOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.InformationOptions.BackColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.InformationOptions.BorderColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.InformationOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(213)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.InformationOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuSnackbar1.InformationOptions.ForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.InformationOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon1")));
+            this.bunifuSnackbar1.InformationOptions.IconLeftMargin = 12;
+            this.bunifuSnackbar1.Margin = 10;
+            this.bunifuSnackbar1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.bunifuSnackbar1.MaximumViews = 7;
+            this.bunifuSnackbar1.MessageRightMargin = 15;
+            this.bunifuSnackbar1.MinimumSize = new System.Drawing.Size(0, 0);
+            this.bunifuSnackbar1.ShowBorders = false;
+            this.bunifuSnackbar1.ShowCloseIcon = false;
+            this.bunifuSnackbar1.ShowIcon = true;
+            this.bunifuSnackbar1.ShowShadows = true;
+            this.bunifuSnackbar1.SuccessOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.SuccessOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.SuccessOptions.ActionBorderRadius = 1;
+            this.bunifuSnackbar1.SuccessOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.bunifuSnackbar1.SuccessOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.SuccessOptions.BackColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.SuccessOptions.BorderColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.SuccessOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(255)))), ((int)(((byte)(237)))));
+            this.bunifuSnackbar1.SuccessOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuSnackbar1.SuccessOptions.ForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.SuccessOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon2")));
+            this.bunifuSnackbar1.SuccessOptions.IconLeftMargin = 12;
+            this.bunifuSnackbar1.ViewsMargin = 7;
+            this.bunifuSnackbar1.WarningOptions.ActionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.WarningOptions.ActionBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.bunifuSnackbar1.WarningOptions.ActionBorderRadius = 1;
+            this.bunifuSnackbar1.WarningOptions.ActionFont = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.bunifuSnackbar1.WarningOptions.ActionForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.WarningOptions.BackColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.WarningOptions.BorderColor = System.Drawing.Color.White;
+            this.bunifuSnackbar1.WarningOptions.CloseIconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(229)))), ((int)(((byte)(143)))));
+            this.bunifuSnackbar1.WarningOptions.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.bunifuSnackbar1.WarningOptions.ForeColor = System.Drawing.Color.Black;
+            this.bunifuSnackbar1.WarningOptions.Icon = ((System.Drawing.Image)(resources.GetObject("resource.Icon3")));
+            this.bunifuSnackbar1.WarningOptions.IconLeftMargin = 12;
+            this.bunifuSnackbar1.ZoomCloseIcon = true;
             // 
-            // Picture
+            // bunifuElipse1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle3.NullValue")));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Picture.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Picture.HeaderText = "";
-            this.Picture.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Picture.MinimumWidth = 6;
-            this.Picture.Name = "Picture";
-            this.Picture.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Picture.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.bunifuElipse1.ElipseRadius = 5;
+            this.bunifuElipse1.TargetControl = this;
             // 
-            // Title
+            // bunifuLabel1
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Inter", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.Title.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Title.FillWeight = 161.3595F;
-            this.Title.HeaderText = "Title";
-            this.Title.MinimumWidth = 6;
-            this.Title.Name = "Title";
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Inter", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuLabel1.Location = new System.Drawing.Point(612, 37);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(85, 28);
+            this.bunifuLabel1.TabIndex = 8;
+            this.bunifuLabel1.Text = "Sort by:";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
-            // DateAdded
+            // gunaComboBox1
             // 
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Inter", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            this.DateAdded.DefaultCellStyle = dataGridViewCellStyle5;
-            this.DateAdded.FillWeight = 183.5217F;
-            this.DateAdded.HeaderText = "DateAdded";
-            this.DateAdded.MinimumWidth = 6;
-            this.DateAdded.Name = "DateAdded";
+            this.gunaComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
+            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox1.ForeColor = System.Drawing.Color.Navy;
+            this.gunaComboBox1.FormattingEnabled = true;
+            this.gunaComboBox1.Items.AddRange(new object[] {
+            "Date added",
+            "A to Z",
+            "Artist",
+            "Album"});
+            this.gunaComboBox1.Location = new System.Drawing.Point(713, 37);
+            this.gunaComboBox1.Name = "gunaComboBox1";
+            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.gunaComboBox1.Size = new System.Drawing.Size(127, 31);
+            this.gunaComboBox1.TabIndex = 9;
+            this.gunaComboBox1.SelectedIndexChanged += new System.EventHandler(this.gunaComboBox1_SelectedIndexChanged);
             // 
-            // IsLiked
+            // gunaElipsePanel1
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Inter", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle6.NullValue")));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            this.IsLiked.DefaultCellStyle = dataGridViewCellStyle6;
-            this.IsLiked.FillWeight = 54.64055F;
-            this.IsLiked.HeaderText = "IsLiked";
-            this.IsLiked.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.IsLiked.MinimumWidth = 6;
-            this.IsLiked.Name = "IsLiked";
-            this.IsLiked.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsLiked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel1.Controls.Add(this.gunaLabel_Recent);
+            this.gunaElipsePanel1.Controls.Add(this.gunaButton1);
+            this.gunaElipsePanel1.Controls.Add(this.gunaComboBox1);
+            this.gunaElipsePanel1.Controls.Add(this.bunifuLabel1);
+            this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
+            this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 100);
+            this.gunaElipsePanel1.TabIndex = 10;
             // 
-            // Duration
+            // gunaElipsePanel2
             // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Inter Italic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
-            this.Duration.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Duration.FillWeight = 58.05896F;
-            this.Duration.HeaderText = "Duration";
-            this.Duration.MinimumWidth = 6;
-            this.Duration.Name = "Duration";
+            this.gunaElipsePanel2.AutoScroll = true;
+            this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.White;
+            this.gunaElipsePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaElipsePanel2.Location = new System.Drawing.Point(0, 100);
+            this.gunaElipsePanel2.Name = "gunaElipsePanel2";
+            this.gunaElipsePanel2.Size = new System.Drawing.Size(1084, 545);
+            this.gunaElipsePanel2.TabIndex = 11;
             // 
             // UserControl_Library
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.Controls.Add(this.gunaDataGridView1);
-            this.Controls.Add(this.gunaButton1);
-            this.Controls.Add(this.gunaLabel_Recent);
+            this.Controls.Add(this.gunaElipsePanel2);
+            this.Controls.Add(this.gunaElipsePanel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserControl_Library";
             this.Size = new System.Drawing.Size(1084, 645);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaDataGridView1)).EndInit();
+            this.gunaElipsePanel1.ResumeLayout(false);
+            this.gunaElipsePanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -251,11 +238,11 @@ namespace MediaPlayer.Widgets
 
         private Guna.UI.WinForms.GunaLabel gunaLabel_Recent;
         private Guna.UI.WinForms.GunaButton gunaButton1;
-        private Guna.UI.WinForms.GunaDataGridView gunaDataGridView1;
-        private System.Windows.Forms.DataGridViewImageColumn Picture;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateAdded;
-        private System.Windows.Forms.DataGridViewImageColumn IsLiked;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
+        private Bunifu.UI.WinForms.BunifuSnackbar bunifuSnackbar1;
+        private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
+        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
+        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
+        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
     }
 }

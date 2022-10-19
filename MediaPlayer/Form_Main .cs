@@ -54,5 +54,10 @@ namespace MediaPlayer
             indicater.Top = gunaButton_Settings.Top;
             MainPages.SetPage(5);
         }
+
+        private void userControl_Library1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
