@@ -100,6 +100,7 @@
             this.MediaTrackBar.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
             this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.DodgerBlue;
             this.MediaTrackBar.Value = 0;
+            this.MediaTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MediaTrackBar_MouseDown);
             // 
             // panel1
             // 
@@ -126,6 +127,7 @@
             this.gunaTrackBar_Volume.TrackHoverColor = System.Drawing.Color.DodgerBlue;
             this.gunaTrackBar_Volume.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
             this.gunaTrackBar_Volume.TrackPressedColor = System.Drawing.Color.DodgerBlue;
+            this.gunaTrackBar_Volume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.gunaTrackBar_Volume_Scroll);
             // 
             // gunaCircleButton_Open
             // 
@@ -151,6 +153,7 @@
             this.gunaCircleButton_Open.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Open.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton_Open.TabIndex = 19;
+            this.gunaCircleButton_Open.Click += new System.EventHandler(this.gunaCircleButton_Open_Click);
             // 
             // gunaCircleButton_Volume
             // 
@@ -401,10 +404,12 @@
             this.gunaCircleButton_Play.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Play.Size = new System.Drawing.Size(64, 64);
             this.gunaCircleButton_Play.TabIndex = 18;
+            this.gunaCircleButton_Play.Click += new System.EventHandler(this.gunaCircleButton_Play_Click);
             // 
             // timerSong
             // 
             this.timerSong.Enabled = true;
+            this.timerSong.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MediaControl
             // 
