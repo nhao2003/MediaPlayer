@@ -19,12 +19,7 @@ namespace MediaPlayer.Items
             InitializeComponent();
             foreach (Song song in ListSong.listSongs)
             {
-                musicRow = new MusicRow()
-                {
-                    Dock = DockStyle.Top
-                };
-                musicRow.Song = song;
-                panel_MusicRow.Controls.Add(musicRow);
+                panel_MusicRow.Controls.Add(new MusicRow());
             }
         }
     }

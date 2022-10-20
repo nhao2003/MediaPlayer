@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Guna.UI.WinForms;
+using MediaPlayer.Items;
 
 namespace MediaPlayer.Widgets
 {
