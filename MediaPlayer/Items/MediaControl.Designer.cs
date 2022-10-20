@@ -179,6 +179,7 @@
             this.gunaCircleButton_Volume.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Volume.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton_Volume.TabIndex = 19;
+            this.gunaCircleButton_Volume.Click += new System.EventHandler(this.gunaCircleButton_Volume_Click);
             // 
             // panel_MediaInfo
             // 
@@ -219,7 +220,7 @@
             this.gunaCircleButton_Like.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Like.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Like.Image")));
             this.gunaCircleButton_Like.ImageSize = new System.Drawing.Size(25, 25);
-            this.gunaCircleButton_Like.Location = new System.Drawing.Point(225, 42);
+            this.gunaCircleButton_Like.Location = new System.Drawing.Point(242, 42);
             this.gunaCircleButton_Like.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_Like.Name = "gunaCircleButton_Like";
             this.gunaCircleButton_Like.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
@@ -409,7 +410,7 @@
             // 
             // timerSong
             // 
-            this.timerSong.Enabled = true;
+            this.timerSong.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // MediaControl
             // 

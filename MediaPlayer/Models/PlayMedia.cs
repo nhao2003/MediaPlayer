@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaPlayer.Widgets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -67,11 +68,15 @@ namespace MediaPlayer.Models
         }
         public static string getDurationStringSong()
         {
-            return player.Ctlcontrols.currentItem.durationString.ToString();
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                return player.Ctlcontrols.currentItem.durationString.ToString();
+            return "00:00";
         }
         public static string getCurrentPositionStringSong()
         {
-            return player.Ctlcontrols.currentPositionString;
+            if(player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                return player.Ctlcontrols.currentPositionString;
+            return "00:00";
         }
         // methold
 
@@ -86,6 +91,7 @@ namespace MediaPlayer.Models
             {
                 currentTimePlay = 0.0;
                 player.URL = path;
+                player.Ctlcontrols.stop();
             }
         }
         public static void continueSong()
@@ -113,6 +119,10 @@ namespace MediaPlayer.Models
         public static void setVolume(int volume)
         {
             player.settings.volume = volume;
+        }
+        public static void muteVolume()
+        {
+            player.settings.volume = 0;
         }
         public static void setCurrentPosition(int mousePosition, int progressBarWidth)
         {

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
+using MediaPlayer.Widgets;
 
 namespace MediaPlayer.Items
 {
@@ -43,6 +44,8 @@ namespace MediaPlayer.Items
             {
                 path = ofd.FileName;
                 getPathOfSong(path);
+                if (path != null) PlayMedia.setURL(path);
+                PlayMedia.setCurrentTimePlay();
             }
         }
 
@@ -50,8 +53,21 @@ namespace MediaPlayer.Items
         {
             try
             {
-                if (path != null)
-                    PlayMedia.setURL(path);
+                if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                {
+                    timerSong.Enabled = false;
+                    PlayMedia.pauseSong();
+                }
+                else if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPaused)
+                {
+                    PlayMedia.continueSong();
+                    timerSong.Enabled = true;
+                }
+                else
+                {
+                    timerSong.Enabled = true;
+                    PlayMedia.playSong();
+                }
             }
             catch (Exception ex)
             {
@@ -67,6 +83,7 @@ namespace MediaPlayer.Items
                 MediaTrackBar.Value = (int)PlayMedia.getCurrentPositionSong();
                 timeSongPlay.Text = PlayMedia.getCurrentPositionStringSong();
                 timeSongEnd.Text = PlayMedia.getDurationStringSong();
+                PlayMedia.setCurrentTimePlay();
             }
         }
 
@@ -78,6 +95,22 @@ namespace MediaPlayer.Items
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+        }
+
+        public int volumeNow = 50;
+        private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
+        {
+            if (PlayMedia.player.settings.volume != 0)
+            {
+                PlayMedia.muteVolume();
+                volumeNow = gunaTrackBar_Volume.Value;
+                gunaTrackBar_Volume.Value = 0;
+            }
+            else
+            {
+                PlayMedia.setVolume(volumeNow);
+                gunaTrackBar_Volume.Value = volumeNow;
+            }
         }
     }
 }
