@@ -9,31 +9,40 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace MediaPlayer.Items
 {
     public partial class MusicRow : UserControl
     {
+        private Song song;
+        public Song Song
+        {
+            get
+            {
+                return song;
+            }
+            set
+            {
+                song = value;
+                pic_Song.Image = song.getSongImage();
+                label_NameSong.Text = song.getTitle();
+                label_Duration.Text = song.getDuration();
+                label_NameSinger.Text = song.getArtists();
+                pic_Song.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
         public MusicRow()
         {
             InitializeComponent();
             var request = WebRequest.Create("https://data.chiasenhac.com/data/cover/160/159824.jpg");
-            try
-            {
-                using (var response = request.GetResponse())
-                using (var stream = response.GetResponseStream())
-                {
-                    pic_Song.Image = Bitmap.FromStream(stream);
-                }
-
-                pic_Song.SizeMode = PictureBoxSizeMode.StretchImage;
-            }
-            catch
-            {
-
-            }
         }
 
+        public static void setInfo()
+        {
+
+        }
         private void MusicRow_MouseEnter(object sender, EventArgs e)
         {
             panel_MusicRow.BaseColor = Color.FromArgb(165, 220, 188);
@@ -46,7 +55,8 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            PlayMedia.Play("C:\\Users\\haosi\\Music\\Head In the Clouds - Hayd.mp3");
+            //TODO:Xoa commit
+            //PlayMedia.Play(song.);
         }
     }
 }

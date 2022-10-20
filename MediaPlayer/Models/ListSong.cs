@@ -37,17 +37,28 @@ namespace MediaPlayer.Models
             Song tmp;
             for (int i = 0; i < filePaths.Length; i++)
             {
-                tmp = new Song();
+
                 // Id, Title, Artists, FilePath, SongImage, Duration, DateAdded, isLiked
-                tmp.setId(Guid.NewGuid().ToString("N"));
-                tmp.setTitle(f[i].Tag.Title);
-                tmp.setArtists(String.Join(", ", f[i].Tag.AlbumArtists));
-                tmp.setFilePath(filePaths[i]);
-                tmp.setSongImage();
-                tmp.setDuration(f[i].Properties.Duration.ToString().Substring(3, 5));
-                tmp.setDateAdded(DateTime.Now);
-                tmp.setisLiked();
-                listSongs.Add(tmp);
+                //tmp = new Song(
+                //    name:f[i].Tag.Title,
+                //    String.Join(", ", f[i].Tag.AlbumArtists),
+                //    filePaths[i],
+                //    f[i].Properties.
+                //        );
+                //tmp.setId(Guid.NewGuid().ToString("N"));
+                //tmp.setTitle(f[i].Tag.Title);
+                //tmp.setArtists(String.Join(", ", f[i].Tag.AlbumArtists));
+                //tmp.setFilePath(filePaths[i]);
+                //tmp.setSongImage();
+                //tmp.setDuration(f[i].Properties.Duration.ToString().Substring(3, 5));
+                //tmp.setDateAdded(DateTime.Now);
+                //tmp.setisLiked();
+                //listSongs.Add(tmp);
+            }
+
+            foreach (Song x in ListSong.listSongs)
+            {
+                Console.WriteLine(x.ToString());
             }
         }
     }

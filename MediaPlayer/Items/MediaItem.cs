@@ -19,13 +19,10 @@ namespace MediaPlayer.Items
         private String songTitle;
         private String songAuthor;
         private Image songImage;
-
-        public MediaItem()
+        private string path;
+        public MediaItem(string path)
         {
             InitializeComponent();
-            //label_Author.Text = songTitle;
-            //label_NameSong.Text = songAuthor;
-            //pic_SongPic.Image = songImage;
             var request = WebRequest.Create("https://i.scdn.co/image/ab67616d00001e02771323ba8f7fe1d93fe094ed");
             try
             {
@@ -41,6 +38,8 @@ namespace MediaPlayer.Items
             {
 
             }
+
+            this.path = path;
         }
         private void gunaPictureBox1_Click(object sender, EventArgs e)
         {
@@ -48,7 +47,7 @@ namespace MediaPlayer.Items
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            PlayMedia.Play("C:\\Users\\haosi\\Music\\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3");
+            PlayMedia.Play(path);
         }
     }
 }

@@ -7,122 +7,65 @@ using System.Threading.Tasks;
 
 namespace MediaPlayer.Models
 {
-    internal class Song
+    public class Song
     {
         // Id, Title, Artists, FilePath, SongImage, Duration, DateAdded, isLiked
         // thuộc tính
-        private String Id; // id is unique
-        private String Title;
-        private String Artists;
-        private String FilePath;
-        private Image SongImage; // Ảnh bìa
-        private string Duration; // thời lượng bài hát
-        private DateTime DateAdded; // ngày thêm bài hát
+        private String id;
+        private String title;
+        private String artists;
+        private String filePath;
+        private Image image; // Ảnh bìa
+        private double duration; // thời lượng bài hát
+        private DateTime dateAdded; // ngày thêm bài hát
         private bool isLiked; // check bài hát được thích hay chưa
 
-        public string getId()
-        {
-            return Id;
-        }
-        public void setId(string id)
-        {
-            this.Id = id;
-        }
+        public String Id { get; }
 
-        public string getTitle()
+        public String Title
         {
-            return Title;
+            get
+            {
+                if (title == null) return "Unknown";
+                return title;
+            }
         }
-        public void setTitle(string title)
-        {
-            this.Title = title;
+        public String Artists {
+            get
+            {
+                if (artists == null) return "Unknown";
+                return artists;
+            }
         }
-
-        public string getArtists()
-        {
-            return Artists;
-        }
-        public void setArtists(string artists)
-        {
-            this.Artists = artists;
-        }
-
-        public string getFilePath()
-        {
-            return FilePath;
-        }
-        public void setFilePath(string filepath)
-        {
-            this.FilePath = filepath;
-        }
-
-        public Image getSongImage()
-        {
-            return SongImage;
-        }
-        public void setSongImage(Image image = null)
-        {
-            this.SongImage = image;
-        }
-
-        public string getDuration()
-        {
-            return Duration;
-        }
-        public void setDuration(string duration)
-        {
-            this.Duration = duration;
-        }
-
-        public DateTime getDateAdded()
-        {
-            return DateAdded;
-        }
-        public void setDateAdded(DateTime addedTime)
-        {
-            this.DateAdded = addedTime;
-        }
-        public bool getisLiked()
-        {
-            return isLiked;
-        }
-        public void setisLiked(bool isLiked = false)
-        {
-            this.isLiked = isLiked;
-        }
+        public Image Image { get; }
+        public double Duration { get; }
+        public DateTime DateAdded { get; }
+        public bool IsLiked { get; }
         public Song()
         {
-            // SongImage = null;
         }
-        // Phương thức
-        // Id, Title, Artists, FilePath, SongImage, Duration, DateAdded, isLiked
         public Song(String name, 
                     String author,
                     String artist,
                     String path, 
-                    string duration,
+                    double duration,
                     DateTime dateAdded,
                     Image SongImage = null)
         {
-            this.Id = Guid.NewGuid().ToString("N");
-            this.Title = name;
-            this.Artists = author;
-            this.FilePath = path;
+            this.id = Guid.NewGuid().ToString("N");
+            this.title = name;
+            this.artists = author;
+            this.filePath = path;
 
-            this.SongImage = SongImage;
-            this.Duration = duration;
-            this.DateAdded = dateAdded;
+            this.image = SongImage;
+            this.duration = duration;
+            this.dateAdded = dateAdded;
             this.isLiked = false;
-            //(SongImage == null) ? 
-            //    this.SongImage = Image.FromFile(".\\MediaPlayer\\MediaPlayer\\Resources\\defaultImage.jpg") : 
-            //    this.SongImage = SongImage;
         }
 
-
-        // phuong thuc like
-        public void LikedSong(bool check = true)
+        public void Like()
         {
-            this.isLiked = check;
+            isLiked = !isLiked;
         }
 
     }

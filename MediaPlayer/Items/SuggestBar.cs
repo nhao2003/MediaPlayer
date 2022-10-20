@@ -15,10 +15,16 @@ namespace MediaPlayer.Items
     {
         public SuggestBar()
         {
+            MusicRow musicRow;
             InitializeComponent();
-            for (int i = 0; i < ListSong.listSongs.Count; i++)
+            foreach (Song song in ListSong.listSongs)
             {
-                panel_MusicRow.Controls.Add(MusicRow());
+                musicRow = new MusicRow()
+                {
+                    Dock = DockStyle.Top
+                };
+                musicRow.Song = song;
+                panel_MusicRow.Controls.Add(musicRow);
             }
         }
     }

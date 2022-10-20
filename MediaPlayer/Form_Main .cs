@@ -15,6 +15,7 @@ namespace MediaPlayer
     {
         public Form_Main()
         {
+            ListSong.fetchListSong();
             InitializeComponent();
         }
 
@@ -60,7 +61,6 @@ namespace MediaPlayer
 
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            ListSong.fetchListSong();
         }
     }
 }
