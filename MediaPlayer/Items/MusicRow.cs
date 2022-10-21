@@ -56,7 +56,6 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            //PlayMedia.Play(song.FilePath);
             sendPath(song.FilePath);
         }
     }

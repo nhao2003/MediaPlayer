@@ -15,6 +15,8 @@ namespace MediaPlayer.Items
 {
     public partial class MediaItem : UserControl
     {
+        public delegate void Send(string path);
+        public Send sendPath;
         private Song song;
         public MediaItem(Song song)
         {
@@ -30,7 +32,7 @@ namespace MediaPlayer.Items
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            PlayMedia.Play(song.FilePath);
+            sendPath(song.FilePath);
         }
     }
 }

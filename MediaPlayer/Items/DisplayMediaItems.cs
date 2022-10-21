@@ -14,12 +14,11 @@ namespace MediaPlayer.Items
 {
     public partial class DisplayMediaItems : UserControl
     {
-        private string[] filePaths;
-
+        public delegate void Send(string path);
+        public Send sendPath;
         public DisplayMediaItems()
         {
             InitializeComponent();
-
         }
 
         private void DisplayMediaItems_Load(object sender, EventArgs e)
@@ -32,11 +31,16 @@ namespace MediaPlayer.Items
                 mediaItem = new MediaItem(song)
                 {
                     Location = new Point(x, 0),
+                    sendPath = new MediaItem.Send(sendChildPath)
                 };
                 x += 210;
                 panel_Items.Controls.Add(mediaItem);
             }
             panel_Items.AutoScroll = true;
+        }
+        public void sendChildPath(String s)
+        {
+            sendPath(s);
         }
     }
 }
