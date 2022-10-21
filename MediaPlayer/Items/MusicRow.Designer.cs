@@ -71,6 +71,7 @@
             this.pic_Song.Name = "pic_Song";
             this.pic_Song.Radius = 10;
             this.pic_Song.Size = new System.Drawing.Size(55, 55);
+            this.pic_Song.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Song.TabIndex = 24;
             this.pic_Song.TabStop = false;
             this.pic_Song.Click += new System.EventHandler(this.MusicRow_Click);

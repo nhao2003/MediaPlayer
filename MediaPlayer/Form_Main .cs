@@ -15,7 +15,7 @@ namespace MediaPlayer
     {
         public Form_Main()
         {
-            ListSong.fetchListSong();
+            ListSong.FetchListSong();
             InitializeComponent();
         }
 

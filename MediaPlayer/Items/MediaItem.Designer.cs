@@ -86,6 +86,7 @@
             this.pic_SongPic.Name = "pic_SongPic";
             this.pic_SongPic.Radius = 10;
             this.pic_SongPic.Size = new System.Drawing.Size(200, 200);
+            this.pic_SongPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_SongPic.TabIndex = 3;
             this.pic_SongPic.TabStop = false;
             this.pic_SongPic.Click += new System.EventHandler(this.MediaItem_Click);

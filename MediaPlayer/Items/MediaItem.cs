@@ -15,31 +15,14 @@ namespace MediaPlayer.Items
 {
     public partial class MediaItem : UserControl
     {
-        private String Id;
-        private String songTitle;
-        private String songAuthor;
-        private Image songImage;
-        private string path;
-        public MediaItem(string path)
+        private Song song;
+        public MediaItem(Song song)
         {
             InitializeComponent();
-            var request = WebRequest.Create("https://i.scdn.co/image/ab67616d00001e02771323ba8f7fe1d93fe094ed");
-            try
-            {
-                using (var response = request.GetResponse())
-                using (var stream = response.GetResponseStream())
-                {
-                    pic_SongPic.Image = Bitmap.FromStream(stream);
-                }
-
-                pic_SongPic.SizeMode = PictureBoxSizeMode.CenterImage;
-            }
-            catch
-            {
-
-            }
-
-            this.path = path;
+            this.song = song;
+            label_NameSong.Text = song.Title;
+            label_Author.Text = song.Artists;
+            pic_SongPic.Image = song.Image;
         }
         private void gunaPictureBox1_Click(object sender, EventArgs e)
         {
@@ -47,7 +30,7 @@ namespace MediaPlayer.Items
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            PlayMedia.Play(path);
+            PlayMedia.Play(song.FilePath);
         }
     }
 }
