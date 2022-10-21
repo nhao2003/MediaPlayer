@@ -23,7 +23,10 @@ namespace MediaPlayer.Models
         private DateTime dateAdded;
         private bool isLiked = false;
         private TagLib.File others;
-        public String Id { get; }
+        /// <summary>
+        /// Lấy ID
+        /// </summary>
+        public String Id => id;
         /// <summary>
         /// Tên bài hát
         /// </summary>
