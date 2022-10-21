@@ -50,6 +50,7 @@
             this.gunaLabel1.Size = new System.Drawing.Size(23, 28);
             this.gunaLabel1.TabIndex = 0;
             this.gunaLabel1.Text = "1";
+            this.gunaLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaLabel1.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.AntiAliasGridFit;
             this.gunaLabel1.Click += new System.EventHandler(this.gunaLabel1_Click);
             // 
@@ -86,46 +87,56 @@
             this.gunaTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.gunaTextBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaTextBox2.Location = new System.Drawing.Point(917, 17);
+            this.gunaTextBox2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gunaTextBox2.Location = new System.Drawing.Point(908, 13);
             this.gunaTextBox2.Name = "gunaTextBox2";
-            this.gunaTextBox2.Size = new System.Drawing.Size(105, 80);
+            this.gunaTextBox2.Size = new System.Drawing.Size(105, 83);
             this.gunaTextBox2.TabIndex = 3;
             this.gunaTextBox2.Text = "Duration";
+            this.gunaTextBox2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gunaTextBox3
             // 
             this.gunaTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.gunaTextBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaTextBox3.Location = new System.Drawing.Point(743, 17);
+            this.gunaTextBox3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gunaTextBox3.Location = new System.Drawing.Point(734, 13);
             this.gunaTextBox3.Name = "gunaTextBox3";
-            this.gunaTextBox3.Size = new System.Drawing.Size(168, 80);
+            this.gunaTextBox3.Size = new System.Drawing.Size(168, 83);
             this.gunaTextBox3.TabIndex = 2;
             this.gunaTextBox3.Text = "Date added";
+            this.gunaTextBox3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox3.TextChanged += new System.EventHandler(this.gunaTextBox1_TextChanged);
+            this.gunaTextBox3.Click += new System.EventHandler(this.gunaTextBox3_Click);
             // 
             // gunaTextBox4
             // 
             this.gunaTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.gunaTextBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaTextBox4.Location = new System.Drawing.Point(442, 16);
+            this.gunaTextBox4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gunaTextBox4.Location = new System.Drawing.Point(407, 13);
             this.gunaTextBox4.Name = "gunaTextBox4";
-            this.gunaTextBox4.Size = new System.Drawing.Size(94, 80);
+            this.gunaTextBox4.Size = new System.Drawing.Size(191, 83);
             this.gunaTextBox4.TabIndex = 2;
             this.gunaTextBox4.Text = "Album";
+            this.gunaTextBox4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox4.TextChanged += new System.EventHandler(this.gunaTextBox1_TextChanged);
             // 
             // gunaTextBox1
             // 
             this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaTextBox1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.gunaTextBox1.Location = new System.Drawing.Point(200, 17);
+            this.gunaTextBox1.Location = new System.Drawing.Point(200, 13);
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.Size = new System.Drawing.Size(182, 83);
             this.gunaTextBox1.TabIndex = 2;
             this.gunaTextBox1.Text = "Title and Author";
+            this.gunaTextBox1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox1.TextChanged += new System.EventHandler(this.gunaTextBox1_TextChanged);
+            this.gunaTextBox1.Click += new System.EventHandler(this.gunaTextBox1_Click);
             // 
             // gunaPictureBox2
             // 

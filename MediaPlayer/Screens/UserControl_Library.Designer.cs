@@ -209,6 +209,7 @@ namespace MediaPlayer.Widgets
             // gunaElipsePanel2
             // 
             this.gunaElipsePanel2.AutoScroll = true;
+            this.gunaElipsePanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel2.BaseColor = System.Drawing.Color.White;
             this.gunaElipsePanel2.Dock = System.Windows.Forms.DockStyle.Fill;

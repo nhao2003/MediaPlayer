@@ -21,7 +21,7 @@ namespace MediaPlayer.Screens
         }
         public void InitializeSongItem(TagLib.File f, int idx)
         {
-            gunaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
+            // gunaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
             gunaPanel1.AutoSize = true;
             gunaLabel1.Text = idx.ToString();
             gunaPictureBox1.Image = Image.FromFile(@"C:\Users\tuanb\source\repos\LibraryBranch\MediaPlayer\MediaPlayer\Resources\921f72eb0b0a345c3ffe1e83283037ab.png");
@@ -47,6 +47,16 @@ namespace MediaPlayer.Screens
         }
 
         private void gunaLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaTextBox3_Click(object sender, EventArgs e)
         {
 
         }
