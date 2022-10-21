@@ -15,6 +15,8 @@ namespace MediaPlayer.Items
 {
     public partial class MusicRow : UserControl
     {
+        public delegate void Send(string path);
+        public Send sendPath;
         private Song song;
         public Song Song
         {
@@ -54,7 +56,8 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            PlayMedia.Play(song.FilePath);
+            //PlayMedia.Play(song.FilePath);
+            sendPath(song.FilePath);
         }
     }
 }

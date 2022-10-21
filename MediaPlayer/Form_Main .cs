@@ -58,10 +58,16 @@ namespace MediaPlayer
         {
             
         }
-
+        // gui data
+        public delegate void Send(string path);
+        public Send sendPath;
         private void Form_Main_Load(object sender, EventArgs e)
         {
-            //ListSong.fetchListSong();
+            userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
+        }
+        public void sendChildPath(String s)
+        {
+            mediaControl.getPathOfSong(s);
         }
     }
 }

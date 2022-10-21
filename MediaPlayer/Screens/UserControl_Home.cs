@@ -15,6 +15,9 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Home : UserControl
     {
+        public delegate void Send(string path);
+        public Send sendPath;
+
         DisplayMediaItems RecentMusic = new DisplayMediaItems()
         {
             Dock = DockStyle.Bottom,
@@ -25,9 +28,7 @@ namespace MediaPlayer.Widgets
         };
         public UserControl_Home()
         {
-            
             InitializeComponent();
-            
         }
         private void Home_Load(object sender, EventArgs e)
         {
@@ -37,6 +38,12 @@ namespace MediaPlayer.Widgets
             //RecentMusic.Show();
             //panel_Home.
 
+            suggestBar1.sendPath = new SuggestBar.Send(sendChildPath);
+
+        }
+        public void sendChildPath(String s)
+        {
+            sendPath(s);
         }
 
         private void panel_Home_Scroll(object sender, ScrollEventArgs e)

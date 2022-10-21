@@ -20,6 +20,8 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
         }
+
+        public string path = null;
         public void getPathOfSong(string path)
         {
             TagLib.File file = TagLib.File.Create(path);
@@ -35,8 +37,14 @@ namespace MediaPlayer.Items
             {
 
             }
+            finally
+            {
+                if (path != null) PlayMedia.setURL(path);
+                PlayMedia.setCurrentTimePlay();
+            }
         }
-        public string path = null;
+        
+        
         private void gunaCircleButton_Open_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -44,8 +52,6 @@ namespace MediaPlayer.Items
             {
                 path = ofd.FileName;
                 getPathOfSong(path);
-                if (path != null) PlayMedia.setURL(path);
-                PlayMedia.setCurrentTimePlay();
             }
         }
 
