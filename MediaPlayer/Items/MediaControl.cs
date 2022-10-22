@@ -40,6 +40,12 @@ namespace MediaPlayer.Items
             finally
             {
                 if (path != null) PlayMedia.setURL(path);
+
+                MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
+                MediaTrackBar.Value = 0;
+                timeSongPlay.Text = "00:00";
+                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds/60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds%60);
+
                 PlayMedia.setCurrentTimePlay();
             }
         }

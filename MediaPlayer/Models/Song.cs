@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ns2;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -107,9 +108,9 @@ namespace MediaPlayer.Models
         /// <param name="songImage">Ảnh</param>
         public Song(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image songImage)
         {
-            this.title = title;
-            this.artists = artist;
-            this.duration = duration;
+            this.title = (title != null)? title : "Unknow";
+            this.artists = (artist != null) ? artist : "Unknow"; 
+            this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
             this.dateAdded = dateAdded;
             this.filePath = path;
             this.image = songImage;

@@ -49,12 +49,11 @@ namespace MediaPlayer.Models
                     );
                     listSongs.Add(tmp);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("An error occured ");
+                    //MessageBox.Show("An error occured ");
+                    MessageBox.Show(filePaths.Length.ToString(), i.ToString());
                 }
-
-                
             }
         }
     }
