@@ -63,6 +63,16 @@ namespace MediaPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap color {
+            get {
+                object obj = ResourceManager.GetObject("color", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap defaultImage {
             get {
                 object obj = ResourceManager.GetObject("defaultImage", resourceCulture);
@@ -96,6 +106,16 @@ namespace MediaPlayer.Properties {
         internal static System.Drawing.Bitmap next_page_right {
             get {
                 object obj = ResourceManager.GetObject("next_page_right", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint_brush {
+            get {
+                object obj = ResourceManager.GetObject("paint-brush", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
