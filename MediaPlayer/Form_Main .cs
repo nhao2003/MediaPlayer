@@ -13,13 +13,6 @@ namespace MediaPlayer
 {
     public partial class Form_Main : Form
     {
-        // duong dan cua video voi music
-        public string musicFolderPath = "C:\\users\\Administrator\\Music";
-        public string videoFolderPath = "C:\\users\\Administrator\\Videos";
-        // theme va color
-        public string theme = "Light";
-        public string color = "Green";
-
         public Form_Main()
         {
             ListSong.FetchListSong();
@@ -73,32 +66,10 @@ namespace MediaPlayer
         {
             mediaControl.getPathOfSong(s);
         }
-        // lay data tu setting screen
-        public void getMusicFolderPath(string path)
-        {
-            musicFolderPath = path;
-        }
-        public void getVideoFolderPath(string path)
-        {
-            videoFolderPath = path;
-        }
-        public void getTheme(string theme)
-        {
-            this.theme = theme;
-        }
-        public void getColor(string color)
-        {
-            this.color = color;
-        }
         // khai bao cac delegate va thuoc tinh
         private void Form_Main_Load(object sender, EventArgs e)
         {
             userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
-
-            userControl_Settings1.sendMusicFolderPath = new UserControl_Settings.sendStringData(getMusicFolderPath);
-            userControl_Settings1.sendVideoFolderPath = new UserControl_Settings.sendStringData(getVideoFolderPath);
-            userControl_Settings1.sendTheme = new UserControl_Settings.sendStringData(getTheme);
-            userControl_Settings1.sendColor = new UserControl_Settings.sendStringData(getColor);
         }
     }
 }

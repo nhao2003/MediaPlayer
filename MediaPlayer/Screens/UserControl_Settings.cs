@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaPlayer.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,6 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Settings : UserControl
     {
-        // khai bao delegate
-        public delegate void sendStringData(string data);
-        public sendStringData sendMusicFolderPath;
-        public sendStringData sendVideoFolderPath;
-        public sendStringData sendTheme;
-        public sendStringData sendColor;
-
         public string musicFolderPath = "C:\\users\\Administrator\\Music";
         public string videoFolderPath = "C:\\users\\Administrator\\Videos";
 
@@ -45,8 +39,8 @@ namespace MediaPlayer.Widgets
             {
                 musicFolderPath = fbd.SelectedPath;
                 music_library_path.Text = musicFolderPath;
-                if (sendMusicFolderPath != null)
-                    sendMusicFolderPath(musicFolderPath);
+                ListSong.pathFolder = musicFolderPath;
+                ListSong.FetchListSong();
             }
         }
 
@@ -60,26 +54,20 @@ namespace MediaPlayer.Widgets
             {
                 videoFolderPath = fbd.SelectedPath;
                 video_library_path.Text = videoFolderPath;
-                if(sendVideoFolderPath != null)
-                    sendVideoFolderPath(videoFolderPath);
             }
         }
 
         private void choose_theme_ComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             // thay doi theme
-            //MessageBox.Show(choose_theme_ComboBox.SelectedItem.ToString());
-            if(sendColor != null)
-                sendTheme(choose_theme_ComboBox.SelectedItem.ToString());
+            //choose_theme_ComboBox.SelectedItem
+            
         }
 
         private void choose_color_ComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
             // thay doi mau
-            //MessageBox.Show(choose_color_ComboBox.SelectedItem.ToString());
-            if(sendColor != null)
-                sendColor(choose_color_ComboBox.SelectedItem.ToString());
-
+            //choose_color_ComboBox.SelectedItem
         }
     }
 }
