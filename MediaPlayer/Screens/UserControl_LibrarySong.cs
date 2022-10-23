@@ -24,12 +24,21 @@ namespace MediaPlayer.Screens
             // gunaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
             gunaPanel1.AutoSize = true;
             gunaLabel1.Text = idx.ToString();
-            gunaPictureBox1.Image = Image.FromFile(@"C:\Users\tuanb\source\repos\LibraryBranch\MediaPlayer\MediaPlayer\Resources\921f72eb0b0a345c3ffe1e83283037ab.png");
+            gunaPictureBox1.Image = Image.FromFile("ImgSource\\forest.jpg");
             gunaTextBox1.Text = f.Tag.Title + Environment.NewLine + String.Join(", ", f.Tag.AlbumArtists);
             gunaTextBox4.Text = f.Tag.Album;
-            gunaPictureBox2.Image = Image.FromFile(@"C:\Users\tuanb\source\repos\LibraryBranch\MediaPlayer\MediaPlayer\Resources\heart.png");
+            gunaPictureBox2.Image = Image.FromFile("ImgSource\\heart.png");
             gunaTextBox3.Text = DateTime.Now.ToShortDateString();
             gunaTextBox2.Text = f.Properties.Duration.ToString().Substring(3, 5);
+        }
+        public void InitializeCategoryBar()
+        {
+            gunaPanel1.AutoSize = true;
+            gunaLabel1.Text = "#";
+            gunaTextBox1.Text = "Title and Author";
+            gunaTextBox4.Text = "Album";
+            gunaTextBox3.Text = "Date added";
+            gunaTextBox2.Text = "Duration";
         }
         private void gunaPanel1_Paint(object sender, PaintEventArgs e)
         {

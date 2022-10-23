@@ -80,8 +80,13 @@ namespace MediaPlayer.Widgets
             // File.AppendAllText(csv_FilePath, sbOutput.ToString()); (for appending use)
 
             int xLoc = 0;
-            int yLoc = 100;
+            int yLoc = 300;
             songs = new UserControl_LibrarySong[filePaths.Length];
+            //UserControl_LibrarySong CategoryBar = new UserControl_LibrarySong();
+            //CategoryBar.InitializeCategoryBar();
+            //CategoryBar.Location = new Point(0, 100);
+            //CategoryBar.Dock = DockStyle.Top;
+            //gunaElipsePanel2.Controls.Add(CategoryBar);
             for (int i = 0; i < filePaths.Length; i++)
             {
                 songs[i] = new UserControl_LibrarySong();
@@ -92,15 +97,11 @@ namespace MediaPlayer.Widgets
                 yLoc += 100;
                 gunaElipsePanel2.Controls.Add(songs[i]);
             }
+            
         }
 
         private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-        }
-
-        private void gunaLabel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void userControl_LibrarySong1_Load(object sender, EventArgs e)
@@ -110,8 +111,8 @@ namespace MediaPlayer.Widgets
         public void SortByAtoZ()
         {
             var songlist = new List<Song>(SongList);
-            int xLoc = 14;
-            int yLoc = 91;
+            int xLoc = 0;
+            int yLoc = 100;
             int idx = 0;
             var res = from song in songlist
                       orderby song.getTitle() ascending
@@ -135,7 +136,7 @@ namespace MediaPlayer.Widgets
                 GunaElipsePanel category_display = new GunaElipsePanel();
                 category_display.Location = new Point(xLoc, yLoc);
                 category_display.Dock = DockStyle.Top;
-                category_display.Height = 30;
+                category_display.Height = 40;
                 category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
 
                 GunaLabel category = new GunaLabel();
@@ -152,8 +153,8 @@ namespace MediaPlayer.Widgets
         public void SortByDateAdded()
         {
             var songlist = new List<Song>(SongList);
-            int xLoc = 14;
-            int yLoc = 91;
+            int xLoc = 0;
+            int yLoc = 100;
             int idx = 0;
             var res = from song in songlist
                       orderby song.getDateAdded() ascending
@@ -177,7 +178,7 @@ namespace MediaPlayer.Widgets
                 GunaElipsePanel category_display = new GunaElipsePanel();
                 category_display.Location = new Point(xLoc, yLoc);
                 category_display.Dock = DockStyle.Top;
-                category_display.Height = 30;
+                category_display.Height = 40;
                 category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
 
                 GunaLabel category = new GunaLabel();
@@ -194,8 +195,8 @@ namespace MediaPlayer.Widgets
         public void SortByArtist()
         {
             var songlist = new List<Song>(SongList);
-            int xLoc = 14;
-            int yLoc = 91;
+            int xLoc = 0;
+            int yLoc = 100;
             int idx = 0;
             var res = from song in songlist
                       orderby song.getArtists() ascending
@@ -219,7 +220,7 @@ namespace MediaPlayer.Widgets
                 GunaElipsePanel category_display = new GunaElipsePanel();
                 category_display.Location = new Point(xLoc, yLoc);
                 category_display.Dock = DockStyle.Top;
-                category_display.Height = 30;
+                category_display.Height = 40;
                 category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
 
                 GunaLabel category = new GunaLabel();
@@ -245,5 +246,7 @@ namespace MediaPlayer.Widgets
             //else if (selectedChoice == "Album") SortByAlbum(selectedChoice);
             else if (selectedChoice == "Artist") SortByArtist();
         }
+
+        
     }
 }

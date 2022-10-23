@@ -63,6 +63,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuShapes">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuShapes.dll</HintPath>
     </Reference>
@@ -285,10 +288,12 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\SongPicture.png" />
     <None Include="Resources\video.png" />
     <None Include="Resources\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\defaultImage.jpg" />
+    <None Include="Resources\AddMusicButton.png" />
     <Content Include="Resources\Icons\001-next-button - Copy.png" />
     <Content Include="Resources\Icons\001-next-button.png" />
     <Content Include="Resources\Icons\001-play-button.png" />

@@ -56,11 +56,13 @@
             // 
             // gunaPictureBox1
             // 
+            this.gunaPictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(76, 16);
+            this.gunaPictureBox1.Location = new System.Drawing.Point(89, 27);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(75, 80);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox1.Radius = 10;
+            this.gunaPictureBox1.Size = new System.Drawing.Size(55, 55);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaPictureBox1.TabIndex = 1;
             this.gunaPictureBox1.TabStop = false;
             this.gunaPictureBox1.Click += new System.EventHandler(this.gunaPictureBox1_Click);
@@ -115,7 +117,7 @@
             this.gunaTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.gunaTextBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaTextBox4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gunaTextBox4.Location = new System.Drawing.Point(407, 13);
+            this.gunaTextBox4.Location = new System.Drawing.Point(455, 13);
             this.gunaTextBox4.Name = "gunaTextBox4";
             this.gunaTextBox4.Size = new System.Drawing.Size(191, 83);
             this.gunaTextBox4.TabIndex = 2;
@@ -142,10 +144,10 @@
             // 
             this.gunaPictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(624, 16);
+            this.gunaPictureBox2.Location = new System.Drawing.Point(663, 36);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(93, 80);
-            this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox2.Size = new System.Drawing.Size(38, 40);
+            this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaPictureBox2.TabIndex = 1;
             this.gunaPictureBox2.TabStop = false;
             this.gunaPictureBox2.Click += new System.EventHandler(this.gunaPictureBox1_Click);
