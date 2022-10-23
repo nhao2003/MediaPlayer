@@ -17,6 +17,7 @@ namespace MediaPlayer.Models
         private static TagLib.File[] f;
         public static void FetchListSong()
         {
+            // viết lại 
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Mp3 files, mp4 files (*.mp3, *.mp4)|*.mp*";
             openFileDialog.Multiselect = true;
@@ -25,7 +26,7 @@ namespace MediaPlayer.Models
             {
                 filePaths = openFileDialog.FileNames;
             }
-
+            //===================================================================
             f = new TagLib.File[filePaths.Length];
             _joins = new string[filePaths.Length];
 
@@ -49,7 +50,7 @@ namespace MediaPlayer.Models
                     );
                     listSongs.Add(tmp);
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //MessageBox.Show("An error occured ");
                     MessageBox.Show(filePaths.Length.ToString(), i.ToString());
