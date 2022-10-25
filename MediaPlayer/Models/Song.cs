@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -116,7 +117,23 @@ namespace MediaPlayer.Models
             this.image = songImage;
             this.others = TagLib.File.Create(path);
         }
+        /// <summary>
+        /// Tạo bài hát bằng đường dẫn
+        /// </summary>
+        /// <param name="path">Đường dẫn bài hát</param>
+        public Song(string path)
+        {
+            TagLib.File taglib = TagLib.File.Create(path);
+            var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
 
+            this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : "Unknow";
+            this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
+            this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
+            this.dateAdded = DateTime.Now;
+            this.filePath = path;
+            this.image = Image.FromStream(new MemoryStream(bin));
+            this.others = taglib;
+        }
         public void Like()
         {
             isLiked = !isLiked;
