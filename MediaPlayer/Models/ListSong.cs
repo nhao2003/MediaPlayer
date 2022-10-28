@@ -11,50 +11,23 @@ namespace MediaPlayer.Models
 {
     static class ListSong
     {
-        public static string pathFolder = "C:\\users\\Administrator\\Music";
-
+        public static string pathFolder = "C:\\users\\haosi\\Music";
         public static List<Song> listSongs = new List<Song>();
-        private static string[] filePaths;
-        private static string[] _joins;
-        private static TagLib.File[] f;
         public static void FetchListSong()
         {
-            // viết lại 
-            /*OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Mp3 files, mp4 files (*.mp3, *.mp4)|*.mp*";
-            openFileDialog.Multiselect = true;
-            openFileDialog.Title = "Open";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                filePaths = openFileDialog.FileNames;
-            }*/
+            string[] filePaths;
             // chon file =======================================================
             filePaths = System.IO.Directory.GetFiles(
                 pathFolder,
                 "*.mp3",
                 System.IO.SearchOption.AllDirectories);
             //===================================================================
-            f = new TagLib.File[filePaths.Length];
-            _joins = new string[filePaths.Length];
-
-            for (int i = 0; i < filePaths.Length; i++)
-            {
-                f[i] = TagLib.File.Create(filePaths[i]);
-            }
             Song tmp;
             for (int i = 0; i < filePaths.Length; i++)
             {
                 try
                 {
-                    var bin = (byte[])(f[i].Tag.Pictures[0].Data.Data);
-                    tmp = new Song(
-                        title: f[i].Tag.Title.ToString(),
-                        artist: String.Join(", ", f[i].Tag.Album),
-                        duration: f[i].Properties.Duration,
-                        dateAdded: DateTime.Now,
-                        path: filePaths[i],
-                        songImage: Image.FromStream(new MemoryStream(bin))
-                    );
+                    tmp = new Song(filePaths[i]);
                     listSongs.Add(tmp);
                 }
                 catch (Exception ex)
