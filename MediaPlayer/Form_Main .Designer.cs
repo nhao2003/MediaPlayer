@@ -45,6 +45,7 @@ namespace MediaPlayer
             this.gunaButton_Search = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Home = new Guna.UI.WinForms.GunaButton();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.mediaControl = new Items.MediaControl();
             this.Logo = new Guna.UI.WinForms.GunaGradientTileButton();
             this.gunaPanel_MediaControl = new Guna.UI.WinForms.GunaPanel();
             this.Appbar = new System.Windows.Forms.Panel();
@@ -331,13 +332,13 @@ namespace MediaPlayer
             // 
             // mediaControl
             // 
-            //this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            //this.mediaControl.Location = new System.Drawing.Point(0, 0);
-            //this.mediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            //this.mediaControl.Name = "mediaControl";
-            //this.mediaControl.Size = new System.Drawing.Size(1085, 117);
-            //this.mediaControl.TabIndex = 0;
-            //this.mediaControl.Load += new System.EventHandler(this.mediaControl_Load);
+            this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mediaControl.Location = new System.Drawing.Point(0, 0);
+            this.mediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mediaControl.Name = "mediaControl";
+            this.mediaControl.Size = new System.Drawing.Size(1085, 117);
+            this.mediaControl.TabIndex = 0;
+            this.mediaControl.Load += new System.EventHandler(this.mediaControl_Load);
             // 
             // Appbar
             // 
