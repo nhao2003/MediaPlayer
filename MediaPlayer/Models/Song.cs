@@ -34,6 +34,7 @@ namespace MediaPlayer.Models
         /// </summary>
         public String Title
         {
+            set => title = value;
             get
             {
                 if (title == null) return "Unknown";
@@ -44,6 +45,7 @@ namespace MediaPlayer.Models
         /// Tên ca sĩ
         /// </summary>
         public String Artists {
+            set => artists = value;
             get
             {
                 if (artists == null) return "Unknown";
@@ -53,24 +55,59 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Ảnh bài hát
         /// </summary>
-        public Image Image => image;
+        public Image Image
+        {
+            set => image = value;
+            get
+            {
+                return image;
+            }
+        }
         /// <summary>
         /// Duration dưới dạng TimeSpan
         /// Muốn lấy tổng thời gian gian tính bằng dây có thể dùng duration.TotalSeconds
         /// </summary>
-        public TimeSpan Duration => duration;
+        public TimeSpan Duration
+        {
+            set => duration = value;
+            get
+            {
+                return duration;
+            }
+        }
         /// <summary>
         /// Ngày thêm nhạc
         /// </summary>
-        public DateTime DateAdded => dateAdded;
+        public DateTime DateAdded
+        {
+            set => dateAdded = value;
+            get
+            {
+                return dateAdded;
+            }
+        }
         /// <summary>
         /// Lấy thông tin yêu thích
         /// </summary>
-        public bool IsLiked => isLiked;
+        public bool IsLiked
+        {
+            set => isLiked = value;
+            get
+            {
+                return isLiked;
+            }
+        }
         /// <summary>
         /// Lấy patch của bài hát
         /// </summary>
-        public String FilePath => filePath;
+        public String FilePath
+        {
+            set => filePath = value;
+            get
+            {
+                return filePath;
+            }
+        }
         /// <summary>
         /// Lấy duration bài hát dưới dạng text
         /// Ví dụ: 03:18
@@ -107,6 +144,10 @@ namespace MediaPlayer.Models
         /// <param name="dateAdded">Ngày thêm</param>
         /// <param name="path">Đường dẫn</param>
         /// <param name="songImage">Ảnh</param>
+        public Song()
+        {
+
+        }
         public Song(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image songImage)
         {
             this.title = (title != null)? title : "Unknow";

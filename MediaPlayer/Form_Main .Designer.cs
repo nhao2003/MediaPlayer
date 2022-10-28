@@ -331,13 +331,13 @@ namespace MediaPlayer
             // 
             // mediaControl
             // 
-            this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mediaControl.Location = new System.Drawing.Point(0, 0);
-            this.mediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mediaControl.Name = "mediaControl";
-            this.mediaControl.Size = new System.Drawing.Size(1085, 117);
-            this.mediaControl.TabIndex = 0;
-            this.mediaControl.Load += new System.EventHandler(this.mediaControl_Load);
+            //this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            //this.mediaControl.Location = new System.Drawing.Point(0, 0);
+            //this.mediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            //this.mediaControl.Name = "mediaControl";
+            //this.mediaControl.Size = new System.Drawing.Size(1085, 117);
+            //this.mediaControl.TabIndex = 0;
+            //this.mediaControl.Load += new System.EventHandler(this.mediaControl_Load);
             // 
             // Appbar
             // 
@@ -607,7 +607,7 @@ namespace MediaPlayer
             this.userControl_Library1.Name = "userControl_Library1";
             this.userControl_Library1.Size = new System.Drawing.Size(1071, 550);
             this.userControl_Library1.TabIndex = 0;
-            this.userControl_Library1.Load += new System.EventHandler(this.userControl_Library1_Load);
+            // this.userControl_Library1.Load += new System.EventHandler(this.userControl_Library1_Load);
             // 
             // userControl_Settings1
             // 

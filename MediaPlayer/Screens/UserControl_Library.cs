@@ -56,14 +56,15 @@ namespace MediaPlayer.Widgets
             {
                 SongList[i] = new Song();
                 // Id, Title, Artists, FilePath, SongImage, Duration, DateAdded, isLiked
-                SongList[i].setId(Guid.NewGuid().ToString("N"));
-                SongList[i].setTitle(f[i].Tag.Title);
-                SongList[i].setArtists(String.Join(", ", f[i].Tag.AlbumArtists));
-                SongList[i].setFilePath(filePaths[i]);
-                SongList[i].setSongImage();
-                SongList[i].setDuration(f[i].Properties.Duration.ToString().Substring(3, 5));
-                SongList[i].setDateAdded(DateTime.Now);
-                SongList[i].setisLiked();
+                // SongList[i].Id= Guid.NewGuid().ToString("N");
+                SongList[i].Title = f[i].Tag.Title;
+                SongList[i].Artists = (String.Join(", ", f[i].Tag.AlbumArtists));
+                SongList[i].FilePath = (filePaths[i]);
+                // SongList[i].SongImage();
+                SongList[i].Duration = (f[i].Properties.Duration);
+                SongList[i].DateAdded = (DateTime.Now);
+                SongList[i].IsLiked = false;
+            }
 
             //    object[] array = { SongList[i].getId(), SongList[i].getTitle(), SongList[i].getArtists(),
             //    SongList[i].getFilePath(), "", SongList[i].getDuration(), SongList[i].getDateAdded().ToString("f")
@@ -110,8 +111,8 @@ namespace MediaPlayer.Widgets
             int yLoc = 100;
             int idx = 0;
             var res = from song in songlist
-                      orderby song.getTitle() ascending
-                      group song by song.getTitle()[0];
+                      orderby song.Title ascending
+                      group song by song.Title[0];
             int i = 0;
             songs = new UserControl_LibrarySong[filePaths.Length];
             int j = 0;
@@ -124,7 +125,7 @@ namespace MediaPlayer.Widgets
                     UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
                     // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
                     songdisplay.Location = new Point(xLoc, yLoc);
-                    TagLib.File temp = TagLib.File.Create(song.getFilePath());
+                    TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
@@ -158,8 +159,8 @@ namespace MediaPlayer.Widgets
             int yLoc = 100;
             int idx = 0;
             var res = from song in songlist
-                      orderby song.getDateAdded() ascending
-                      group song by song.getDateAdded();
+                      orderby song.DateAdded ascending
+                      group song by song.DateAdded;
             int i = 0;
             songs = new UserControl_LibrarySong[filePaths.Length];
             int j = 0;
@@ -172,7 +173,7 @@ namespace MediaPlayer.Widgets
                     UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
                     // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
                     songdisplay.Location = new Point(xLoc, yLoc);
-                    TagLib.File temp = TagLib.File.Create(song.getFilePath());
+                    TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
@@ -206,8 +207,8 @@ namespace MediaPlayer.Widgets
             int yLoc = 100;
             int idx = 0;
             var res = from song in songlist
-                      orderby song.getArtists() ascending
-                      group song by song.getArtists();
+                      orderby song.Artists ascending
+                      group song by song.Artists;
             int i = 0;
             songs = new UserControl_LibrarySong[filePaths.Length];
             int j = 0;
@@ -220,7 +221,7 @@ namespace MediaPlayer.Widgets
                     UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
                     // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
                     songdisplay.Location = new Point(xLoc, yLoc);
-                    TagLib.File temp = TagLib.File.Create(song.getFilePath());
+                    TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
