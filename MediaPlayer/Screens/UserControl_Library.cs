@@ -65,12 +65,12 @@ namespace MediaPlayer.Widgets
                 SongList[i].setDateAdded(DateTime.Now);
                 SongList[i].setisLiked();
 
-                object[] array = { SongList[i].getId(), SongList[i].getTitle(), SongList[i].getArtists(),
-                SongList[i].getFilePath(), "", SongList[i].getDuration(), SongList[i].getDateAdded().ToString("f")
-                , SongList[i].getisLiked() };
+            //    object[] array = { SongList[i].getId(), SongList[i].getTitle(), SongList[i].getArtists(),
+            //    SongList[i].getFilePath(), "", SongList[i].getDuration(), SongList[i].getDateAdded().ToString("f")
+            //    , SongList[i].getisLiked() };
 
-                joins[i] = String.Join(";", array);
-            }
+            //    joins[i] = String.Join(";", array);
+            //}
 
             // Luu data vo file csv, hien chua can su dung
             //string csv_FilePath = @"C:\Users\tuanb\source\repos\New UI\MediaPlayer\MediaPlayer\Resources\Song.csv";

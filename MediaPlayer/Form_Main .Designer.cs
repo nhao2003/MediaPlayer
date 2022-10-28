@@ -1,6 +1,8 @@
-﻿using Guna.UI.WinForms;
+﻿using System.Threading;
+using Guna.UI.WinForms;
 using MediaPlayer.Widgets;
 using System.Windows.Forms;
+using MediaPlayer.Models;
 
 namespace MediaPlayer
 {
@@ -21,6 +23,7 @@ namespace MediaPlayer
             {
                 components.Dispose();
             }
+            //PlayMedia.thread.Interrupt();
             base.Dispose(disposing);
         }
 
@@ -35,7 +38,6 @@ namespace MediaPlayer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
             Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.GunaElipsePanel_SlidingBar = new Guna.UI.WinForms.GunaElipsePanel();
-            this.indicater = new System.Windows.Forms.Panel();
             this.gunaButton_Library = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Settings = new Guna.UI.WinForms.GunaButton();
             this.gunaButton_Video = new Guna.UI.WinForms.GunaButton();
@@ -64,7 +66,6 @@ namespace MediaPlayer
             this.userControl_Video1 = new MediaPlayer.Widgets.UserControl_Video();
             this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
-            this.mediaControl = new MediaPlayer.Items.MediaControl();
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel_MediaControl.SuspendLayout();
@@ -83,7 +84,6 @@ namespace MediaPlayer
             // 
             this.GunaElipsePanel_SlidingBar.BackColor = System.Drawing.Color.Transparent;
             this.GunaElipsePanel_SlidingBar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(183)))), ((int)(((byte)(136)))));
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.indicater);
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Library);
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Settings);
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Video);
@@ -98,16 +98,6 @@ namespace MediaPlayer
             this.GunaElipsePanel_SlidingBar.Radius = 1;
             this.GunaElipsePanel_SlidingBar.Size = new System.Drawing.Size(228, 750);
             this.GunaElipsePanel_SlidingBar.TabIndex = 5;
-            // 
-            // indicater
-            // 
-            this.indicater.BackColor = System.Drawing.Color.SeaGreen;
-            this.indicater.ForeColor = System.Drawing.Color.Teal;
-            this.indicater.Location = new System.Drawing.Point(3, 108);
-            this.indicater.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.indicater.Name = "indicater";
-            this.indicater.Size = new System.Drawing.Size(5, 44);
-            this.indicater.TabIndex = 20;
             // 
             // gunaButton_Library
             // 
@@ -339,6 +329,16 @@ namespace MediaPlayer
             this.gunaPanel_MediaControl.Size = new System.Drawing.Size(1085, 117);
             this.gunaPanel_MediaControl.TabIndex = 6;
             // 
+            // mediaControl
+            // 
+            this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mediaControl.Location = new System.Drawing.Point(0, 0);
+            this.mediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.mediaControl.Name = "mediaControl";
+            this.mediaControl.Size = new System.Drawing.Size(1085, 117);
+            this.mediaControl.TabIndex = 0;
+            this.mediaControl.Load += new System.EventHandler(this.mediaControl_Load);
+            // 
             // Appbar
             // 
             this.Appbar.BackColor = System.Drawing.Color.Transparent;
@@ -454,10 +454,10 @@ namespace MediaPlayer
             this.MainPages.Multiline = true;
             this.MainPages.Name = "MainPages";
             this.MainPages.Padding = new System.Drawing.Point(0, 0);
-            this.MainPages.Page = this.tabPage_Library;
-            this.MainPages.PageIndex = 4;
-            this.MainPages.PageName = "tabPage_Library";
-            this.MainPages.PageTitle = "tabPage_Library";
+            this.MainPages.Page = this.tabPage_Home;
+            this.MainPages.PageIndex = 0;
+            this.MainPages.PageName = "tabPage_Home";
+            this.MainPages.PageTitle = "tabPage_Home";
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(1085, 583);
             this.MainPages.TabIndex = 9;
@@ -525,6 +525,16 @@ namespace MediaPlayer
             this.tabPage_Video.TabIndex = 3;
             this.tabPage_Video.Text = "tabPage_Video";
             this.tabPage_Video.UseVisualStyleBackColor = true;
+            // 
+            // userControl_Video1
+            // 
+            this.userControl_Video1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.userControl_Video1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Video1.Location = new System.Drawing.Point(3, 2);
+            this.userControl_Video1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userControl_Video1.Name = "userControl_Video1";
+            this.userControl_Video1.Size = new System.Drawing.Size(1071, 550);
+            this.userControl_Video1.TabIndex = 0;
             // 
             // tabPage_Library
             // 
@@ -632,6 +642,7 @@ namespace MediaPlayer
             this.MinimumSize = new System.Drawing.Size(1001, 595);
             this.Name = "Form_Main";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form_Main_Load);
             this.GunaElipsePanel_SlidingBar.ResumeLayout(false);
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel_MediaControl.ResumeLayout(false);
@@ -677,7 +688,6 @@ namespace MediaPlayer
         private TabPage tabPage_Settings;
         private Widgets.UserControl_Settings userControl_Settings1;
         private UserControl_Library userControl_Library1;
-        private Panel indicater;
         //private Widgets.UserControl_Library userControl_Library1;
 
         private GunaCirclePictureBox avatar;

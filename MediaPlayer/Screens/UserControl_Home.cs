@@ -1,10 +1,12 @@
 ﻿using MediaPlayer.Items;
+using ns2;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,31 +15,40 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Home : UserControl
     {
-        DisplayMediaItems RecentMusic = new DisplayMediaItems();
-        DisplayMediaItems RecentVideo = new DisplayMediaItems();
+        public delegate void Send(string path);
+        public Send sendPath;
+
+        DisplayMediaItems RecentMusic = new DisplayMediaItems()
+        {
+            Dock = DockStyle.Bottom,
+            
+        };
+        DisplayMediaItems RecentVideo = new DisplayMediaItems()
+        {
+            Dock = DockStyle.Bottom,
+        };
         public UserControl_Home()
         {
             InitializeComponent();
         }
-
         private void Home_Load(object sender, EventArgs e)
         {
-            RecentMusic.Height = 700;
-            flowLayoutPanel_Home.Controls.Add(RecentMusic);
-            flowLayoutPanel_Home.Controls.Add(RecentVideo);
-        }
+            RecentVideo.Parent = panel_Home;
+            RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPath);
+            RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPath);
+            panel_Home.Controls.Add(RecentVideo);
+            panel_Home.Controls.Add(RecentMusic);
 
-        private void UserControl_Home_Resize(object sender, EventArgs e)
+            suggestBar1.sendPath = new SuggestBar.Send(sendChildPath);
+        }
+        public void sendChildPath(String s)
         {
-            
+            sendPath(s);
         }
 
-        private void UserControl_Home_SizeChanged(object sender, EventArgs e)
+        private void panel_Home_Scroll(object sender, ScrollEventArgs e)
         {
-            int width = flowLayoutPanel_Home.Width - 30;
-            RecentMusic.Width = width;
-            RecentVideo.Width = width;
+            panel_Home.VerticalScroll.Value += 10;
         }
-
     }
 }

@@ -4,39 +4,32 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaPlayer.Models;
-using static ns6.WinApi;
 
 namespace MediaPlayer.Items
 {
-    public partial class DisplayMediaItems : UserControl
+    public partial class SuggestBar : UserControl
     {
         public delegate void Send(string path);
         public Send sendPath;
-        public DisplayMediaItems()
+        public SuggestBar()
         {
+            MusicRow musicRow;
             InitializeComponent();
-        }
-
-        private void DisplayMediaItems_Load(object sender, EventArgs e)
-        {
-            MediaItem mediaItem;
-            int x = 10;
-
             foreach (Song song in ListSong.listSongs)
             {
-                mediaItem = new MediaItem(song)
+                musicRow = new MusicRow()
                 {
-                    Location = new Point(x, 0),
-                    sendPath = new MediaItem.Send(sendChildPath)
+                    Dock = DockStyle.Top
                 };
-                x += 210;
-                panel_Items.Controls.Add(mediaItem);
+                musicRow.Song = song;
+                musicRow.sendPath = new MusicRow.Send(sendChildPath);
+                panel_MusicRow.Controls.Add(musicRow);
             }
-            panel_Items.AutoScroll = true;
         }
         public void sendChildPath(String s)
         {

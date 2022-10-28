@@ -8,113 +8,121 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaPlayer.Models;
+using System.IO;
+using MediaPlayer.Widgets;
 
 namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
     {
-        // làm sao gắn được data dô hai cái này là được
-        String fileName;
-        String filePath;
-        public MediaControl(String fileName, String filePath) 
-        {
-            this.fileName = fileName;
-            this.filePath = filePath;
-        }
-        //=============================================
-
-        WMPLib.WindowsMediaPlayer Player = new WMPLib.WindowsMediaPlayer();
-        OpenFileDialog openFileDialog;
-        public double currentTimePlay = 0.0;
-        public bool begin = false;
-
         public MediaControl()
         {
-            Player.PlayStateChange += new WMPLib._WMPOCXEvents_PlayStateChangeEventHandler(Player_PlayStateChange);
-            Player.MediaError += new WMPLib._WMPOCXEvents_MediaErrorEventHandler(Player_MediaError);
-            
             InitializeComponent();
-            //Slider.Value = 0b0;
-        }
-        private void Player_PlayStateChange(int NewState)
-        {
-            //trangThai.Text = Player.status;
         }
 
-        private void Player_MediaError(object pMediaObject)
+        public string path = null;
+        public void getPathOfSong(string path)
         {
-            MessageBox.Show("Cannot play media file.");
-        }
-
-        // chức năng thêm nhạc ở đây nè
-        private void gunaCircleButton_Open_Click(object sender, EventArgs e)
-        {
-            openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Mp3 files, mp4 files (*.mp3, *.mp4)|*.mp*";
-            openFileDialog.Title = "Open";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            TagLib.File file = TagLib.File.Create(path);
+            gunaLabel_SongName.Text = (file.Tag.Title);
+            gunaLabel_NameAthor.Text = (file.Tag.Album);
+            try
             {
-                // ở đây lấy file name với path của bài nhạc nè
-                filePath = openFileDialog.FileName;
-                fileName = openFileDialog.SafeFileName;
-                gunaLabel_SongName.Text = fileName;
-                //=============================================
-                Player.URL = filePath;
-                Player.controls.stop();
-                // chọn bài hát thì trả về 0
-                currentTimePlay = 0.0;
+                var ff = TagLib.File.Create(path);
+                var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
+                gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
+            }
+            catch (Exception)
+            {
+
+            }
+            finally
+            {
+                if (path != null) PlayMedia.setURL(path);
+
+                MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
+                MediaTrackBar.Value = 0;
                 timeSongPlay.Text = "00:00";
-                MediaTrackBar.Value = (int)Player.controls.currentPosition;
+                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds/60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds%60);
+
+                PlayMedia.setCurrentTimePlay();
             }
         }
         
+        
+        private void gunaCircleButton_Open_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                path = ofd.FileName;
+                getPathOfSong(path);
+            }
+        }
+
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
-            if (filePath == null) return;
-            //MediaTrackBar.Maximum = Convert.ToInt32(Player.currentMedia.duration);
-            if (!timerSong.Enabled)
+            try
             {
-                Player.controls.currentPosition = currentTimePlay;
-                timerSong.Start();
-                Player.controls.play();
+                if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                {
+                    timerSong.Enabled = false;
+                    PlayMedia.pauseSong();
+                }
+                else if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPaused)
+                {
+                    PlayMedia.continueSong();
+                    timerSong.Enabled = true;
+                }
+                else
+                {
+                    timerSong.Enabled = true;
+                    PlayMedia.playSong();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                MediaTrackBar.Maximum = (int)PlayMedia.getDurationSong();
+                MediaTrackBar.Value = (int)PlayMedia.getCurrentPositionSong();
+                timeSongPlay.Text = PlayMedia.getCurrentPositionStringSong();
+                timeSongEnd.Text = PlayMedia.getDurationStringSong();
+                PlayMedia.setCurrentTimePlay();
+            }
+        }
+
+        private void MediaTrackBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            PlayMedia.setCurrentPosition(e.X, MediaTrackBar.Width);
+        }
+
+        private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
+        {
+            PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+        }
+
+        public int volumeNow = 50;
+        private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
+        {
+            if (PlayMedia.player.settings.volume != 0)
+            {
+                PlayMedia.muteVolume();
+                volumeNow = gunaTrackBar_Volume.Value;
+                gunaTrackBar_Volume.Value = 0;
             }
             else
             {
-                //gunaCircleButton_Play.OnHoverImage = Image.FromFile("pause.png");
-                Player.controls.stop();
-                timerSong.Stop();
+                PlayMedia.setVolume(volumeNow);
+                gunaTrackBar_Volume.Value = volumeNow;
             }
-        }
-
-        private void gunaTrackBar_Music_ValueChanged(object sender, EventArgs e)
-        {
-            Player.controls.currentPosition = MediaTrackBar.Value;
-        }
-
-        public String convert(int n)
-        {
-            return n > 9 ? "" + n : "0" + n;
-        }
-        private void timerSong_Tick(object sender, EventArgs e)
-        {
-            timeSongEnd.Text = convert((int)Player.currentMedia.duration / 100) + ":" + convert((int)Player.currentMedia.duration % 100);
-            currentTimePlay = Player.controls.currentPosition;
-            timeSongPlay.Text = Player.controls.currentPositionString;
-            //timeSongPlay.Text = currentTimePlay.ToString();
-            MediaTrackBar.Value = (int)Player.controls.currentPosition;
-
-        }
-
-        // chỉnh âm thanh
-        private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
-        {
-            //Player.settings.volume = Slider.Value;
-            //gunaLabel_NameAthor.Text = Slider.Value.ToString();
-        }
-
-        private void MediaTrackBar_Scroll(object sender, ScrollEventArgs e)
-        {
-
         }
     }
 }
