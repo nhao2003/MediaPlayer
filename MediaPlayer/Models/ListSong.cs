@@ -17,14 +17,22 @@ namespace MediaPlayer.Models
         {
             string[] filePaths;
             // chon file =======================================================
-            filePaths = System.IO.Directory.GetFiles(
-                pathFolder,
-                "*.mp3",
-                System.IO.SearchOption.AllDirectories);
+            try
+            {
+                filePaths = System.IO.Directory.GetFiles(
+                    pathFolder,
+                    "*.mp3",
+                    System.IO.SearchOption.AllDirectories);
+            }
+            catch
+            {
+                filePaths = null;
+            }
             //===================================================================
             Song tmp;
-            for (int i = 0; i < filePaths.Length; i++)
-            {
+            if (filePaths == null) return;
+            for(int i = 0; i < filePaths.Length; i++)
+                {
                 try
                 {
                     tmp = new Song(filePaths[i]);
@@ -36,6 +44,7 @@ namespace MediaPlayer.Models
                     MessageBox.Show(ex.ToString(), filePaths.Length.ToString() + i.ToString());
                 }
             }
+
         }
     }
 }

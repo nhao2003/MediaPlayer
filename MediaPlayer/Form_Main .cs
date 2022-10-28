@@ -61,7 +61,13 @@ namespace MediaPlayer
         // gui data tu item song
         public delegate void Send(string path);
         public Send sendPath;
-        
+
+        public void loadHomeScreen(object sender, EventArgs e)
+        {
+            //userControl_Home1.Home_Load(sender,e);
+        }
+
+
         public void sendChildPath(String s)
         {
             mediaControl.getPathOfSong(s);
@@ -70,6 +76,7 @@ namespace MediaPlayer
         private void Form_Main_Load(object sender, EventArgs e)
         {
             userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
+            userControl_Settings1.loadHomeScreen = new UserControl_Settings.Load(loadHomeScreen);
         }
     }
 }

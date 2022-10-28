@@ -13,6 +13,9 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Settings : UserControl
     {
+        public delegate void Load(object sender, EventArgs e);
+        public Load loadHomeScreen;
+
         public string musicFolderPath = "C:\\users\\Administrator\\Music";
         public string videoFolderPath = "C:\\users\\Administrator\\Videos";
 
@@ -41,6 +44,7 @@ namespace MediaPlayer.Widgets
                 music_library_path.Text = musicFolderPath;
                 ListSong.pathFolder = musicFolderPath;
                 ListSong.FetchListSong();
+                loadHomeScreen(sender,e);
             }
         }
 
