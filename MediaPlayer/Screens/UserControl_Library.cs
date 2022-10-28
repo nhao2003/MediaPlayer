@@ -11,6 +11,8 @@ using MediaPlayer.Models;
 using System.IO;
 using CsvHelper;
 using Guna.UI.WinForms;
+using MediaPlayer.Widgets;
+using MediaPlayer.Screens;
 
 namespace MediaPlayer.Widgets
 {
@@ -20,24 +22,27 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
         }
-     
+
+        // Khai bao cac bien toan cuc
         static string[] filePaths;
-        static string[] fileNames;
         static string[] joins;
         TagLib.File[] f;
         static Song[] SongList;
+        static UserControl_LibrarySong[] songs;
+
+        // Xu ly khi click vo button Add music
         private void gunaButton1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Mp3 files, mp4 files (*.mp3, *.mp4)|*.mp*";
-            openFileDialog.Multiselect = true;
-            openFileDialog.Title = "Open";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            // Chon folder de lay music
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            DialogResult result = folderBrowserDialog.ShowDialog();
+            if (result == DialogResult.OK && !string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
             {
-                filePaths = openFileDialog.FileNames;
-                fileNames = openFileDialog.SafeFileNames;
+                var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories)
+                .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg"));
+                filePaths = files.ToArray();
             }
-
+            // Cac mang luu tru thong tin music
             f = new TagLib.File[filePaths.Length];
             SongList = new Song[filePaths.Length];
             joins = new string[filePaths.Length];
@@ -46,7 +51,7 @@ namespace MediaPlayer.Widgets
             {
                 f[i] = TagLib.File.Create(filePaths[i]);
             }
-
+            // Load cac music song thanh cac object
             for (int i = 0; i < filePaths.Length; i++)
             {
                 SongList[i] = new Song();
@@ -67,36 +72,204 @@ namespace MediaPlayer.Widgets
                 joins[i] = String.Join(";", array);
             }
 
-            string csv_FilePath = @"C:\Users\tuanb\source\repos\New UI\MediaPlayer\MediaPlayer\Resources\Song.csv";
-            StringBuilder sbOutput = new StringBuilder();
-            sbOutput.AppendLine("sep=;");
-            sbOutput.AppendLine("Id;Title;Artists;FilePath;SongImage;Duration;DateAdded;isLiked");
-            for (int i = 0; i < filePaths.Length; i++)
-            {
-                sbOutput.AppendLine(joins[i]);
-            }
-            File.WriteAllText(csv_FilePath, sbOutput.ToString());
+            // Luu data vo file csv, hien chua can su dung
+            //string csv_FilePath = @"C:\Users\tuanb\source\repos\New UI\MediaPlayer\MediaPlayer\Resources\Song.csv";
+            //StringBuilder sbOutput = new StringBuilder();
+            //sbOutput.AppendLine("sep=;");
+            //sbOutput.AppendLine("Id;Title;Artists;FilePath;SongImage;Duration;DateAdded;isLiked");
+            //for (int i = 0; i < filePaths.Length; i++)
+            //{
+            //    sbOutput.AppendLine(joins[i]);
+            //}
+            //File.WriteAllText(csv_FilePath, sbOutput.ToString());
             // File.AppendAllText(csv_FilePath, sbOutput.ToString()); (for appending use)
 
-            gunaDataGridView1.Rows.Add(filePaths.Length);
-            int id = 1;
+            // Load cac music song thanh cac panel len form
+            int xLoc = 0;
+            int yLoc = 300;
+            songs = new UserControl_LibrarySong[filePaths.Length];
             for (int i = 0; i < filePaths.Length; i++)
             {
-                gunaDataGridView1.Rows[i].Cells[0].Value = id++;
-                gunaDataGridView1.Rows[i].Cells[1].Value = SongList[i].getTitle() + Environment.NewLine + SongList[i].getArtists();
-                gunaDataGridView1.Rows[i].Cells[2].Value = SongList[i].getDateAdded().ToString("f");
-                gunaDataGridView1.Rows[i].Cells[3].Value = SongList[i].getisLiked();
-                gunaDataGridView1.Rows[i].Cells[4].Value = SongList[i].getDuration();
+                songs[i] = new UserControl_LibrarySong();
+                songs[i].Location = new Point(xLoc, yLoc);
+                songs[i].Dock = DockStyle.Top;
+                songs[i].InitializeSongItem(f[i], i + 1);
+                yLoc += 100;
+                gunaElipsePanel2.Controls.Add(songs[i]);
+            }
+            
+        }
+        // Bien toan cuc luu tru danh sach cac category sau khi sort
+        GunaElipsePanel[] list_category;
+        
+        // Sort theo thu tu alphabet A-Z
+        public void SortByAtoZ()
+        {
+            var songlist = new List<Song>(SongList);
+            int xLoc = 0;
+            int yLoc = 100;
+            int idx = 0;
+            var res = from song in songlist
+                      orderby song.getTitle() ascending
+                      group song by song.getTitle()[0];
+            int i = 0;
+            songs = new UserControl_LibrarySong[filePaths.Length];
+            int j = 0;
+            list_category = new GunaElipsePanel[res.Count()];
+            foreach (var group in res.Reverse())
+            {
+                
+                foreach (var song in group.Reverse())
+                {
+                    UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
+                    // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+                    songdisplay.Location = new Point(xLoc, yLoc);
+                    TagLib.File temp = TagLib.File.Create(song.getFilePath());
+                    songdisplay.Dock = DockStyle.Top;
+                    songdisplay.InitializeSongItem(temp, idx++);
+                    gunaElipsePanel2.Controls.Add(songdisplay);
+                    songs[i++] = songdisplay;
+                    yLoc += 100;
+                }
+                yLoc -= 100;
+                GunaElipsePanel category_display = new GunaElipsePanel();
+                category_display.Location = new Point(xLoc, yLoc);
+                category_display.Dock = DockStyle.Top;
+                category_display.Height = 40;
+                category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
+
+                GunaLabel category = new GunaLabel();
+                category.Text = group.Key.ToString();
+                category.Font = new Font("Inter", 14);
+                category.Location = new Point(xLoc, yLoc);
+                category.Dock = DockStyle.Top;
+
+                gunaElipsePanel2.Controls.Add(category_display);
+                category_display.Controls.Add(category);
+                list_category[j] = new GunaElipsePanel();
+                list_category[j++] = category_display;
+            }
+        }
+        // Sort theo ngay them nhac
+        public void SortByDateAdded()
+        {
+            var songlist = new List<Song>(SongList);
+            int xLoc = 0;
+            int yLoc = 100;
+            int idx = 0;
+            var res = from song in songlist
+                      orderby song.getDateAdded() ascending
+                      group song by song.getDateAdded();
+            int i = 0;
+            songs = new UserControl_LibrarySong[filePaths.Length];
+            int j = 0;
+            list_category = new GunaElipsePanel[res.Count()];
+            foreach (var group in res.Reverse())
+            {
+
+                foreach (var song in group.Reverse())
+                {
+                    UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
+                    // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+                    songdisplay.Location = new Point(xLoc, yLoc);
+                    TagLib.File temp = TagLib.File.Create(song.getFilePath());
+                    songdisplay.Dock = DockStyle.Top;
+                    songdisplay.InitializeSongItem(temp, idx++);
+                    gunaElipsePanel2.Controls.Add(songdisplay);
+                    songs[i++] = songdisplay;
+                    yLoc += 100;
+                }
+                yLoc -= 100;
+                GunaElipsePanel category_display = new GunaElipsePanel();
+                category_display.Location = new Point(xLoc, yLoc);
+                category_display.Dock = DockStyle.Top;
+                category_display.Height = 40;
+                category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
+
+                GunaLabel category = new GunaLabel();
+                category.Text = group.Key.ToString();
+                category.Font = new Font("Inter", 14);
+                category.Location = new Point(xLoc, yLoc);
+                category.Dock = DockStyle.Top;
+
+                gunaElipsePanel2.Controls.Add(category_display);
+                category_display.Controls.Add(category);
+                list_category[j] = new GunaElipsePanel();
+                list_category[j++] = category_display;
+            }
+        }
+        // Sort theo ten tac gia
+        public void SortByArtist()
+        {
+            var songlist = new List<Song>(SongList);
+            int xLoc = 0;
+            int yLoc = 100;
+            int idx = 0;
+            var res = from song in songlist
+                      orderby song.getArtists() ascending
+                      group song by song.getArtists();
+            int i = 0;
+            songs = new UserControl_LibrarySong[filePaths.Length];
+            int j = 0;
+            list_category = new GunaElipsePanel[res.Count()];
+            foreach (var group in res.Reverse())
+            {
+
+                foreach (var song in group.Reverse())
+                {
+                    UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
+                    // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+                    songdisplay.Location = new Point(xLoc, yLoc);
+                    TagLib.File temp = TagLib.File.Create(song.getFilePath());
+                    songdisplay.Dock = DockStyle.Top;
+                    songdisplay.InitializeSongItem(temp, idx++);
+                    gunaElipsePanel2.Controls.Add(songdisplay);
+                    songs[i++] = songdisplay;
+                    yLoc += 100;
+                }
+                yLoc -= 100;
+                GunaElipsePanel category_display = new GunaElipsePanel();
+                category_display.Location = new Point(xLoc, yLoc);
+                category_display.Dock = DockStyle.Top;
+                category_display.Height = 40;
+                category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
+
+                GunaLabel category = new GunaLabel();
+                category.Text = group.Key.ToString();
+                category.Font = new Font("Inter", 14);
+                category.Location = new Point(xLoc, yLoc);
+                category.Dock = DockStyle.Top;
+
+                gunaElipsePanel2.Controls.Add(category_display);
+                category_display.Controls.Add(category);
+                list_category[j] = new GunaElipsePanel();
+                list_category[j++] = category_display;
             }
         }
 
-        private void gunaDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Xoa cac music panel cu
+            for (int i = 0; i < songs.Length; i++)
+            {
+                gunaElipsePanel2.Controls.Remove(songs[i]);
+            }
+            // Xoa cac category neu co
+            if (list_category != null)
+            {
+                for (int j = 0; j < list_category.Length; j++)
+                {
+                    gunaElipsePanel2.Controls.Remove(list_category[j]);
+                }
+            }
+            // Dua tren lua chon tren combobox ma tien hanh sort
+            string selectedChoice = gunaComboBox1.SelectedItem.ToString();
+            if (selectedChoice == "A to Z") SortByAtoZ();
+            else if (selectedChoice == "Date added") SortByDateAdded();
+            //else if (selectedChoice == "Album") SortByAlbum(selectedChoice);
+            else if (selectedChoice == "Artist") SortByArtist();
         }
 
-        private void gunaLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
