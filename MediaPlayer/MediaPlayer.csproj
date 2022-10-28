@@ -146,6 +146,20 @@
     <Compile Include="Items\MediaControl.Designer.cs">
       <DependentUpon>MediaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\SuggestBar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\SuggestBar.Designer.cs">
+      <DependentUpon>SuggestBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\MusicRow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\MusicRow.Designer.cs">
+      <DependentUpon>MusicRow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ListSong.cs" />
+    <Compile Include="Models\PlayMedia.cs" />
     <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Song.cs" />
     <Compile Include="Program.cs" />
@@ -201,6 +215,12 @@
     <EmbeddedResource Include="Items\MediaControl.resx">
       <DependentUpon>MediaControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Items\MusicRow.resx">
+      <DependentUpon>MusicRow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\SuggestBar.resx">
+      <DependentUpon>SuggestBar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -225,6 +245,9 @@
     <EmbeddedResource Include="Screens\UserControl_Video.resx">
       <DependentUpon>UserControl_Video.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -245,29 +268,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="AxWMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>aximp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="WMPLib">
-      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\paint-brush.png" />
     <None Include="Resources\video.png" />
     <None Include="Resources\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\defaultImage.jpg" />
+    <None Include="Resources\color.png" />
     <Content Include="Resources\Icons\001-next-button - Copy.png" />
     <Content Include="Resources\Icons\001-next-button.png" />
     <Content Include="Resources\Icons\001-play-button.png" />
@@ -320,6 +326,25 @@
     <Content Include="Resources\Icons\video.png" />
     <Content Include="Resources\Icons\video_hover.png" />
     <None Include="Resources\next_page_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

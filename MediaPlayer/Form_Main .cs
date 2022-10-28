@@ -1,8 +1,13 @@
 ﻿using MediaPlayer.Items;
 using MediaPlayer.Widgets;
 using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
+using WMPLib;
+using System.Threading;
+using System.Threading.Tasks;
+using MediaPlayer.Models;
 
 namespace MediaPlayer
 {
@@ -10,6 +15,7 @@ namespace MediaPlayer
     {
         public Form_Main()
         {
+            ListSong.FetchListSong();
             InitializeComponent();
         }
 
@@ -17,42 +23,53 @@ namespace MediaPlayer
         {
             
         }
-
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
-            indicater.Top = gunaButton_Home.Top;
             MainPages.SetPage(0);
         }
 
         private void gunaButton_Search_Click(object sender, EventArgs e)
         {
-            indicater.Top = gunaButton_Search.Top;
             MainPages.SetPage(1);
         }
 
         private void gunaButton_Music_Click(object sender, EventArgs e)
         {
-            indicater.Top = gunaButton_Music.Top;
             MainPages.SetPage(2);
         }
 
         private void gunaButton_Video_Click(object sender, EventArgs e)
         {
-            indicater.Top = gunaButton_Video.Top;
             MainPages.SetPage(3);
         }
 
         private void gunaButton_Library_Click(object sender, EventArgs e)
         {
-            indicater.Top = gunaButton_Library.Top;
             MainPages.SetPage(4);
 
         }
 
         private void gunaButton_Settings_Click(object sender, EventArgs e)
         {
-            indicater.Top = gunaButton_Settings.Top;
             MainPages.SetPage(5);
+        }
+
+        private void mediaControl_Load(object sender, EventArgs e)
+        {
+            
+        }
+        // gui data tu item song
+        public delegate void Send(string path);
+        public Send sendPath;
+        
+        public void sendChildPath(String s)
+        {
+            mediaControl.getPathOfSong(s);
+        }
+        // khai bao cac delegate va thuoc tinh
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+            userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
         }
     }
 }
