@@ -38,7 +38,6 @@ namespace MediaPlayer.Widgets
             this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaTextBox2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaTextBox3 = new Guna.UI.WinForms.GunaLabel();
@@ -46,6 +45,7 @@ namespace MediaPlayer.Widgets
             this.bunifuSeparator1 = new Bunifu.UI.WinForms.BunifuSeparator();
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaElipsePanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -188,8 +188,7 @@ namespace MediaPlayer.Widgets
             this.gunaComboBox1.Items.AddRange(new object[] {
             "Date added",
             "A to Z",
-            "Artist",
-            "Album"});
+            "Artist"});
             this.gunaComboBox1.Location = new System.Drawing.Point(713, 37);
             this.gunaComboBox1.Name = "gunaComboBox1";
             this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -219,18 +218,6 @@ namespace MediaPlayer.Widgets
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 149);
             this.gunaElipsePanel1.TabIndex = 10;
-            // 
-            // gunaElipsePanel2
-            // 
-            this.gunaElipsePanel2.AutoScroll = true;
-            this.gunaElipsePanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.White;
-            this.gunaElipsePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(0, 149);
-            this.gunaElipsePanel2.Name = "gunaElipsePanel2";
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(1084, 496);
-            this.gunaElipsePanel2.TabIndex = 11;
             // 
             // gunaLabel2
             // 
@@ -326,6 +313,18 @@ namespace MediaPlayer.Widgets
             this.gunaLabel1.Text = "#";
             this.gunaLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaLabel1.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.AntiAliasGridFit;
+            // 
+            // gunaElipsePanel2
+            // 
+            this.gunaElipsePanel2.AutoScroll = true;
+            this.gunaElipsePanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.White;
+            this.gunaElipsePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gunaElipsePanel2.Location = new System.Drawing.Point(0, 149);
+            this.gunaElipsePanel2.Name = "gunaElipsePanel2";
+            this.gunaElipsePanel2.Size = new System.Drawing.Size(1084, 496);
+            this.gunaElipsePanel2.TabIndex = 11;
             // 
             // UserControl_Library
             // 
