@@ -60,7 +60,7 @@ namespace MediaPlayer.Models
                 catch (Exception ex)
                 {
                     //MessageBox.Show("An error occured ");
-                    MessageBox.Show(ex.ToString(), filePaths.Length.ToString() + i.ToString());
+                    MessageBox.Show(ex.ToString(), "Tong so bai hat: " + filePaths.Length.ToString() + " loi o bai: " + i.ToString());
                 }
             }
         }
