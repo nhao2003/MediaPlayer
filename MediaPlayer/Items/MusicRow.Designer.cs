@@ -35,7 +35,6 @@
             this.btn_Like = new Guna.UI.WinForms.GunaCircleButton();
             this.label_NameSinger = new Guna.UI.WinForms.GunaLabel();
             this.label_NameSong = new Guna.UI.WinForms.GunaLabel();
-            this.label_Index = new Guna.UI.WinForms.GunaLabel();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel_MusicRow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Song)).BeginInit();
@@ -44,13 +43,12 @@
             // panel_MusicRow
             // 
             this.panel_MusicRow.BackColor = System.Drawing.Color.Transparent;
-            this.panel_MusicRow.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.panel_MusicRow.BaseColor = System.Drawing.Color.Transparent;
             this.panel_MusicRow.Controls.Add(this.pic_Song);
             this.panel_MusicRow.Controls.Add(this.label_Duration);
             this.panel_MusicRow.Controls.Add(this.btn_Like);
             this.panel_MusicRow.Controls.Add(this.label_NameSinger);
             this.panel_MusicRow.Controls.Add(this.label_NameSong);
-            this.panel_MusicRow.Controls.Add(this.label_Index);
             this.panel_MusicRow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_MusicRow.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel_MusicRow.Location = new System.Drawing.Point(0, 0);
@@ -67,7 +65,7 @@
             // 
             this.pic_Song.BackColor = System.Drawing.Color.Transparent;
             this.pic_Song.BaseColor = System.Drawing.Color.White;
-            this.pic_Song.Location = new System.Drawing.Point(43, 8);
+            this.pic_Song.Location = new System.Drawing.Point(15, 8);
             this.pic_Song.Name = "pic_Song";
             this.pic_Song.Radius = 10;
             this.pic_Song.Size = new System.Drawing.Size(55, 55);
@@ -119,12 +117,13 @@
             // 
             // label_NameSinger
             // 
-            this.label_NameSinger.AutoSize = true;
+            this.label_NameSinger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_NameSinger.AutoEllipsis = true;
             this.label_NameSinger.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label_NameSinger.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label_NameSinger.Location = new System.Drawing.Point(115, 38);
+            this.label_NameSinger.Location = new System.Drawing.Point(81, 38);
             this.label_NameSinger.Name = "label_NameSinger";
-            this.label_NameSinger.Size = new System.Drawing.Size(134, 19);
+            this.label_NameSinger.Size = new System.Drawing.Size(480, 19);
             this.label_NameSinger.TabIndex = 21;
             this.label_NameSinger.Text = "Đây là tên ca sĩ!!";
             this.label_NameSinger.Click += new System.EventHandler(this.MusicRow_Click);
@@ -134,11 +133,12 @@
             // 
             // label_NameSong
             // 
-            this.label_NameSong.AutoSize = true;
+            this.label_NameSong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label_NameSong.AutoEllipsis = true;
             this.label_NameSong.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_NameSong.Location = new System.Drawing.Point(114, 12);
+            this.label_NameSong.Location = new System.Drawing.Point(76, 12);
             this.label_NameSong.Name = "label_NameSong";
-            this.label_NameSong.Size = new System.Drawing.Size(201, 26);
+            this.label_NameSong.Size = new System.Drawing.Size(485, 26);
             this.label_NameSong.TabIndex = 21;
             this.label_NameSong.Text = "Heads in the cloud";
             this.label_NameSong.Click += new System.EventHandler(this.MusicRow_Click);
@@ -146,25 +146,13 @@
             this.label_NameSong.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             this.label_NameSong.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
             // 
-            // label_Index
-            // 
-            this.label_Index.AutoSize = true;
-            this.label_Index.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Index.Location = new System.Drawing.Point(13, 21);
-            this.label_Index.Name = "label_Index";
-            this.label_Index.Size = new System.Drawing.Size(24, 26);
-            this.label_Index.TabIndex = 21;
-            this.label_Index.Text = "1";
-            this.label_Index.Click += new System.EventHandler(this.MusicRow_Click);
-            this.label_Index.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
-            this.label_Index.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
-            this.label_Index.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
-            // 
             // MusicRow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel_MusicRow);
+            this.DoubleBuffered = true;
             this.Name = "MusicRow";
             this.Size = new System.Drawing.Size(700, 70);
             this.Click += new System.EventHandler(this.MusicRow_Click);
@@ -180,7 +168,6 @@
         private Guna.UI.WinForms.GunaElipsePanel panel_MusicRow;
         private Guna.UI.WinForms.GunaLabel label_NameSinger;
         private Guna.UI.WinForms.GunaLabel label_NameSong;
-        private Guna.UI.WinForms.GunaLabel label_Index;
         private Guna.UI.WinForms.GunaCircleButton btn_Like;
         private System.Windows.Forms.Label label_Duration;
         private System.Windows.Forms.ColorDialog colorDialog1;

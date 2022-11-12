@@ -46,12 +46,12 @@ namespace MediaPlayer.Items
         }
         private void MusicRow_MouseEnter(object sender, EventArgs e)
         {
-            panel_MusicRow.BaseColor = Color.FromArgb(165, 220, 188);
+            panel_MusicRow.BaseColor = Color.FromArgb(221, 228, 228);
         }
 
         private void MusicRow_MouseLeave(object sender, EventArgs e)
         {
-            panel_MusicRow.BaseColor = Color.FromArgb(216, 243, 220);
+            panel_MusicRow.BaseColor = Color.FromArgb(206,217,217);
         }
 
         private void MusicRow_Click(object sender, EventArgs e)

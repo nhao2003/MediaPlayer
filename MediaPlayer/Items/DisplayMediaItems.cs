@@ -16,27 +16,36 @@ namespace MediaPlayer.Items
     {
         public delegate void Send(string path);
         public Send sendPath;
+        private List<Song> listSongs;
         public DisplayMediaItems()
         {
             InitializeComponent();
         }
 
-        private void DisplayMediaItems_Load(object sender, EventArgs e)
+        public DisplayMediaItems(String title, List<Song> listSongs)
         {
+            InitializeComponent();
+            label_Title.Text = title;
+            this.listSongs = listSongs;
+
             MediaItem mediaItem;
             int x = 10;
-
-            foreach (Song song in ListSong.listSongs)
+            for (int i = 0; i < listSongs.Count && i < 8; i++)
             {
-                mediaItem = new MediaItem(song)
+                mediaItem = new MediaItem(listSongs[i])
                 {
                     Location = new Point(x, 0),
                     sendPath = new MediaItem.Send(sendChildPath)
                 };
-                x += 210;
+                x += 215;
                 panel_Items.Controls.Add(mediaItem);
             }
-            panel_Items.AutoScroll = true;
+            panel_Items.AutoScroll = false;
+            DoubleBuffered = true;
+        }
+        private void DisplayMediaItems_Load(object sender, EventArgs e)
+        {
+            
         }
         public void sendChildPath(String s)
         {

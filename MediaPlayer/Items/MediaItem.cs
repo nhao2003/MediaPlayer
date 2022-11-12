@@ -26,7 +26,7 @@ namespace MediaPlayer.Items
             label_Author.Text = song.Artists;
             pic_SongPic.Image = song.Image;
         }
-        private void gunaPictureBox1_Click(object sender, EventArgs e)
+        private void gunapic_SongPic_Click(object sender, EventArgs e)
         {
         }
 
@@ -34,5 +34,22 @@ namespace MediaPlayer.Items
         {
             sendPath(song.FilePath);
         }
+
+        private void panel_MediaItem_MouseEnter(object sender, EventArgs e)
+        {
+            this.panel_MediaItem.BaseColor = Color.FromArgb(221, 228, 228);
+            //nm 221,228,228;
+        }
+
+        private void panel_MediaItem_MouseHover(object sender, EventArgs e)
+        {
+            this.panel_MediaItem.BaseColor = Color.FromArgb(221, 228, 228);
+        }
+
+        private void label_Author_MouseLeave(object sender, EventArgs e)
+        {
+            this.panel_MediaItem.BaseColor = Color.FromArgb(206, 217, 217);
+        }
+
     }
 }

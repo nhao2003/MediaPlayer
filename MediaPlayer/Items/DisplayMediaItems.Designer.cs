@@ -43,12 +43,13 @@
             this.panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_Title.Location = new System.Drawing.Point(0, 0);
             this.panel_Title.Name = "panel_Title";
-            this.panel_Title.Size = new System.Drawing.Size(1074, 47);
+            this.panel_Title.Size = new System.Drawing.Size(1074, 50);
             this.panel_Title.TabIndex = 1;
             // 
             // label_SeeAll
             // 
             this.label_SeeAll.AutoSize = true;
+            this.label_SeeAll.BackColor = System.Drawing.Color.Transparent;
             this.label_SeeAll.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_SeeAll.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.label_SeeAll.Location = new System.Drawing.Point(887, 0);
@@ -60,6 +61,7 @@
             // label_Title
             // 
             this.label_Title.AutoSize = true;
+            this.label_Title.BackColor = System.Drawing.Color.Transparent;
             this.label_Title.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
             this.label_Title.Location = new System.Drawing.Point(3, 0);
             this.label_Title.Name = "label_Title";
@@ -69,17 +71,21 @@
             // 
             // panel_Items
             // 
+            this.panel_Items.AutoSize = true;
+            this.panel_Items.BackColor = System.Drawing.Color.Transparent;
             this.panel_Items.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Items.Location = new System.Drawing.Point(0, 47);
+            this.panel_Items.Location = new System.Drawing.Point(0, 50);
+            this.panel_Items.MaximumSize = new System.Drawing.Size(0, 320);
+            this.panel_Items.MinimumSize = new System.Drawing.Size(0, 320);
             this.panel_Items.Name = "panel_Items";
-            this.panel_Items.Size = new System.Drawing.Size(1074, 316);
+            this.panel_Items.Size = new System.Drawing.Size(1074, 320);
             this.panel_Items.TabIndex = 2;
             // 
             // DisplayMediaItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel_Items);
             this.Controls.Add(this.panel_Title);
             this.Name = "DisplayMediaItems";
@@ -88,6 +94,7 @@
             this.panel_Title.ResumeLayout(false);
             this.panel_Title.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

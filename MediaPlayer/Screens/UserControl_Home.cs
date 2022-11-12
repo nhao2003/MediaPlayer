@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaPlayer.Models;
 
 namespace MediaPlayer.Widgets
 {
@@ -18,27 +19,23 @@ namespace MediaPlayer.Widgets
         public delegate void Send(string path);
         public Send sendPath;
 
-        DisplayMediaItems RecentMusic = new DisplayMediaItems()
+        DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", ListSong.listSongs)
         {
             Dock = DockStyle.Bottom,
             
         };
-        DisplayMediaItems RecentVideo = new DisplayMediaItems()
+        DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", ListSong.listSongs)
         {
             Dock = DockStyle.Bottom,
         };
         public UserControl_Home()
         {
             InitializeComponent();
-        }
-        private void Home_Load(object sender, EventArgs e)
-        {
             RecentVideo.Parent = panel_Home;
             RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPath);
             RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPath);
             panel_Home.Controls.Add(RecentVideo);
             panel_Home.Controls.Add(RecentMusic);
-
             suggestBar1.sendPath = new SuggestBar.Send(sendChildPath);
         }
         public void sendChildPath(String s)

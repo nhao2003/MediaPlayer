@@ -20,13 +20,14 @@ namespace MediaPlayer.Items
         {
             MusicRow musicRow;
             InitializeComponent();
-            foreach (Song song in ListSong.listSongs)
+            for (int i = 0; i < ListSong.listSongs.Count && i < 5; i++)
             {
                 musicRow = new MusicRow()
                 {
-                    Dock = DockStyle.Top
+                    Location = new Point(0, i * 75),
+                    Anchor = AnchorStyles.Left | AnchorStyles.Right, 
                 };
-                musicRow.Song = song;
+                musicRow.Song = ListSong.listSongs[i];
                 musicRow.sendPath = new MusicRow.Send(sendChildPath);
                 panel_MusicRow.Controls.Add(musicRow);
             }

@@ -28,31 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.SuspendLayout();
-            // 
-            // gunaElipsePanel1
-            // 
-            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.White;
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(161, 3);
-            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(200, 100);
-            this.gunaElipsePanel1.TabIndex = 0;
             // 
             // AppBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.gunaElipsePanel1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.MinimumSize = new System.Drawing.Size(0, 60);
             this.Name = "AppBar";
-            this.Size = new System.Drawing.Size(1084, 62);
+            this.Size = new System.Drawing.Size(1080, 60);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
     }
 }

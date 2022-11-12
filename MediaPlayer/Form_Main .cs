@@ -15,7 +15,6 @@ namespace MediaPlayer
     {
         public Form_Main()
         {
-            ListSong.FetchListSong();
             InitializeComponent();
         }
 
@@ -70,6 +69,36 @@ namespace MediaPlayer
         private void Form_Main_Load(object sender, EventArgs e)
         {
             userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
+        }
+
+        private void gunaButton_Home_Click_1(object sender, EventArgs e)
+        {
+            MainPages.SetPage(0);
+        }
+
+        private void gunaButton_Search_Click_1(object sender, EventArgs e)
+        {
+            MainPages.SetPage(1);
+        }
+
+        private void gunaButton_Music_Click_1(object sender, EventArgs e)
+        {
+            MainPages.SetPage(2);
+        }
+
+        private void gunaButton_Video_Click_1(object sender, EventArgs e)
+        {
+            MainPages.SetPage(3);
+        }
+
+        private void gunaButton_Library_Click_1(object sender, EventArgs e)
+        {
+            MainPages.SetPage(4);
+        }
+
+        private void gunaButton_Settings_Click_1(object sender, EventArgs e)
+        {
+            MainPages.SetPage(5);
         }
     }
 }
