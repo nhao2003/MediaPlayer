@@ -109,7 +109,6 @@
             this.gunaTrackBar_Volume.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
             this.gunaTrackBar_Volume.TrackPressedColor = System.Drawing.Color.DodgerBlue;
             this.gunaTrackBar_Volume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.gunaTrackBar_Volume_Scroll);
-            this.gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
             // 
             // gunaCircleButton_Open
             // 
@@ -190,7 +189,7 @@
             this.gunaCircleButton_Like.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton_Like.Image = ((System.Drawing.Image)(resources.GetObject("gunaCircleButton_Like.Image")));
             this.gunaCircleButton_Like.ImageSize = new System.Drawing.Size(25, 25);
-            this.gunaCircleButton_Like.Location = new System.Drawing.Point(265, 56);
+            this.gunaCircleButton_Like.Location = new System.Drawing.Point(264, 44);
             this.gunaCircleButton_Like.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaCircleButton_Like.Name = "gunaCircleButton_Like";
             this.gunaCircleButton_Like.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));

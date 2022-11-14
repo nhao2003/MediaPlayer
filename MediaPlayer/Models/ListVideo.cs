@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,20 +7,20 @@ using System.Windows.Forms;
 
 namespace MediaPlayer.Models
 {
-    static class ListSong
+    static class ListVideo
     {
-        public static string pathFolder = "C:\\Users\\Administrator\\Music";
-        public static List<Song> listSongs = new List<Song>();
-        public static void FetchListSong()
+        public static string pathFolder = "C:\\Users\\Administrator\\Videos";
+        public static List<Song> listVideos = new List<Song>();
+        public static void FetchListVideo()
         {
-            string[] filePaths = {};
-            listSongs = new List<Song>();
+            string[] filePaths = { };
+            listVideos = new List<Song>();
             // chon file =======================================================
             try
             {
                 filePaths = System.IO.Directory.GetFiles(
                 pathFolder,
-                "*.mp3",
+                "*.mp4",
                 System.IO.SearchOption.AllDirectories);
             }
             catch
@@ -36,12 +34,12 @@ namespace MediaPlayer.Models
                 try
                 {
                     tmp = new Song(filePaths[i]);
-                    listSongs.Add(tmp);
+                    listVideos.Add(tmp);
                 }
                 catch (Exception ex)
                 {
                     //MessageBox.Show("An error occured ");
-                    MessageBox.Show(ex.ToString(), "Tong so bai hat: " + filePaths.Length.ToString() + " loi o bai: " + i.ToString());
+                    MessageBox.Show(ex.ToString(), "Tong so video: " + filePaths.Length.ToString() + " loi o bai: " + i.ToString());
                 }
             }
         }

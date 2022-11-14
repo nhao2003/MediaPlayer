@@ -27,6 +27,7 @@ namespace MediaPlayer.Widgets
         DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", ListSong.listSongs)
         {
             Dock = DockStyle.Bottom,
+            //ListVideo.listVideos
         };
         public UserControl_Home()
         {
@@ -34,8 +35,8 @@ namespace MediaPlayer.Widgets
             RecentVideo.Parent = panel_Home;
             RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPath);
             RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPath);
-            panel_Home.Controls.Add(RecentVideo);
             panel_Home.Controls.Add(RecentMusic);
+            panel_Home.Controls.Add(RecentVideo);
             suggestBar1.sendPath = new SuggestBar.Send(sendChildPath);
         }
         public void sendChildPath(String s)

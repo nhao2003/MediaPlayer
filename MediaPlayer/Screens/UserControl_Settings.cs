@@ -17,8 +17,9 @@ namespace MediaPlayer.Widgets
         public Rebuild rebuild;
 
         //public string musicFolderPath = "C:\\users\\Administrator\\Music";
+        //public string videoFolderPath = "C:\\users\\Administrator\\Videos";
         public string musicFolderPath = ListSong.pathFolder;
-        public string videoFolderPath = "C:\\users\\Administrator\\Videos";
+        public string videoFolderPath = ListVideo.pathFolder;
 
         public List<string> themes = new List<string>() { "Light", "Dark"};
         public List<string> colors = new List<string>() { "Green", "Blue", "Red", "Yellow" };
@@ -66,7 +67,6 @@ namespace MediaPlayer.Widgets
         {
             // thay doi theme
             //choose_theme_ComboBox.SelectedItem
-            
         }
 
         private void choose_color_ComboBox_SelectedValueChanged(object sender, EventArgs e)
