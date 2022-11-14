@@ -17,11 +17,6 @@ namespace MediaPlayer
         {
             InitializeComponent();
         }
-
-        private void userControl_Home1_Load(object sender, EventArgs e)
-        {
-            
-        }
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(0);
@@ -52,16 +47,10 @@ namespace MediaPlayer
         {
             MainPages.SetPage(5);
         }
-
-        private void mediaControl_Load(object sender, EventArgs e)
-        {
-            
-        }
         // gui data tu item song
         public delegate void Send(string path);
         public Send sendPath;
 
-        
 
         public void sendChildPath(String s)
         {
