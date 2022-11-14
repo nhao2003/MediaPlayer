@@ -11,16 +11,24 @@ namespace MediaPlayer.Models
 {
     static class ListSong
     {
-        public static string pathFolder = "C:\\users\\Administrator\\Music";
+        public static string pathFolder = "C:\\users\\haosi\\Music";
         public static List<Song> listSongs = new List<Song>();
         public static void FetchListSong()
         {
-            string[] filePaths;
+            string[] filePaths = {};
+            listSongs = new List<Song>();
             // chon file =======================================================
-            filePaths = System.IO.Directory.GetFiles(
+            try
+            {
+                filePaths = System.IO.Directory.GetFiles(
                 pathFolder,
                 "*.mp3",
                 System.IO.SearchOption.AllDirectories);
+            }
+            catch
+            {
+                MessageBox.Show("Duong dan" + pathFolder + " khong ton tai");
+            }
             //===================================================================
             Song tmp;
             for (int i = 0; i < filePaths.Length; i++)

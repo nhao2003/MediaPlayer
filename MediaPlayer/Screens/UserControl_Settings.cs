@@ -13,7 +13,8 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Settings : UserControl
     {
-        public string musicFolderPath = "C:\\users\\Administrator\\Music";
+        //public string musicFolderPath = "C:\\users\\Administrator\\Music";
+        public string musicFolderPath = ListSong.pathFolder;
         public string videoFolderPath = "C:\\users\\Administrator\\Videos";
 
         public List<string> themes = new List<string>() { "Light", "Dark"};
