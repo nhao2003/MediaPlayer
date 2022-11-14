@@ -103,7 +103,10 @@ namespace MediaPlayer.Items
         {
             PlayMedia.setCurrentPosition(e.X, MediaTrackBar.Width);
         }
-
+        private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
+        {
+            PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+        }
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);

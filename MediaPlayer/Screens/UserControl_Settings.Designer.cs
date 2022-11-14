@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_Settings));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
@@ -119,11 +119,11 @@
             this.choose_videos_path_btn.ColorContrastOnClick = 45;
             this.choose_videos_path_btn.ColorContrastOnHover = 45;
             this.choose_videos_path_btn.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges7.BottomLeft = true;
-            borderEdges7.BottomRight = true;
-            borderEdges7.TopLeft = true;
-            borderEdges7.TopRight = true;
-            this.choose_videos_path_btn.CustomizableEdges = borderEdges7;
+            borderEdges1.BottomLeft = true;
+            borderEdges1.BottomRight = true;
+            borderEdges1.TopLeft = true;
+            borderEdges1.TopRight = true;
+            this.choose_videos_path_btn.CustomizableEdges = borderEdges1;
             this.choose_videos_path_btn.DialogResult = System.Windows.Forms.DialogResult.None;
             this.choose_videos_path_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.choose_videos_path_btn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -252,6 +252,7 @@
             // 
             // choose_theme_ComboBox
             // 
+            this.choose_theme_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.choose_theme_ComboBox.AutoCompleteCustomSource.AddRange(new string[] {
             "Light",
             "Dart"});
@@ -320,6 +321,7 @@
             // 
             // choose_color_ComboBox
             // 
+            this.choose_color_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.choose_color_ComboBox.AutoCompleteCustomSource.AddRange(new string[] {
             "Green",
             "Blue",
@@ -409,11 +411,11 @@
             this.choose_music_path_btn.ColorContrastOnClick = 45;
             this.choose_music_path_btn.ColorContrastOnHover = 45;
             this.choose_music_path_btn.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges8.BottomLeft = true;
-            borderEdges8.BottomRight = true;
-            borderEdges8.TopLeft = true;
-            borderEdges8.TopRight = true;
-            this.choose_music_path_btn.CustomizableEdges = borderEdges8;
+            borderEdges2.BottomLeft = true;
+            borderEdges2.BottomRight = true;
+            borderEdges2.TopLeft = true;
+            borderEdges2.TopRight = true;
+            this.choose_music_path_btn.CustomizableEdges = borderEdges2;
             this.choose_music_path_btn.DialogResult = System.Windows.Forms.DialogResult.None;
             this.choose_music_path_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.choose_music_path_btn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));

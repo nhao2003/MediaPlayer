@@ -11,7 +11,7 @@ namespace MediaPlayer.Models
 {
     static class ListSong
     {
-        public static string pathFolder = "C:\\users\\haosi\\Music";
+        public static string pathFolder = "C:\\users\\Administrator\\Music";
         public static List<Song> listSongs = new List<Song>();
         public static void FetchListSong()
         {
