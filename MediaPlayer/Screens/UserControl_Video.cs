@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,22 @@ namespace MediaPlayer.Widgets
         public UserControl_Video()
         {
             InitializeComponent();
+        }
+        OpenFileDialog openFileDialog;
+        string path;
+        string filenames;
+
+        private void bt_open_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "mp4 files (*.mp4)|*.mp4";
+            ofd.Title = "Open";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                path = ofd.FileName;
+                filenames = ofd.SafeFileName;
+            }
+            videoPlayer.URL = path;
         }
     }
 }

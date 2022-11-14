@@ -24,7 +24,7 @@ namespace MediaPlayer.Widgets
             Dock = DockStyle.Bottom,
             
         };
-        DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", ListSong.listSongs)
+        DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", ListVideo.listVideos)
         {
             Dock = DockStyle.Bottom,
             //ListVideo.listVideos

@@ -60,6 +60,9 @@ namespace MediaPlayer.Widgets
             {
                 videoFolderPath = fbd.SelectedPath;
                 video_library_path.Text = videoFolderPath;
+                ListVideo.pathFolder = videoFolderPath;
+                ListVideo.FetchListVideo();
+                rebuild();
             }
         }
 

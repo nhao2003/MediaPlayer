@@ -38,7 +38,6 @@ namespace MediaPlayer.Models
                 }
                 catch (Exception ex)
                 {
-                    //MessageBox.Show("An error occured ");
                     MessageBox.Show(ex.ToString(), "Tong so video: " + filePaths.Length.ToString() + " loi o bai: " + i.ToString());
                 }
             }
