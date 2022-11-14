@@ -7,7 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MediaPlayer.Models;
+using System.IO;
+using CsvHelper;
+using Guna.UI.WinForms;
+using MediaPlayer.Widgets;
+using MediaPlayer.Screens;
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Search : UserControl
@@ -15,6 +20,93 @@ namespace MediaPlayer.Widgets
         public UserControl_Search()
         {
             InitializeComponent();
+        }
+        static Song[] SongList;
+        static UserControl_LibrarySong[] songs;
+        static string[] split;
+        static TagLib.File[] f;
+        static int count = new int();
+        private void gunaTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {   
+                if (count != 0)
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        gunaElipsePanel3.Controls.Remove(songs[i]);
+                    }
+                }
+                // string filePath = gunaTextBox1.Text;
+                string filePath = "MusicDatabase\\Song.csv";
+                try
+                {
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        string line;
+                        count = 0;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (count == 0)
+                            {
+                                count++;
+                                continue;
+                            }
+                            count++;
+                        }
+                        count--;
+                    }
+
+                    using (StreamReader reader = new StreamReader(filePath))
+                    {
+                        string line;
+                        int idx = 0;
+                        SongList = new Song[count];
+                        f = new TagLib.File[count];
+                        bool firstLine = true;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (firstLine == true)
+                            {
+                                firstLine = false;
+                                continue;
+                            }
+                            // MessageBox.Show(line);
+                            split = line.Split(';');
+                            SongList[idx] = new Song();
+                            SongList[idx].Title = split[0];
+                            SongList[idx].Artists = split[1];
+                            SongList[idx].FilePath = split[2];
+                            f[idx] = TagLib.File.Create(split[2]);
+                            SongList[idx].Duration = TimeSpan.Parse(split[3]);
+                            SongList[idx].DateAdded = DateTime.Parse(split[4]);
+                            SongList[idx].IsLiked = bool.Parse(split[5]);
+                            idx = idx + 1;
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
+                string findMusic = gunaTextBox1.Text;
+                int xLoc = 0;
+                int yLoc = 300;
+                songs = new UserControl_LibrarySong[count];
+
+                for (int i = 0; i < count; i++)
+                {
+                    if (!SongList[i].Title.Contains(findMusic)) continue;
+                    songs[i] = new UserControl_LibrarySong();
+                    songs[i].Location = new Point(xLoc, yLoc);
+                    songs[i].Dock = DockStyle.Top;
+                    songs[i].InitializeSongItem(f[i], i + 1);
+                    yLoc += 100;
+                    gunaElipsePanel3.Controls.Add(songs[i]);
+                }
+            }
         }
     }
 }

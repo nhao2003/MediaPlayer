@@ -298,6 +298,7 @@
     <None Include="Resources\folder.png" />
     <None Include="Resources\defaultImage.jpg" />
     <None Include="Resources\color.png" />
+    <None Include="bin\Debug\ImgSource\search-interface-symbol.png" />
     <Content Include="Resources\Icons\001-next-button - Copy.png" />
     <Content Include="Resources\Icons\001-next-button.png" />
     <Content Include="Resources\Icons\001-play-button.png" />

@@ -35,9 +35,9 @@ namespace MediaPlayer.Widgets
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.bunifuSnackbar1 = new Bunifu.UI.WinForms.BunifuSnackbar(this.components);
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
             this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaTextBox2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaTextBox3 = new Guna.UI.WinForms.GunaLabel();
@@ -158,22 +158,6 @@ namespace MediaPlayer.Widgets
             this.bunifuElipse1.ElipseRadius = 5;
             this.bunifuElipse1.TargetControl = this;
             // 
-            // bunifuLabel1
-            // 
-            this.bunifuLabel1.AllowParentOverrides = false;
-            this.bunifuLabel1.AutoEllipsis = false;
-            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel1.Font = new System.Drawing.Font("Inter", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel1.Location = new System.Drawing.Point(612, 37);
-            this.bunifuLabel1.Name = "bunifuLabel1";
-            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel1.Size = new System.Drawing.Size(85, 28);
-            this.bunifuLabel1.TabIndex = 8;
-            this.bunifuLabel1.Text = "Sort by:";
-            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
             // gunaComboBox1
             // 
             this.gunaComboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
@@ -201,6 +185,7 @@ namespace MediaPlayer.Widgets
             // 
             this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.Transparent;
+            this.gunaElipsePanel1.Controls.Add(this.gunaLabel3);
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel2);
             this.gunaElipsePanel1.Controls.Add(this.gunaTextBox2);
             this.gunaElipsePanel1.Controls.Add(this.gunaTextBox3);
@@ -211,13 +196,25 @@ namespace MediaPlayer.Widgets
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel_Recent);
             this.gunaElipsePanel1.Controls.Add(this.gunaButton1);
             this.gunaElipsePanel1.Controls.Add(this.gunaComboBox1);
-            this.gunaElipsePanel1.Controls.Add(this.bunifuLabel1);
             this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
             this.gunaElipsePanel1.Margin = new System.Windows.Forms.Padding(0);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 149);
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 146);
             this.gunaElipsePanel1.TabIndex = 10;
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.gunaLabel3.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gunaLabel3.Location = new System.Drawing.Point(606, 37);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(101, 31);
+            this.gunaLabel3.TabIndex = 14;
+            this.gunaLabel3.Text = "Sort by:";
+            this.gunaLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gunaLabel2
             // 
@@ -319,11 +316,11 @@ namespace MediaPlayer.Widgets
             this.gunaElipsePanel2.AutoScroll = true;
             this.gunaElipsePanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.White;
+            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
             this.gunaElipsePanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(0, 149);
+            this.gunaElipsePanel2.Location = new System.Drawing.Point(0, 146);
             this.gunaElipsePanel2.Name = "gunaElipsePanel2";
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(1084, 496);
+            this.gunaElipsePanel2.Size = new System.Drawing.Size(1084, 499);
             this.gunaElipsePanel2.TabIndex = 11;
             // 
             // UserControl_Library
@@ -350,7 +347,6 @@ namespace MediaPlayer.Widgets
         private Bunifu.UI.WinForms.BunifuSnackbar bunifuSnackbar1;
         private Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
         private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
@@ -360,5 +356,6 @@ namespace MediaPlayer.Widgets
         private Bunifu.UI.WinForms.BunifuSeparator bunifuSeparator1;
         private Guna.UI.WinForms.GunaLabel gunaTextBox1;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
     }
 }

@@ -64,6 +64,9 @@ namespace MediaPlayer.Widgets
                 SongList[i].Duration = (f[i].Properties.Duration);
                 SongList[i].DateAdded = (DateTime.Now);
                 SongList[i].IsLiked = false;
+                joins[i] = SongList[i].Title + ";" + SongList[i].Artists + ";"
+                    + SongList[i].FilePath + ";" + SongList[i].Duration + ";" + SongList[i].DateAdded
+                    + ";" + SongList[i].IsLiked.ToString();
             }
 
             //    object[] array = { SongList[i].getId(), SongList[i].getTitle(), SongList[i].getArtists(),
@@ -74,16 +77,16 @@ namespace MediaPlayer.Widgets
             //}
 
             // Luu data vo file csv, hien chua can su dung
-            //string csv_FilePath = @"C:\Users\tuanb\source\repos\New UI\MediaPlayer\MediaPlayer\Resources\Song.csv";
-            //StringBuilder sbOutput = new StringBuilder();
-            //sbOutput.AppendLine("sep=;");
-            //sbOutput.AppendLine("Id;Title;Artists;FilePath;SongImage;Duration;DateAdded;isLiked");
-            //for (int i = 0; i < filePaths.Length; i++)
-            //{
-            //    sbOutput.AppendLine(joins[i]);
-            //}
-            //File.WriteAllText(csv_FilePath, sbOutput.ToString());
-            // File.AppendAllText(csv_FilePath, sbOutput.ToString()); (for appending use)
+            string csv_FilePath = "MusicDataBase\\Song.csv";
+            StringBuilder sbOutput = new StringBuilder();
+            sbOutput.AppendLine("sep=;");
+            sbOutput.AppendLine("Title;Artists;FilePath;Duration;DateAdded;isLiked");
+            for (int i = 0; i < filePaths.Length; i++)
+            {
+                sbOutput.AppendLine(joins[i]);
+            }
+            // File.WriteAllText(csv_FilePath, sbOutput.ToString());
+            File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
 
             // Load cac music song thanh cac panel len form
             int xLoc = 0;
@@ -101,7 +104,7 @@ namespace MediaPlayer.Widgets
             
         }
         // Bien toan cuc luu tru danh sach cac category sau khi sort
-        GunaElipsePanel[] list_category;
+        static GunaElipsePanel[] list_category;
         
         // Sort theo thu tu alphabet A-Z
         public void SortByAtoZ()
