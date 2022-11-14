@@ -13,6 +13,9 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Settings : UserControl
     {
+        public delegate void Rebuild();
+        public Rebuild rebuild;
+
         //public string musicFolderPath = "C:\\users\\Administrator\\Music";
         public string musicFolderPath = ListSong.pathFolder;
         public string videoFolderPath = "C:\\users\\Administrator\\Videos";
@@ -42,6 +45,7 @@ namespace MediaPlayer.Widgets
                 music_library_path.Text = musicFolderPath;
                 ListSong.pathFolder = musicFolderPath;
                 ListSong.FetchListSong();
+                rebuild();
             }
         }
 
@@ -70,5 +74,7 @@ namespace MediaPlayer.Widgets
             // thay doi mau
             //choose_color_ComboBox.SelectedItem
         }
+
+        
     }
 }

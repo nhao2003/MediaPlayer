@@ -60,15 +60,28 @@ namespace MediaPlayer
         // gui data tu item song
         public delegate void Send(string path);
         public Send sendPath;
+
         
+
         public void sendChildPath(String s)
         {
             mediaControl.getPathOfSong(s);
+        }
+        public void rebuildHome()
+        {
+            this.tabPage_Home.Controls.Remove(this.userControl_Home1);
+            userControl_Home1 = new UserControl_Home()
+            {
+                Dock = DockStyle.Fill,
+            };
+            userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
+            this.tabPage_Home.Controls.Add(this.userControl_Home1);
         }
         // khai bao cac delegate va thuoc tinh
         private void Form_Main_Load(object sender, EventArgs e)
         {
             userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
+            userControl_Settings1.rebuild = new UserControl_Settings.Rebuild(rebuildHome);
         }
     }
 }
