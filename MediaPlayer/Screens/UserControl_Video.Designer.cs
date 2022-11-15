@@ -60,11 +60,11 @@
             // bt_open
             // 
             this.bt_open.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_open.Location = new System.Drawing.Point(974, 25);
+            this.bt_open.Location = new System.Drawing.Point(992, 20);
             this.bt_open.Name = "bt_open";
             this.bt_open.Size = new System.Drawing.Size(75, 23);
             this.bt_open.TabIndex = 4;
-            this.bt_open.Text = "...";
+            this.bt_open.Text = "Open";
             this.bt_open.UseVisualStyleBackColor = true;
             this.bt_open.Click += new System.EventHandler(this.bt_open_Click);
             // 

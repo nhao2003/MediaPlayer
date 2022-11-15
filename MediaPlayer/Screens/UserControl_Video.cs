@@ -16,6 +16,7 @@ namespace MediaPlayer.Widgets
         public UserControl_Video()
         {
             InitializeComponent();
+            videoPlayer.uiMode = "none";
         }
         OpenFileDialog openFileDialog;
         string path;
