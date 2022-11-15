@@ -78,9 +78,10 @@ namespace MediaPlayer.Widgets
                             SongList[idx].Artists = split[1];
                             SongList[idx].FilePath = split[2];
                             f[idx] = TagLib.File.Create(split[2]);
-                            SongList[idx].Duration = TimeSpan.Parse(split[3]);
-                            SongList[idx].DateAdded = DateTime.Parse(split[4]);
-                            SongList[idx].IsLiked = bool.Parse(split[5]);
+                            SongList[idx].Album = split[3];
+                            SongList[idx].Duration = TimeSpan.Parse(split[4]);
+                            SongList[idx].DateAdded = DateTime.Parse(split[5]);
+                            SongList[idx].IsLiked = bool.Parse(split[6]);
                             idx = idx + 1;
                         }
                     }
@@ -98,7 +99,12 @@ namespace MediaPlayer.Widgets
 
                 for (int i = 0; i < count; i++)
                 {
-                    if (!SongList[i].Title.Contains(findMusic)) continue;
+                    //  -> not case insensitive
+                    bool findTitle = SongList[i].Title.IndexOf(findMusic, StringComparison.OrdinalIgnoreCase) >= 0;
+                    bool findArtists = SongList[i].Artists.IndexOf(findMusic, StringComparison.OrdinalIgnoreCase) >= 0;
+                    bool findAlbum = SongList[i].Album.IndexOf(findMusic, StringComparison.OrdinalIgnoreCase) >= 0;
+                    if (!findTitle && !findAlbum && !findArtists) continue;
+                    // if (!SongList[i].Title.Contains(findMusic)) continue;
                     songs[i] = new UserControl_LibrarySong();
                     songs[i].Location = new Point(xLoc, yLoc);
                     songs[i].Dock = DockStyle.Top;

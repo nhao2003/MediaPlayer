@@ -170,9 +170,10 @@ namespace MediaPlayer.Widgets
             this.gunaComboBox1.ForeColor = System.Drawing.Color.Navy;
             this.gunaComboBox1.FormattingEnabled = true;
             this.gunaComboBox1.Items.AddRange(new object[] {
-            "Date added",
             "A to Z",
-            "Artist"});
+            "Artist",
+            "Album",
+            "Date added"});
             this.gunaComboBox1.Location = new System.Drawing.Point(713, 37);
             this.gunaComboBox1.Name = "gunaComboBox1";
             this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));

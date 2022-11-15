@@ -19,6 +19,7 @@ namespace MediaPlayer.Models
         private String id;
         private String title;
         private String artists;
+        private String album;
         private String filePath;
         private Image image;
         private TimeSpan duration;
@@ -50,6 +51,15 @@ namespace MediaPlayer.Models
             {
                 if (artists == null) return "Unknown";
                 return artists;
+            }
+        }
+        public String Album
+        {
+            set => album = value;
+            get
+            {
+                if (album == null) return "Unknown";
+                return album;
             }
         }
         /// <summary>
@@ -148,10 +158,11 @@ namespace MediaPlayer.Models
         {
 
         }
-        public Song(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image songImage)
+        public Song(string title, string artist, string album, TimeSpan duration, DateTime dateAdded, string path, Image songImage)
         {
-            this.title = (title != null)? title : "Unknow";
-            this.artists = (artist != null) ? artist : "Unknow"; 
+            this.title = (title != null)? title : "Unknown";
+            this.artists = (artist != null) ? artist : "Unknown";
+            this.album = (album != null) ? album : "Unknown";
             this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
             this.dateAdded = dateAdded;
             this.filePath = path;
@@ -167,8 +178,9 @@ namespace MediaPlayer.Models
             TagLib.File taglib = TagLib.File.Create(path);
             var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
 
-            this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : "Unknow";
-            this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
+            this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : "Unknown";
+            this.artists = (taglib.Tag.AlbumArtists != null) ? String.Join(", ", taglib.Tag.AlbumArtists) : "Unknown";
+            this.album = (taglib.Tag.Album != null) ? taglib.Tag.Album.ToString() : "Unknown";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = DateTime.Now;
             this.filePath = path;
