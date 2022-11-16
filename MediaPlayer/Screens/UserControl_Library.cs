@@ -29,7 +29,7 @@ namespace MediaPlayer.Widgets
         TagLib.File[] f;
         static Song[] SongList;
         static UserControl_LibrarySong[] songs;
-
+        
         // Xu ly khi click vo button Add music
         private void gunaButton1_Click(object sender, EventArgs e)
         {
@@ -92,7 +92,7 @@ namespace MediaPlayer.Widgets
                     songs[i] = new UserControl_LibrarySong();
                     songs[i].Location = new Point(xLoc, yLoc);
                     songs[i].Dock = DockStyle.Top;
-                    songs[i].InitializeSongItem(f[i], i + 1);
+                    songs[i].InitializeSongItem(f[i], SongList[i].FilePath, i + 1);
                     yLoc += 100;
                     gunaElipsePanel2.Controls.Add(songs[i]);
                 }
@@ -129,7 +129,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, idx++);
+                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
                     songs[i++] = songdisplay;
                     yLoc += 100;
@@ -177,7 +177,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, idx++);
+                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
                     songs[i++] = songdisplay;
                     yLoc += 100;
@@ -225,7 +225,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, idx++);
+                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
                     songs[i++] = songdisplay;
                     yLoc += 100;
@@ -272,7 +272,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, idx++);
+                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
                     songs[i++] = songdisplay;
                     yLoc += 100;

@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using MediaPlayer.Widgets;
 using MediaPlayer.Screens;
 using MediaPlayer.Models;
+using MediaPlayer.Items;
+using WMPLib;
+using System.Threading;
 
 namespace MediaPlayer.Screens
 {
@@ -19,7 +22,10 @@ namespace MediaPlayer.Screens
         {
             InitializeComponent();
         }
-        public void InitializeSongItem(TagLib.File f, int idx)
+        private string filepath;
+        public delegate void PassDataBetweenForms(string filePath);
+        static MediaControl mediaControl;
+        public void InitializeSongItem(TagLib.File f, string filePath, int idx)
         {
             // gunaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
             gunaPanel1.AutoSize = true;
@@ -30,6 +36,7 @@ namespace MediaPlayer.Screens
             gunaPictureBox2.Image = Image.FromFile("ImgSource\\heart.png");
             gunaTextBox3.Text = DateTime.Now.ToShortDateString();
             gunaTextBox2.Text = f.Properties.Duration.ToString().Substring(3, 5);
+            this.filepath = filePath;
         }
         public void InitializeCategoryBar()
         {
@@ -39,10 +46,6 @@ namespace MediaPlayer.Screens
             gunaTextBox4.Text = "Album";
             gunaTextBox3.Text = "Date added";
             gunaTextBox2.Text = "Duration";
-        }
-        private void gunaPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void gunaTextBox1_TextChanged(object sender, EventArgs e)
@@ -54,20 +57,38 @@ namespace MediaPlayer.Screens
         {
 
         }
-
-        private void gunaLabel1_Click(object sender, EventArgs e)
+        public void GetMediaControl(MediaControl control)
         {
-
+            mediaControl = control;
+        }
+        private void gunaPanel1_DoubleClick(object sender, EventArgs e)
+        {
+            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
+            datasend(filepath);
         }
 
         private void gunaTextBox1_Click(object sender, EventArgs e)
         {
+            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
+            datasend(filepath);
+        }
 
+        private void gunaTextBox4_Click(object sender, EventArgs e)
+        {
+            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
+            datasend(filepath);
+        }
+
+        private void gunaTextBox2_Click(object sender, EventArgs e)
+        {
+            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
+            datasend(filepath);
         }
 
         private void gunaTextBox3_Click(object sender, EventArgs e)
         {
-
+            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
+            datasend(filepath);
         }
     }
 }

@@ -52,7 +52,6 @@
             this.gunaLabel1.Text = "1";
             this.gunaLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaLabel1.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.AntiAliasGridFit;
-            this.gunaLabel1.Click += new System.EventHandler(this.gunaLabel1_Click);
             // 
             // gunaPictureBox1
             // 
@@ -82,7 +81,7 @@
             this.gunaPanel1.Name = "gunaPanel1";
             this.gunaPanel1.Size = new System.Drawing.Size(1051, 100);
             this.gunaPanel1.TabIndex = 0;
-            this.gunaPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaPanel1_Paint);
+            this.gunaPanel1.DoubleClick += new System.EventHandler(this.gunaPanel1_DoubleClick);
             // 
             // gunaTextBox2
             // 
@@ -96,6 +95,7 @@
             this.gunaTextBox2.TabIndex = 3;
             this.gunaTextBox2.Text = "Duration";
             this.gunaTextBox2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gunaTextBox2.Click += new System.EventHandler(this.gunaTextBox2_Click);
             // 
             // gunaTextBox3
             // 
@@ -124,6 +124,7 @@
             this.gunaTextBox4.Text = "Album";
             this.gunaTextBox4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox4.TextChanged += new System.EventHandler(this.gunaTextBox1_TextChanged);
+            this.gunaTextBox4.Click += new System.EventHandler(this.gunaTextBox4_Click);
             // 
             // gunaTextBox1
             // 

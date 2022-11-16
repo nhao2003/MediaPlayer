@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
+using MediaPlayer.Screens;
+using MediaPlayer.Items;
 
 namespace MediaPlayer.Items
 {
@@ -19,9 +21,18 @@ namespace MediaPlayer.Items
         public MediaControl()
         {
             InitializeComponent();
+            UserControl_LibrarySong test = new UserControl_LibrarySong();
+            PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
+            datasend(this);
+        }
+        public string path = null;
+        public delegate void PassMediaControl(MediaControl control);
+        internal void transferDataFromLib(string filePath)
+        {
+            path = filePath;
+            getPathOfSong(path);
         }
 
-        public string path = null;
         public void getPathOfSong(string path)
         {
             TagLib.File file = TagLib.File.Create(path);
@@ -123,6 +134,11 @@ namespace MediaPlayer.Items
                 PlayMedia.setVolume(volumeNow);
                 gunaTrackBar_Volume.Value = volumeNow;
             }
+        }
+
+        private void gunaPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

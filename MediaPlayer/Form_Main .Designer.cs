@@ -670,6 +670,7 @@ namespace MediaPlayer
         private GunaCircleButton Button_Undo;
         private GunaCircleButton Button_Redo;
         private Items.MediaControl mediaControl;
+    
         private GunaButton gunaButton_Library;
         private GunaButton gunaButton_Settings;
         private GunaButton gunaButton_Video;

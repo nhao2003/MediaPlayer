@@ -38,7 +38,7 @@ namespace MediaPlayer.Widgets
                     }
                 }
                 // string filePath = gunaTextBox1.Text;
-                string filePath = "MusicDatabase\\Song.csv";
+                string filePath = "MusicDataBase\\Song.csv";
                 try
                 {
                     using (StreamReader reader = new StreamReader(filePath))
@@ -54,9 +54,10 @@ namespace MediaPlayer.Widgets
                             }
                             count++;
                         }
-                        count--;
+                        // accounted for sep; line 
+                        // accounted for columnheader_line
+                        count = count - 2;
                     }
-
                     using (StreamReader reader = new StreamReader(filePath))
                     {
                         string line;
@@ -64,11 +65,19 @@ namespace MediaPlayer.Widgets
                         SongList = new Song[count];
                         f = new TagLib.File[count];
                         bool firstLine = true;
+                        bool secondLine = true;
                         while ((line = reader.ReadLine()) != null)
                         {
-                            if (firstLine == true)
+                            // pass sep; line
+                            if (firstLine)
                             {
                                 firstLine = false;
+                                continue;
+                            }
+                            // pass column_header line
+                            else if (secondLine)
+                            {
+                                secondLine = false;
                                 continue;
                             }
                             // MessageBox.Show(line);
@@ -92,7 +101,7 @@ namespace MediaPlayer.Widgets
                     MessageBox.Show(ex.Message);
                 }
 
-                string findMusic = gunaTextBox1.Text;
+                string findMusic = gunaTextBox1.Text.ToString();
                 int xLoc = 0;
                 int yLoc = 300;
                 songs = new UserControl_LibrarySong[count];
@@ -108,7 +117,7 @@ namespace MediaPlayer.Widgets
                     songs[i] = new UserControl_LibrarySong();
                     songs[i].Location = new Point(xLoc, yLoc);
                     songs[i].Dock = DockStyle.Top;
-                    songs[i].InitializeSongItem(f[i], i + 1);
+                    songs[i].InitializeSongItem(f[i], SongList[i].FilePath, i + 1);
                     yLoc += 100;
                     gunaElipsePanel3.Controls.Add(songs[i]);
                 }
