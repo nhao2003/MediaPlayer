@@ -26,10 +26,15 @@ namespace MediaPlayer.Widgets
         static string[] split;
         static TagLib.File[] f;
         static int count = new int();
+        static GunaLabel nothingWasFound = null;
         private void gunaTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {   
+                if (nothingWasFound == null)
+                {
+                    this.Controls.Remove(nothingWasFound);
+                }
                 if (count != 0)
                 {
                     for (int i = 0; i < count; i++)
@@ -58,6 +63,7 @@ namespace MediaPlayer.Widgets
                         // accounted for columnheader_line
                         count = count - 2;
                     }
+                    
                     using (StreamReader reader = new StreamReader(filePath))
                     {
                         string line;
@@ -100,12 +106,12 @@ namespace MediaPlayer.Widgets
                 {
                     MessageBox.Show(ex.Message);
                 }
-
+                
                 string findMusic = gunaTextBox1.Text.ToString();
                 int xLoc = 0;
                 int yLoc = 300;
                 songs = new UserControl_LibrarySong[count];
-
+                bool isMusicFounded = false;
                 for (int i = 0; i < count; i++)
                 {
                     //  -> not case insensitive
@@ -114,12 +120,25 @@ namespace MediaPlayer.Widgets
                     bool findAlbum = SongList[i].Album.IndexOf(findMusic, StringComparison.OrdinalIgnoreCase) >= 0;
                     if (!findTitle && !findAlbum && !findArtists) continue;
                     // if (!SongList[i].Title.Contains(findMusic)) continue;
+                    isMusicFounded = true;
                     songs[i] = new UserControl_LibrarySong();
                     songs[i].Location = new Point(xLoc, yLoc);
                     songs[i].Dock = DockStyle.Top;
                     songs[i].InitializeSongItem(f[i], SongList[i].FilePath, i + 1);
                     yLoc += 100;
                     gunaElipsePanel3.Controls.Add(songs[i]);
+                }
+
+                if (!isMusicFounded)
+                {
+                    nothingWasFound = new GunaLabel();
+                    nothingWasFound.Text = "Kiem tra chinh ta cua ban hoac kiem noi dung khac";
+                    nothingWasFound.Font = new Font("Inter", 14, FontStyle.Bold);
+                    nothingWasFound.Width = 800;
+                    nothingWasFound.Height = 100;
+                    nothingWasFound.Location = new Point(0, 300);
+                    nothingWasFound.Dock = DockStyle.Top;
+                    gunaElipsePanel3.Controls.Add(nothingWasFound);
                 }
             }
         }

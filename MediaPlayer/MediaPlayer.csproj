@@ -314,6 +314,7 @@
     <Content Include="Resources\Icons\006-next-button.png" />
     <Content Include="Resources\Icons\books %281%29.png" />
     <Content Include="Resources\Icons\books.png" />
+    <None Include="Resources\Icons\heart_red.png" />
     <Content Include="Resources\Icons\home.png" />
     <Content Include="Resources\Icons\home_hover.png" />
     <Content Include="Resources\Icons\library.png" />
