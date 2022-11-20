@@ -16,12 +16,15 @@ namespace MediaPlayer.Widgets
         public UserControl_Video()
         {
             InitializeComponent();
-            videoPlayer.uiMode = "none";
         }
         OpenFileDialog openFileDialog;
         string path;
         string filenames;
 
+        public void getPathOfSong(string path)
+        {
+            videoPlayer.URL = path;
+        }
         private void bt_open_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -32,7 +35,7 @@ namespace MediaPlayer.Widgets
                 path = ofd.FileName;
                 filenames = ofd.SafeFileName;
             }
-            videoPlayer.URL = path;
+            getPathOfSong(path);
         }
     }
 }

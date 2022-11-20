@@ -8,6 +8,7 @@ using WMPLib;
 using System.Threading;
 using System.Threading.Tasks;
 using MediaPlayer.Models;
+using TagLib;
 
 namespace MediaPlayer
 {
@@ -48,13 +49,19 @@ namespace MediaPlayer
             MainPages.SetPage(5);
         }
         // gui data tu item song
-        public delegate void Send(string path);
+        public delegate void Send(string path, MediaTypes mediaTypes);
         public Send sendPath;
 
 
-        public void sendChildPath(String s)
+        public void sendChildPath(String s, MediaTypes mediaTypes)
         {
-            mediaControl.getPathOfSong(s);
+            if (mediaTypes == MediaTypes.Audio) mediaControl.getPathOfSong(s);
+            else
+            {
+                MainPages.SetPage(3);
+                userControl_Video1.getPathOfSong(s);
+            }
+            
         }
         public void rebuildHome()
         {

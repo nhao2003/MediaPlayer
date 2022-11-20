@@ -11,12 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaPlayer.Models;
+using TagLib;
 
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Home : UserControl
     {
-        public delegate void Send(string path);
+        public delegate void Send(string path, MediaTypes mediaTypes);
         public Send sendPath;
 
         DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", MediaHelpers.listSongs)
@@ -28,21 +29,24 @@ namespace MediaPlayer.Widgets
         private DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", MediaHelpers.listVideos)
         {
             Dock = DockStyle.Bottom,
-            //ListVideo.listVideos
         };
         public UserControl_Home()
         {
             InitializeComponent();
             RecentVideo.Parent = panel_Home;
-            RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPath);
-            RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPath);
+            RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPathMusic);
+            RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPathVideo);
             panel_Home.Controls.Add(RecentMusic);
             panel_Home.Controls.Add(RecentVideo);
-            suggestBar1.sendPath = new SuggestBar.Send(sendChildPath);
+            suggestBar1.sendPath = new SuggestBar.Send(sendChildPathMusic);
         }
-        public void sendChildPath(String s)
+        public void sendChildPathMusic(String s)
         {
-            sendPath(s);
+            sendPath(s, MediaTypes.Audio);
+        }
+        public void sendChildPathVideo(String s)
+        {
+            sendPath(s, MediaTypes.Video);
         }
 
         private void panel_Home_Scroll(object sender, ScrollEventArgs e)

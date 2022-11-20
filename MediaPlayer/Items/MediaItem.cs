@@ -38,7 +38,6 @@ namespace MediaPlayer.Items
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)
         {
             this.panel_MediaItem.BaseColor = Color.FromArgb(221, 228, 228);
-            //nm 221,228,228;
         }
 
         private void panel_MediaItem_MouseHover(object sender, EventArgs e)
