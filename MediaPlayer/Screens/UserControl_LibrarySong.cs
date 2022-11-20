@@ -28,64 +28,73 @@ namespace MediaPlayer.Screens
         public void InitializeSongItem(TagLib.File f, string filePath, int idx)
         {
             // gunaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
-            gunaPanel1.AutoSize = true;
-            gunaLabel1.Text = idx.ToString();
-            gunaPictureBox1.Image = Image.FromFile("ImgSource\\forest.jpg");
-            gunaTextBox1.Text = f.Tag.Title + Environment.NewLine + String.Join(", ", f.Tag.AlbumArtists);
-            gunaTextBox4.Text = f.Tag.Album;
-            gunaPictureBox2.Image = Image.FromFile("ImgSource\\heart.png");
-            gunaTextBox3.Text = DateTime.Now.ToShortDateString();
-            gunaTextBox2.Text = f.Properties.Duration.ToString().Substring(3, 5);
+            // gunaElipsePanel1.AutoSize = true;
+            gunaLabel2.Text = idx.ToString();
+            // gunaPictureBox3.Image = Image.FromFile("ImgSource\\forest.jpg");
+            gunaLabel1.Text = f.Tag.Title + Environment.NewLine + String.Join(", ", f.Tag.AlbumArtists);
+            gunaLabel4.Text = f.Tag.Album;
+            // gunaPictureBox2.Image = Image.FromFile("ImgSource\\heart.png");
+            gunaLabel5.Text = DateTime.Now.ToShortDateString();
+            gunaLabel6.Text = f.Properties.Duration.ToString().Substring(3, 5);
             this.filepath = filePath;
+            if (idx % 2 == 0)
+            {
+                gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(162, 220, 188);
+            }
+            else
+            {
+                gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(192, 255, 192);
+            }
+
         }
         public void InitializeCategoryBar()
         {
-            gunaPanel1.AutoSize = true;
-            gunaLabel1.Text = "#";
-            gunaTextBox1.Text = "Title and Author";
-            gunaTextBox4.Text = "Album";
-            gunaTextBox3.Text = "Date added";
-            gunaTextBox2.Text = "Duration";
+            gunaElipsePanel1.AutoSize = true;
+            gunaLabel2.Text = "#";
+            gunaLabel1.Text = "Title and Author";
+            gunaLabel4.Text = "Album";
+            gunaLabel5.Text = "Date added";
+            gunaLabel6.Text = "Duration";
         }
+        
 
-        private void gunaTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void gunaPictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
         public void GetMediaControl(MediaControl control)
         {
             mediaControl = control;
         }
-        private void gunaPanel1_DoubleClick(object sender, EventArgs e)
+
+        private void gunaElipsePanel1_Click(object sender, EventArgs e)
+        {
+            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
+            datasend(filepath);
+
+        }
+
+        private void gunaLabel2_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaTextBox1_Click(object sender, EventArgs e)
+        private void gunaLabel3_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaTextBox4_Click(object sender, EventArgs e)
+        private void gunaLabel4_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaTextBox2_Click(object sender, EventArgs e)
+        private void gunaLabel5_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaTextBox3_Click(object sender, EventArgs e)
+        private void gunaLabel6_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);

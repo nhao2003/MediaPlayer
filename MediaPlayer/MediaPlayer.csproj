@@ -292,6 +292,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\music1.png" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\paint-brush.png" />
     <None Include="Resources\video.png" />
     <None Include="Resources\Ex_s Hate Me Part 2_ Rap Version_ - AMee.mp3" />
@@ -299,6 +301,7 @@
     <None Include="Resources\defaultImage.jpg" />
     <None Include="Resources\color.png" />
     <None Include="bin\Debug\ImgSource\search-interface-symbol.png" />
+    <None Include="bin\Debug\ImgSource\forest.jpg" />
     <Content Include="Resources\Icons\001-next-button - Copy.png" />
     <Content Include="Resources\Icons\001-next-button.png" />
     <Content Include="Resources\Icons\001-play-button.png" />
@@ -315,6 +318,7 @@
     <Content Include="Resources\Icons\books %281%29.png" />
     <Content Include="Resources\Icons\books.png" />
     <None Include="Resources\Icons\heart_red.png" />
+    <None Include="Resources\Icons\forest.jpg" />
     <Content Include="Resources\Icons\home.png" />
     <Content Include="Resources\Icons\home_hover.png" />
     <Content Include="Resources\Icons\library.png" />

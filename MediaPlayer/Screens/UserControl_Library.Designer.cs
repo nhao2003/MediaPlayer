@@ -51,7 +51,7 @@ namespace MediaPlayer.Widgets
             // 
             // gunaLabel_Recent
             // 
-            this.gunaLabel_Recent.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel_Recent.Font = new System.Drawing.Font("Arial", 28.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaLabel_Recent.ForeColor = System.Drawing.Color.Black;
             this.gunaLabel_Recent.Location = new System.Drawing.Point(3, 0);
             this.gunaLabel_Recent.Name = "gunaLabel_Recent";
@@ -68,8 +68,8 @@ namespace MediaPlayer.Widgets
             this.gunaButton1.BorderColor = System.Drawing.Color.Black;
             this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
             this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
+            this.gunaButton1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaButton1.ForeColor = System.Drawing.Color.Black;
             this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
             this.gunaButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.gunaButton1.Location = new System.Drawing.Point(883, 26);
@@ -209,11 +209,11 @@ namespace MediaPlayer.Widgets
             // 
             this.gunaLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaLabel3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaLabel3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gunaLabel3.Location = new System.Drawing.Point(606, 37);
+            this.gunaLabel3.Location = new System.Drawing.Point(593, 37);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(101, 31);
+            this.gunaLabel3.Size = new System.Drawing.Size(114, 31);
             this.gunaLabel3.TabIndex = 14;
             this.gunaLabel3.Text = "Sort by:";
             this.gunaLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -222,7 +222,7 @@ namespace MediaPlayer.Widgets
             // 
             this.gunaLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaLabel2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaLabel2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaLabel2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaLabel2.Location = new System.Drawing.Point(656, 91);
             this.gunaLabel2.Name = "gunaLabel2";
@@ -235,7 +235,7 @@ namespace MediaPlayer.Widgets
             // 
             this.gunaTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaTextBox2.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaTextBox2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox2.Location = new System.Drawing.Point(909, 91);
             this.gunaTextBox2.Name = "gunaTextBox2";
@@ -247,7 +247,7 @@ namespace MediaPlayer.Widgets
             // gunaTextBox3
             // 
             this.gunaTextBox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaTextBox3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaTextBox3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox3.Location = new System.Drawing.Point(196, 91);
             this.gunaTextBox3.Name = "gunaTextBox3";
@@ -258,8 +258,9 @@ namespace MediaPlayer.Widgets
             // 
             // gunaTextBox4
             // 
+            this.gunaTextBox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.gunaTextBox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox4.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaTextBox4.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaTextBox4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox4.Location = new System.Drawing.Point(461, 91);
             this.gunaTextBox4.Name = "gunaTextBox4";
@@ -291,7 +292,7 @@ namespace MediaPlayer.Widgets
             // 
             this.gunaTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaTextBox1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaTextBox1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.gunaTextBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.gunaTextBox1.Location = new System.Drawing.Point(742, 91);
@@ -304,10 +305,10 @@ namespace MediaPlayer.Widgets
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Inter", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaLabel1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaLabel1.Location = new System.Drawing.Point(11, 93);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(27, 28);
+            this.gunaLabel1.Size = new System.Drawing.Size(25, 27);
             this.gunaLabel1.TabIndex = 11;
             this.gunaLabel1.Text = "#";
             this.gunaLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
