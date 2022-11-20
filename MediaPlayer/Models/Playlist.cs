@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TagLib;
 
 namespace MediaPlayer.Models
 {
@@ -11,23 +12,14 @@ namespace MediaPlayer.Models
     {
         private String Id;
         private String ListName;
-        private List<Song> ListSongs;
-        private int NumOfSong;
+        private List<Media> listMedia;
         private Image BackroundImage;
         private DateTime DateCreated;
-
-        public Playlist(String name,
-                        List<Song> listSongs,
-                        int numOfSong,
-                        Image backroundImage,
-                        DateTime dateCreated)
+        public Playlist(String name = "Unknown name")
         {
             this.Id = Guid.NewGuid().ToString("N");
             this.ListName = name;
-            this.ListSongs = listSongs;
-            this.NumOfSong = numOfSong;
-            this.BackroundImage = backroundImage;
-            this.DateCreated = dateCreated;
+            this.DateCreated = DateTime.Now;
         }
     }
 }

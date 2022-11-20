@@ -6,7 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
+using MediaPlayer.Properties;
+using TagLib;
 
 
 namespace MediaPlayer.Models
@@ -14,7 +16,7 @@ namespace MediaPlayer.Models
     /// <summary>
     /// Đây là class Song chứa các thông tin một bài nhạc
     /// </summary>
-    public class Song
+    public class Media
     {
         private String id;
         private String title;
@@ -25,12 +27,14 @@ namespace MediaPlayer.Models
         private DateTime dateAdded;
         private bool isLiked = false;
         private TagLib.File others;
+        private MediaTypes mediaType;
+        public MediaTypes MediaTypes { get { return mediaType; } }
         /// <summary>
         /// Lấy ID
         /// </summary>
         public String Id => id;
         /// <summary>
-        /// Tên bài hát
+        /// Tên media
         /// </summary>
         public String Title
         {
@@ -94,9 +98,6 @@ namespace MediaPlayer.Models
         /// </summary>
         public TagLib.File Others => others;
 
-        //public Song()
-        //{
-        //}
 
         /// <summary>
         /// Khởi tạo bài hát
@@ -106,33 +107,43 @@ namespace MediaPlayer.Models
         /// <param name="duration">Thời lượng</param>
         /// <param name="dateAdded">Ngày thêm</param>
         /// <param name="path">Đường dẫn</param>
-        /// <param name="songImage">Ảnh</param>
-        public Song(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image songImage)
+        /// <param name="mediaImage">Ảnh</param>
+        public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
         {
             this.title = (title != null)? title : "Unknow";
             this.artists = (artist != null) ? artist : "Unknow"; 
             this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
             this.dateAdded = dateAdded;
             this.filePath = path;
-            this.image = songImage;
+            this.image = mediaImage;
             this.others = TagLib.File.Create(path);
         }
         /// <summary>
         /// Tạo bài hát bằng đường dẫn
         /// </summary>
         /// <param name="path">Đường dẫn bài hát</param>
-        public Song(string path)
+        public Media(string path)
         {
             TagLib.File taglib = TagLib.File.Create(path);
-            var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
-
+            
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : "Unknow";
             this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = DateTime.Now;
             this.filePath = path;
-            this.image = Image.FromStream(new MemoryStream(bin));
+            this.mediaType = taglib.Properties.MediaTypes;
             this.others = taglib;
+            if (taglib.Tag.Pictures.Length > 0)
+            {
+                var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
+                this.image = Image.FromStream(new MemoryStream(bin));
+            }
+            else
+            {
+                this.image = Resources.defaultImage;
+            }
+            
+
         }
         public void Like()
         {

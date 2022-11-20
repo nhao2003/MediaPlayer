@@ -19,12 +19,13 @@ namespace MediaPlayer.Widgets
         public delegate void Send(string path);
         public Send sendPath;
 
-        DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", ListSong.listSongs)
+        DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", MediaHelpers.listSongs)
         {
             Dock = DockStyle.Bottom,
             
         };
-        DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", ListSong.listSongs)
+
+        private DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", MediaHelpers.listVideos)
         {
             Dock = DockStyle.Bottom,
             //ListVideo.listVideos

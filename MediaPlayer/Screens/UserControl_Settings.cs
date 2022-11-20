@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TagLib;
 
 namespace MediaPlayer.Widgets
 {
@@ -18,8 +19,8 @@ namespace MediaPlayer.Widgets
 
         //public string musicFolderPath = "C:\\users\\Administrator\\Music";
         //public string videoFolderPath = "C:\\users\\Administrator\\Videos";
-        public string musicFolderPath = ListSong.pathFolder;
-        public string videoFolderPath = ListVideo.pathFolder;
+        public string musicFolderPath = MediaHelpers.MusicPathFolder;
+        public string videoFolderPath = MediaHelpers.VideoPathFolder;
 
         public List<string> themes = new List<string>() { "Light", "Dark"};
         public List<string> colors = new List<string>() { "Green", "Blue", "Red", "Yellow" };
@@ -44,8 +45,8 @@ namespace MediaPlayer.Widgets
             {
                 musicFolderPath = fbd.SelectedPath;
                 music_library_path.Text = musicFolderPath;
-                ListSong.pathFolder = musicFolderPath;
-                ListSong.FetchListSong();
+                MediaHelpers.MusicPathFolder = musicFolderPath;
+                MediaHelpers.FetchListMedia(MediaTypes.Audio);
                 rebuild();
             }
         }
@@ -60,8 +61,8 @@ namespace MediaPlayer.Widgets
             {
                 videoFolderPath = fbd.SelectedPath;
                 video_library_path.Text = videoFolderPath;
-                ListVideo.pathFolder = videoFolderPath;
-                ListVideo.FetchListVideo();
+                MediaHelpers.VideoPathFolder = videoFolderPath;
+                MediaHelpers.FetchListMedia(MediaTypes.Video);
                 rebuild();
             }
         }

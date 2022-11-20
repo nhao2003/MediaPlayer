@@ -25,7 +25,7 @@ namespace MediaPlayer.Widgets
         static string[] fileNames;
         static string[] joins;
         TagLib.File[] f;
-        static Song[] SongList;
+        static Media[] SongList;
         private void gunaButton1_Click(object sender, EventArgs e)
         {
             //OpenFileDialog openFileDialog = new OpenFileDialog();

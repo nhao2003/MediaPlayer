@@ -17,14 +17,14 @@ namespace MediaPlayer.Items
     {
         public delegate void Send(string path);
         public Send sendPath;
-        private Song song;
-        public MediaItem(Song song)
+        private Media Media;
+        public MediaItem(Media media)
         {
             InitializeComponent();
-            this.song = song;
-            label_NameSong.Text = song.Title;
-            label_Author.Text = song.Artists;
-            pic_SongPic.Image = song.Image;
+            this.Media = media;
+            label_NameSong.Text = media.Title;
+            label_Author.Text = media.Artists;
+            pic_SongPic.Image = media.Image;
         }
         private void gunapic_SongPic_Click(object sender, EventArgs e)
         {
@@ -32,7 +32,7 @@ namespace MediaPlayer.Items
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            sendPath(song.FilePath);
+            sendPath(Media.FilePath);
         }
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)

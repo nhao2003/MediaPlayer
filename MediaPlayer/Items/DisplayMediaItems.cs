@@ -16,13 +16,13 @@ namespace MediaPlayer.Items
     {
         public delegate void Send(string path);
         public Send sendPath;
-        private List<Song> listSongs;
+        private List<Media> listSongs;
         public DisplayMediaItems()
         {
             InitializeComponent();
         }
 
-        public DisplayMediaItems(String title, List<Song> listSongs)
+        public DisplayMediaItems(String title, List<Media> listSongs)
         {
             InitializeComponent();
             label_Title.Text = title;

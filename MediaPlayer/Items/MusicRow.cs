@@ -17,20 +17,20 @@ namespace MediaPlayer.Items
     {
         public delegate void Send(string path);
         public Send sendPath;
-        private Song song;
-        public Song Song
+        private Media _media;
+        public Media Media
         {
             get
             {
-                return song;
+                return _media;
             }
             set
             {
-                song = value;
-                pic_Song.Image = song.Image;
-                label_NameSong.Text = song.Title;
-                label_Duration.Text = song.DurationText;
-                label_NameSinger.Text = song.Artists;
+                _media = value;
+                pic_Song.Image = _media.Image;
+                label_NameSong.Text = _media.Title;
+                label_Duration.Text = _media.DurationText;
+                label_NameSinger.Text = _media.Artists;
             }
         }
 
@@ -56,7 +56,7 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            sendPath(song.FilePath);
+            sendPath(_media.FilePath);
         }
     }
 }
