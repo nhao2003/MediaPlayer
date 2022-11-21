@@ -143,6 +143,12 @@
     <Compile Include="Items\AppBar.Designer.cs">
       <DependentUpon>AppBar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\CategoryPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\CategoryPanel.Designer.cs">
+      <DependentUpon>CategoryPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items\DisplayMediaItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\AppBar.resx">
       <DependentUpon>AppBar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\CategoryPanel.resx">
+      <DependentUpon>CategoryPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\DisplayMediaItems.resx">
       <DependentUpon>DisplayMediaItems.cs</DependentUpon>

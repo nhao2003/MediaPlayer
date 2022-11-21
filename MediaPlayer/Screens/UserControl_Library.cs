@@ -13,6 +13,7 @@ using CsvHelper;
 using Guna.UI.WinForms;
 using MediaPlayer.Widgets;
 using MediaPlayer.Screens;
+using MediaPlayer.Items;
 
 namespace MediaPlayer.Widgets
 {
@@ -29,10 +30,52 @@ namespace MediaPlayer.Widgets
         TagLib.File[] f;
         static Song[] SongList;
         static UserControl_LibrarySong[] songs;
-        
-        // Xu ly khi click vo button Add music
+        // Bien toan cuc luu tru danh sach cac category sau khi sort
+        static CategoryPanel[] list_category;
+
+        // Phuong thuc reset UserControl
+        private void ResetUserControl()
+        {
+            try
+            {
+                // Xoa cac music panel cu
+                if (songs != null)
+                {
+                    for (int i = 0; i < songs.Length; i++)
+                    {
+                        gunaElipsePanel2.Controls.Remove(songs[i]);
+                    }
+                }
+                // Xoa cac category neu co
+                if (list_category != null)
+                {
+                    for (int j = 0; j < list_category.Length; j++)
+                    {
+                        gunaElipsePanel2.Controls.Remove(list_category[j]);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        // Phuong thuc set cac gia tri mac dinh cho categoryPanel
+        public void SetCategoryPanelAttribute(ref CategoryPanel category, int xLoc,int yLoc, string groupKey)
+        {
+            category.Location = new Point(xLoc, yLoc);
+            category.Dock = DockStyle.Top;
+            category.Height = 40;
+            category.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
+            category.InitializeCategory(groupKey);
+        }
+
+        // Event click Add music
         private void gunaButton1_Click(object sender, EventArgs e)
         {
+            this.ResetUserControl();
             // Chon folder de lay music
             try 
             {
@@ -102,9 +145,8 @@ namespace MediaPlayer.Widgets
                 MessageBox.Show("Haven't choose any folder yet !!!");
             }
         }
-        // Bien toan cuc luu tru danh sach cac category sau khi sort
-        static GunaElipsePanel[] list_category;
-        
+
+
         // Sort theo thu tu alphabet A-Z
         public void SortByAtoZ()
         {
@@ -118,15 +160,13 @@ namespace MediaPlayer.Widgets
             int i = 0;
             songs = new UserControl_LibrarySong[filePaths.Length];
             int j = 0;
-            list_category = new GunaElipsePanel[res.Count()];
+            list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
             {
                 
                 foreach (var song in group.Reverse())
                 {
                     UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
-                    // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-                    songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
@@ -135,21 +175,11 @@ namespace MediaPlayer.Widgets
                     yLoc += 100;
                 }
                 yLoc -= 100;
-                GunaElipsePanel category_display = new GunaElipsePanel();
-                category_display.Location = new Point(xLoc, yLoc);
-                category_display.Dock = DockStyle.Top;
-                category_display.Height = 40;
-                category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
-
-                GunaLabel category = new GunaLabel();
-                category.Text = group.Key.ToString();
-                category.Font = new Font("Inter", 14);
-                category.Location = new Point(xLoc, yLoc);
-                category.Dock = DockStyle.Top;
+                CategoryPanel category_display = new CategoryPanel();
+                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                category_display.Controls.Add(category);
-                list_category[j] = new GunaElipsePanel();
+                list_category[j] = new CategoryPanel();
                 list_category[j++] = category_display;
             }
         }
@@ -161,43 +191,31 @@ namespace MediaPlayer.Widgets
             int yLoc = 100;
             int idx = 0;
             IEnumerable<IGrouping<DateTime, Song>> res = from song in songlist
-                      orderby song.DateAdded ascending
-                      group song by song.DateAdded;
+                                                         orderby song.DateAdded ascending
+                                                         group song by song.DateAdded;
             int i = 0;
             songs = new UserControl_LibrarySong[filePaths.Length];
             int j = 0;
-            list_category = new GunaElipsePanel[res.Count()];
+            list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
             {
 
                 foreach (var song in group.Reverse())
                 {
                     UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
-                    // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-                    songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
                     songs[i++] = songdisplay;
-                    yLoc += 100;
+                    yLoc += 140;
                 }
                 yLoc -= 100;
-                GunaElipsePanel category_display = new GunaElipsePanel();
-                category_display.Location = new Point(xLoc, yLoc);
-                category_display.Dock = DockStyle.Top;
-                category_display.Height = 40;
-                category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
-
-                GunaLabel category = new GunaLabel();
-                category.Text = group.Key.ToString();
-                category.Font = new Font("Inter", 14);
-                category.Location = new Point(xLoc, yLoc);
-                category.Dock = DockStyle.Top;
+                CategoryPanel category_display = new CategoryPanel();
+                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                category_display.Controls.Add(category);
-                list_category[j] = new GunaElipsePanel();
+                list_category[j] = new CategoryPanel();
                 list_category[j++] = category_display;
             }
         }
@@ -209,20 +227,18 @@ namespace MediaPlayer.Widgets
             int yLoc = 100;
             int idx = 0;
             IEnumerable<IGrouping<string, Song>> res = from song in songlist
-                      orderby song.Artists ascending
-                      group song by song.Artists;
+                                                       orderby song.Artists ascending
+                                                       group song by song.Artists;
             int i = 0;
             songs = new UserControl_LibrarySong[filePaths.Length];
             int j = 0;
-            list_category = new GunaElipsePanel[res.Count()];
+            list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
             {
 
                 foreach (var song in group.Reverse())
                 {
                     UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
-                    // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-                    songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
@@ -231,21 +247,11 @@ namespace MediaPlayer.Widgets
                     yLoc += 100;
                 }
                 yLoc -= 100;
-                GunaElipsePanel category_display = new GunaElipsePanel();
-                category_display.Location = new Point(xLoc, yLoc);
-                category_display.Dock = DockStyle.Top;
-                category_display.Height = 40;
-                category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
-
-                GunaLabel category = new GunaLabel();
-                category.Text = group.Key.ToString();
-                category.Font = new Font("Inter", 14);
-                category.Location = new Point(xLoc, yLoc);
-                category.Dock = DockStyle.Top;
+                CategoryPanel category_display = new CategoryPanel();
+                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                category_display.Controls.Add(category);
-                list_category[j] = new GunaElipsePanel();
+                list_category[j] = new CategoryPanel();
                 list_category[j++] = category_display;
             }
         }
@@ -261,15 +267,13 @@ namespace MediaPlayer.Widgets
             int i = 0;
             songs = new UserControl_LibrarySong[filePaths.Length];
             int j = 0;
-            list_category = new GunaElipsePanel[res.Count()];
+            list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
             {
 
                 foreach (var song in group.Reverse())
                 {
                     UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
-                    // songdisplay.Anchor = AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
-                    songdisplay.Location = new Point(xLoc, yLoc);
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
@@ -278,21 +282,11 @@ namespace MediaPlayer.Widgets
                     yLoc += 100;
                 }
                 yLoc -= 100;
-                GunaElipsePanel category_display = new GunaElipsePanel();
-                category_display.Location = new Point(xLoc, yLoc);
-                category_display.Dock = DockStyle.Top;
-                category_display.Height = 40;
-                category_display.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
-
-                GunaLabel category = new GunaLabel();
-                category.Text = group.Key.ToString();
-                category.Font = new Font("Inter", 14);
-                category.Location = new Point(xLoc, yLoc);
-                category.Dock = DockStyle.Top;
+                CategoryPanel category_display = new CategoryPanel();
+                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                category_display.Controls.Add(category);
-                list_category[j] = new GunaElipsePanel();
+                list_category[j] = new CategoryPanel();
                 list_category[j++] = category_display;
             }
         }
@@ -300,19 +294,8 @@ namespace MediaPlayer.Widgets
         {
             try 
             {
-                // Xoa cac music panel cu
-                for (int i = 0; i < songs.Length; i++)
-                {
-                    gunaElipsePanel2.Controls.Remove(songs[i]);
-                }
-                // Xoa cac category neu co
-                if (list_category != null)
-                {
-                    for (int j = 0; j < list_category.Length; j++)
-                    {
-                        gunaElipsePanel2.Controls.Remove(list_category[j]);
-                    }
-                }
+                // Goi ham xoa cac category panel, music panel
+                this.ResetUserControl();
                 // Dua tren lua chon tren combobox ma tien hanh sort
                 string selectedChoice = gunaComboBox1.SelectedItem.ToString();
                 if (selectedChoice == "A to Z") SortByAtoZ();
@@ -323,9 +306,6 @@ namespace MediaPlayer.Widgets
             catch(Exception ex){
                 MessageBox.Show("There's nothing to sort !!!");
             }
-            
         }
-
-        
     }
 }

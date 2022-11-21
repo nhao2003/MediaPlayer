@@ -167,8 +167,8 @@ namespace MediaPlayer.Widgets
             this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Navy;
+            this.gunaComboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
             this.gunaComboBox1.FormattingEnabled = true;
             this.gunaComboBox1.Items.AddRange(new object[] {
             "A to Z",

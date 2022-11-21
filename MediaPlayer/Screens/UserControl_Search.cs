@@ -142,5 +142,23 @@ namespace MediaPlayer.Widgets
                 }
             }
         }
+
+        private void gunaTextBox1_Enter(object sender, EventArgs e)
+        {
+            if (gunaTextBox1.Text == "Nhập tên nhạc / Album / Ca sĩ")
+            {
+                gunaTextBox1.Text = "";
+                gunaTextBox1.ForeColor = Color.Black;
+            }
+        }
+
+        private void gunaTextBox1_Leave(object sender, EventArgs e)
+        {
+            if (gunaTextBox1.Text == "")
+            {
+                gunaTextBox1.Text = "Nhập tên nhạc / Album / Ca sĩ";
+                gunaTextBox1.ForeColor = Color.Green;
+            }
+        }
     }
 }
