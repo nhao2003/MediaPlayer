@@ -1,16 +1,8 @@
-﻿using ns2;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MediaPlayer.Properties;
 using TagLib;
-
-
 namespace MediaPlayer.Models
 {
     /// <summary>
@@ -125,8 +117,10 @@ namespace MediaPlayer.Models
         public Media(string path)
         {
             TagLib.File taglib = TagLib.File.Create(path);
-            
-            this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : "Unknow";
+
+            this.title = (taglib.Tag.Title != null)
+                ? taglib.Tag.Title.ToString()
+                : Path.GetFileNameWithoutExtension(path);
             this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = DateTime.Now;
@@ -150,5 +144,6 @@ namespace MediaPlayer.Models
             isLiked = !isLiked;
         }
 
-    }
+        
+}
 }
