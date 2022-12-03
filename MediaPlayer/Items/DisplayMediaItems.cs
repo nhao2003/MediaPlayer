@@ -14,7 +14,7 @@ namespace MediaPlayer.Items
 {
     public partial class DisplayMediaItems : UserControl
     {
-        public delegate void Send(string path);
+        public delegate void Send(string path, Image image);
         public Send sendPath;
         private List<Media> listSongs;
         public DisplayMediaItems()
@@ -47,9 +47,9 @@ namespace MediaPlayer.Items
         {
             
         }
-        public void sendChildPath(String s)
+        public void sendChildPath(String s, Image image)
         {
-            sendPath(s);
+            sendPath(s, image);
         }
     }
 }

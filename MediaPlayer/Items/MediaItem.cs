@@ -15,7 +15,7 @@ namespace MediaPlayer.Items
 {
     public partial class MediaItem : UserControl
     {
-        public delegate void Send(string path);
+        public delegate void Send(string path, Image image);
         public Send sendPath;
         private Media Media;
         public MediaItem(Media media)
@@ -32,7 +32,7 @@ namespace MediaPlayer.Items
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
-            sendPath(Media.FilePath);
+            sendPath(Media.FilePath, Media.Image);
         }
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)

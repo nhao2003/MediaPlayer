@@ -34,7 +34,7 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
             RecentVideo.Parent = panel_Home;
-            RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPathMusic);
+            RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPathMusicHasImage);
             RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPathVideo);
             panel_Home.Controls.Add(RecentMusic);
             panel_Home.Controls.Add(RecentVideo);
@@ -44,7 +44,12 @@ namespace MediaPlayer.Widgets
         {
             sendPath(s, MediaTypes.Audio);
         }
-        public void sendChildPathVideo(String s)
+        public void sendChildPathMusicHasImage(String s, Image image)
+        {
+            suggestBar1.changeImage(image);
+            sendPath(s, MediaTypes.Audio);
+        }
+        public void sendChildPathVideo(String s, Image image)
         {
             sendPath(s, MediaTypes.Video);
         }

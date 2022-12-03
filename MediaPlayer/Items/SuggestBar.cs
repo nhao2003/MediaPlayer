@@ -39,5 +39,9 @@ namespace MediaPlayer.Items
             pic_main.Image = image;
             sendPath(s);
         }
+        public void changeImage(Image image)
+        {
+            pic_main.Image = image;
+        }
     }
 }
