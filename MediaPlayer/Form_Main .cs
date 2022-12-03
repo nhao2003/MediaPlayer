@@ -21,32 +21,53 @@ namespace MediaPlayer
         private void gunaButton_Home_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(0);
+            resetForeColor();
+            gunaButton_Home.ForeColor = Color.Green;
         }
 
         private void gunaButton_Search_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(1);
+            resetForeColor();
+            gunaButton_Search.ForeColor = Color.Green;
         }
 
         private void gunaButton_Music_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(2);
+            resetForeColor();
+            gunaButton_Music.ForeColor = Color.Green;
         }
 
         private void gunaButton_Video_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(3);
+            resetForeColor();
+            gunaButton_Video.ForeColor = Color.Green;
         }
 
         private void gunaButton_Library_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(4);
+            resetForeColor();
+            gunaButton_Library.ForeColor = Color.Green;
 
         }
 
         private void gunaButton_Settings_Click(object sender, EventArgs e)
         {
             MainPages.SetPage(5);
+            resetForeColor();
+            gunaButton_Settings.ForeColor = Color.Green;
+        }
+        private void resetForeColor()
+        {
+            gunaButton_Home.ForeColor = Color.Black;
+            gunaButton_Search.ForeColor = Color.Black;
+            gunaButton_Library.ForeColor = Color.Black;
+            gunaButton_Music.ForeColor = Color.Black;
+            gunaButton_Video.ForeColor = Color.Black;
+            gunaButton_Settings.ForeColor = Color.Black;
         }
         // gui data tu item song
         public delegate void Send(string path, MediaTypes mediaTypes);
