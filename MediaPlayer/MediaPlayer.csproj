@@ -205,6 +205,12 @@
     <Compile Include="Screens\UserControl_Video.Designer.cs">
       <DependentUpon>UserControl_Video.cs</DependentUpon>
     </Compile>
+    <Compile Include="Screens\VideoPlayer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Screens\VideoPlayer.Designer.cs">
+      <DependentUpon>VideoPlayer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form_Main .resx">
       <DependentUpon>Form_Main .cs</DependentUpon>
     </EmbeddedResource>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Video.resx">
       <DependentUpon>UserControl_Video.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\VideoPlayer.resx">
+      <DependentUpon>VideoPlayer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="..\.editorconfig">
       <Link>.editorconfig</Link>

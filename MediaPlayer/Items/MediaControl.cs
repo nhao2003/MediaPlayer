@@ -19,6 +19,7 @@ namespace MediaPlayer.Items
         public MediaControl()
         {
             InitializeComponent();
+            gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
         }
 
         public string path = null;
