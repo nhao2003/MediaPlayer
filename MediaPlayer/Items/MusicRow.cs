@@ -15,7 +15,7 @@ namespace MediaPlayer.Items
 {
     public partial class MusicRow : UserControl
     {
-        public delegate void Send(string path);
+        public delegate void Send(string path, Image image);
         public Send sendPath;
         private Media _media;
         public Media Media
@@ -56,7 +56,7 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            sendPath(_media.FilePath);
+            sendPath(_media.FilePath, _media.Image);
         }
     }
 }

@@ -16,11 +16,12 @@ namespace MediaPlayer.Items
     {
         public delegate void Send(string path);
         public Send sendPath;
+        public int numOfMediaShow = 5;
         public SuggestBar()
         {
             MusicRow musicRow;
             InitializeComponent();
-            for (int i = 0; i < MediaHelpers.listSongs.Count && i < 5; i++)
+            for (int i = 0; i < MediaHelpers.listSongs.Count && i < numOfMediaShow; i++)
             {
                 musicRow = new MusicRow()
                 {
@@ -31,9 +32,13 @@ namespace MediaPlayer.Items
                 musicRow.sendPath = new MusicRow.Send(sendChildPath);
                 panel_MusicRow.Controls.Add(musicRow);
             }
+            // lay anh dau tien ra lam anh mac dinh
+            //if (MediaHelpers.listSongs.Count >= 0 && MediaHelpers.listSongs[0].Image != null) 
+            //    pic_main.Image = MediaHelpers.listSongs[0].Image;
         }
-        public void sendChildPath(String s)
+        public void sendChildPath(String s, Image image)
         {
+            pic_main.Image = image;
             sendPath(s);
         }
     }
