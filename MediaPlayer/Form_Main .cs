@@ -58,12 +58,10 @@ namespace MediaPlayer
             if (mediaTypes == MediaTypes.Audio) mediaControl.getPathOfSong(s);
             else
             {
-                //MainPages.SetPage(3);
-                //userControl_Video1.getPathOfSong(s);
+                mediaControl.pauseCurrentPlayer();
                 VideoPlayer videoScreen = new VideoPlayer();
                 videoScreen.Show();
                 videoScreen.getPathOfSong(s);
-                //this.Close();
             }
             
         }

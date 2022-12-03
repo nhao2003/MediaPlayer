@@ -18,6 +18,7 @@ namespace MediaPlayer.Models
 
         static string path = null;
         static double currentTimePlay = 0.0;
+        static bool checkFirst = false;
 
         public static void Play(String url)
         {
@@ -40,6 +41,10 @@ namespace MediaPlayer.Models
         }
 
         // set fuction
+        public static bool IsFirst()
+        {
+            return checkFirst;
+        }
         public static void setPath(string value)
         {
             path = value;
@@ -82,6 +87,7 @@ namespace MediaPlayer.Models
 
         public static void setURL(string Path = null)
         {
+            checkFirst = true;
             player.CreateControl();
             if (Path != null)
             {

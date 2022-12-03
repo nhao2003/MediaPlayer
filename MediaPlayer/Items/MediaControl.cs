@@ -61,11 +61,20 @@ namespace MediaPlayer.Items
                 getPathOfSong(path);
             }
         }
-
+        public void pauseCurrentPlayer()
+        {
+            if (PlayMedia.IsFirst() == false) return;
+            if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                timerSong.Enabled = false;
+                PlayMedia.pauseSong();
+            }
+        }
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
             try
             {
+                if (PlayMedia.IsFirst() == false) return;
                 if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     timerSong.Enabled = false;
