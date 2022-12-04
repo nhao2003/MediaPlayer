@@ -26,8 +26,13 @@ namespace MediaPlayer.Items
             label_NameSong.Text = media.Title;
             label_Author.Text = media.Artists;
             pic_SongPic.Image = media.Image;
+            contextMenu.Play.Click += contextMenuPlay_click;
         }
 
+        private void contextMenuPlay_click(object sender, EventArgs e)
+        {
+            sendPath(Media.FilePath, Media.Image);
+        }
         private void MediaItem_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
