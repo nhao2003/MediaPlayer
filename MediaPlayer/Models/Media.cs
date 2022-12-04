@@ -1,8 +1,16 @@
-﻿using System;
+﻿using ns2;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using MediaPlayer.Properties;
 using TagLib;
+
+
 namespace MediaPlayer.Models
 {
     /// <summary>
