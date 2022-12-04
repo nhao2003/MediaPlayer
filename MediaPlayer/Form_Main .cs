@@ -100,7 +100,6 @@ namespace MediaPlayer
         private void Form_Main_Load(object sender, EventArgs e)
         {
             userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
-            userControl_Settings1.rebuild = new UserControl_Settings.Rebuild(rebuildHome);
         }
     }
 }

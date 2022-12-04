@@ -268,6 +268,7 @@
             this.gunaPanel.Name = "gunaPanel";
             this.gunaPanel.Size = new System.Drawing.Size(594, 120);
             this.gunaPanel.TabIndex = 13;
+            this.gunaPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaPanel_Paint);
             // 
             // gunaCircleButton4
             // 

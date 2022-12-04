@@ -45,9 +45,8 @@ namespace MediaPlayer.Widgets
             {
                 musicFolderPath = fbd.SelectedPath;
                 music_library_path.Text = musicFolderPath;
-                MediaHelpers.MusicPathFolder = musicFolderPath;
-                MediaHelpers.FetchListMedia(MediaTypes.Audio);
-                rebuild();
+                ListSong.pathFolder = musicFolderPath;
+                ListSong.FetchListSong();
             }
         }
 

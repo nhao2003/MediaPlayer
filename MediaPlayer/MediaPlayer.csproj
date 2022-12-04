@@ -50,12 +50,27 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuFormDock">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuFormDock.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPanel">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuPanel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuScrollBar">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuScrollBar.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSeparator">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuSeparator.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuShapes">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuShapes.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuSlider">
+      <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuSlider.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuSnackbar">
       <HintPath>Resources\BUNIFU UI\Bunifu.UI.WinForms.BunifuSnackbar.dll</HintPath>
@@ -127,6 +142,12 @@
     </Compile>
     <Compile Include="Items\AppBar.Designer.cs">
       <DependentUpon>AppBar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\CategoryPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\CategoryPanel.Designer.cs">
+      <DependentUpon>CategoryPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Items\DisplayMediaItems.cs">
       <SubType>UserControl</SubType>
@@ -217,6 +238,9 @@
     <EmbeddedResource Include="Items\AppBar.resx">
       <DependentUpon>AppBar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Items\CategoryPanel.resx">
+      <DependentUpon>CategoryPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Items\DisplayMediaItems.resx">
       <DependentUpon>DisplayMediaItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +267,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Library.resx">
       <DependentUpon>UserControl_Library.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UserControl_LibrarySong.resx">
+      <DependentUpon>UserControl_LibrarySong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Music.resx">
       <DependentUpon>UserControl_Music.cs</DependentUpon>
@@ -277,10 +304,64 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\music1.png" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\paint-brush.png" />
     <None Include="Resources\video.png" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\defaultImage.jpg" />
+    <None Include="Resources\color.png" />
+    <Content Include="Resources\Icons\001-next-button - Copy.png" />
+    <Content Include="Resources\Icons\001-next-button.png" />
+    <Content Include="Resources\Icons\001-play-button.png" />
+    <Content Include="Resources\Icons\002-next - Copy.png" />
+    <Content Include="Resources\Icons\002-next.png" />
+    <Content Include="Resources\Icons\002-play-button-1.png" />
+    <Content Include="Resources\Icons\003-repeat.png" />
+    <Content Include="Resources\Icons\003-video-pause-button.png" />
+    <Content Include="Resources\Icons\004-repeat-1.png" />
+    <Content Include="Resources\Icons\004-video-pause-button-1.png" />
+    <Content Include="Resources\Icons\005-next.png" />
+    <Content Include="Resources\Icons\005-shuffle.png" />
+    <Content Include="Resources\Icons\006-next-button.png" />
+    <Content Include="Resources\Icons\books %281%29.png" />
+    <Content Include="Resources\Icons\books.png" />
+    <Content Include="Resources\Icons\home.png" />
+    <Content Include="Resources\Icons\home_hover.png" />
+    <Content Include="Resources\Icons\library.png" />
+    <Content Include="Resources\Icons\library_hover.png" />
+    <Content Include="Resources\Icons\music-alt.png" />
+    <Content Include="Resources\Icons\music.png" />
+    <Content Include="Resources\Icons\music_hover.png" />
+    <Content Include="Resources\Icons\next_left.png" />
+    <Content Include="Resources\Icons\next_left_hover.png" />
+    <Content Include="Resources\Icons\next_right.png" />
+    <Content Include="Resources\Icons\next_right_hover.png" />
+    <Content Include="Resources\Icons\pause.png" />
+    <Content Include="Resources\Icons\pause_hover.png" />
+    <Content Include="Resources\Icons\play-alt %281%29.png" />
+    <Content Include="Resources\Icons\play-alt.png" />
+    <Content Include="Resources\Icons\play.png" />
+    <Content Include="Resources\Icons\play_hover.png" />
+    <Content Include="Resources\Icons\repeat.png" />
+    <Content Include="Resources\Icons\repeat_hover.png" />
+    <Content Include="Resources\Icons\search %281%29.png" />
+    <Content Include="Resources\Icons\search.png" />
+    <Content Include="Resources\Icons\search_hover.png" />
+    <Content Include="Resources\Icons\settings %281%29.png" />
+    <Content Include="Resources\Icons\settings-sliders %281%29.png" />
+    <Content Include="Resources\Icons\settings-sliders.png" />
+    <Content Include="Resources\Icons\settings.png" />
+    <Content Include="Resources\Icons\settings_hover.png" />
+    <Content Include="Resources\Icons\settings_slider.png" />
+    <Content Include="Resources\Icons\settings_slider_hover.png" />
+    <Content Include="Resources\Icons\shuffle.png" />
+    <Content Include="Resources\Icons\shuffle_hover.png" />
+    <Content Include="Resources\Icons\skip_left_hover.png" />
+    <Content Include="Resources\Icons\skip_right.png" />
+    <Content Include="Resources\Icons\skip_right_hover.png" />
+    <Content Include="Resources\Icons\video.png" />
+    <Content Include="Resources\Icons\video_hover.png" />
     <None Include="Resources\next_page_right.png" />
   </ItemGroup>
   <ItemGroup>
