@@ -21,6 +21,7 @@ namespace MediaPlayer.Models
         private String id;
         private String title;
         private String artists;
+        private String album;
         private String filePath;
         private Image image;
         private TimeSpan duration;
@@ -38,6 +39,7 @@ namespace MediaPlayer.Models
         /// </summary>
         public String Title
         {
+            set => title = value;
             get
             {
                 if (title == null) return "Unknown";
@@ -48,33 +50,78 @@ namespace MediaPlayer.Models
         /// Tên ca sĩ
         /// </summary>
         public String Artists {
+            set => artists = value;
             get
             {
                 if (artists == null) return "Unknown";
                 return artists;
             }
         }
+        public String Album
+        {
+            set => album = value;
+            get
+            {
+                if (album == null) return "Unknown";
+                return album;
+            }
+        }
         /// <summary>
         /// Ảnh bài hát
         /// </summary>
-        public Image Image => image;
+        public Image Image
+        {
+            set => image = value;
+            get
+            {
+                return image;
+            }
+        }
         /// <summary>
         /// Duration dưới dạng TimeSpan
         /// Muốn lấy tổng thời gian gian tính bằng dây có thể dùng duration.TotalSeconds
         /// </summary>
-        public TimeSpan Duration => duration;
+        public TimeSpan Duration
+        {
+            set => duration = value;
+            get
+            {
+                return duration;
+            }
+        }
         /// <summary>
         /// Ngày thêm nhạc
         /// </summary>
-        public DateTime DateAdded => dateAdded;
+        public DateTime DateAdded
+        {
+            set => dateAdded = value;
+            get
+            {
+                return dateAdded;
+            }
+        }
         /// <summary>
         /// Lấy thông tin yêu thích
         /// </summary>
-        public bool IsLiked => isLiked;
+        public bool IsLiked
+        {
+            set => isLiked = value;
+            get
+            {
+                return isLiked;
+            }
+        }
         /// <summary>
         /// Lấy patch của bài hát
         /// </summary>
-        public String FilePath => filePath;
+        public String FilePath
+        {
+            set => filePath = value;
+            get
+            {
+                return filePath;
+            }
+        }
         /// <summary>
         /// Lấy duration bài hát dưới dạng text
         /// Ví dụ: 03:18
@@ -110,8 +157,9 @@ namespace MediaPlayer.Models
         /// <param name="mediaImage">Ảnh</param>
         public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
         {
-            this.title = (title != null)? title : "Unknow";
-            this.artists = (artist != null) ? artist : "Unknow"; 
+            this.title = (title != null)? title : "Unknown";
+            this.artists = (artist != null) ? artist : "Unknown";
+            this.album = (album != null) ? album : "Unknown";
             this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
             this.dateAdded = dateAdded;
             this.filePath = path;
@@ -125,7 +173,7 @@ namespace MediaPlayer.Models
         public Media(string path)
         {
             TagLib.File taglib = TagLib.File.Create(path);
-            
+
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : "Unknow";
             this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
@@ -150,5 +198,6 @@ namespace MediaPlayer.Models
             isLiked = !isLiked;
         }
 
-    }
+        
+}
 }

@@ -7,43 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaPlayer.Models;
+using static ns6.WinApi;
 
 namespace MediaPlayer.Items
 {
     public partial class DisplayMediaItems : UserControl
     {
+        public delegate void Send(string path, Image image);
+        public Send sendPath;
+        private List<Media> listSongs;
         public DisplayMediaItems()
         {
             InitializeComponent();
         }
 
-        private void DisplayMediaItems_Load(object sender, EventArgs e)
+        public DisplayMediaItems(String title, List<Media> listSongs)
         {
+            InitializeComponent();
+            label_Title.Text = title;
+            this.listSongs = listSongs;
+
             MediaItem mediaItem;
-            for (int i = 0; i < 8; i++)
+            int x = 10;
+            for (int i = 0; i < listSongs.Count && i < 8; i++)
             {
-                mediaItem = new MediaItem();
-                flowLayoutPanel_Media.Controls.Add(mediaItem);
+                mediaItem = new MediaItem(listSongs[i])
+                {
+                    Location = new Point(x, 0),
+                    sendPath = new MediaItem.Send(sendChildPath)
+                };
+                x += 215;
+                panel_Items.Controls.Add(mediaItem);
             }
+            panel_Items.AutoScroll = false;
+            DoubleBuffered = true;
         }
-
-        private void flowLayoutPanel_Recent_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void DisplayMediaItems_Load(object sender, EventArgs e)
         {
             
         }
-
-        private void DisplayMediaItems_ParentChanged(object sender, EventArgs e)
+        public void sendChildPath(String s, Image image)
         {
-
-        }
-
-        private void panel1_ClientSizeChanged(object sender, EventArgs e)
-        {
+            sendPath(s, image);
         }
     }
 }

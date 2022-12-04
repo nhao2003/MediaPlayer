@@ -28,62 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.flowLayoutPanel_Media = new System.Windows.Forms.FlowLayoutPanel();
-            this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaElipsePanel1.SuspendLayout();
+            this.panel_Title = new System.Windows.Forms.Panel();
+            this.label_SeeAll = new Guna.UI.WinForms.GunaLabel();
+            this.label_Title = new Guna.UI.WinForms.GunaLabel();
+            this.panel_Items = new Guna.UI.WinForms.GunaPanel();
+            this.panel_Title.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gunaElipsePanel1
+            // panel_Title
             // 
-            this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel1.Controls.Add(this.flowLayoutPanel_Media);
-            this.gunaElipsePanel1.Controls.Add(this.gunaLabel1);
-            this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(1040, 347);
-            this.gunaElipsePanel1.TabIndex = 0;
+            this.panel_Title.BackColor = System.Drawing.Color.Transparent;
+            this.panel_Title.Controls.Add(this.label_SeeAll);
+            this.panel_Title.Controls.Add(this.label_Title);
+            this.panel_Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_Title.Location = new System.Drawing.Point(0, 0);
+            this.panel_Title.Name = "panel_Title";
+            this.panel_Title.Size = new System.Drawing.Size(1074, 50);
+            this.panel_Title.TabIndex = 1;
             // 
-            // flowLayoutPanel_Media
+            // label_SeeAll
             // 
-            this.flowLayoutPanel_Media.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel_Media.Location = new System.Drawing.Point(0, 43);
-            this.flowLayoutPanel_Media.Name = "flowLayoutPanel_Media";
-            this.flowLayoutPanel_Media.Size = new System.Drawing.Size(1040, 304);
-            this.flowLayoutPanel_Media.TabIndex = 3;
+            this.label_SeeAll.AutoSize = true;
+            this.label_SeeAll.BackColor = System.Drawing.Color.Transparent;
+            this.label_SeeAll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_SeeAll.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.label_SeeAll.Location = new System.Drawing.Point(887, 0);
+            this.label_SeeAll.Name = "label_SeeAll";
+            this.label_SeeAll.Size = new System.Drawing.Size(187, 46);
+            this.label_SeeAll.TabIndex = 4;
+            this.label_SeeAll.Text = "Xem tất cả";
             // 
-            // gunaLabel1
+            // label_Title
             // 
-            this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel1.Location = new System.Drawing.Point(3, 0);
-            this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(91, 46);
-            this.gunaLabel1.TabIndex = 2;
-            this.gunaLabel1.Text = "Title";
+            this.label_Title.AutoSize = true;
+            this.label_Title.BackColor = System.Drawing.Color.Transparent;
+            this.label_Title.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.label_Title.Location = new System.Drawing.Point(3, 0);
+            this.label_Title.Name = "label_Title";
+            this.label_Title.Size = new System.Drawing.Size(91, 46);
+            this.label_Title.TabIndex = 2;
+            this.label_Title.Text = "Title";
+            // 
+            // panel_Items
+            // 
+            this.panel_Items.AutoSize = true;
+            this.panel_Items.BackColor = System.Drawing.Color.Transparent;
+            this.panel_Items.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Items.Location = new System.Drawing.Point(0, 50);
+            this.panel_Items.MaximumSize = new System.Drawing.Size(0, 320);
+            this.panel_Items.MinimumSize = new System.Drawing.Size(0, 320);
+            this.panel_Items.Name = "panel_Items";
+            this.panel_Items.Size = new System.Drawing.Size(1074, 320);
+            this.panel_Items.TabIndex = 2;
             // 
             // DisplayMediaItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.Controls.Add(this.gunaElipsePanel1);
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.panel_Items);
+            this.Controls.Add(this.panel_Title);
             this.Name = "DisplayMediaItems";
-            this.Size = new System.Drawing.Size(1040, 347);
+            this.Size = new System.Drawing.Size(1074, 363);
             this.Load += new System.EventHandler(this.DisplayMediaItems_Load);
-            this.ParentChanged += new System.EventHandler(this.DisplayMediaItems_ParentChanged);
-            this.gunaElipsePanel1.ResumeLayout(false);
-            this.gunaElipsePanel1.PerformLayout();
+            this.panel_Title.ResumeLayout(false);
+            this.panel_Title.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
-        private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_Media;
+        private System.Windows.Forms.Panel panel_Title;
+        private Guna.UI.WinForms.GunaLabel label_SeeAll;
+        private Guna.UI.WinForms.GunaLabel label_Title;
+        private Guna.UI.WinForms.GunaPanel panel_Items;
     }
 }

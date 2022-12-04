@@ -1,87 +1,62 @@
 ﻿using MediaPlayer.Items;
+using ns2;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MediaPlayer.Models;
+using TagLib;
 
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Home : UserControl
     {
-        DisplayMediaItems RecentMusic = new DisplayMediaItems();
-        DisplayMediaItems RecentVideo = new DisplayMediaItems();
+        public delegate void Send(string path, MediaTypes mediaTypes);
+        public Send sendPath;
+
+        DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", MediaHelpers.listSongs)
+        {
+            Dock = DockStyle.Bottom,
+            
+        };
+
+        private DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", MediaHelpers.listVideos)
+        {
+            Dock = DockStyle.Bottom,
+        };
         public UserControl_Home()
         {
             InitializeComponent();
+            RecentVideo.Parent = panel_Home;
+            RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPathMusicHasImage);
+            RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPathVideo);
+            panel_Home.Controls.Add(RecentMusic);
+            panel_Home.Controls.Add(RecentVideo);
+            suggestBar1.sendPath = new SuggestBar.Send(sendChildPathMusic);
+        }
+        public void sendChildPathMusic(String s)
+        {
+            sendPath(s, MediaTypes.Audio);
+        }
+        public void sendChildPathMusicHasImage(String s, Image image)
+        {
+            suggestBar1.changeImage(image);
+            sendPath(s, MediaTypes.Audio);
+        }
+        public void sendChildPathVideo(String s, Image image)
+        {
+            sendPath(s, MediaTypes.Video);
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        private void panel_Home_Scroll(object sender, ScrollEventArgs e)
         {
-            //RecentMusic.Height = 700;
-            //flowLayoutPanel_Home.Controls.Add(RecentMusic);
-            //flowLayoutPanel_Home.Controls.Add(RecentVideo);
-        }
-
-        private void UserControl_Home_Resize(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void UserControl_Home_SizeChanged(object sender, EventArgs e)
-        {
-            int width = flowLayoutPanel_Home.Width - 30;
-            RecentMusic.Width = width;
-            //RecentVideo.Width = width;
-        }
-        string[] paths, files;
-
-        private void btn_open_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Multiselect = true;
-            if(openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                files = openFileDialog.FileNames;
-                paths = openFileDialog.FileNames;
-                for(int i =0;i < files.Length; i++)
-                {
-                    Track_list.Items.Add(files[i]);
-                }
-            }
-        }
-
-        private void Track_list_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            player.URL = paths[Track_list.SelectedIndex];
-            player.Ctlcontrols.play();
-        }
-
-        private void btn_pause_Click(object sender, EventArgs e)
-        {
-            player.Ctlcontrols.pause();
-        }
-
-        private void btn_play_Click(object sender, EventArgs e)
-        {
-            player.Ctlcontrols.play();  
-        }
-
-        private void btn_stop_Click(object sender, EventArgs e)
-        {
-            player.Ctlcontrols.stop();
-        }
-
-        private void btn_next_Click(object sender, EventArgs e)
-        {
-            if(Track_list.SelectedIndex  < Track_list.Items.Count - 1)
-            {
-                Track_list.SelectedIndex = Track_list.SelectedIndex + 1;
-            }
+            panel_Home.VerticalScroll.Value += 10;
         }
     }
 }
