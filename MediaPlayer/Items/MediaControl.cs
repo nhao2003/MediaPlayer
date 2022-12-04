@@ -11,8 +11,6 @@ using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
-using MediaPlayer.Screens;
-using MediaPlayer.Items;
 
 namespace MediaPlayer.Items
 {
@@ -24,6 +22,7 @@ namespace MediaPlayer.Items
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
         }
 
+        public string path = null;
         public void getPathOfSong(string path)
         {
             TagLib.File file = TagLib.File.Create(path);
@@ -46,13 +45,13 @@ namespace MediaPlayer.Items
                 MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
                 MediaTrackBar.Value = 0;
                 timeSongPlay.Text = "00:00";
-                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds/60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds%60);
+                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds / 60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds % 60);
 
                 PlayMedia.setCurrentTimePlay();
             }
         }
-        
-        
+
+
         private void gunaCircleButton_Open_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -137,11 +136,6 @@ namespace MediaPlayer.Items
                 PlayMedia.setVolume(volumeNow);
                 gunaTrackBar_Volume.Value = volumeNow;
             }
-        }
-
-        private void gunaPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
