@@ -149,6 +149,12 @@
     <Compile Include="Items\CategoryPanel.Designer.cs">
       <DependentUpon>CategoryPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\CustomContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Items\CustomContextMenu.Designer.cs">
+      <DependentUpon>CustomContextMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items\DisplayMediaItems.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -246,6 +252,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\CategoryPanel.resx">
       <DependentUpon>CategoryPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\CustomContextMenu.resx">
+      <DependentUpon>CustomContextMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\DisplayMediaItems.resx">
       <DependentUpon>DisplayMediaItems.cs</DependentUpon>

@@ -32,6 +32,7 @@
             this.label_Author = new Guna.UI.WinForms.GunaLabel();
             this.label_NameSong = new Guna.UI.WinForms.GunaLabel();
             this.pic_SongPic = new Guna.UI.WinForms.GunaPictureBox();
+            this.contextMenu = new MediaPlayer.Items.CustomContextMenu();
             this.panel_MediaItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SongPic)).BeginInit();
             this.SuspendLayout();
@@ -102,6 +103,21 @@
             this.pic_SongPic.MouseLeave += new System.EventHandler(this.label_Author_MouseLeave);
             this.pic_SongPic.MouseHover += new System.EventHandler(this.panel_MediaItem_MouseHover);
             // 
+            // contextMenu
+            // 
+            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenu.Name = "contextMenu";
+            this.contextMenu.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.contextMenu.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
+            this.contextMenu.RenderStyle.ColorTable = null;
+            this.contextMenu.RenderStyle.RoundedEdges = true;
+            this.contextMenu.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
+            this.contextMenu.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.contextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.contextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
+            this.contextMenu.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
+            this.contextMenu.Size = new System.Drawing.Size(215, 84);
+            // 
             // MediaItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -124,5 +140,6 @@
         private Guna.UI.WinForms.GunaLabel label_Author;
         private Guna.UI.WinForms.GunaLabel label_NameSong;
         private Guna.UI.WinForms.GunaPictureBox pic_SongPic;
+        private CustomContextMenu contextMenu;
     }
 }

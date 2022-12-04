@@ -20,18 +20,22 @@ namespace MediaPlayer.Items
         private Media Media;
         public MediaItem(Media media)
         {
-            InitializeComponent();
             this.Media = media;
+            InitializeComponent();
+            contextMenu.Tag = media;
             label_NameSong.Text = media.Title;
             label_Author.Text = media.Artists;
             pic_SongPic.Image = media.Image;
         }
-        private void gunapic_SongPic_Click(object sender, EventArgs e)
-        {
-        }
 
         private void MediaItem_Click(object sender, EventArgs e)
         {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == MouseButtons.Right)
+            {
+                contextMenu.Show(ToolStripDropDown.MousePosition);
+                return;
+            }
             sendPath(Media.FilePath, Media.Image);
         }
 
