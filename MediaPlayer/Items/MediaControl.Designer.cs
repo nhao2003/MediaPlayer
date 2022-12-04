@@ -164,7 +164,7 @@
             // 
             // panel_MediaInfo
             // 
-            this.panel_MediaInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel_MediaInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_MediaInfo.Controls.Add(this.gunaCircleButton_Like);
             this.panel_MediaInfo.Controls.Add(this.gunaLabel_SongName);
@@ -251,7 +251,7 @@
             // 
             // gunaPanel
             // 
-            this.gunaPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gunaPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaPanel.AutoSize = true;
             this.gunaPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -268,7 +268,6 @@
             this.gunaPanel.Name = "gunaPanel";
             this.gunaPanel.Size = new System.Drawing.Size(594, 120);
             this.gunaPanel.TabIndex = 13;
-            this.gunaPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaPanel_Paint);
             // 
             // gunaCircleButton4
             // 
