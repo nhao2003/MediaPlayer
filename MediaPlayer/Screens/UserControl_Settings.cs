@@ -22,7 +22,7 @@ namespace MediaPlayer.Widgets
         public string musicFolderPath = MediaHelpers.MusicPathFolder;
         public string videoFolderPath = MediaHelpers.VideoPathFolder;
 
-        public List<string> themes = new List<string>() { "Light", "Dark"};
+        public List<string> themes = new List<string>() { "Light", "Dark" };
         public List<string> colors = new List<string>() { "Green", "Blue", "Red", "Yellow" };
         public UserControl_Settings()
         {
@@ -45,8 +45,9 @@ namespace MediaPlayer.Widgets
             {
                 musicFolderPath = fbd.SelectedPath;
                 music_library_path.Text = musicFolderPath;
-                ListSong.pathFolder = musicFolderPath;
-                ListSong.FetchListSong();
+                MediaHelpers.MusicPathFolder = musicFolderPath;
+                MediaHelpers.FetchListMedia(MediaTypes.Audio);
+                rebuild();
             }
         }
 
@@ -78,6 +79,6 @@ namespace MediaPlayer.Widgets
             //choose_color_ComboBox.SelectedItem
         }
 
-        
+
     }
 }
