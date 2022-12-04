@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
-
+using MediaPlayer.Screens;
 namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
@@ -20,9 +20,17 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
+            UserControl_LibrarySong test = new UserControl_LibrarySong();
+            PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
+            datasend(this);
         }
-
         public string path = null;
+        public delegate void PassMediaControl(MediaControl control);
+        internal void transferDataFromLib(string filePath)
+        {
+            path = filePath;
+            getPathOfSong(path);
+        }
         public void getPathOfSong(string path)
         {
             TagLib.File file = TagLib.File.Create(path);

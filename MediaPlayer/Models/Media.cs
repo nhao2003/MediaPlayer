@@ -198,6 +198,10 @@ namespace MediaPlayer.Models
             isLiked = !isLiked;
         }
 
+        public Media()
+        {
+
+        }
         
 }
 }

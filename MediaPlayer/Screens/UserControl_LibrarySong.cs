@@ -22,67 +22,70 @@ namespace MediaPlayer.Screens
         {
             InitializeComponent();
         }
-        // filepath de load nhac
         private string filepath;
-        // Ham delegate truyen data qua mediaControl
         public delegate void PassDataBetweenForms(string filePath);
         static MediaControl mediaControl;
+        public void InitializeSongItem(TagLib.File f, string filePath, int idx)
+        {
+            // gunaPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Bottom;
+            gunaPanel1.AutoSize = true;
+            gunaLabel1.Text = idx.ToString();
+            gunaPictureBox1.Image = Image.FromFile("ImgSource\\forest.jpg");
+            gunaTextBox1.Text = f.Tag.Title + Environment.NewLine + String.Join(", ", f.Tag.AlbumArtists);
+            gunaTextBox4.Text = f.Tag.Album;
+            gunaPictureBox2.Image = Image.FromFile("ImgSource\\heart.png");
+            gunaTextBox3.Text = DateTime.Now.ToShortDateString();
+            gunaTextBox2.Text = f.Properties.Duration.ToString().Substring(3, 5);
+            this.filepath = filePath;
+        }
+        public void InitializeCategoryBar()
+        {
+            gunaPanel1.AutoSize = true;
+            gunaLabel1.Text = "#";
+            gunaTextBox1.Text = "Title and Author";
+            gunaTextBox4.Text = "Album";
+            gunaTextBox3.Text = "Date added";
+            gunaTextBox2.Text = "Duration";
+        }
+
+        private void gunaTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaPictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
         public void GetMediaControl(MediaControl control)
         {
             mediaControl = control;
         }
-        // Phuong thuc set up cac gia tri cho music panel
-        public void InitializeSongItem(TagLib.File f, string filePath, int idx)
-        {
-            gunaLabel2.Text = idx.ToString();
-            gunaLabel1.Text = f.Tag.Title + Environment.NewLine + String.Join(", ", f.Tag.AlbumArtists);
-            gunaLabel4.Text = f.Tag.Album;
-            gunaLabel5.Text = DateTime.Now.ToShortDateString();
-            gunaLabel6.Text = f.Properties.Duration.ToString().Substring(3, 5);
-            this.filepath = filePath;
-            if (idx % 2 == 0)
-            {
-                gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(162, 220, 188);
-            }
-            else
-            {
-                gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(192, 255, 192);
-            }
-
-        }
-        // Cac event click vo label / panel -> mo music thong qua truyen data sang mediaControl
-        private void gunaElipsePanel1_Click(object sender, EventArgs e)
-        {
-            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
-            datasend(filepath);
-
-        }
-
-        private void gunaLabel2_Click(object sender, EventArgs e)
+        private void gunaPanel1_DoubleClick(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaLabel3_Click(object sender, EventArgs e)
+        private void gunaTextBox1_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaLabel4_Click(object sender, EventArgs e)
+        private void gunaTextBox4_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaLabel5_Click(object sender, EventArgs e)
+        private void gunaTextBox2_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);
         }
 
-        private void gunaLabel6_Click(object sender, EventArgs e)
+        private void gunaTextBox3_Click(object sender, EventArgs e)
         {
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
             datasend(filepath);

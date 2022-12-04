@@ -12,9 +12,8 @@ using System.IO;
 using CsvHelper;
 using Guna.UI.WinForms;
 using MediaPlayer.Widgets;
-using MediaPlayer.Screens;
 using MediaPlayer.Items;
-
+using MediaPlayer.Screens;
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Library : UserControl
@@ -28,7 +27,7 @@ namespace MediaPlayer.Widgets
         static string[] filePaths;
         static string[] joins;
         TagLib.File[] f;
-        static Song[] SongList;
+        static Media[] SongList;
         static UserControl_LibrarySong[] songs;
         // Bien toan cuc luu tru danh sach cac category sau khi sort
         static CategoryPanel[] list_category;
@@ -89,7 +88,7 @@ namespace MediaPlayer.Widgets
                 }
                 // Cac mang luu tru thong tin music
                 f = new TagLib.File[filePaths.Length];
-                SongList = new Song[filePaths.Length];
+                SongList = new Media[filePaths.Length];
                 joins = new string[filePaths.Length];
                 for (int i = 0; i < filePaths.Length; i++)
                 {
@@ -98,7 +97,7 @@ namespace MediaPlayer.Widgets
                 // Load cac music song thanh cac object
                 for (int i = 0; i < filePaths.Length; i++)
                 {
-                    SongList[i] = new Song();
+                    SongList[i] = new Media();
                     // Id, Title, Artists, FilePath, SongImage, Duration, DateAdded, isLiked
                     // SongList[i].Id= Guid.NewGuid().ToString("N");
                     SongList[i].Title = f[i].Tag.Title;
@@ -142,7 +141,8 @@ namespace MediaPlayer.Widgets
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Haven't choose any folder yet !!!");
+                //MessageBox.Show("Haven't choose any folder yet !!!");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -150,11 +150,11 @@ namespace MediaPlayer.Widgets
         // Sort theo thu tu alphabet A-Z
         public void SortByAtoZ()
         {
-            var songlist = new List<Song>(SongList);
+            var songlist = new List<Media>(SongList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
-            IEnumerable<IGrouping<char, Song>> res = from song in songlist
+            IEnumerable<IGrouping<char, Media>> res = from song in songlist
                       orderby song.Title ascending
                       group song by song.Title[0];
             int i = 0;
@@ -186,11 +186,11 @@ namespace MediaPlayer.Widgets
         // Sort theo ngay them nhac
         public void SortByDateAdded()
         {
-            var songlist = new List<Song>(SongList);
+            var songlist = new List<Media>(SongList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
-            IEnumerable<IGrouping<DateTime, Song>> res = from song in songlist
+            IEnumerable<IGrouping<DateTime, Media>> res = from song in songlist
                                                          orderby song.DateAdded ascending
                                                          group song by song.DateAdded;
             int i = 0;
@@ -222,11 +222,11 @@ namespace MediaPlayer.Widgets
         // Sort theo ten tac gia
         public void SortByArtist()
         {
-            var songlist = new List<Song>(SongList);
+            var songlist = new List<Media>(SongList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
-            IEnumerable<IGrouping<string, Song>> res = from song in songlist
+            IEnumerable<IGrouping<string, Media>> res = from song in songlist
                                                        orderby song.Artists ascending
                                                        group song by song.Artists;
             int i = 0;
@@ -257,11 +257,11 @@ namespace MediaPlayer.Widgets
         }
         public void SortByAlbum()
         {
-            var songlist = new List<Song>(SongList);
+            var songlist = new List<Media>(SongList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
-            IEnumerable<IGrouping<string, Song>> res = from song in songlist
+            IEnumerable<IGrouping<string, Media>> res = from song in songlist
                                                        orderby song.Album ascending
                                                        group song by song.Album;
             int i = 0;

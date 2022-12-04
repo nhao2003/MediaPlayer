@@ -21,7 +21,7 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
         }
-        static Song[] SongList;
+        static Media[] SongList;
         static UserControl_LibrarySong[] songs;
         static string[] split;
         static TagLib.File[] f;
@@ -68,7 +68,7 @@ namespace MediaPlayer.Widgets
                     {
                         string line;
                         int idx = 0;
-                        SongList = new Song[count];
+                        SongList = new Media[count];
                         f = new TagLib.File[count];
                         bool firstLine = true;
                         bool secondLine = true;
@@ -88,7 +88,7 @@ namespace MediaPlayer.Widgets
                             }
                             // MessageBox.Show(line);
                             split = line.Split(';');
-                            SongList[idx] = new Song();
+                            SongList[idx] = new Media();
                             SongList[idx].Title = split[0];
                             SongList[idx].Artists = split[1];
                             SongList[idx].FilePath = split[2];
