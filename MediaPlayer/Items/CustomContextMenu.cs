@@ -20,5 +20,9 @@ namespace MediaPlayer.Items
         {
             
         }
+        private void PlayNext_Click(object sender, System.EventArgs e)
+        {
+            
+        }
     }
 }

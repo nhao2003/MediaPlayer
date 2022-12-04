@@ -16,6 +16,7 @@ namespace MediaPlayer.Models
         private static string userName = Environment.UserName;
         private static string musicPathFolder = $"C:\\Users\\{userName}\\Music";
         private static string videoPathFolder = $"C:\\Users\\{userName}\\Videos";
+        private static List<Media> playQueue = new List<Media>();
         /// <summary>
         /// List các bài nhạc
         /// </summary>
@@ -24,6 +25,16 @@ namespace MediaPlayer.Models
         /// List các video
         /// </summary>
         public static List<Media> listVideos = new List<Media>();
+        /// <summary>
+        /// Danh sách media đang chờ.
+        /// Có thể chứa nhạc và video.
+        /// </summary>
+        public static List<Media> PlayQueue
+        {
+            set { PlayQueue = value; }
+            get { return PlayQueue; }
+        }
+
         /// <summary>
         /// Đường dẫn thư mục nhạc
         /// </summary>

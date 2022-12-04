@@ -116,7 +116,7 @@
             this.contextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.contextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.contextMenu.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.contextMenu.Size = new System.Drawing.Size(215, 84);
+            this.contextMenu.Size = new System.Drawing.Size(142, 56);
             // 
             // MediaItem
             // 
