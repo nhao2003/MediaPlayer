@@ -16,8 +16,17 @@ namespace MediaPlayer.Models
         private static string userName = Environment.UserName;
         private static string musicPathFolder = $"C:\\Users\\{userName}\\Music";
         private static string videoPathFolder = $"C:\\Users\\{userName}\\Videos";
+        /// <summary>
+        /// List các bài nhạc
+        /// </summary>
         public static List<Media> listSongs = new List<Media>();
+        /// <summary>
+        /// List các video
+        /// </summary>
         public static List<Media> listVideos = new List<Media>();
+        /// <summary>
+        /// Đường dẫn thư mục nhạc
+        /// </summary>
         public static string MusicPathFolder
         {
             set
@@ -27,7 +36,9 @@ namespace MediaPlayer.Models
             get
             { return musicPathFolder; }
         }
-
+        /// <summary>
+        /// Đường dẫn thư mục video
+        /// </summary>
         public static string VideoPathFolder
         {
             set
@@ -36,7 +47,11 @@ namespace MediaPlayer.Models
             }
             get { return videoPathFolder; }
         }
-
+        /// <summary>
+        /// Duyệt các Nhạc hoặc Video
+        /// </summary>
+        /// <param name="mediaTypes"></param>
+        /// <exception cref="Exception"></exception>
         public static void FetchListMedia(MediaTypes mediaTypes)
         {
             string SearchPattern;

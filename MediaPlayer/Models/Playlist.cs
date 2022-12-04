@@ -10,16 +10,36 @@ namespace MediaPlayer.Models
 {
     internal class Playlist
     {
-        private String Id;
-        private String ListName;
+        private String playListID;
+        private String playListName;
         private List<Media> listMedia;
-        private Image BackroundImage;
-        private DateTime DateCreated;
+        private Image backroundImage;
+        private DateTime dateCreated;
+
+        public String PlayListID => playListID;
+
+        public String PlayListName
+        {
+            get { return playListName; }
+            set { playListName = value; }
+        }
+
+        public Image BackroundImage
+        {
+            set { backroundImage = value; }
+            get { return backroundImage; }
+        }
+
+        public DateTime DateCreated
+        {
+            set => dateCreated = value;
+            get { return dateCreated; }
+        }
         public Playlist(String name = "Unknown name")
         {
-            this.Id = Guid.NewGuid().ToString("N");
-            this.ListName = name;
-            this.DateCreated = DateTime.Now;
+            this.playListID = Guid.NewGuid().ToString("N");
+            this.playListName = name;
+            this.dateCreated = DateTime.Now;
         }
     }
 }
