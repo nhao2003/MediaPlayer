@@ -16,5 +16,9 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
         }
+        private void Play_Click(object sender, System.EventArgs e)
+        {
+            
+        }
     }
 }

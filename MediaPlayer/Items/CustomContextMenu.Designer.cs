@@ -40,6 +40,7 @@ namespace MediaPlayer.Items
             this.Play.Name = "Play";
             this.Play.Size = new System.Drawing.Size(141, 26);
             this.Play.Text = "Play";
+            this.Play.Click += Play_Click;
             // 
             // PlayNext
             // 
@@ -65,6 +66,7 @@ namespace MediaPlayer.Items
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
         private System.Windows.Forms.ToolStripMenuItem PlayNext;
