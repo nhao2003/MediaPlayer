@@ -12,10 +12,14 @@ using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
 using MediaPlayer.Screens;
+using System.Numerics;
+
 namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
     {
+        public string path = null;
+        public delegate void PassMediaControl(MediaControl control);
         public MediaControl()
         {
             InitializeComponent();
@@ -24,8 +28,6 @@ namespace MediaPlayer.Items
             PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
             datasend(this);
         }
-        public string path = null;
-        public delegate void PassMediaControl(MediaControl control);
         internal void transferDataFromLib(string filePath)
         {
             path = filePath;
@@ -42,12 +44,13 @@ namespace MediaPlayer.Items
                 var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
                 gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
+                // Lay path gan cho PlayMedia
                 if (path != null) PlayMedia.setURL(path);
 
                 MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
@@ -57,6 +60,10 @@ namespace MediaPlayer.Items
 
                 PlayMedia.setCurrentTimePlay();
             }
+        }
+        public void reset()
+        {
+
         }
 
 
@@ -115,6 +122,10 @@ namespace MediaPlayer.Items
                 timeSongEnd.Text = PlayMedia.getDurationStringSong();
                 PlayMedia.setCurrentTimePlay();
             }
+            else if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsStopped)
+            {
+                gunaCircleButton_next_Click(sender, e);
+            }
         }
 
         private void MediaTrackBar_MouseDown(object sender, MouseEventArgs e)
@@ -143,6 +154,39 @@ namespace MediaPlayer.Items
             {
                 PlayMedia.setVolume(volumeNow);
                 gunaTrackBar_Volume.Value = volumeNow;
+            }
+        }
+        private void gunaCircleButton_next_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+            {
+                if(MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
+                {
+                    if(i != MediaHelpers.listSongs.Count - 1)
+                    {
+                        getPathOfSong(MediaHelpers.listSongs[i + 1].FilePath);
+                        PlayMedia.setURL(path);
+                        PlayMedia.playSong();
+                    }
+                    return;
+                }
+            }
+        }
+
+        private void gunaCircleButton_prev_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+            {
+                if (MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
+                {
+                    if (i != 0)
+                    {
+                        getPathOfSong(MediaHelpers.listSongs[i - 1].FilePath);
+                    }
+                    PlayMedia.setURL(path);
+                    PlayMedia.playSong();
+                    return;
+                }
             }
         }
     }

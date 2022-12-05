@@ -20,26 +20,6 @@ namespace MediaPlayer.Models
         static double currentTimePlay = 0.0;
         static bool checkFirst = false;
 
-        public static void Play(String url)
-        {
-            if (thread != null && thread.IsAlive )
-            {
-                thread.Abort();
-                return;
-            }
-            ThreadStart threadStart = async () =>
-            {
-                windowsMediaPlayer.URL = url;
-                windowsMediaPlayer.controls.play();
-                Thread.Sleep(5000);
-            };
-            thread = new Thread(threadStart)
-            {
-                IsBackground = true
-            };
-            thread.Start();
-        }
-
         // set fuction
         public static bool IsFirst()
         {
@@ -84,7 +64,10 @@ namespace MediaPlayer.Models
             return "00:00";
         }
         // methold
-
+        public static string Path
+        {
+            get { return path; }
+        }
         public static void setURL(string Path = null)
         {
             checkFirst = true;

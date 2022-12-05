@@ -106,7 +106,7 @@ namespace MediaPlayer.Models
                     if (mediaTypes == MediaTypes.Audio) listSongs.Add(tmp);
                     else listVideos.Add(tmp);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     throw;
                 }

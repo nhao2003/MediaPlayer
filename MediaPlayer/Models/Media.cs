@@ -190,8 +190,6 @@ namespace MediaPlayer.Models
             {
                 this.image = Resources.defaultImage;
             }
-            
-
         }
         public void Like()
         {
