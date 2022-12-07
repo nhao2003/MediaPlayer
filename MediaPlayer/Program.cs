@@ -20,7 +20,7 @@ namespace MediaPlayer
             Application.SetCompatibleTextRenderingDefault(false);
             MediaHelpers.FetchListMedia(MediaTypes.Audio);
             MediaHelpers.FetchListMedia(MediaTypes.Video);
-            Application.Run(new Form_Main());
+            Application.Run(Form_Main.Instance);
         }
     }
 }

@@ -36,9 +36,9 @@ namespace MediaPlayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.gunaPanel_MediaControl = new Guna.UI.WinForms.GunaPanel();
-            this.mediaControl = new MediaPlayer.Items.MediaControl();
+            this.MediaControl = new MediaPlayer.Items.MediaControl();
             this.GunaElipsePanel_SlidingBar = new Guna.UI.WinForms.GunaElipsePanel();
             this.btn_Library = new Guna.UI.WinForms.GunaButton();
             this.btn_Settings = new Guna.UI.WinForms.GunaButton();
@@ -76,7 +76,7 @@ namespace MediaPlayer
             // gunaPanel_MediaControl
             // 
             this.gunaPanel_MediaControl.BackColor = System.Drawing.Color.White;
-            this.gunaPanel_MediaControl.Controls.Add(this.mediaControl);
+            this.gunaPanel_MediaControl.Controls.Add(this.MediaControl);
             this.gunaPanel_MediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gunaPanel_MediaControl.Location = new System.Drawing.Point(0, 636);
             this.gunaPanel_MediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -84,15 +84,15 @@ namespace MediaPlayer
             this.gunaPanel_MediaControl.Size = new System.Drawing.Size(1182, 117);
             this.gunaPanel_MediaControl.TabIndex = 6;
             // 
-            // mediaControl
+            // MediaControl
             // 
-            this.mediaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mediaControl.Location = new System.Drawing.Point(0, 0);
-            this.mediaControl.Margin = new System.Windows.Forms.Padding(0);
-            this.mediaControl.Name = "mediaControl";
-            this.mediaControl.Size = new System.Drawing.Size(1182, 117);
-            this.mediaControl.TabIndex = 1;
+            this.MediaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.MediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.MediaControl.Location = new System.Drawing.Point(0, 0);
+            this.MediaControl.Margin = new System.Windows.Forms.Padding(0);
+            this.MediaControl.Name = "MediaControl";
+            this.MediaControl.Size = new System.Drawing.Size(1182, 117);
+            this.MediaControl.TabIndex = 1;
             // 
             // GunaElipsePanel_SlidingBar
             // 
@@ -361,22 +361,22 @@ namespace MediaPlayer
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(954, 636);
             this.MainPages.TabIndex = 15;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 1F;
-            this.MainPages.Transition = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this.MainPages.Transition = animation1;
             this.MainPages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             // 
             // tabPage_Home
@@ -538,7 +538,6 @@ namespace MediaPlayer
 
         #endregion
         private GunaPanel gunaPanel_MediaControl;
-        private Items.MediaControl mediaControl;
         private GunaElipsePanel GunaElipsePanel_SlidingBar;
         private GunaButton btn_Library;
         private GunaButton btn_Settings;
@@ -561,6 +560,7 @@ namespace MediaPlayer
         private UserControl_Library userControl_Library1;
         private TabPage tabPage_Settings;
         private UserControl_Settings userControl_Settings1;
+        public Items.MediaControl MediaControl;
     }
 }
 

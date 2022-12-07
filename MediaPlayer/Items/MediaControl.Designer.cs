@@ -116,7 +116,7 @@
             this.btn_Volume.BaseColor = System.Drawing.Color.Transparent;
             this.btn_Volume.BorderColor = System.Drawing.Color.Black;
             this.btn_Volume.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_Volume.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.btn_Volume.FocusedColor = System.Drawing.Color.Transparent;
             this.btn_Volume.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_Volume.ForeColor = System.Drawing.Color.White;
             this.btn_Volume.Image = global::MediaPlayer.Properties.Resources.volume_high;
@@ -124,8 +124,8 @@
             this.btn_Volume.Location = new System.Drawing.Point(37, 47);
             this.btn_Volume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Volume.Name = "btn_Volume";
-            this.btn_Volume.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.btn_Volume.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.btn_Volume.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_Volume.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.btn_Volume.OnHoverForeColor = System.Drawing.Color.Transparent;
             this.btn_Volume.OnHoverImage = global::MediaPlayer.Properties.Resources.volume_high_hover;
             this.btn_Volume.OnPressedColor = System.Drawing.Color.Black;

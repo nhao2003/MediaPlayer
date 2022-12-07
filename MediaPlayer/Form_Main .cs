@@ -4,6 +4,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using WMPLib;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,14 @@ namespace MediaPlayer
         public Form_Main()
         {
             InitializeComponent();
+        }
+
+        private static Form_Main instance = new Form_Main();
+
+        public static Form_Main Instance
+        {
+            get => instance;
+            set => instance = value;
         }
         private GunaButton _oldButton = null;
         private void btn_Page_Click(object sender, EventArgs e)
@@ -62,10 +71,10 @@ namespace MediaPlayer
 
         public void sendChildPath(String s, MediaTypes mediaTypes)
         {
-            if (mediaTypes == MediaTypes.Audio) mediaControl.getPathOfSong(s);
+            if (mediaTypes == MediaTypes.Audio) MediaControl.getPathOfSong(s);
             else
             {
-                mediaControl.pauseCurrentPlayer();
+                MediaControl.pauseCurrentPlayer();
                 VideoPlayer videoScreen = new VideoPlayer();
                 videoScreen.Show();
                 videoScreen.getPathOfSong(s);
