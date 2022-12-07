@@ -20,6 +20,8 @@ namespace MediaPlayer.Items
     {
         public string path = null;
         public delegate void PassMediaControl(MediaControl control);
+        public bool repeatSong = false;
+        public bool repeatPlaylist = false;
         public MediaControl()
         {
             InitializeComponent();
@@ -32,6 +34,31 @@ namespace MediaPlayer.Items
         {
             path = filePath;
             getPathOfSong(path);
+        }
+        private void ChangeRepeatMode()
+        {
+            if (repeatSong == false && repeatPlaylist == false)
+            {
+                repeatSong = true;
+                repeatPlaylist = false;
+            }
+            else if (repeatSong == true && repeatPlaylist == false)
+            {
+                repeatSong = false;
+                repeatPlaylist = true;
+            }
+            else if (repeatSong == false && repeatPlaylist == true)
+            {
+                repeatSong = false;
+                repeatPlaylist = false;
+            }
+        }
+
+        private void RandomMode()
+        {
+            // lay count list song
+            // create array int 0 -> count with random
+            // change the next fuction with new array
         }
         public void getPathOfSong(string path)
         {
@@ -57,15 +84,12 @@ namespace MediaPlayer.Items
                 MediaTrackBar.Value = 0;
                 timeSongPlay.Text = "00:00";
                 timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds / 60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds % 60);
+                btn_Play.Image = Resources.play_hover;
+                btn_Play.OnHoverImage = Resources.play_hover;
 
                 PlayMedia.setCurrentTimePlay();
             }
         }
-        public void reset()
-        {
-
-        }
-
 
         private void gunaCircleButton_Open_Click(object sender, EventArgs e)
         {
@@ -82,6 +106,8 @@ namespace MediaPlayer.Items
             if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 timerSong.Enabled = false;
+                btn_Play.Image = Resources.play_hover;
+                btn_Play.OnHoverImage = Resources.play_hover;
                 PlayMedia.pauseSong();
             }
         }
@@ -126,11 +152,24 @@ namespace MediaPlayer.Items
                 MediaTrackBar.Value = (int)PlayMedia.getCurrentPositionSong();
                 timeSongPlay.Text = PlayMedia.getCurrentPositionStringSong();
                 timeSongEnd.Text = PlayMedia.getDurationStringSong();
+                btn_Play.Image = Resources.pause_hover;
+                btn_Play.OnHoverImage = Resources.pause_hover;
                 PlayMedia.setCurrentTimePlay();
             }
             else if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
-                gunaCircleButton_next_Click(sender, e);
+                if (repeatSong)
+                {
+                    // lap lai bai hat
+                    timerSong.Enabled = true;
+                    //btn_Play.Image = Resources.pause_hover;
+                    //btn_Play.OnHoverImage = Resources.pause_hover;
+                    PlayMedia.playSong();
+                }
+                else
+                {
+                    gunaCircleButton_next_Click(sender, e);
+                }
             }
         }
 
@@ -200,7 +239,11 @@ namespace MediaPlayer.Items
                     if(i != MediaHelpers.listSongs.Count - 1)
                     {
                         getPathOfSong(MediaHelpers.listSongs[i + 1].FilePath);
-                        PlayMedia.setURL(path);
+                        PlayMedia.playSong();
+                    }
+                    else if (i == MediaHelpers.listSongs.Count - 1 && repeatPlaylist == true)
+                    {
+                        getPathOfSong(MediaHelpers.listSongs[0].FilePath);
                         PlayMedia.playSong();
                     }
                     return;
@@ -219,7 +262,6 @@ namespace MediaPlayer.Items
                     {
                         getPathOfSong(MediaHelpers.listSongs[i - 1].FilePath);
                     }
-                    PlayMedia.setURL(path);
                     PlayMedia.playSong();
                     return;
                 }
