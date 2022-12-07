@@ -52,6 +52,7 @@
             this.label_SeeAll.BackColor = System.Drawing.Color.Transparent;
             this.label_SeeAll.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_SeeAll.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.label_SeeAll.ForeColor = System.Drawing.Color.White;
             this.label_SeeAll.Location = new System.Drawing.Point(887, 0);
             this.label_SeeAll.Name = "label_SeeAll";
             this.label_SeeAll.Size = new System.Drawing.Size(187, 46);
@@ -63,6 +64,7 @@
             this.label_Title.AutoSize = true;
             this.label_Title.BackColor = System.Drawing.Color.Transparent;
             this.label_Title.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.label_Title.ForeColor = System.Drawing.Color.White;
             this.label_Title.Location = new System.Drawing.Point(3, 0);
             this.label_Title.Name = "label_Title";
             this.label_Title.Size = new System.Drawing.Size(91, 46);

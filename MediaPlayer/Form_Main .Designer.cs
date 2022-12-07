@@ -36,31 +36,31 @@ namespace MediaPlayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.gunaPanel_MediaControl = new Guna.UI.WinForms.GunaPanel();
+            this.mediaControl = new MediaPlayer.Items.MediaControl();
             this.GunaElipsePanel_SlidingBar = new Guna.UI.WinForms.GunaElipsePanel();
-            this.gunaButton_Library = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton_Settings = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton_Video = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton_Music = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton_Search = new Guna.UI.WinForms.GunaButton();
-            this.gunaButton_Home = new Guna.UI.WinForms.GunaButton();
+            this.btn_Library = new Guna.UI.WinForms.GunaButton();
+            this.btn_Settings = new Guna.UI.WinForms.GunaButton();
+            this.btn_Video = new Guna.UI.WinForms.GunaButton();
+            this.btn_Music = new Guna.UI.WinForms.GunaButton();
+            this.btn_Search = new Guna.UI.WinForms.GunaButton();
+            this.btn_Home = new Guna.UI.WinForms.GunaButton();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.Logo = new Guna.UI.WinForms.GunaGradientTileButton();
             this.MainPages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage_Home = new System.Windows.Forms.TabPage();
-            this.tabPage_Search = new System.Windows.Forms.TabPage();
-            this.tabPage_Music = new System.Windows.Forms.TabPage();
-            this.tabPage_Video = new System.Windows.Forms.TabPage();
-            this.tabPage_Library = new System.Windows.Forms.TabPage();
-            this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Home1 = new MediaPlayer.Widgets.UserControl_Home();
+            this.tabPage_Search = new System.Windows.Forms.TabPage();
             this.userControl_Search1 = new MediaPlayer.Widgets.UserControl_Search();
+            this.tabPage_Music = new System.Windows.Forms.TabPage();
             this.userControl_Music1 = new MediaPlayer.Widgets.UserControl_Music();
+            this.tabPage_Video = new System.Windows.Forms.TabPage();
             this.userControl_Video1 = new MediaPlayer.Widgets.UserControl_Video();
+            this.tabPage_Library = new System.Windows.Forms.TabPage();
             this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
+            this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
-            this.mediaControl = new MediaPlayer.Items.MediaControl();
             this.gunaPanel_MediaControl.SuspendLayout();
             this.GunaElipsePanel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
@@ -75,7 +75,7 @@ namespace MediaPlayer
             // 
             // gunaPanel_MediaControl
             // 
-            this.gunaPanel_MediaControl.BackColor = System.Drawing.Color.Transparent;
+            this.gunaPanel_MediaControl.BackColor = System.Drawing.Color.White;
             this.gunaPanel_MediaControl.Controls.Add(this.mediaControl);
             this.gunaPanel_MediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.gunaPanel_MediaControl.Location = new System.Drawing.Point(0, 636);
@@ -84,16 +84,26 @@ namespace MediaPlayer
             this.gunaPanel_MediaControl.Size = new System.Drawing.Size(1182, 117);
             this.gunaPanel_MediaControl.TabIndex = 6;
             // 
+            // mediaControl
+            // 
+            this.mediaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.mediaControl.Location = new System.Drawing.Point(0, 0);
+            this.mediaControl.Margin = new System.Windows.Forms.Padding(0);
+            this.mediaControl.Name = "mediaControl";
+            this.mediaControl.Size = new System.Drawing.Size(1182, 117);
+            this.mediaControl.TabIndex = 1;
+            // 
             // GunaElipsePanel_SlidingBar
             // 
             this.GunaElipsePanel_SlidingBar.BackColor = System.Drawing.Color.Transparent;
-            this.GunaElipsePanel_SlidingBar.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(228)))), ((int)(((byte)(228)))));
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Library);
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Settings);
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Video);
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Music);
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Search);
-            this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaButton_Home);
+            this.GunaElipsePanel_SlidingBar.BaseColor = System.Drawing.Color.Black;
+            this.GunaElipsePanel_SlidingBar.Controls.Add(this.btn_Library);
+            this.GunaElipsePanel_SlidingBar.Controls.Add(this.btn_Settings);
+            this.GunaElipsePanel_SlidingBar.Controls.Add(this.btn_Video);
+            this.GunaElipsePanel_SlidingBar.Controls.Add(this.btn_Music);
+            this.GunaElipsePanel_SlidingBar.Controls.Add(this.btn_Search);
+            this.GunaElipsePanel_SlidingBar.Controls.Add(this.btn_Home);
             this.GunaElipsePanel_SlidingBar.Controls.Add(this.gunaPanel1);
             this.GunaElipsePanel_SlidingBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.GunaElipsePanel_SlidingBar.Location = new System.Drawing.Point(0, 0);
@@ -103,185 +113,191 @@ namespace MediaPlayer
             this.GunaElipsePanel_SlidingBar.Size = new System.Drawing.Size(228, 636);
             this.GunaElipsePanel_SlidingBar.TabIndex = 10;
             // 
-            // gunaButton_Library
+            // btn_Library
             // 
-            this.gunaButton_Library.Animated = true;
-            this.gunaButton_Library.AnimationHoverSpeed = 0.07F;
-            this.gunaButton_Library.AnimationSpeed = 0.1F;
-            this.gunaButton_Library.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Library.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Library.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton_Library.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton_Library.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaButton_Library.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Library.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gunaButton_Library.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Library.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Library.Image")));
-            this.gunaButton_Library.ImageOffsetX = 10;
-            this.gunaButton_Library.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Library.Location = new System.Drawing.Point(0, 319);
-            this.gunaButton_Library.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaButton_Library.Name = "gunaButton_Library";
-            this.gunaButton_Library.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Library.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Library.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Library.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Library.OnHoverImage")));
-            this.gunaButton_Library.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
-            this.gunaButton_Library.Radius = 10;
-            this.gunaButton_Library.Size = new System.Drawing.Size(228, 54);
-            this.gunaButton_Library.TabIndex = 19;
-            this.gunaButton_Library.Text = "Thư viện";
-            this.gunaButton_Library.Click += new System.EventHandler(this.gunaButton_Library_Click);
+            this.btn_Library.Animated = true;
+            this.btn_Library.AnimationHoverSpeed = 0.07F;
+            this.btn_Library.AnimationSpeed = 0.5F;
+            this.btn_Library.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Library.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Library.BorderColor = System.Drawing.Color.Black;
+            this.btn_Library.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Library.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Library.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Library.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Library.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Library.Image = global::MediaPlayer.Properties.Resources.Library;
+            this.btn_Library.ImageOffsetX = 10;
+            this.btn_Library.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Library.Location = new System.Drawing.Point(0, 319);
+            this.btn_Library.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Library.Name = "btn_Library";
+            this.btn_Library.OnHoverBaseColor = System.Drawing.Color.Empty;
+            this.btn_Library.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_Library.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Library.OnHoverImage = global::MediaPlayer.Properties.Resources.Library_hover;
+            this.btn_Library.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Library.Radius = 10;
+            this.btn_Library.Size = new System.Drawing.Size(228, 54);
+            this.btn_Library.TabIndex = 19;
+            this.btn_Library.Tag = this.btn_Library.Image;
+            this.btn_Library.Text = "Thư viện";
+            this.btn_Library.Click += new System.EventHandler(this.btn_Page_Click);
             // 
-            // gunaButton_Settings
+            // btn_Settings
             // 
-            this.gunaButton_Settings.Animated = true;
-            this.gunaButton_Settings.AnimationHoverSpeed = 0.07F;
-            this.gunaButton_Settings.AnimationSpeed = 0.1F;
-            this.gunaButton_Settings.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Settings.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Settings.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton_Settings.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton_Settings.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gunaButton_Settings.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Settings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gunaButton_Settings.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Settings.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Settings.Image")));
-            this.gunaButton_Settings.ImageOffsetX = 10;
-            this.gunaButton_Settings.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Settings.Location = new System.Drawing.Point(0, 582);
-            this.gunaButton_Settings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaButton_Settings.Name = "gunaButton_Settings";
-            this.gunaButton_Settings.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Settings.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.gunaButton_Settings.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Settings.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Settings.OnHoverImage")));
-            this.gunaButton_Settings.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
-            this.gunaButton_Settings.Radius = 10;
-            this.gunaButton_Settings.Size = new System.Drawing.Size(228, 54);
-            this.gunaButton_Settings.TabIndex = 18;
-            this.gunaButton_Settings.Text = "Cài đặt";
-            this.gunaButton_Settings.Click += new System.EventHandler(this.gunaButton_Settings_Click);
+            this.btn_Settings.Animated = true;
+            this.btn_Settings.AnimationHoverSpeed = 0.07F;
+            this.btn_Settings.AnimationSpeed = 0.5F;
+            this.btn_Settings.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Settings.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Settings.BorderColor = System.Drawing.Color.Black;
+            this.btn_Settings.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Settings.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_Settings.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Settings.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Settings.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Settings.Image = global::MediaPlayer.Properties.Resources.setting;
+            this.btn_Settings.ImageOffsetX = 10;
+            this.btn_Settings.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Settings.Location = new System.Drawing.Point(0, 582);
+            this.btn_Settings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Settings.Name = "btn_Settings";
+            this.btn_Settings.OnHoverBaseColor = System.Drawing.Color.Empty;
+            this.btn_Settings.OnHoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.btn_Settings.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Settings.OnHoverImage = global::MediaPlayer.Properties.Resources.setting_hover;
+            this.btn_Settings.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Settings.Radius = 10;
+            this.btn_Settings.Size = new System.Drawing.Size(228, 54);
+            this.btn_Settings.TabIndex = 18;
+            this.btn_Settings.Tag = this.btn_Settings.Image;
+            this.btn_Settings.Text = "Cài đặt";
+            this.btn_Settings.Click += new System.EventHandler(this.btn_Page_Click);
             // 
-            // gunaButton_Video
+            // btn_Video
             // 
-            this.gunaButton_Video.Animated = true;
-            this.gunaButton_Video.AnimationHoverSpeed = 0.07F;
-            this.gunaButton_Video.AnimationSpeed = 0.1F;
-            this.gunaButton_Video.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Video.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Video.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton_Video.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton_Video.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaButton_Video.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Video.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gunaButton_Video.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Video.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Video.Image")));
-            this.gunaButton_Video.ImageOffsetX = 10;
-            this.gunaButton_Video.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Video.Location = new System.Drawing.Point(0, 265);
-            this.gunaButton_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaButton_Video.Name = "gunaButton_Video";
-            this.gunaButton_Video.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Video.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Video.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Video.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Video.OnHoverImage")));
-            this.gunaButton_Video.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
-            this.gunaButton_Video.Radius = 10;
-            this.gunaButton_Video.Size = new System.Drawing.Size(228, 54);
-            this.gunaButton_Video.TabIndex = 17;
-            this.gunaButton_Video.Text = "Video";
-            this.gunaButton_Video.Click += new System.EventHandler(this.gunaButton_Video_Click);
+            this.btn_Video.Animated = true;
+            this.btn_Video.AnimationHoverSpeed = 0.07F;
+            this.btn_Video.AnimationSpeed = 0.5F;
+            this.btn_Video.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Video.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Video.BorderColor = System.Drawing.Color.Black;
+            this.btn_Video.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Video.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Video.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Video.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Video.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Video.Image = global::MediaPlayer.Properties.Resources.video;
+            this.btn_Video.ImageOffsetX = 10;
+            this.btn_Video.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Video.Location = new System.Drawing.Point(0, 265);
+            this.btn_Video.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Video.Name = "btn_Video";
+            this.btn_Video.OnHoverBaseColor = System.Drawing.Color.Empty;
+            this.btn_Video.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_Video.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Video.OnHoverImage = global::MediaPlayer.Properties.Resources.video_hover;
+            this.btn_Video.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Video.Radius = 10;
+            this.btn_Video.Size = new System.Drawing.Size(228, 54);
+            this.btn_Video.TabIndex = 17;
+            this.btn_Video.Tag = this.btn_Video.Image;
+            this.btn_Video.Text = "Video";
+            this.btn_Video.Click += new System.EventHandler(this.btn_Page_Click);
             // 
-            // gunaButton_Music
+            // btn_Music
             // 
-            this.gunaButton_Music.Animated = true;
-            this.gunaButton_Music.AnimationHoverSpeed = 0.07F;
-            this.gunaButton_Music.AnimationSpeed = 0.1F;
-            this.gunaButton_Music.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Music.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Music.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton_Music.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton_Music.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaButton_Music.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Music.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gunaButton_Music.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Music.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Music.Image")));
-            this.gunaButton_Music.ImageOffsetX = 10;
-            this.gunaButton_Music.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Music.Location = new System.Drawing.Point(0, 211);
-            this.gunaButton_Music.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaButton_Music.Name = "gunaButton_Music";
-            this.gunaButton_Music.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Music.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Music.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Music.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Music.OnHoverImage")));
-            this.gunaButton_Music.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
-            this.gunaButton_Music.Radius = 10;
-            this.gunaButton_Music.Size = new System.Drawing.Size(228, 54);
-            this.gunaButton_Music.TabIndex = 16;
-            this.gunaButton_Music.Text = "Nhạc";
-            this.gunaButton_Music.Click += new System.EventHandler(this.gunaButton_Music_Click);
+            this.btn_Music.Animated = true;
+            this.btn_Music.AnimationHoverSpeed = 0.07F;
+            this.btn_Music.AnimationSpeed = 0.5F;
+            this.btn_Music.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Music.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Music.BorderColor = System.Drawing.Color.Black;
+            this.btn_Music.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Music.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Music.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Music.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Music.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Music.Image = global::MediaPlayer.Properties.Resources.music;
+            this.btn_Music.ImageOffsetX = 10;
+            this.btn_Music.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Music.Location = new System.Drawing.Point(0, 211);
+            this.btn_Music.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Music.Name = "btn_Music";
+            this.btn_Music.OnHoverBaseColor = System.Drawing.Color.Empty;
+            this.btn_Music.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_Music.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Music.OnHoverImage = global::MediaPlayer.Properties.Resources.music_hover;
+            this.btn_Music.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Music.Radius = 10;
+            this.btn_Music.Size = new System.Drawing.Size(228, 54);
+            this.btn_Music.TabIndex = 16;
+            this.btn_Music.Tag = this.btn_Music.Image;
+            this.btn_Music.Text = "Nhạc";
+            this.btn_Music.Click += new System.EventHandler(this.btn_Page_Click);
             // 
-            // gunaButton_Search
+            // btn_Search
             // 
-            this.gunaButton_Search.Animated = true;
-            this.gunaButton_Search.AnimationHoverSpeed = 0.07F;
-            this.gunaButton_Search.AnimationSpeed = 0.1F;
-            this.gunaButton_Search.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Search.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Search.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton_Search.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton_Search.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaButton_Search.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gunaButton_Search.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Search.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Search.Image")));
-            this.gunaButton_Search.ImageOffsetX = 10;
-            this.gunaButton_Search.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Search.Location = new System.Drawing.Point(0, 157);
-            this.gunaButton_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaButton_Search.Name = "gunaButton_Search";
-            this.gunaButton_Search.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Search.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Search.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Search.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Search.OnHoverImage")));
-            this.gunaButton_Search.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
-            this.gunaButton_Search.Radius = 10;
-            this.gunaButton_Search.Size = new System.Drawing.Size(228, 54);
-            this.gunaButton_Search.TabIndex = 15;
-            this.gunaButton_Search.Text = "Tìm kiếm";
-            this.gunaButton_Search.Click += new System.EventHandler(this.gunaButton_Search_Click);
+            this.btn_Search.Animated = true;
+            this.btn_Search.AnimationHoverSpeed = 0.07F;
+            this.btn_Search.AnimationSpeed = 0.5F;
+            this.btn_Search.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Search.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Search.BorderColor = System.Drawing.Color.Black;
+            this.btn_Search.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Search.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Search.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Search.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Search.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Search.Image = global::MediaPlayer.Properties.Resources.search;
+            this.btn_Search.ImageOffsetX = 10;
+            this.btn_Search.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Search.Location = new System.Drawing.Point(0, 157);
+            this.btn_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_Search.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_Search.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Search.OnHoverImage = global::MediaPlayer.Properties.Resources.search_hover;
+            this.btn_Search.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Search.Radius = 10;
+            this.btn_Search.Size = new System.Drawing.Size(228, 54);
+            this.btn_Search.TabIndex = 15;
+            this.btn_Search.Tag = this.btn_Search.Image;
+            this.btn_Search.Text = "Tìm kiếm";
+            this.btn_Search.Click += new System.EventHandler(this.btn_Page_Click);
             // 
-            // gunaButton_Home
+            // btn_Home
             // 
-            this.gunaButton_Home.Animated = true;
-            this.gunaButton_Home.AnimationHoverSpeed = 0.07F;
-            this.gunaButton_Home.AnimationSpeed = 0.1F;
-            this.gunaButton_Home.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Home.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Home.BorderColor = System.Drawing.Color.Black;
-            this.gunaButton_Home.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton_Home.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaButton_Home.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Home.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.gunaButton_Home.ForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Home.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton_Home.Image")));
-            this.gunaButton_Home.ImageOffsetX = 10;
-            this.gunaButton_Home.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton_Home.Location = new System.Drawing.Point(0, 103);
-            this.gunaButton_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaButton_Home.Name = "gunaButton_Home";
-            this.gunaButton_Home.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaButton_Home.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.gunaButton_Home.OnHoverForeColor = System.Drawing.Color.Black;
-            this.gunaButton_Home.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("gunaButton_Home.OnHoverImage")));
-            this.gunaButton_Home.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(212)))), ((int)(((byte)(247)))));
-            this.gunaButton_Home.Radius = 10;
-            this.gunaButton_Home.Size = new System.Drawing.Size(228, 54);
-            this.gunaButton_Home.TabIndex = 14;
-            this.gunaButton_Home.Text = "Trang chủ";
-            this.gunaButton_Home.Click += new System.EventHandler(this.gunaButton_Home_Click);
+            this.btn_Home.Animated = true;
+            this.btn_Home.AnimationHoverSpeed = 0.07F;
+            this.btn_Home.AnimationSpeed = 0.5F;
+            this.btn_Home.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Home.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Home.BorderColor = System.Drawing.Color.Black;
+            this.btn_Home.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Home.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Home.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Home.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_Home.ForeColor = System.Drawing.Color.Silver;
+            this.btn_Home.Image = ((System.Drawing.Image)(resources.GetObject("btn_Home.Image")));
+            this.btn_Home.ImageOffsetX = 10;
+            this.btn_Home.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Home.Location = new System.Drawing.Point(0, 103);
+            this.btn_Home.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Home.Name = "btn_Home";
+            this.btn_Home.OnHoverBaseColor = System.Drawing.Color.Empty;
+            this.btn_Home.OnHoverBorderColor = System.Drawing.Color.Empty;
+            this.btn_Home.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Home.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btn_Home.OnHoverImage")));
+            this.btn_Home.OnPressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btn_Home.Radius = 10;
+            this.btn_Home.Size = new System.Drawing.Size(228, 54);
+            this.btn_Home.TabIndex = 14;
+            this.btn_Home.Tag = this.btn_Home.Image;
+            this.btn_Home.Text = "Trang chủ";
+            this.btn_Home.Click += new System.EventHandler(this.btn_Page_Click);
             // 
             // gunaPanel1
             // 
@@ -311,8 +327,8 @@ namespace MediaPlayer
             this.Logo.Location = new System.Drawing.Point(9, 5);
             this.Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Logo.Name = "Logo";
-            this.Logo.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(135)))), ((int)(((byte)(193)))), ((int)(((byte)(255)))));
-            this.Logo.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(211)))), ((int)(((byte)(187)))), ((int)(((byte)(255)))));
+            this.Logo.OnHoverBaseColor1 = System.Drawing.Color.White;
+            this.Logo.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Logo.OnHoverBorderColor = System.Drawing.Color.Black;
             this.Logo.OnHoverForeColor = System.Drawing.Color.White;
             this.Logo.OnHoverImage = null;
@@ -345,22 +361,22 @@ namespace MediaPlayer
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(954, 636);
             this.MainPages.TabIndex = 15;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.MainPages.Transition = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 1F;
+            this.MainPages.Transition = animation2;
             this.MainPages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             // 
             // tabPage_Home
@@ -374,6 +390,16 @@ namespace MediaPlayer
             this.tabPage_Home.Text = "tabPage_Home";
             this.tabPage_Home.UseVisualStyleBackColor = true;
             // 
+            // userControl_Home1
+            // 
+            this.userControl_Home1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.userControl_Home1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Home1.Location = new System.Drawing.Point(0, 0);
+            this.userControl_Home1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userControl_Home1.Name = "userControl_Home1";
+            this.userControl_Home1.Size = new System.Drawing.Size(946, 607);
+            this.userControl_Home1.TabIndex = 3;
+            // 
             // tabPage_Search
             // 
             this.tabPage_Search.Controls.Add(this.userControl_Search1);
@@ -385,6 +411,15 @@ namespace MediaPlayer
             this.tabPage_Search.TabIndex = 1;
             this.tabPage_Search.Text = "tabPage_Search";
             this.tabPage_Search.UseVisualStyleBackColor = true;
+            // 
+            // userControl_Search1
+            // 
+            this.userControl_Search1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Search1.Location = new System.Drawing.Point(3, 2);
+            this.userControl_Search1.Margin = new System.Windows.Forms.Padding(0);
+            this.userControl_Search1.Name = "userControl_Search1";
+            this.userControl_Search1.Size = new System.Drawing.Size(940, 603);
+            this.userControl_Search1.TabIndex = 0;
             // 
             // tabPage_Music
             // 
@@ -398,6 +433,15 @@ namespace MediaPlayer
             this.tabPage_Music.Text = "tabPage_Music";
             this.tabPage_Music.UseVisualStyleBackColor = true;
             // 
+            // userControl_Music1
+            // 
+            this.userControl_Music1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Music1.Location = new System.Drawing.Point(3, 2);
+            this.userControl_Music1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userControl_Music1.Name = "userControl_Music1";
+            this.userControl_Music1.Size = new System.Drawing.Size(940, 603);
+            this.userControl_Music1.TabIndex = 0;
+            // 
             // tabPage_Video
             // 
             this.tabPage_Video.Controls.Add(this.userControl_Video1);
@@ -409,6 +453,16 @@ namespace MediaPlayer
             this.tabPage_Video.TabIndex = 3;
             this.tabPage_Video.Text = "tabPage_Video";
             this.tabPage_Video.UseVisualStyleBackColor = true;
+            // 
+            // userControl_Video1
+            // 
+            this.userControl_Video1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.userControl_Video1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Video1.Location = new System.Drawing.Point(3, 2);
+            this.userControl_Video1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userControl_Video1.Name = "userControl_Video1";
+            this.userControl_Video1.Size = new System.Drawing.Size(940, 603);
+            this.userControl_Video1.TabIndex = 0;
             // 
             // tabPage_Library
             // 
@@ -422,6 +476,17 @@ namespace MediaPlayer
             this.tabPage_Library.Text = "tabPage_Library";
             this.tabPage_Library.UseVisualStyleBackColor = true;
             // 
+            // userControl_Library1
+            // 
+            this.userControl_Library1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.userControl_Library1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
+            this.userControl_Library1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Library1.Location = new System.Drawing.Point(3, 2);
+            this.userControl_Library1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userControl_Library1.Name = "userControl_Library1";
+            this.userControl_Library1.Size = new System.Drawing.Size(940, 603);
+            this.userControl_Library1.TabIndex = 0;
+            // 
             // tabPage_Settings
             // 
             this.tabPage_Settings.Controls.Add(this.userControl_Settings1);
@@ -433,54 +498,6 @@ namespace MediaPlayer
             this.tabPage_Settings.Text = "tabPage_Settings";
             this.tabPage_Settings.UseVisualStyleBackColor = true;
             // 
-            // userControl_Home1
-            // 
-            this.userControl_Home1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.userControl_Home1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Home1.Location = new System.Drawing.Point(0, 0);
-            this.userControl_Home1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userControl_Home1.Name = "userControl_Home1";
-            this.userControl_Home1.Size = new System.Drawing.Size(946, 607);
-            this.userControl_Home1.TabIndex = 3;
-            // 
-            // userControl_Search1
-            // 
-            this.userControl_Search1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Search1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Search1.Margin = new System.Windows.Forms.Padding(0);
-            this.userControl_Search1.Name = "userControl_Search1";
-            this.userControl_Search1.Size = new System.Drawing.Size(940, 603);
-            this.userControl_Search1.TabIndex = 0;
-            // 
-            // userControl_Music1
-            // 
-            this.userControl_Music1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Music1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Music1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userControl_Music1.Name = "userControl_Music1";
-            this.userControl_Music1.Size = new System.Drawing.Size(940, 603);
-            this.userControl_Music1.TabIndex = 0;
-            // 
-            // userControl_Video1
-            // 
-            this.userControl_Video1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.userControl_Video1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Video1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Video1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userControl_Video1.Name = "userControl_Video1";
-            this.userControl_Video1.Size = new System.Drawing.Size(940, 603);
-            this.userControl_Video1.TabIndex = 0;
-            // 
-            // userControl_Library1
-            // 
-            this.userControl_Library1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.userControl_Library1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Library1.Location = new System.Drawing.Point(3, 2);
-            this.userControl_Library1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.userControl_Library1.Name = "userControl_Library1";
-            this.userControl_Library1.Size = new System.Drawing.Size(940, 603);
-            this.userControl_Library1.TabIndex = 0;
-            // 
             // userControl_Settings1
             // 
             this.userControl_Settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
@@ -490,16 +507,6 @@ namespace MediaPlayer
             this.userControl_Settings1.Name = "userControl_Settings1";
             this.userControl_Settings1.Size = new System.Drawing.Size(946, 607);
             this.userControl_Settings1.TabIndex = 0;
-            // 
-            // mediaControl
-            // 
-            this.mediaControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(216)))), ((int)(((byte)(216)))));
-            this.mediaControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.mediaControl.Location = new System.Drawing.Point(0, 0);
-            this.mediaControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.mediaControl.Name = "mediaControl";
-            this.mediaControl.Size = new System.Drawing.Size(1182, 117);
-            this.mediaControl.TabIndex = 1;
             // 
             // Form_Main
             // 
@@ -533,12 +540,12 @@ namespace MediaPlayer
         private GunaPanel gunaPanel_MediaControl;
         private Items.MediaControl mediaControl;
         private GunaElipsePanel GunaElipsePanel_SlidingBar;
-        private GunaButton gunaButton_Library;
-        private GunaButton gunaButton_Settings;
-        private GunaButton gunaButton_Video;
-        private GunaButton gunaButton_Music;
-        private GunaButton gunaButton_Search;
-        private GunaButton gunaButton_Home;
+        private GunaButton btn_Library;
+        private GunaButton btn_Settings;
+        private GunaButton btn_Video;
+        private GunaButton btn_Music;
+        private GunaButton btn_Search;
+        private GunaButton btn_Home;
         private GunaPanel gunaPanel1;
         private GunaGradientTileButton Logo;
         private Bunifu.UI.WinForms.BunifuPages MainPages;

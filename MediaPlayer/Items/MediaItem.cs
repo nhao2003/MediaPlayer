@@ -46,17 +46,17 @@ namespace MediaPlayer.Items
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)
         {
-            this.panel_MediaItem.BaseColor = Color.FromArgb(221, 228, 228);
+            this.panel_MediaItem.BaseColor = Color.FromArgb(40, 40, 40);
         }
 
         private void panel_MediaItem_MouseHover(object sender, EventArgs e)
         {
-            this.panel_MediaItem.BaseColor = Color.FromArgb(221, 228, 228);
+            this.panel_MediaItem.BaseColor = Color.FromArgb(40, 40, 40);
         }
 
         private void label_Author_MouseLeave(object sender, EventArgs e)
         {
-            this.panel_MediaItem.BaseColor = Color.FromArgb(206, 217, 217);
+            this.panel_MediaItem.BaseColor = Color.FromArgb(24, 24, 24);
         }
 
     }

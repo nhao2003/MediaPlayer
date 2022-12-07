@@ -190,11 +190,16 @@
     <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Media.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\MediaCtrolIcons.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MediaCtrolIcons.resx</DependentUpon>
     </Compile>
     <Compile Include="Screens\UserControl_Home.cs">
       <SubType>UserControl</SubType>
@@ -249,6 +254,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\AppBar.resx">
       <DependentUpon>AppBar.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\CategoryPanel.resx">
       <DependentUpon>CategoryPanel.cs</DependentUpon>
@@ -277,6 +283,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\MediaCtrolIcons.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MediaCtrolIcons.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Home.resx">
       <DependentUpon>UserControl_Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -285,6 +295,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_LibrarySong.resx">
       <DependentUpon>UserControl_LibrarySong.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Music.resx">
       <DependentUpon>UserControl_Music.cs</DependentUpon>
@@ -319,64 +330,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\music1.png" />
-    <None Include="Resources\search.png" />
     <None Include="Resources\paint-brush.png" />
-    <None Include="Resources\video.png" />
     <None Include="Resources\folder.png" />
     <None Include="Resources\defaultImage.jpg" />
     <None Include="Resources\color.png" />
-    <Content Include="Resources\Icons\001-next-button - Copy.png" />
-    <Content Include="Resources\Icons\001-next-button.png" />
-    <Content Include="Resources\Icons\001-play-button.png" />
-    <Content Include="Resources\Icons\002-next - Copy.png" />
-    <Content Include="Resources\Icons\002-next.png" />
-    <Content Include="Resources\Icons\002-play-button-1.png" />
-    <Content Include="Resources\Icons\003-repeat.png" />
-    <Content Include="Resources\Icons\003-video-pause-button.png" />
-    <Content Include="Resources\Icons\004-repeat-1.png" />
-    <Content Include="Resources\Icons\004-video-pause-button-1.png" />
-    <Content Include="Resources\Icons\005-next.png" />
-    <Content Include="Resources\Icons\005-shuffle.png" />
-    <Content Include="Resources\Icons\006-next-button.png" />
-    <Content Include="Resources\Icons\books %281%29.png" />
-    <Content Include="Resources\Icons\books.png" />
-    <Content Include="Resources\Icons\home.png" />
-    <Content Include="Resources\Icons\home_hover.png" />
-    <Content Include="Resources\Icons\library.png" />
-    <Content Include="Resources\Icons\library_hover.png" />
-    <Content Include="Resources\Icons\music-alt.png" />
-    <Content Include="Resources\Icons\music.png" />
-    <Content Include="Resources\Icons\music_hover.png" />
-    <Content Include="Resources\Icons\next_left.png" />
-    <Content Include="Resources\Icons\next_left_hover.png" />
-    <Content Include="Resources\Icons\next_right.png" />
-    <Content Include="Resources\Icons\next_right_hover.png" />
-    <Content Include="Resources\Icons\pause.png" />
-    <Content Include="Resources\Icons\pause_hover.png" />
-    <Content Include="Resources\Icons\play-alt %281%29.png" />
-    <Content Include="Resources\Icons\play-alt.png" />
-    <Content Include="Resources\Icons\play.png" />
-    <Content Include="Resources\Icons\play_hover.png" />
-    <Content Include="Resources\Icons\repeat.png" />
-    <Content Include="Resources\Icons\repeat_hover.png" />
-    <Content Include="Resources\Icons\search %281%29.png" />
-    <Content Include="Resources\Icons\search.png" />
-    <Content Include="Resources\Icons\search_hover.png" />
-    <Content Include="Resources\Icons\settings %281%29.png" />
-    <Content Include="Resources\Icons\settings-sliders %281%29.png" />
-    <Content Include="Resources\Icons\settings-sliders.png" />
-    <Content Include="Resources\Icons\settings.png" />
-    <Content Include="Resources\Icons\settings_hover.png" />
-    <Content Include="Resources\Icons\settings_slider.png" />
-    <Content Include="Resources\Icons\settings_slider_hover.png" />
-    <Content Include="Resources\Icons\shuffle.png" />
-    <Content Include="Resources\Icons\shuffle_hover.png" />
-    <Content Include="Resources\Icons\skip_left_hover.png" />
-    <Content Include="Resources\Icons\skip_right.png" />
-    <Content Include="Resources\Icons\skip_right_hover.png" />
-    <Content Include="Resources\Icons\video.png" />
-    <Content Include="Resources\Icons\video_hover.png" />
     <None Include="Resources\next_page_right.png" />
   </ItemGroup>
   <ItemGroup>
@@ -399,94 +356,136 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Icons\home.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\home_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\library.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\library_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\music.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\music_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\next_left.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Icons\next_page_left.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Icons\next_page_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Icons\next_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\pause.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\pause_df.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\play.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\play_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\repeat.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\search_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\settings.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\settings_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\settings_slider.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\settings_slider_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\shuffle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\skip_right.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\video.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\video_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\volume.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\volume_hover.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\heart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Icons\heart_red.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favorite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favorite-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward10s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward10s-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat-one.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replay10s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\replay10s-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rewind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rewind-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Library.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Library-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\music-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setting-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\video-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suffle-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suffle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volume-high.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volume-low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volume-mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volume-mute-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volume-high-hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\volume-low-hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

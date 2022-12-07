@@ -93,16 +93,22 @@ namespace MediaPlayer.Items
                 if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     timerSong.Enabled = false;
+                    btn_Play.Image = Resources.play_hover;
+                    btn_Play.OnHoverImage = Resources.play_hover;
                     PlayMedia.pauseSong();
                 }
                 else if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPaused)
                 {
+                    btn_Play.Image = Resources.pause_hover;
+                    btn_Play.OnHoverImage = Resources.pause_hover;
                     PlayMedia.continueSong();
                     timerSong.Enabled = true;
                 }
                 else
                 {
                     timerSong.Enabled = true;
+                    btn_Play.Image = Resources.pause_hover;
+                    btn_Play.OnHoverImage = Resources.pause_hover;
                     PlayMedia.playSong();
                 }
             }
@@ -135,13 +141,35 @@ namespace MediaPlayer.Items
         private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
         {
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+            SetIconVolume();
         }
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+            SetIconVolume();
         }
 
-        public int volumeNow = 50;
+        public int volumeNow = 100;
+
+        private void SetIconVolume()
+        {
+            if (gunaTrackBar_Volume.Value == 0)
+            {
+                btn_Volume.Image = Resources.volume_mute;
+                btn_Volume.OnHoverImage = Resources.volume_mute_hover;
+            }
+            else if (gunaTrackBar_Volume.Value < 50)
+            {
+                btn_Volume.Image = Resources.volume_low;
+                btn_Volume.OnHoverImage = Resources.volume_low_hover;
+            }
+            else
+            {
+                btn_Volume.Image = Resources.volume_high;
+                btn_Volume.OnHoverImage = Resources.volume_high_hover;
+            }
+            
+        }
         private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
         {
             if (PlayMedia.player.settings.volume != 0)
@@ -155,6 +183,7 @@ namespace MediaPlayer.Items
                 PlayMedia.setVolume(volumeNow);
                 gunaTrackBar_Volume.Value = volumeNow;
             }
+            SetIconVolume();
         }
         private void gunaCircleButton_next_Click(object sender, EventArgs e)
         {

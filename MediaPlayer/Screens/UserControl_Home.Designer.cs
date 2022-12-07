@@ -32,7 +32,7 @@ namespace MediaPlayer.Widgets
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel_Home = new Guna.UI.WinForms.GunaPanel();
+            this.panel_Home = new Guna.UI.WinForms.GunaGradient2Panel();
             this.suggestBar1 = new MediaPlayer.Items.SuggestBar();
             this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
             this.panel_Home.SuspendLayout();
@@ -41,10 +41,13 @@ namespace MediaPlayer.Widgets
             // panel_Home
             // 
             this.panel_Home.AutoScroll = true;
-            this.panel_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.panel_Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.panel_Home.Controls.Add(this.suggestBar1);
             this.panel_Home.Controls.Add(this.gunaLabel_Recent);
             this.panel_Home.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_Home.GradientColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_Home.GradientColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.panel_Home.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.panel_Home.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.panel_Home.Location = new System.Drawing.Point(0, 0);
             this.panel_Home.Name = "panel_Home";
@@ -66,7 +69,7 @@ namespace MediaPlayer.Widgets
             this.gunaLabel_Recent.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel_Recent.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaLabel_Recent.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel_Recent.ForeColor = System.Drawing.Color.Black;
+            this.gunaLabel_Recent.ForeColor = System.Drawing.Color.White;
             this.gunaLabel_Recent.Location = new System.Drawing.Point(0, 0);
             this.gunaLabel_Recent.Name = "gunaLabel_Recent";
             this.gunaLabel_Recent.Size = new System.Drawing.Size(1084, 65);
@@ -87,7 +90,7 @@ namespace MediaPlayer.Widgets
 
         }
         #endregion
-        private Guna.UI.WinForms.GunaPanel panel_Home;
+        private Guna.UI.WinForms.GunaGradient2Panel panel_Home;
         private SuggestBar suggestBar1;
         private GunaLabel gunaLabel_Recent;
     }

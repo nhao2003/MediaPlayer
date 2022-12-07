@@ -28,14 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MusicRow));
             this.panel_MusicRow = new Guna.UI.WinForms.GunaElipsePanel();
             this.pic_Song = new Guna.UI.WinForms.GunaPictureBox();
             this.label_Duration = new System.Windows.Forms.Label();
             this.btn_Like = new Guna.UI.WinForms.GunaCircleButton();
             this.label_NameSinger = new Guna.UI.WinForms.GunaLabel();
             this.label_NameSong = new Guna.UI.WinForms.GunaLabel();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.panel_MusicRow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Song)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +50,7 @@
             this.panel_MusicRow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_MusicRow.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.panel_MusicRow.Location = new System.Drawing.Point(0, 0);
+            this.panel_MusicRow.Margin = new System.Windows.Forms.Padding(0);
             this.panel_MusicRow.Name = "panel_MusicRow";
             this.panel_MusicRow.Radius = 15;
             this.panel_MusicRow.Size = new System.Drawing.Size(700, 70);
@@ -79,35 +78,37 @@
             this.label_Duration.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label_Duration.AutoSize = true;
             this.label_Duration.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_Duration.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label_Duration.ForeColor = System.Drawing.Color.White;
             this.label_Duration.Location = new System.Drawing.Point(624, 23);
             this.label_Duration.Name = "label_Duration";
             this.label_Duration.Size = new System.Drawing.Size(49, 23);
             this.label_Duration.TabIndex = 23;
             this.label_Duration.Text = "3:18";
             this.label_Duration.Click += new System.EventHandler(this.MusicRow_Click);
+            this.label_Duration.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
+            this.label_Duration.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             // 
             // btn_Like
             // 
             this.btn_Like.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Like.Animated = true;
             this.btn_Like.AnimationHoverSpeed = 0.07F;
-            this.btn_Like.AnimationSpeed = 0.03F;
+            this.btn_Like.AnimationSpeed = 0.5F;
             this.btn_Like.BaseColor = System.Drawing.Color.Transparent;
             this.btn_Like.BorderColor = System.Drawing.Color.Black;
             this.btn_Like.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_Like.FocusedColor = System.Drawing.Color.Empty;
             this.btn_Like.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_Like.ForeColor = System.Drawing.Color.White;
-            this.btn_Like.Image = ((System.Drawing.Image)(resources.GetObject("btn_Like.Image")));
+            this.btn_Like.Image = global::MediaPlayer.Properties.Resources.favorite;
             this.btn_Like.ImageSize = new System.Drawing.Size(25, 25);
             this.btn_Like.Location = new System.Drawing.Point(567, 12);
             this.btn_Like.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Like.Name = "btn_Like";
-            this.btn_Like.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.btn_Like.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_Like.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.btn_Like.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btn_Like.OnHoverImage")));
+            this.btn_Like.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_Like.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_Like.OnHoverForeColor = System.Drawing.Color.Transparent;
+            this.btn_Like.OnHoverImage = global::MediaPlayer.Properties.Resources.favorite_hover;
             this.btn_Like.OnPressedColor = System.Drawing.Color.Black;
             this.btn_Like.Size = new System.Drawing.Size(35, 37);
             this.btn_Like.TabIndex = 22;
@@ -120,10 +121,11 @@
             this.label_NameSinger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label_NameSinger.AutoEllipsis = true;
             this.label_NameSinger.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_NameSinger.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label_NameSinger.Location = new System.Drawing.Point(81, 38);
+            this.label_NameSinger.ForeColor = System.Drawing.Color.Gray;
+            this.label_NameSinger.Location = new System.Drawing.Point(73, 38);
+            this.label_NameSinger.Margin = new System.Windows.Forms.Padding(0);
             this.label_NameSinger.Name = "label_NameSinger";
-            this.label_NameSinger.Size = new System.Drawing.Size(480, 19);
+            this.label_NameSinger.Size = new System.Drawing.Size(475, 19);
             this.label_NameSinger.TabIndex = 21;
             this.label_NameSinger.Text = "Đây là tên ca sĩ!!";
             this.label_NameSinger.Click += new System.EventHandler(this.MusicRow_Click);
@@ -136,9 +138,11 @@
             this.label_NameSong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label_NameSong.AutoEllipsis = true;
             this.label_NameSong.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label_NameSong.Location = new System.Drawing.Point(76, 12);
+            this.label_NameSong.ForeColor = System.Drawing.Color.White;
+            this.label_NameSong.Location = new System.Drawing.Point(72, 12);
+            this.label_NameSong.Margin = new System.Windows.Forms.Padding(0);
             this.label_NameSong.Name = "label_NameSong";
-            this.label_NameSong.Size = new System.Drawing.Size(485, 26);
+            this.label_NameSong.Size = new System.Drawing.Size(475, 26);
             this.label_NameSong.TabIndex = 21;
             this.label_NameSong.Text = "Heads in the cloud";
             this.label_NameSong.Click += new System.EventHandler(this.MusicRow_Click);
@@ -170,7 +174,6 @@
         private Guna.UI.WinForms.GunaLabel label_NameSong;
         private Guna.UI.WinForms.GunaCircleButton btn_Like;
         private System.Windows.Forms.Label label_Duration;
-        private System.Windows.Forms.ColorDialog colorDialog1;
         private Guna.UI.WinForms.GunaPictureBox pic_Song;
     }
 }

@@ -40,7 +40,7 @@
             // panel_MediaItem
             // 
             this.panel_MediaItem.BackColor = System.Drawing.Color.Transparent;
-            this.panel_MediaItem.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(217)))), ((int)(((byte)(217)))));
+            this.panel_MediaItem.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel_MediaItem.Controls.Add(this.label_Author);
             this.panel_MediaItem.Controls.Add(this.label_NameSong);
             this.panel_MediaItem.Controls.Add(this.pic_SongPic);
@@ -58,7 +58,7 @@
             // label_Author
             // 
             this.label_Author.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.label_Author.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label_Author.ForeColor = System.Drawing.Color.Silver;
             this.label_Author.Location = new System.Drawing.Point(3, 231);
             this.label_Author.Name = "label_Author";
             this.label_Author.Size = new System.Drawing.Size(194, 59);
@@ -75,7 +75,7 @@
             this.label_NameSong.BackColor = System.Drawing.Color.Transparent;
             this.label_NameSong.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label_NameSong.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.label_NameSong.ForeColor = System.Drawing.Color.Black;
+            this.label_NameSong.ForeColor = System.Drawing.Color.White;
             this.label_NameSong.Location = new System.Drawing.Point(0, 203);
             this.label_NameSong.Name = "label_NameSong";
             this.label_NameSong.Size = new System.Drawing.Size(197, 28);
@@ -116,7 +116,7 @@
             this.contextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.contextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.contextMenu.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.contextMenu.Size = new System.Drawing.Size(142, 56);
+            this.contextMenu.Size = new System.Drawing.Size(142, 88);
             // 
             // MediaItem
             // 
