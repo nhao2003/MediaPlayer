@@ -136,15 +136,18 @@ namespace MediaPlayer.Items
 
         private void MediaTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
+            if (PlayMedia.IsFirst() == false) return;
             PlayMedia.setCurrentPosition(e.X, MediaTrackBar.Width);
         }
         private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
         {
+            if (PlayMedia.IsFirst() == false) return;
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);
             SetIconVolume();
         }
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
+            if (PlayMedia.IsFirst() == false) return;
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);
             SetIconVolume();
         }
@@ -153,6 +156,7 @@ namespace MediaPlayer.Items
 
         private void SetIconVolume()
         {
+            if (PlayMedia.IsFirst() == false) return;
             if (gunaTrackBar_Volume.Value == 0)
             {
                 btn_Volume.Image = Resources.volume_mute;
@@ -172,6 +176,7 @@ namespace MediaPlayer.Items
         }
         private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
         {
+            if (PlayMedia.IsFirst() == false) return;
             if (PlayMedia.player.settings.volume != 0)
             {
                 PlayMedia.muteVolume();
@@ -187,6 +192,7 @@ namespace MediaPlayer.Items
         }
         private void gunaCircleButton_next_Click(object sender, EventArgs e)
         {
+            if (PlayMedia.IsFirst() == false) return;
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 if(MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
@@ -204,6 +210,7 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_prev_Click(object sender, EventArgs e)
         {
+            if (PlayMedia.IsFirst() == false) return;
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 if (MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
