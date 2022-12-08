@@ -1,6 +1,6 @@
 ﻿namespace MediaPlayer
 {
-    partial class VideoPlayer
+    partial class VideoCopy
     {
         /// <summary>
         /// Required designer variable.
@@ -29,27 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoCopy));
+            this.timerSong = new System.Windows.Forms.Timer(this.components);
+            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_SongName = new Guna.UI.WinForms.GunaLabel();
             this.gunaTrackBar_Volume = new Guna.UI.WinForms.GunaTrackBar();
             this.gunaCircleButton_Volume = new Guna.UI.WinForms.GunaCircleButton();
             this.btn_giam = new System.Windows.Forms.Button();
+            this.btn_Fullscreen = new System.Windows.Forms.Button();
             this.btn_tang = new System.Windows.Forms.Button();
             this.btn_play = new Guna.UI.WinForms.GunaCircleButton();
             this.timeSongEnd = new System.Windows.Forms.Label();
             this.timeSongPlay = new System.Windows.Forms.Label();
             this.MediaTrackBar = new Guna.UI.WinForms.GunaTrackBar();
-            this.timerSong = new System.Windows.Forms.Timer(this.components);
-            this.btn_Fullscreen = new System.Windows.Forms.Button();
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
-            this.panel1.SuspendLayout();
+            this.timer_Hide = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // timerSong
+            // 
+            this.timerSong.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // player
+            // 
+            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.player.Enabled = true;
+            this.player.Location = new System.Drawing.Point(0, 0);
+            this.player.Name = "player";
+            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
+            this.player.Size = new System.Drawing.Size(1158, 659);
+            this.player.TabIndex = 0;
+            this.player.ClickEvent += new AxWMPLib._WMPOCXEvents_ClickEventHandler(this.player_ClickEvent);
+            this.player.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.player_MouseMoveEvent);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Controls.Add(this.lb_SongName);
             this.panel1.Controls.Add(this.gunaTrackBar_Volume);
             this.panel1.Controls.Add(this.gunaCircleButton_Volume);
@@ -64,7 +80,8 @@
             this.panel1.Location = new System.Drawing.Point(0, 536);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1158, 123);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
+            this.panel1.Visible = false;
             // 
             // lb_SongName
             // 
@@ -92,7 +109,6 @@
             this.gunaTrackBar_Volume.TrackHoverColor = System.Drawing.Color.DodgerBlue;
             this.gunaTrackBar_Volume.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
             this.gunaTrackBar_Volume.TrackPressedColor = System.Drawing.Color.DodgerBlue;
-            this.gunaTrackBar_Volume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.gunaTrackBar_Volume_Scroll);
             // 
             // gunaCircleButton_Volume
             // 
@@ -119,7 +135,6 @@
             this.gunaCircleButton_Volume.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Volume.Size = new System.Drawing.Size(32, 32);
             this.gunaCircleButton_Volume.TabIndex = 23;
-            this.gunaCircleButton_Volume.Click += new System.EventHandler(this.gunaCircleButton_Volume_Click);
             // 
             // btn_giam
             // 
@@ -130,7 +145,16 @@
             this.btn_giam.TabIndex = 22;
             this.btn_giam.Text = "Lùi 10s";
             this.btn_giam.UseVisualStyleBackColor = true;
-            this.btn_giam.Click += new System.EventHandler(this.btn_giam_Click);
+            // 
+            // btn_Fullscreen
+            // 
+            this.btn_Fullscreen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Fullscreen.Location = new System.Drawing.Point(745, 66);
+            this.btn_Fullscreen.Name = "btn_Fullscreen";
+            this.btn_Fullscreen.Size = new System.Drawing.Size(84, 29);
+            this.btn_Fullscreen.TabIndex = 22;
+            this.btn_Fullscreen.Text = "Fullscreen";
+            this.btn_Fullscreen.UseVisualStyleBackColor = true;
             // 
             // btn_tang
             // 
@@ -141,7 +165,6 @@
             this.btn_tang.TabIndex = 22;
             this.btn_tang.Text = "Tăng 10s";
             this.btn_tang.UseVisualStyleBackColor = true;
-            this.btn_tang.Click += new System.EventHandler(this.btn_tang_Click);
             // 
             // btn_play
             // 
@@ -167,7 +190,6 @@
             this.btn_play.OnPressedColor = System.Drawing.Color.Black;
             this.btn_play.Size = new System.Drawing.Size(64, 64);
             this.btn_play.TabIndex = 21;
-            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
             // 
             // timeSongEnd
             // 
@@ -207,34 +229,12 @@
             this.MediaTrackBar.TrackIdleColor = System.Drawing.Color.Silver;
             this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.Black;
             this.MediaTrackBar.Value = 0;
-            this.MediaTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MediaTrackBar_MouseDown);
             // 
-            // timerSong
+            // timer_Hide
             // 
-            this.timerSong.Tick += new System.EventHandler(this.timer_Tick);
+            this.timer_Hide.Tick += new System.EventHandler(this.timer_Hide_Tick);
             // 
-            // btn_Fullscreen
-            // 
-            this.btn_Fullscreen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Fullscreen.Location = new System.Drawing.Point(745, 66);
-            this.btn_Fullscreen.Name = "btn_Fullscreen";
-            this.btn_Fullscreen.Size = new System.Drawing.Size(84, 29);
-            this.btn_Fullscreen.TabIndex = 22;
-            this.btn_Fullscreen.Text = "Fullscreen";
-            this.btn_Fullscreen.UseVisualStyleBackColor = true;
-            this.btn_Fullscreen.Click += new System.EventHandler(this.btn_tang_Click);
-            // 
-            // player
-            // 
-            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(0, 0);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(1158, 659);
-            this.player.TabIndex = 0;
-            // 
-            // VideoPlayer
+            // VideoCopy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -242,11 +242,11 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.player);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "VideoPlayer";
+            this.Name = "VideoCopy";
             this.Text = "VideoPlayer";
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -254,17 +254,18 @@
         #endregion
 
         private AxWMPLib.AxWindowsMediaPlayer player;
+        private System.Windows.Forms.Timer timerSong;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI.WinForms.GunaTrackBar MediaTrackBar;
-        private System.Windows.Forms.Label timeSongEnd;
-        private System.Windows.Forms.Label timeSongPlay;
-        private System.Windows.Forms.Button btn_giam;
-        private System.Windows.Forms.Button btn_tang;
-        private Guna.UI.WinForms.GunaCircleButton btn_play;
+        private Guna.UI.WinForms.GunaLabel lb_SongName;
         private Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Volume;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_Volume;
-        private Guna.UI.WinForms.GunaLabel lb_SongName;
-        private System.Windows.Forms.Timer timerSong;
+        private System.Windows.Forms.Button btn_giam;
         private System.Windows.Forms.Button btn_Fullscreen;
+        private System.Windows.Forms.Button btn_tang;
+        private Guna.UI.WinForms.GunaCircleButton btn_play;
+        private System.Windows.Forms.Label timeSongEnd;
+        private System.Windows.Forms.Label timeSongPlay;
+        private Guna.UI.WinForms.GunaTrackBar MediaTrackBar;
+        private System.Windows.Forms.Timer timer_Hide;
     }
 }
