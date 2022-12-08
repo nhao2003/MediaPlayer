@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using MediaPlayer.Properties;
 
 namespace MediaPlayer.Items
 {
@@ -57,6 +58,21 @@ namespace MediaPlayer.Items
         private void MusicRow_Click(object sender, EventArgs e)
         {
             sendPath(_media.FilePath, _media.Image);
+        }
+
+        private void btn_Like_Click(object sender, EventArgs e)
+        {
+            _media.Like();
+            if (_media.IsLiked)
+            {
+                btn_Like.Image = Resources.favorite_hover;
+                btn_Like.OnHoverImage = Resources.favorite_hover;
+            }
+            else
+            {
+                btn_Like.Image = Resources.favorite;
+                btn_Like.OnHoverImage = Resources.not_favorite_hover;
+            }
         }
     }
 }
