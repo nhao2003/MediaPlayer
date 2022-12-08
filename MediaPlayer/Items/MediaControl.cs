@@ -22,6 +22,8 @@ namespace MediaPlayer.Items
         public delegate void PassMediaControl(MediaControl control);
         public bool repeatSong = false;
         public bool repeatPlaylist = false;
+        Random random = new Random(); //At class level
+        List<int> listIndex = new List<int>(); //At class level
         public MediaControl()
         {
             InitializeComponent();
@@ -29,6 +31,11 @@ namespace MediaPlayer.Items
             UserControl_LibrarySong test = new UserControl_LibrarySong();
             PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
             datasend(this);
+            // genera new list index of song
+            for(int i = 0; i < MediaHelpers.listSongs.Count; i++)
+            {
+                listIndex.Add(i);
+            }
         }
         internal void transferDataFromLib(string filePath)
         {
@@ -56,8 +63,9 @@ namespace MediaPlayer.Items
 
         private void RandomMode()
         {
-            // lay count list song
+            List<int> listRanIndex = new List<int>();
             // create array int 0 -> count with random
+            //int n = random.Next(0,litst)
             // change the next fuction with new array
         }
         public void getPathOfSong(string path)
