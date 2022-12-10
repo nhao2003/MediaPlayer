@@ -556,7 +556,7 @@ namespace MediaPlayer
         private TabPage tabPage_Search;
         private UserControl_Search userControl_Search1;
         private TabPage tabPage_Home;
-        private UserControl_Home userControl_Home1;
+        public UserControl_Home userControl_Home1;
         private Bunifu.UI.WinForms.BunifuPages MainPages;
         private UserControl_ListMedia UserControl_Video;
     }

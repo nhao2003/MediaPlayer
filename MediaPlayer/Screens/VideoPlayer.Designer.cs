@@ -241,7 +241,7 @@
             this.ClientSize = new System.Drawing.Size(1158, 659);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.player);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "VideoPlayer";
             this.Text = "VideoPlayer";
             this.panel1.ResumeLayout(false);

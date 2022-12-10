@@ -18,7 +18,7 @@ namespace MediaPlayer
         {
             InitializeComponent();
             //FormBorderStyle = FormBorderStyle.None;
-            //WindowState = FormWindowState.Maximized;
+            WindowState = FormWindowState.Maximized;
             player.uiMode = "none";
             timerSong.Enabled = true;
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;

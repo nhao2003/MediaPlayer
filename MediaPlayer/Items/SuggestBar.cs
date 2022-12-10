@@ -14,8 +14,6 @@ namespace MediaPlayer.Items
 {
     public partial class SuggestBar : UserControl
     {
-        public delegate void Send(string path);
-        public Send sendPath;
         public int numOfMediaShow = 5;
         public SuggestBar()
         {
@@ -30,14 +28,8 @@ namespace MediaPlayer.Items
                 };
                 if(i == 0) pic_main.Image = MediaHelpers.listSongs[i].Image;
                 musicRow.Media = MediaHelpers.listSongs[i];
-                musicRow.sendPath = new MusicRow.Send(sendChildPath);
                 panel_MusicRow.Controls.Add(musicRow);
             }
-        }
-        public void sendChildPath(String s, Image image)
-        {
-            pic_main.Image = image;
-            sendPath(s);
         }
         public void changeImage(Image image)
         {

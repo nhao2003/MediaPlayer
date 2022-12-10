@@ -10,17 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaPlayer.Models;
+using TagLib;
 
 namespace MediaPlayer.Items
 {
     public partial class MediaItem : UserControl
     {
-        public delegate void Send(string path, Image image);
-        public Send sendPath;
         private Media Media;
-        public MediaItem(Media media)
+        MediaTypes mediaTypes;
+        public MediaItem(Media media, MediaTypes mediaTypes)
         {
             this.Media = media;
+            this.mediaTypes = mediaTypes;
             InitializeComponent();
             contextMenu.Tag = media;
             label_NameSong.Text = media.Title;
@@ -31,7 +32,8 @@ namespace MediaPlayer.Items
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            sendPath(Media.FilePath, Media.Image);
+            Form_Main.Instance.ClassifyMedia(Media.FilePath, mediaTypes);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(Media.Image);
         }
         private void MediaItem_Click(object sender, EventArgs e)
         {
@@ -41,7 +43,8 @@ namespace MediaPlayer.Items
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
-            sendPath(Media.FilePath, Media.Image);
+            Form_Main.Instance.ClassifyMedia(Media.FilePath, mediaTypes);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(Media.Image);
         }
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)

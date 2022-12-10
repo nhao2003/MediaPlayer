@@ -17,16 +17,14 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Home : UserControl
     {
-        public delegate void Send(string path, MediaTypes mediaTypes);
-        public Send sendPath;
 
-        DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", MediaHelpers.listSongs)
+        DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", MediaHelpers.listSongs, MediaTypes.Audio)
         {
             Dock = DockStyle.Bottom,
             
         };
 
-        private DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", MediaHelpers.listVideos)
+        private DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", MediaHelpers.listVideos, MediaTypes.Video)
         {
             Dock = DockStyle.Bottom,
         };
@@ -34,24 +32,8 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
             RecentVideo.Parent = panel_Home;
-            RecentMusic.sendPath = new DisplayMediaItems.Send(sendChildPathMusicHasImage);
-            RecentVideo.sendPath = new DisplayMediaItems.Send(sendChildPathVideo);
             panel_Home.Controls.Add(RecentMusic);
             panel_Home.Controls.Add(RecentVideo);
-            suggestBar1.sendPath = new SuggestBar.Send(sendChildPathMusic);
-        }
-        public void sendChildPathMusic(String s)
-        {
-            sendPath(s, MediaTypes.Audio);
-        }
-        public void sendChildPathMusicHasImage(String s, Image image)
-        {
-            suggestBar1.changeImage(image);
-            sendPath(s, MediaTypes.Audio);
-        }
-        public void sendChildPathVideo(String s, Image image)
-        {
-            sendPath(s, MediaTypes.Video);
         }
 
         private void panel_Home_Scroll(object sender, ScrollEventArgs e)

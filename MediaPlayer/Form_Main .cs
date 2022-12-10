@@ -20,6 +20,10 @@ namespace MediaPlayer
         {
             InitializeComponent();
         }
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+            userControl_Settings1.rebuild = new UserControl_Settings.Rebuild(rebuildHome);
+        }
 
         private static Form_Main instance = new Form_Main();
 
@@ -64,12 +68,8 @@ namespace MediaPlayer
                     break;
             };
         }
-        // gui data tu item song
-        public delegate void Send(string path, MediaTypes mediaTypes);
-        public Send sendPath;
 
-
-        public void sendChildPath(String s, MediaTypes mediaTypes)
+        public void ClassifyMedia(String s, MediaTypes mediaTypes)
         {
             if (mediaTypes == MediaTypes.Audio) MediaControl.getPathOfSong(s);
             else
@@ -87,18 +87,7 @@ namespace MediaPlayer
             {
                 Dock = DockStyle.Fill,
             };
-            userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
             this.tabPage_Home.Controls.Add(this.userControl_Home1);
-        }
-        // khai bao cac delegate va thuoc tinh
-        private void Form_Main_Load(object sender, EventArgs e)
-        {
-            userControl_Home1.sendPath = new UserControl_Home.Send(sendChildPath);
-            userControl_Settings1.rebuild = new UserControl_Settings.Rebuild(rebuildHome);
-        }
-
-        private void MediaPlayer_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
-        {
         }
     }
 }

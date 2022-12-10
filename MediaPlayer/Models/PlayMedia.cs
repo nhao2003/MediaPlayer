@@ -80,7 +80,7 @@ namespace MediaPlayer.Models
             {
                 currentTimePlay = 0.0;
                 player.URL = path;
-                //player.Ctlcontrols.stop();
+                player.Ctlcontrols.stop();
             }
         }
         public static void continueSong()

@@ -92,7 +92,6 @@
             this.Controls.Add(this.panel_Title);
             this.Name = "DisplayMediaItems";
             this.Size = new System.Drawing.Size(1074, 363);
-            this.Load += new System.EventHandler(this.DisplayMediaItems_Load);
             this.panel_Title.ResumeLayout(false);
             this.panel_Title.PerformLayout();
             this.ResumeLayout(false);

@@ -16,8 +16,6 @@ namespace MediaPlayer.Items
 {
     public partial class MusicRow : UserControl
     {
-        public delegate void Send(string path, Image image);
-        public Send sendPath;
         private Media _media;
         public Media Media
         {
@@ -40,10 +38,6 @@ namespace MediaPlayer.Items
             InitializeComponent();
         }
 
-        public static void setInfo()
-        {
-
-        }
         private void MusicRow_MouseEnter(object sender, EventArgs e)
         {
             panel_MusicRow.BaseColor = Color.FromArgb(40, 40, 40);
@@ -56,7 +50,8 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            sendPath(_media.FilePath, _media.Image);
+            Form_Main.Instance.MediaControl.getPathOfSong(_media.FilePath);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
         }
 
         private void btn_Like_Click(object sender, EventArgs e)

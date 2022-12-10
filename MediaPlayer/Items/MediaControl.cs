@@ -96,18 +96,14 @@ namespace MediaPlayer.Items
                 btn_Play.OnHoverImage = Resources.play_hover;
 
                 PlayMedia.setCurrentTimePlay();
+                // Play
+                timerSong.Enabled = true;
+                btn_Play.Image = Resources.pause_hover;
+                btn_Play.OnHoverImage = Resources.pause_hover;
+                PlayMedia.playSong();
             }
         }
 
-        private void gunaCircleButton_Open_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                path = ofd.FileName;
-                getPathOfSong(path);
-            }
-        }
         public void pauseCurrentPlayer()
         {
             if (PlayMedia.IsFirst() == false) return;

@@ -91,7 +91,7 @@ namespace MediaPlayer.Widgets
         }
         #endregion
         private Guna.UI.WinForms.GunaGradient2Panel panel_Home;
-        private SuggestBar suggestBar1;
+        public SuggestBar suggestBar1;
         private GunaLabel gunaLabel_Recent;
     }
 }
