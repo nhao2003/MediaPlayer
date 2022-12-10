@@ -349,6 +349,7 @@ namespace MediaPlayer
             // 
             // userControl_Settings1
             // 
+            this.userControl_Settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.userControl_Settings1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControl_Settings1.Location = new System.Drawing.Point(0, 0);
             this.userControl_Settings1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -480,10 +481,10 @@ namespace MediaPlayer
             this.MainPages.Multiline = true;
             this.MainPages.Name = "MainPages";
             this.MainPages.Padding = new System.Drawing.Point(0, 0);
-            this.MainPages.Page = this.tabPage_Settings;
-            this.MainPages.PageIndex = 5;
-            this.MainPages.PageName = "tabPage_Settings";
-            this.MainPages.PageTitle = "tabPage_Settings";
+            this.MainPages.Page = this.tabPage_Music;
+            this.MainPages.PageIndex = 2;
+            this.MainPages.PageName = "tabPage_Music";
+            this.MainPages.PageTitle = "tabPage_Music";
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(954, 636);
             this.MainPages.TabIndex = 15;

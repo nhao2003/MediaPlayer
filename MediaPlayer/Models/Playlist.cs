@@ -8,11 +8,11 @@ using TagLib;
 
 namespace MediaPlayer.Models
 {
-    internal class Playlist
+    public class Playlist
     {
         private String playListID;
         private String playListName;
-        private List<Media> listMedia;
+        private List<Media> listMedia = new List<Media>();
         private Image backroundImage;
         private DateTime dateCreated;
 
@@ -20,8 +20,8 @@ namespace MediaPlayer.Models
 
         public String PlayListName
         {
-            get { return playListName; }
-            set { playListName = value; }
+            get => playListName;
+            set => playListName = value;
         }
 
         public Image BackroundImage
@@ -30,16 +30,25 @@ namespace MediaPlayer.Models
             get { return backroundImage; }
         }
 
+        public List<Media> ListMedia
+        {
+            get => listMedia;
+            set => listMedia = value;
+        }
+
         public DateTime DateCreated
         {
             set => dateCreated = value;
             get { return dateCreated; }
         }
-        public Playlist(String name = "Unknown name")
+        public Playlist(String name = "Unnamed", Image backroundImage = null , List<Media> listMedia = null)
         {
             this.playListID = Guid.NewGuid().ToString("N");
             this.playListName = name;
+            this.backroundImage = backroundImage;
             this.dateCreated = DateTime.Now;
+            if(listMedia != null)
+                ListMedia = listMedia;
         }
     }
 }

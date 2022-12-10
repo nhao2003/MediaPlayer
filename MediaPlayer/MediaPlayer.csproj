@@ -137,6 +137,12 @@
     <Compile Include="Form_Main .Designer.cs">
       <DependentUpon>Form_Main .cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\AddPlayList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Items\AddPlayList.Designer.cs">
+      <DependentUpon>AddPlayList.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items\CategoryPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -237,12 +243,6 @@
     <Compile Include="Screens\UserControl_Settings.Designer.cs">
       <DependentUpon>UserControl_Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\UserControl_Video.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Screens\UserControl_Video.Designer.cs">
-      <DependentUpon>UserControl_Video.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\VideoCopy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,6 +257,9 @@
     </Compile>
     <EmbeddedResource Include="Form_Main .resx">
       <DependentUpon>Form_Main .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\AddPlayList.resx">
+      <DependentUpon>AddPlayList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\CategoryPanel.resx">
       <DependentUpon>CategoryPanel.cs</DependentUpon>
@@ -310,9 +313,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Settings.resx">
       <DependentUpon>UserControl_Settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\UserControl_Video.resx">
-      <DependentUpon>UserControl_Video.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\VideoCopy.resx">
       <DependentUpon>VideoCopy.cs</DependentUpon>

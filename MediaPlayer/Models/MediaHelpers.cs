@@ -17,6 +17,15 @@ namespace MediaPlayer.Models
         private static string musicPathFolder = $"C:\\Users\\{userName}\\Music";
         private static string videoPathFolder = $"C:\\Users\\{userName}\\Videos";
         private static List<Media> playQueue = new List<Media>();
+        private static List<Playlist> playList = new List<Playlist>();
+        /// <summary>
+        /// Gets and sets playlist
+        /// </summary>
+        public static List<Playlist> Playlist
+        {
+            get => playList;
+            set => playList = value;
+        }
         /// <summary>
         /// List các bài nhạc
         /// </summary>
@@ -31,10 +40,9 @@ namespace MediaPlayer.Models
         /// </summary>
         public static List<Media> PlayQueue
         {
-            set { PlayQueue = value; }
-            get { return PlayQueue; }
+            set => playQueue = value;
+            get => PlayQueue;
         }
-
         /// <summary>
         /// Đường dẫn thư mục nhạc
         /// </summary>
@@ -100,16 +108,9 @@ namespace MediaPlayer.Models
             Media tmp;
             for (int i = 0; i < filePaths.Length; i++)
             {
-                try
-                {
-                    tmp = new Media(filePaths[i]);
-                    if (mediaTypes == MediaTypes.Audio) listSongs.Add(tmp);
-                    else listVideos.Add(tmp);
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
+                tmp = new Media(filePaths[i]);
+                if (mediaTypes == MediaTypes.Audio) listSongs.Add(tmp);
+                else listVideos.Add(tmp);
             }
         }
     }

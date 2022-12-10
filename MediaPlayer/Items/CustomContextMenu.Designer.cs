@@ -62,6 +62,7 @@ namespace MediaPlayer.Items
             this.AddTo.Name = "AddTo";
             this.AddTo.Size = new System.Drawing.Size(141, 26);
             this.AddTo.Text = "Add to";
+            this.AddTo.Click += AddTo_Click;
             // 
             // PlayQueue
             // 
@@ -90,7 +91,13 @@ namespace MediaPlayer.Items
 
         }
 
-        
+        private void AddTo_Click(object sender, System.EventArgs e)
+        {
+            AddPlayList addPlayList = new AddPlayList();
+            addPlayList.ShowDialog();
+        }
+
+
 
 
         #endregion
