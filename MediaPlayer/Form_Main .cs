@@ -69,6 +69,13 @@ namespace MediaPlayer
             };
         }
 
+        public void ChangePage(int n)
+        {
+            MainPages.SetPage(n);
+            if(n == 2) _oldButton = btn_Music;
+            else _oldButton = btn_Video;
+        }
+
         public void ClassifyMedia(String s, MediaTypes mediaTypes)
         {
             if (mediaTypes == MediaTypes.Audio) MediaControl.getPathOfSong(s);

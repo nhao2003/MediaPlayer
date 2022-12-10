@@ -58,6 +58,7 @@
             this.label_SeeAll.Size = new System.Drawing.Size(187, 46);
             this.label_SeeAll.TabIndex = 4;
             this.label_SeeAll.Text = "Xem tất cả";
+            this.label_SeeAll.Click += new System.EventHandler(this.label_SeeAll_Click);
             // 
             // label_Title
             // 

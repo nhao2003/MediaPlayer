@@ -498,5 +498,8 @@
   <ItemGroup>
     <None Include="Resources\not_favorite_hover.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\logo.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

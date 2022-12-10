@@ -43,5 +43,14 @@ namespace MediaPlayer.Items
             panel_Items.AutoScroll = false;
             DoubleBuffered = true;
         }
+
+        private void label_SeeAll_Click(object sender, EventArgs e)
+        {
+            if(mediaTypes == MediaTypes.Audio)
+            {
+                Form_Main.Instance.ChangePage(2);
+            }
+            else Form_Main.Instance.ChangePage(3);
+        }
     }
 }
