@@ -38,7 +38,6 @@ namespace MediaPlayer.Items
         public MusicRow()
         {
             InitializeComponent();
-            var request = WebRequest.Create("https://data.chiasenhac.com/data/cover/160/159824.jpg");
         }
 
         public static void setInfo()

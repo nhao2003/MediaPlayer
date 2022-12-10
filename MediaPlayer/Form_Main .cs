@@ -75,11 +75,9 @@ namespace MediaPlayer
             else
             {
                 MediaControl.pauseCurrentPlayer();
-                VideoCopy videoScreen = new VideoCopy();
+                VideoPlayer videoScreen = new VideoPlayer();
                 videoScreen.Show();
                 videoScreen.getPathOfSong(s);
-                //.SetPage(6);
-                //MediaPlayer.URL = "C:\\Users\\haosi\\Videos\\Sia  Snowman Official Video_1080p.mp4";
             }
         }
         public void rebuildHome()
@@ -101,7 +99,6 @@ namespace MediaPlayer
 
         private void MediaPlayer_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
         {
-            MediaPlayer.fullScreen = !MediaPlayer.fullScreen;
         }
     }
 }

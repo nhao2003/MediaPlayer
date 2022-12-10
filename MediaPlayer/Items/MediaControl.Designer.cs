@@ -345,6 +345,7 @@
             this.gunaCircleButton_Like.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton_Like.Size = new System.Drawing.Size(35, 37);
             this.gunaCircleButton_Like.TabIndex = 19;
+            this.gunaCircleButton_Like.Click += new System.EventHandler(this.gunaCircleButton_Like_Click);
             // 
             // gunaPictureBox_SongImage
             // 
@@ -385,7 +386,6 @@
         #endregion
         private Guna.UI.WinForms.GunaLabel timeSongEnd;
         private Guna.UI.WinForms.GunaLabel timeSongPlay;
-        private Guna.UI.WinForms.GunaTrackBar MediaTrackBar;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox_SongImage;
         private Guna.UI.WinForms.GunaLabel gunaLabel_SongName;
         private Guna.UI.WinForms.GunaLabel gunaLabel_NameAthor;
@@ -400,5 +400,6 @@
         private Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Volume;
         private Guna.UI.WinForms.GunaCircleButton btn_Volume;
         private System.Windows.Forms.Timer timerSong;
+        public Guna.UI.WinForms.GunaTrackBar MediaTrackBar;
     }
 }

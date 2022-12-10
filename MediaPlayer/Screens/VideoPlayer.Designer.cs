@@ -35,13 +35,13 @@
             this.gunaTrackBar_Volume = new Guna.UI.WinForms.GunaTrackBar();
             this.gunaCircleButton_Volume = new Guna.UI.WinForms.GunaCircleButton();
             this.btn_giam = new System.Windows.Forms.Button();
+            this.btn_Fullscreen = new System.Windows.Forms.Button();
             this.btn_tang = new System.Windows.Forms.Button();
             this.btn_play = new Guna.UI.WinForms.GunaCircleButton();
             this.timeSongEnd = new System.Windows.Forms.Label();
             this.timeSongPlay = new System.Windows.Forms.Label();
             this.MediaTrackBar = new Guna.UI.WinForms.GunaTrackBar();
             this.timerSong = new System.Windows.Forms.Timer(this.components);
-            this.btn_Fullscreen = new System.Windows.Forms.Button();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
@@ -132,6 +132,17 @@
             this.btn_giam.UseVisualStyleBackColor = true;
             this.btn_giam.Click += new System.EventHandler(this.btn_giam_Click);
             // 
+            // btn_Fullscreen
+            // 
+            this.btn_Fullscreen.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn_Fullscreen.Location = new System.Drawing.Point(745, 66);
+            this.btn_Fullscreen.Name = "btn_Fullscreen";
+            this.btn_Fullscreen.Size = new System.Drawing.Size(84, 29);
+            this.btn_Fullscreen.TabIndex = 22;
+            this.btn_Fullscreen.Text = "Fullscreen";
+            this.btn_Fullscreen.UseVisualStyleBackColor = true;
+            this.btn_Fullscreen.Click += new System.EventHandler(this.btn_tang_Click);
+            // 
             // btn_tang
             // 
             this.btn_tang.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -213,17 +224,6 @@
             // 
             this.timerSong.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // btn_Fullscreen
-            // 
-            this.btn_Fullscreen.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_Fullscreen.Location = new System.Drawing.Point(745, 66);
-            this.btn_Fullscreen.Name = "btn_Fullscreen";
-            this.btn_Fullscreen.Size = new System.Drawing.Size(84, 29);
-            this.btn_Fullscreen.TabIndex = 22;
-            this.btn_Fullscreen.Text = "Fullscreen";
-            this.btn_Fullscreen.UseVisualStyleBackColor = true;
-            this.btn_Fullscreen.Click += new System.EventHandler(this.btn_tang_Click);
-            // 
             // player
             // 
             this.player.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -241,7 +241,7 @@
             this.ClientSize = new System.Drawing.Size(1158, 659);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.player);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VideoPlayer";
             this.Text = "VideoPlayer";
             this.panel1.ResumeLayout(false);

@@ -18,7 +18,7 @@ namespace MediaPlayer
         {
             InitializeComponent();
             //FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
+            //WindowState = FormWindowState.Maximized;
             player.uiMode = "none";
             timerSong.Enabled = true;
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
@@ -59,6 +59,7 @@ namespace MediaPlayer
             {
                 MediaTrackBar.Maximum = (int)player.Ctlcontrols.currentItem.duration;
                 MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
+                Form_Main.Instance.MediaControl.MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
                 timeSongPlay.Text = getCurrentPositionStringSong();
                 timeSongEnd.Text = getDurationStringSong();
                 currentTimePlay = player.Ctlcontrols.currentPosition;

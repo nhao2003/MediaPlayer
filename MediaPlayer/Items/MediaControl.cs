@@ -267,5 +267,13 @@ namespace MediaPlayer.Items
                 }
             }
         }
+
+        private void gunaCircleButton_Like_Click(object sender, EventArgs e)
+        {
+            VideoPlayer video = new VideoPlayer();
+            video.Width = 900;
+            video.Height = 600;
+            video.ShowDialog();
+        }
     }
 }
