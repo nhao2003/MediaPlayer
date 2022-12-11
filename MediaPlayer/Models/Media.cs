@@ -181,6 +181,7 @@ namespace MediaPlayer.Models
             this.filePath = path;
             this.mediaType = taglib.Properties.MediaTypes;
             this.others = taglib;
+            
             if (taglib.Tag.Pictures.Length > 0)
             {
                 var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);

@@ -152,7 +152,7 @@
             this.gunaLabel_NameAthor.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel_NameAthor.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaLabel_NameAthor.ForeColor = System.Drawing.Color.White;
-            this.gunaLabel_NameAthor.Location = new System.Drawing.Point(124, 47);
+            this.gunaLabel_NameAthor.Location = new System.Drawing.Point(120, 48);
             this.gunaLabel_NameAthor.Name = "gunaLabel_NameAthor";
             this.gunaLabel_NameAthor.Size = new System.Drawing.Size(153, 56);
             this.gunaLabel_NameAthor.TabIndex = 7;
