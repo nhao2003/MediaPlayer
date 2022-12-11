@@ -23,13 +23,12 @@ namespace MediaPlayer.Widgets
         }
 
         // Khai bao cac bien toan cuc
-        static string[] filePaths;
-        static string[] joins;
-        TagLib.File[] f;
-        static Media[] SongList;
-        static MediaPanel[] songs;
-        // Bien toan cuc luu tru danh sach cac category sau khi sort
-        static CategoryPanel[] list_category;
+        static List<string> filePaths = new List<string>();
+        static List<string> joins = new List<string>();
+        static List<TagLib.File> fileSongs = new List<TagLib.File>();
+        static List<Media> songList = new List<Media>();
+        static List<MediaPanel> songs = new List<MediaPanel>();
+        static List<CategoryPanel> listCategories = new List<CategoryPanel>();
 
         // Phuong thuc reset UserControl
         private void ResetUserControl()
@@ -37,19 +36,21 @@ namespace MediaPlayer.Widgets
             try
             {
                 // Xoa cac music panel cu
-                if (songs != null)
+                if (songs.Count > 0)
                 {
-                    for (int i = 0; i < songs.Length; i++)
+                    MessageBox.Show("Success");
+                    for (int i = 0; i < songs.Count; i++)
                     {
                         gunaElipsePanel2.Controls.Remove(songs[i]);
                     }
                 }
                 // Xoa cac category neu co
-                if (list_category != null)
+                if (listCategories.Count > 0)
                 {
-                    for (int j = 0; j < list_category.Length; j++)
+                    MessageBox.Show("Success");
+                    for (int j = 0; j < listCategories.Count; j++)
                     {
-                        gunaElipsePanel2.Controls.Remove(list_category[j]);
+                        gunaElipsePanel2.Controls.Remove(listCategories[j]);
                     }
                 }
             }
@@ -60,6 +61,10 @@ namespace MediaPlayer.Widgets
             
         }
 
+        private void Init()
+        {
+
+        }
         // Phuong thuc set cac gia tri mac dinh cho categoryPanel
         public void SetCategoryPanelAttribute(ref CategoryPanel category, int xLoc,int yLoc, string groupKey)
         {
@@ -75,7 +80,7 @@ namespace MediaPlayer.Widgets
         {
             this.ResetUserControl();
             // Chon folder de lay music
-            try 
+            try
             {
                 FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
                 DialogResult result = folderBrowserDialog.ShowDialog();
@@ -83,33 +88,26 @@ namespace MediaPlayer.Widgets
                 {
                     var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories)
                     .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg"));
-                    filePaths = files.ToArray();
+                    filePaths = files.ToList();
                 }
-                // Cac mang luu tru thong tin music
-                f = new TagLib.File[filePaths.Length];
-                SongList = new Media[filePaths.Length];
-                joins = new string[filePaths.Length];
-                for (int i = 0; i < filePaths.Length; i++)
+                
+                fileSongs = new List<TagLib.File>();
+                songList = new List<Media>();
+                joins = new List<string>();
+
+                
+                for (int i = 0; i < filePaths.Count; i++)
                 {
-                    f[i] = TagLib.File.Create(filePaths[i]);
+                    fileSongs.Add(TagLib.File.Create(filePaths[i]));
                 }
+
                 // Load cac music song thanh cac object
-                for (int i = 0; i < filePaths.Length; i++)
+                for (int i = 0; i < filePaths.Count; i++)
                 {
-                    SongList[i] = new Media();
-                    // Id, Title, Artists, FilePath, SongImage, Duration, DateAdded, isLiked
-                    // SongList[i].Id= Guid.NewGuid().ToString("N");
-                    SongList[i].Title = f[i].Tag.Title;
-                    SongList[i].Artists = (String.Join(", ", f[i].Tag.AlbumArtists));
-                    SongList[i].FilePath = (filePaths[i]);
-                    SongList[i].Album = f[i].Tag.Album;
-                    // SongList[i].SongImage();
-                    SongList[i].Duration = (f[i].Properties.Duration);
-                    SongList[i].DateAdded = (DateTime.Now);
-                    SongList[i].IsLiked = false;
-                    joins[i] = SongList[i].Title + ";" + SongList[i].Artists + ";"
-                        + SongList[i].FilePath + ";" + SongList[i].Album + ";" + SongList[i].Duration + ";" + SongList[i].DateAdded
-                        + ";" + SongList[i].IsLiked.ToString();
+                    songList.Add(new Media(filePaths[i]));
+                    joins.Add( songList[i].Title + ";" + songList[i].Artists + ";"
+                        + songList[i].FilePath + ";" + songList[i].Album + ";" + songList[i].Duration + ";" + songList[i].DateAdded
+                        + ";" + songList[i].IsLiked.ToString());
                 }
 
                 // Luu data vo file csv, hien chua can su dung
@@ -127,18 +125,18 @@ namespace MediaPlayer.Widgets
                 // Load cac music song thanh cac panel len form
                 int xLoc = 0;
                 int yLoc = 300;
-                songs = new MediaPanel[filePaths.Length];
-                for (int i = 0; i < filePaths.Length; i++)
+                for (int i = 0; i < filePaths.Count; i++)
                 {
-                    songs[i] = new MediaPanel();
-                    songs[i].Location = new Point(xLoc, yLoc);
-                    songs[i].Dock = DockStyle.Top;
-                    songs[i].InitializeSongItem(f[i], SongList[i].FilePath, i + 1);
+                    MediaPanel temp = new MediaPanel();
+                    temp.Location = new Point(xLoc, yLoc);
+                    temp.Dock = DockStyle.Top;
+                    temp.InitializeSongItem(fileSongs[i], songList[i].FilePath, i + 1);
+                    songs.Add(temp);
                     yLoc += 100;
-                    gunaElipsePanel2.Controls.Add(songs[i]);
+                    gunaElipsePanel2.Controls.Add(temp);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //MessageBox.Show("Haven't choose any folder yet !!!");
                 MessageBox.Show(ex.Message);
@@ -149,7 +147,7 @@ namespace MediaPlayer.Widgets
         // Sort theo thu tu alphabet A-Z
         public void SortByAtoZ()
         {
-            var songlist = new List<Media>(SongList);
+            var songlist = new List<Media>(songList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
@@ -157,9 +155,9 @@ namespace MediaPlayer.Widgets
                       orderby song.Title ascending
                       group song by song.Title[0];
             int i = 0;
-            songs = new MediaPanel[filePaths.Length];
+            songs = new List<MediaPanel>();
             int j = 0;
-            list_category = new CategoryPanel[res.Count()];
+            listCategories = new List<CategoryPanel>();
             foreach (var group in res.Reverse())
             {
                 
@@ -170,7 +168,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
-                    songs[i++] = songdisplay;
+                    songs.Add(songdisplay);
                     yLoc += 100;
                 }
                 yLoc -= 100;
@@ -178,14 +176,13 @@ namespace MediaPlayer.Widgets
                 SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                list_category[j] = new CategoryPanel();
-                list_category[j++] = category_display;
+                listCategories.Add(category_display);
             }
         }
         // Sort theo ngay them nhac
         public void SortByDateAdded()
         {
-            var songlist = new List<Media>(SongList);
+            var songlist = new List<Media>(songList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
@@ -193,9 +190,9 @@ namespace MediaPlayer.Widgets
                                                          orderby song.DateAdded ascending
                                                          group song by song.DateAdded;
             int i = 0;
-            songs = new MediaPanel[filePaths.Length];
+            songs = new List<MediaPanel>();
             int j = 0;
-            list_category = new CategoryPanel[res.Count()];
+            listCategories = new List<CategoryPanel>();
             foreach (var group in res.Reverse())
             {
 
@@ -206,7 +203,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
-                    songs[i++] = songdisplay;
+                    songs.Add(songdisplay);
                     yLoc += 140;
                 }
                 yLoc -= 100;
@@ -214,14 +211,13 @@ namespace MediaPlayer.Widgets
                 SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                list_category[j] = new CategoryPanel();
-                list_category[j++] = category_display;
+                listCategories.Add(category_display);
             }
         }
         // Sort theo ten tac gia
         public void SortByArtist()
         {
-            var songlist = new List<Media>(SongList);
+            var songlist = new List<Media>(songList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
@@ -229,9 +225,9 @@ namespace MediaPlayer.Widgets
                                                        orderby song.Artists ascending
                                                        group song by song.Artists;
             int i = 0;
-            songs = new MediaPanel[filePaths.Length];
+            songs = new List<MediaPanel>();
             int j = 0;
-            list_category = new CategoryPanel[res.Count()];
+            listCategories = new List<CategoryPanel>();
             foreach (var group in res.Reverse())
             {
 
@@ -242,7 +238,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
-                    songs[i++] = songdisplay;
+                    songs.Add(songdisplay);
                     yLoc += 100;
                 }
                 yLoc -= 100;
@@ -250,13 +246,12 @@ namespace MediaPlayer.Widgets
                 SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                list_category[j] = new CategoryPanel();
-                list_category[j++] = category_display;
+                listCategories.Add(category_display);
             }
         }
         public void SortByAlbum()
         {
-            var songlist = new List<Media>(SongList);
+            var songlist = new List<Media>(songList);
             int xLoc = 0;
             int yLoc = 100;
             int idx = 0;
@@ -264,9 +259,9 @@ namespace MediaPlayer.Widgets
                                                        orderby song.Album ascending
                                                        group song by song.Album;
             int i = 0;
-            songs = new MediaPanel[filePaths.Length];
+            songs = new List<MediaPanel>();
             int j = 0;
-            list_category = new CategoryPanel[res.Count()];
+            listCategories = new List<CategoryPanel>();
             foreach (var group in res.Reverse())
             {
 
@@ -277,7 +272,7 @@ namespace MediaPlayer.Widgets
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
                     gunaElipsePanel2.Controls.Add(songdisplay);
-                    songs[i++] = songdisplay;
+                    songs.Add(songdisplay);
                     yLoc += 100;
                 }
                 yLoc -= 100;
@@ -285,8 +280,7 @@ namespace MediaPlayer.Widgets
                 SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
 
                 gunaElipsePanel2.Controls.Add(category_display);
-                list_category[j] = new CategoryPanel();
-                list_category[j++] = category_display;
+                listCategories.Add(category_display);
             }
         }
         private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -303,7 +297,8 @@ namespace MediaPlayer.Widgets
                 else if (selectedChoice == "Artist") SortByArtist();
             }
             catch(Exception ex){
-                MessageBox.Show("There's nothing to sort !!!");
+                //MessageBox.Show("There's nothing to sort !!!");
+                MessageBox.Show(ex.Message);
             }
         }
     }
