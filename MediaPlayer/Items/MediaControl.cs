@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
-using MediaPlayer.Screens;
 using System.Numerics;
 
 namespace MediaPlayer.Items
@@ -28,7 +27,7 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
-            UserControl_LibrarySong test = new UserControl_LibrarySong();
+            MediaPanel test = new MediaPanel();
             PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
             datasend(this);
             // genera new list index of song
@@ -76,8 +75,12 @@ namespace MediaPlayer.Items
             try
             {
                 var ff = TagLib.File.Create(path);
-                var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
-                gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
+                byte[] bin;
+                if (file.Tag.Pictures.Length > 0)
+                {
+                    bin = (byte[])(file.Tag.Pictures[0].Data.Data);
+                    gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
+                }
             }
             catch (Exception ex)
             {

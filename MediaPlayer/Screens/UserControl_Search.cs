@@ -12,7 +12,7 @@ using System.IO;
 using CsvHelper;
 using Guna.UI.WinForms;
 using MediaPlayer.Widgets;
-using MediaPlayer.Screens;
+using MediaPlayer.Items;
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Search : UserControl
@@ -22,7 +22,7 @@ namespace MediaPlayer.Widgets
             InitializeComponent();
         }
         static Media[] SongList;
-        static UserControl_LibrarySong[] songs;
+        static MediaPanel[] songs;
         static string[] split;
         static TagLib.File[] f;
         static int count = new int();
@@ -110,7 +110,7 @@ namespace MediaPlayer.Widgets
                 string findMusic = gunaTextBox1.Text.ToString();
                 int xLoc = 0;
                 int yLoc = 300;
-                songs = new UserControl_LibrarySong[count];
+                songs = new MediaPanel[count];
                 bool isMusicFounded = false;
                 for (int i = 0; i < count; i++)
                 {
@@ -121,7 +121,7 @@ namespace MediaPlayer.Widgets
                     if (!findTitle && !findAlbum && !findArtists) continue;
                     // if (!SongList[i].Title.Contains(findMusic)) continue;
                     isMusicFounded = true;
-                    songs[i] = new UserControl_LibrarySong();
+                    songs[i] = new MediaPanel();
                     songs[i].Location = new Point(xLoc, yLoc);
                     songs[i].Dock = DockStyle.Top;
                     songs[i].InitializeSongItem(f[i], SongList[i].FilePath, i + 1);

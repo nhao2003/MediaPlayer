@@ -13,7 +13,6 @@ using CsvHelper;
 using Guna.UI.WinForms;
 using MediaPlayer.Widgets;
 using MediaPlayer.Items;
-using MediaPlayer.Screens;
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Library : UserControl
@@ -28,7 +27,7 @@ namespace MediaPlayer.Widgets
         static string[] joins;
         TagLib.File[] f;
         static Media[] SongList;
-        static UserControl_LibrarySong[] songs;
+        static MediaPanel[] songs;
         // Bien toan cuc luu tru danh sach cac category sau khi sort
         static CategoryPanel[] list_category;
 
@@ -114,24 +113,24 @@ namespace MediaPlayer.Widgets
                 }
 
                 // Luu data vo file csv, hien chua can su dung
-                string csv_FilePath = "MusicDataBase\\Song.csv";
-                StringBuilder sbOutput = new StringBuilder();
-                sbOutput.AppendLine("sep=;");
-                sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
-                for (int i = 0; i < filePaths.Length; i++)
-                {
-                    sbOutput.AppendLine(joins[i]);
-                }
-                File.WriteAllText(csv_FilePath, sbOutput.ToString());
+                //string csv_FilePath = "MusicDataBase\\Song.csv";
+                //StringBuilder sbOutput = new StringBuilder();
+                //sbOutput.AppendLine("sep=;");
+                //sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
+                //for (int i = 0; i < filePaths.Length; i++)
+                //{
+                //    sbOutput.AppendLine(joins[i]);
+                //}
+                //File.WriteAllText(csv_FilePath, sbOutput.ToString());
                 // File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
 
                 // Load cac music song thanh cac panel len form
                 int xLoc = 0;
                 int yLoc = 300;
-                songs = new UserControl_LibrarySong[filePaths.Length];
+                songs = new MediaPanel[filePaths.Length];
                 for (int i = 0; i < filePaths.Length; i++)
                 {
-                    songs[i] = new UserControl_LibrarySong();
+                    songs[i] = new MediaPanel();
                     songs[i].Location = new Point(xLoc, yLoc);
                     songs[i].Dock = DockStyle.Top;
                     songs[i].InitializeSongItem(f[i], SongList[i].FilePath, i + 1);
@@ -158,7 +157,7 @@ namespace MediaPlayer.Widgets
                       orderby song.Title ascending
                       group song by song.Title[0];
             int i = 0;
-            songs = new UserControl_LibrarySong[filePaths.Length];
+            songs = new MediaPanel[filePaths.Length];
             int j = 0;
             list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
@@ -166,7 +165,7 @@ namespace MediaPlayer.Widgets
                 
                 foreach (var song in group.Reverse())
                 {
-                    UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
+                    MediaPanel songdisplay = new MediaPanel();
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
@@ -194,7 +193,7 @@ namespace MediaPlayer.Widgets
                                                          orderby song.DateAdded ascending
                                                          group song by song.DateAdded;
             int i = 0;
-            songs = new UserControl_LibrarySong[filePaths.Length];
+            songs = new MediaPanel[filePaths.Length];
             int j = 0;
             list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
@@ -202,7 +201,7 @@ namespace MediaPlayer.Widgets
 
                 foreach (var song in group.Reverse())
                 {
-                    UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
+                    MediaPanel songdisplay = new MediaPanel();
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
@@ -230,7 +229,7 @@ namespace MediaPlayer.Widgets
                                                        orderby song.Artists ascending
                                                        group song by song.Artists;
             int i = 0;
-            songs = new UserControl_LibrarySong[filePaths.Length];
+            songs = new MediaPanel[filePaths.Length];
             int j = 0;
             list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
@@ -238,7 +237,7 @@ namespace MediaPlayer.Widgets
 
                 foreach (var song in group.Reverse())
                 {
-                    UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
+                    MediaPanel songdisplay = new MediaPanel();
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
@@ -265,7 +264,7 @@ namespace MediaPlayer.Widgets
                                                        orderby song.Album ascending
                                                        group song by song.Album;
             int i = 0;
-            songs = new UserControl_LibrarySong[filePaths.Length];
+            songs = new MediaPanel[filePaths.Length];
             int j = 0;
             list_category = new CategoryPanel[res.Count()];
             foreach (var group in res.Reverse())
@@ -273,7 +272,7 @@ namespace MediaPlayer.Widgets
 
                 foreach (var song in group.Reverse())
                 {
-                    UserControl_LibrarySong songdisplay = new UserControl_LibrarySong();
+                    MediaPanel songdisplay = new MediaPanel();
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(temp, song.FilePath, idx++);

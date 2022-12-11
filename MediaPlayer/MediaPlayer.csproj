@@ -179,6 +179,12 @@
     <Compile Include="Items\MediaControl.Designer.cs">
       <DependentUpon>MediaControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\MediaPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Items\MediaPanel.Designer.cs">
+      <DependentUpon>MediaPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Items\SuggestBar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -218,12 +224,6 @@
     </Compile>
     <Compile Include="Screens\UserControl_Library.Designer.cs">
       <DependentUpon>UserControl_Library.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Screens\UserControl_LibrarySong.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Screens\UserControl_LibrarySong.Designer.cs">
-      <DependentUpon>UserControl_LibrarySong.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\UserControl_ListMedia.cs">
       <SubType>UserControl</SubType>
@@ -279,6 +279,9 @@
     <EmbeddedResource Include="Items\MediaControl.resx">
       <DependentUpon>MediaControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Items\MediaPanel.resx">
+      <DependentUpon>MediaPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Items\MusicRow.resx">
       <DependentUpon>MusicRow.cs</DependentUpon>
     </EmbeddedResource>
@@ -300,10 +303,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Library.resx">
       <DependentUpon>UserControl_Library.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\UserControl_LibrarySong.resx">
-      <DependentUpon>UserControl_LibrarySong.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_ListMedia.resx">
       <DependentUpon>UserControl_ListMedia.cs</DependentUpon>
