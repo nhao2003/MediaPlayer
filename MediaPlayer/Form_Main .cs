@@ -88,6 +88,8 @@ namespace MediaPlayer
                     MediaControl.pauseCurrentPlayer();
                     VideoPlayer videoScreen = new VideoPlayer();
                     videoScreen.getPathOfSong(s);
+                    MediaControl.isPlayingVideo = true;
+                    MediaControl.videoScreen = videoScreen;
                     if (videoScreen.Visible == false) videoScreen.Show();
                 }
                 catch(Exception ex)

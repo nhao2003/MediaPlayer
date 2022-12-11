@@ -31,6 +31,7 @@ namespace MediaPlayer
         private void VideoPlayer_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form_Main.Instance.MediaControl.SyncWithVideo(_path, WMPLib.WMPPlayState.wmppsStopped);
+            Form_Main.Instance.MediaControl.isPlayingVideo = false;
         }
 
         public double timeSkip = 10;
@@ -82,6 +83,7 @@ namespace MediaPlayer
             }
             else if (player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
+                Form_Main.Instance.MediaControl.isPlayingVideo = false;
                 this.Close();
             }
         }
@@ -117,6 +119,10 @@ namespace MediaPlayer
         }
         private void btn_play_Click(object sender, EventArgs e)
         {
+            click_btn_play();
+        }
+        public void click_btn_play()
+        {
             try
             {
                 if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
@@ -136,13 +142,12 @@ namespace MediaPlayer
                 MessageBox.Show("Video bi loi nut play: " + ex.ToString());
             }
         }
-
         private void MediaTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
             try
             {
                 if (player.currentMedia != null)
-                    player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / MediaTrackBar.Width;
+                    setCurrentPosition(e.X, MediaTrackBar.Width);
 
             }
             catch (Exception ex)
@@ -150,17 +155,25 @@ namespace MediaPlayer
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        public void setCurrentPosition(int mousePosition, int progressBarWidth)
+        {
+            player.Ctlcontrols.currentPosition = player.currentMedia.duration * mousePosition / progressBarWidth;
+        }
+        // volume
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
-            player.settings.volume = gunaTrackBar_Volume.Value;
+            changeVolume(gunaTrackBar_Volume.Value);
         }
         private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
         {
-            player.settings.volume = gunaTrackBar_Volume.Value;
+            changeVolume(gunaTrackBar_Volume.Value);
         }
-        public int volumeNow = 50;
+        public int volumeNow = 100;
         private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
+        {
+            changeMute();
+        }
+        public void changeMute()
         {
             if (player.settings.volume != 0)
             {
@@ -174,7 +187,12 @@ namespace MediaPlayer
                 gunaTrackBar_Volume.Value = volumeNow;
             }
         }
-
+        public void changeVolume(int n)
+        {
+            gunaTrackBar_Volume.Value = n;
+            player.settings.volume = n;
+        }
+        // time song
         private void btn_giam_Click(object sender, EventArgs e)
         {
             try

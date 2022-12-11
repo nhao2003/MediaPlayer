@@ -22,6 +22,7 @@ namespace MediaPlayer.Items
         public delegate void PassMediaControl(MediaControl control);
         public bool repeatSong = false;
         public bool repeatPlaylist = false;
+        public bool isPlayingVideo = false;
         Random random = new Random(); //At class level
         List<int> listIndex = new List<int>(); //At class level
         public MediaControl()
@@ -70,6 +71,11 @@ namespace MediaPlayer.Items
         }
         public void getPathOfSong(string path)
         {
+            if (isPlayingVideo)
+            {
+                MessageBox.Show("Video is playing! Please turn off video");
+                return;
+            }
             TagLib.File file = TagLib.File.Create(path);
             gunaLabel_SongName.Text = (file.Tag.Title != null)
                 ? file.Tag.Title.ToString()
@@ -121,6 +127,13 @@ namespace MediaPlayer.Items
         {
             try
             {
+                // adjust video
+                if (isPlayingVideo)
+                {
+                    videoScreen.click_btn_play();
+                    return;
+                }
+                // adjust song
                 if (PlayMedia.IsFirst() == false) return;
                 if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
                 {
@@ -168,8 +181,6 @@ namespace MediaPlayer.Items
                 {
                     // lap lai bai hat
                     timerSong.Enabled = true;
-                    //btn_Play.Image = Resources.pause_hover;
-                    //btn_Play.OnHoverImage = Resources.pause_hover;
                     PlayMedia.playSong();
                 }
                 else
@@ -181,17 +192,38 @@ namespace MediaPlayer.Items
 
         private void MediaTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.setCurrentPosition(e.X, MediaTrackBar.Width);
+                return;
+            }
+            // adjust song
             if (PlayMedia.IsFirst() == false) return;
             PlayMedia.setCurrentPosition(e.X, MediaTrackBar.Width);
         }
         private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
         {
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.changeVolume(gunaTrackBar_Volume.Value);
+                return;
+            }
+            // adjust song
             if (PlayMedia.IsFirst() == false) return;
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);
             SetIconVolume();
         }
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.changeVolume(gunaTrackBar_Volume.Value);
+                return;
+            }
+            // adjust song
             if (PlayMedia.IsFirst() == false) return;
             PlayMedia.setVolume(gunaTrackBar_Volume.Value);
             SetIconVolume();
@@ -219,6 +251,13 @@ namespace MediaPlayer.Items
         }
         private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
         {
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.changeMute();
+                return;
+            }
+            // adjust song
             if (PlayMedia.IsFirst() == false) return;
             if (PlayMedia.player.settings.volume != 0)
             {
@@ -281,6 +320,7 @@ namespace MediaPlayer.Items
         }
 
         // Sync with video
+        public VideoPlayer videoScreen = new VideoPlayer();
         public void SyncWithVideo(string path, WMPLib.WMPPlayState status)
         {
             // ten, anh, thoi luong
