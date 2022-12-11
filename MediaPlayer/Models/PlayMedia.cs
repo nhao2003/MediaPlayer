@@ -12,8 +12,8 @@ namespace MediaPlayer.Models
 {
     static class PlayMedia
     {
-        public static Thread thread;
-        public static WindowsMediaPlayer windowsMediaPlayer = new WindowsMediaPlayer();
+        //public static Thread thread;
+        //public static WindowsMediaPlayer windowsMediaPlayer = new WindowsMediaPlayer();
         public static AxWMPLib.AxWindowsMediaPlayer player = new AxWMPLib.AxWindowsMediaPlayer();
 
         static string path = null;

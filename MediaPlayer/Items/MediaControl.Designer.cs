@@ -385,7 +385,7 @@
 
         #endregion
         private Guna.UI.WinForms.GunaLabel timeSongEnd;
-        private Guna.UI.WinForms.GunaLabel timeSongPlay;
+        public Guna.UI.WinForms.GunaLabel timeSongPlay;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox_SongImage;
         private Guna.UI.WinForms.GunaLabel gunaLabel_SongName;
         private Guna.UI.WinForms.GunaLabel gunaLabel_NameAthor;
@@ -397,7 +397,7 @@
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton5;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_Like;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Volume;
+        public Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Volume;
         private Guna.UI.WinForms.GunaCircleButton btn_Volume;
         private System.Windows.Forms.Timer timerSong;
         public Guna.UI.WinForms.GunaTrackBar MediaTrackBar;

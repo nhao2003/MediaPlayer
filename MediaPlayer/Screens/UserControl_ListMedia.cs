@@ -29,17 +29,6 @@ namespace MediaPlayer.Widgets
         /// Get or Set List Media
         /// </summary>
         private List<Media> ListMedia = new List<Media>();
-        public void sendChildPath(String s, MediaTypes mediaTypes)
-        {
-            if (mediaTypes == MediaTypes.Audio) Form_Main.Instance.MediaControl.getPathOfSong(s);
-            else
-            {
-                Form_Main.Instance.MediaControl.getPathOfSong(s);
-                VideoPlayer videoScreen = new VideoPlayer();
-                videoScreen.Show();
-                videoScreen.getPathOfSong(s);
-            }
-        }
         public UserControl_ListMedia()
         {
             InitializeComponent();

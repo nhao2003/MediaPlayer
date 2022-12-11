@@ -71,23 +71,23 @@ namespace MediaPlayer.Items
         public void getPathOfSong(string path)
         {
             TagLib.File file = TagLib.File.Create(path);
-            gunaLabel_SongName.Text = (file.Tag.Title);
+            gunaLabel_SongName.Text = (file.Tag.Title != null)
+                ? file.Tag.Title.ToString()
+                : Path.GetFileNameWithoutExtension(path);
             gunaLabel_NameAthor.Text = (file.Tag.Album);
+            if (gunaLabel_NameAthor.Text == "") gunaLabel_NameAthor.Text = "UnKnow";
             try
             {
-                var ff = TagLib.File.Create(path);
                 var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
                 gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.ToString());
+                //MessageBox.Show("Media Control , get path song: " + ex.ToString());
+                gunaPictureBox_SongImage.Image = Resources.defaultImage;
             }
             finally
             {
-                // Lay path gan cho PlayMedia
-                if (path != null) PlayMedia.setURL(path);
-
                 MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
                 MediaTrackBar.Value = 0;
                 timeSongPlay.Text = "00:00";
@@ -95,6 +95,8 @@ namespace MediaPlayer.Items
                 btn_Play.Image = Resources.play_hover;
                 btn_Play.OnHoverImage = Resources.play_hover;
 
+                // Lay path gan cho PlayMedia
+                if (path != null) PlayMedia.setURL(path);
                 PlayMedia.setCurrentTimePlay();
                 // Play
                 timerSong.Enabled = true;
@@ -199,7 +201,6 @@ namespace MediaPlayer.Items
 
         private void SetIconVolume()
         {
-            if (PlayMedia.IsFirst() == false) return;
             if (gunaTrackBar_Volume.Value == 0)
             {
                 btn_Volume.Image = Resources.volume_mute;
@@ -215,7 +216,6 @@ namespace MediaPlayer.Items
                 btn_Volume.Image = Resources.volume_high;
                 btn_Volume.OnHoverImage = Resources.volume_high_hover;
             }
-            
         }
         private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
         {
@@ -274,10 +274,50 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_Like_Click(object sender, EventArgs e)
         {
-            VideoPlayer video = new VideoPlayer();
-            video.Width = 900;
-            video.Height = 600;
-            video.ShowDialog();
+            //VideoPlayer video = new VideoPlayer();
+            //video.Width = 900;
+            //video.Height = 600;
+            //video.ShowDialog();
         }
+
+        // Sync with video
+        public void SyncWithVideo(string path, WMPLib.WMPPlayState status)
+        {
+            // ten, anh, thoi luong
+            TagLib.File file = TagLib.File.Create(path);
+            gunaLabel_SongName.Text = (file.Tag.Title != null)
+                ? file.Tag.Title.ToString()
+                : Path.GetFileNameWithoutExtension(path);
+            gunaLabel_NameAthor.Text = (file.Tag.Album);
+            if (gunaLabel_NameAthor.Text == "") gunaLabel_NameAthor.Text = "UnKnow";
+            SetIconVolume();
+            try
+            {
+                var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
+                gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
+            }
+            catch (Exception)
+            {
+                gunaPictureBox_SongImage.Image = Resources.defaultImage;
+            }
+            finally
+            {
+                MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
+                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds / 60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds % 60);
+                
+            }
+            // button
+            if (status == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                btn_Play.Image = Resources.pause_hover;
+                btn_Play.OnHoverImage = Resources.pause_hover;
+            }
+            else
+            {
+                btn_Play.Image = Resources.play_hover;
+                btn_Play.OnHoverImage = Resources.play_hover;
+            }
+        }
+
     }
 }

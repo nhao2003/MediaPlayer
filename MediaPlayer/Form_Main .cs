@@ -75,16 +75,25 @@ namespace MediaPlayer
             if(n == 2) _oldButton = btn_Music;
             else _oldButton = btn_Video;
         }
-
         public void ClassifyMedia(String s, MediaTypes mediaTypes)
         {
-            if (mediaTypes == MediaTypes.Audio) MediaControl.getPathOfSong(s);
-            else
+            if (mediaTypes == MediaTypes.Audio)
             {
-                MediaControl.pauseCurrentPlayer();
-                VideoPlayer videoScreen = new VideoPlayer();
-                videoScreen.Show();
-                videoScreen.getPathOfSong(s);
+                MediaControl.getPathOfSong(s);
+            }
+            else if (mediaTypes == MediaTypes.Video)
+            {
+                try
+                {
+                    MediaControl.pauseCurrentPlayer();
+                    VideoPlayer videoScreen = new VideoPlayer();
+                    videoScreen.getPathOfSong(s);
+                    if (videoScreen.Visible == false) videoScreen.Show();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
         public void rebuildHome()

@@ -1,4 +1,5 @@
 ﻿using MediaPlayer.Models;
+using MediaPlayer.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,22 +18,31 @@ namespace MediaPlayer
         public VideoPlayer()
         {
             InitializeComponent();
+        }
+        private void VideoPlayer_Load(object sender, EventArgs e)
+        {
             //FormBorderStyle = FormBorderStyle.None;
-            WindowState = FormWindowState.Maximized;
-            player.uiMode = "none";
+            //WindowState = FormWindowState.Maximized;
             timerSong.Enabled = true;
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
+            player.uiMode = "none";
+
         }
-        //string path = null;
+        private void VideoPlayer_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form_Main.Instance.MediaControl.SyncWithVideo(_path, WMPLib.WMPPlayState.wmppsStopped);
+        }
+
         public double timeSkip = 10;
         public double currentTimePlay = 0.0;
-        //string filenames;
+        private string _path = "";
 
         public void getPathOfSong(string path)
         {
             try
             {
                 player.URL = path;
+                _path = path;
 
                 TagLib.File file = TagLib.File.Create(path);
                 lb_SongName.Text = (file.Tag.Title != null)
@@ -46,7 +56,7 @@ namespace MediaPlayer
 
                 currentTimePlay = player.Ctlcontrols.currentPosition;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Video bi loi: " + e.ToString());
             }
@@ -55,14 +65,20 @@ namespace MediaPlayer
         // timer 
         private void timer_Tick(object sender, EventArgs e)
         {
+            Form_Main.Instance.MediaControl.SyncWithVideo(_path, player.playState);
+            SetIconVolume();
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 MediaTrackBar.Maximum = (int)player.Ctlcontrols.currentItem.duration;
                 MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
-                Form_Main.Instance.MediaControl.MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
                 timeSongPlay.Text = getCurrentPositionStringSong();
                 timeSongEnd.Text = getDurationStringSong();
                 currentTimePlay = player.Ctlcontrols.currentPosition;
+
+                // sync with mediaControl
+                Form_Main.Instance.MediaControl.MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
+                Form_Main.Instance.MediaControl.gunaTrackBar_Volume.Value = gunaTrackBar_Volume.Value;
+                Form_Main.Instance.MediaControl.timeSongPlay.Text = getCurrentPositionStringSong();
             }
             else if (player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
@@ -81,21 +97,38 @@ namespace MediaPlayer
                 return player.Ctlcontrols.currentPositionString;
             return "00:00";
         }
-
+        private void SetIconVolume()
+        {
+            if (gunaTrackBar_Volume.Value == 0)
+            {
+                btn_volum.Image = Resources.volume_mute;
+                btn_volum.OnHoverImage = Resources.volume_mute_hover;
+            }
+            else if (gunaTrackBar_Volume.Value < 50)
+            {
+                btn_volum.Image = Resources.volume_low;
+                btn_volum.OnHoverImage = Resources.volume_low_hover;
+            }
+            else
+            {
+                btn_volum.Image = Resources.volume_high;
+                btn_volum.OnHoverImage = Resources.volume_high_hover;
+            }
+        }
         private void btn_play_Click(object sender, EventArgs e)
         {
             try
             {
                 if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 {
-                    timerSong.Enabled = false;
+                    //timerSong.Enabled = false;
                     player.Ctlcontrols.pause();
                 }
                 else if (player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 {
                     player.Ctlcontrols.currentPosition = currentTimePlay;
                     player.Ctlcontrols.play();
-                    timerSong.Enabled = true;
+                    //timerSong.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -154,14 +187,14 @@ namespace MediaPlayer
             {
                 MessageBox.Show("Video bi loi nut giam: " + ex.ToString());
             }
-            
+
         }
 
         private void btn_tang_Click(object sender, EventArgs e)
         {
             try
             {
-                if(currentTimePlay + timeSkip <= MediaTrackBar.Maximum)
+                if (currentTimePlay + timeSkip <= MediaTrackBar.Maximum)
                     player.Ctlcontrols.currentPosition = currentTimePlay + timeSkip;
                 else player.Ctlcontrols.currentPosition = MediaTrackBar.Maximum;
             }
@@ -170,5 +203,6 @@ namespace MediaPlayer
                 MessageBox.Show("Video bi loi nut tang: " + ex.ToString());
             }
         }
+
     }
 }
