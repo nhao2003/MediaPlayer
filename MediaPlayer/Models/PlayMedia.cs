@@ -12,8 +12,6 @@ namespace MediaPlayer.Models
 {
     static class PlayMedia
     {
-        //public static Thread thread;
-        //public static WindowsMediaPlayer windowsMediaPlayer = new WindowsMediaPlayer();
         public static AxWMPLib.AxWindowsMediaPlayer player = new AxWMPLib.AxWindowsMediaPlayer();
 
         static string path = null;
@@ -32,6 +30,10 @@ namespace MediaPlayer.Models
         public static void setCurrentTimePlay()
         {
             currentTimePlay = player.Ctlcontrols.currentPosition;
+        }
+        public static void setCurrentTimePlay(double n)
+        {
+            currentTimePlay = n;
         }
         // get function
         public static double getCurrentTimePlay()
@@ -93,7 +95,8 @@ namespace MediaPlayer.Models
         }
         public static void playSong()
         {
-            currentTimePlay = 0.0;
+            //currentTimePlay = 0.0;
+            player.Ctlcontrols.currentPosition = currentTimePlay;
             player.Ctlcontrols.play();
         }
         public static void stopSong()
