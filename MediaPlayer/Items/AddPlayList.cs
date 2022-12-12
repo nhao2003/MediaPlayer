@@ -13,6 +13,7 @@ namespace MediaPlayer.Items
 {
     public partial class AddPlayList : Form
     {
+        private bool isRename = false;
         /// <summary>
         /// Add playlist or rename
         /// </summary>
@@ -22,12 +23,22 @@ namespace MediaPlayer.Items
             InitializeComponent();
             if (playlist != null)
             {
+                isRename = true;
                 btn_Save_Or_Rename.Text = @"Rename";
             }
         }
 
         private void btn_Save_Or_Rename_Click(object sender, EventArgs e)
         {
+            if (isRename)
+            {
+                
+            }
+            else
+            {
+                
+            }
+
             DialogResult = DialogResult.OK;
         }
 
@@ -46,6 +57,11 @@ namespace MediaPlayer.Items
             {
                 btn_Save_Or_Rename.Enabled = true;
             }
+        }
+
+        private void pic_BackGround_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

@@ -17,14 +17,24 @@ namespace MediaPlayer.Models
         private static string musicPathFolder = $"C:\\Users\\{userName}\\Music";
         private static string videoPathFolder = $"C:\\Users\\{userName}\\Videos";
         private static List<Media> playQueue = new List<Media>();
-        private static List<Playlist> playList = new List<Playlist>();
+        private static List<Playlist> playLists = new List<Playlist>();
+        private static Playlist favoriteList = new Playlist("Danh sách yêu thích");
+
+        /// <summary>
+        /// Gets or sets FavoriteList
+        /// </summary>
+        public static Playlist FavoriteList
+        {
+            get => favoriteList;
+            set => favoriteList = value;
+        }
         /// <summary>
         /// Gets and sets playlist
         /// </summary>
-        public static List<Playlist> Playlist
+        public static List<Playlist> Playlists
         {
-            get => playList;
-            set => playList = value;
+            get => playLists;
+            set => playLists = value;
         }
         /// <summary>
         /// List các bài nhạc

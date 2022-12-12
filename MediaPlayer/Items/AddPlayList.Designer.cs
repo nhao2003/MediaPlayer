@@ -61,6 +61,7 @@
             this.pic_BackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_BackGround.TabIndex = 1;
             this.pic_BackGround.TabStop = false;
+            this.pic_BackGround.Click += new System.EventHandler(this.pic_BackGround_Click);
             // 
             // tb_NamePlayList
             // 
