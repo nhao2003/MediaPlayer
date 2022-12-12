@@ -32,8 +32,8 @@
             this.cb_SortBy = new Guna.UI.WinForms.GunaComboBox();
             this.lb_SortBy = new System.Windows.Forms.Label();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
-            this.pn_Display = new Guna.UI.WinForms.GunaPanel();
             this.btn_Suffle_Play = new Guna.UI.WinForms.GunaButton();
+            this.pn_Display = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,6 +78,7 @@
             this.cb_SortBy.Size = new System.Drawing.Size(135, 31);
             this.cb_SortBy.StartIndex = 0;
             this.cb_SortBy.TabIndex = 4;
+            this.cb_SortBy.SelectedIndexChanged += new System.EventHandler(this.cb_SortBy_SelectedIndexChanged);
             // 
             // lb_SortBy
             // 
@@ -104,16 +105,6 @@
             this.gunaPanel2.Size = new System.Drawing.Size(1084, 123);
             this.gunaPanel2.TabIndex = 6;
             // 
-            // pn_Display
-            // 
-            this.pn_Display.AutoScroll = true;
-            this.pn_Display.BackColor = System.Drawing.Color.Transparent;
-            this.pn_Display.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Display.Location = new System.Drawing.Point(0, 123);
-            this.pn_Display.Name = "pn_Display";
-            this.pn_Display.Size = new System.Drawing.Size(1084, 522);
-            this.pn_Display.TabIndex = 7;
-            // 
             // btn_Suffle_Play
             // 
             this.btn_Suffle_Play.AnimationHoverSpeed = 0.07F;
@@ -139,14 +130,24 @@
             this.btn_Suffle_Play.TabIndex = 6;
             this.btn_Suffle_Play.Text = "Suffle and play";
             // 
-            // UserControl_Music
+            // pn_Display
+            // 
+            this.pn_Display.AutoScroll = true;
+            this.pn_Display.BackColor = System.Drawing.Color.Transparent;
+            this.pn_Display.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Display.Location = new System.Drawing.Point(0, 123);
+            this.pn_Display.Name = "pn_Display";
+            this.pn_Display.Size = new System.Drawing.Size(1084, 522);
+            this.pn_Display.TabIndex = 7;
+            // 
+            // UserControl_ListMedia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.Controls.Add(this.pn_Display);
             this.Controls.Add(this.gunaPanel2);
-            this.Name = "UserControl_Music";
+            this.Name = "UserControl_ListMedia";
             this.Size = new System.Drawing.Size(1084, 645);
             this.gunaPanel2.ResumeLayout(false);
             this.gunaPanel2.PerformLayout();

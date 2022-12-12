@@ -32,6 +32,10 @@ namespace MediaPlayer.Widgets
         public UserControl_ListMedia()
         {
             InitializeComponent();
+        }
+
+        private void cb_SortBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
             GroupMedia group = new GroupMedia("Dummy 1", MediaHelpers.listSongs)
             {
                 Dock = DockStyle.Top
