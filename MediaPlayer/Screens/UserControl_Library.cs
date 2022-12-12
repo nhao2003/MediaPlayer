@@ -20,18 +20,28 @@ namespace MediaPlayer.Widgets
         public UserControl_Library()
         {
             InitializeComponent();
+            Init();
         }
 
         // Khai bao cac bien toan cuc
+        
         static List<string> filePaths = new List<string>();
         static List<string> joins = new List<string>();
         static List<TagLib.File> fileSongs = new List<TagLib.File>();
         static List<Media> songList = new List<Media>();
         static List<MediaPanel> songs = new List<MediaPanel>();
         static List<CategoryPanel> listCategories = new List<CategoryPanel>();
-
+        static string defaultMusicPath = null, defaultVideoPath;
+        static int currLocX = 0;
+        static int currLocY = 300;
+        
+        internal static void GetMusicVideoPath(string musicPath, string videoPath)
+        {
+            defaultMusicPath = musicPath;
+            defaultVideoPath = videoPath;
+        }
         // Phuong thuc reset UserControl
-        private void ResetUserControl()
+        internal void ResetUserControl()
         {
             try
             {
@@ -61,12 +71,9 @@ namespace MediaPlayer.Widgets
             
         }
 
-        private void Init()
-        {
-
-        }
+        
         // Phuong thuc set cac gia tri mac dinh cho categoryPanel
-        public void SetCategoryPanelAttribute(ref CategoryPanel category, int xLoc,int yLoc, string groupKey)
+        public void SetCategoryPanelAttribute(ref CategoryPanel category, int xLoc, int yLoc, string groupKey)
         {
             category.Location = new Point(xLoc, yLoc);
             category.Dock = DockStyle.Top;
@@ -75,6 +82,70 @@ namespace MediaPlayer.Widgets
             category.InitializeCategory(groupKey);
         }
 
+        private void Init()
+        {
+            List<string> defaultFiles = new List<string>();
+            try
+            {
+                defaultFiles = Directory.GetFiles(defaultMusicPath, "*.*", SearchOption.AllDirectories)
+                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg")).ToList();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            AddMusicDataToLists(ref defaultFiles);
+            SaveToDatabase(ref joins);
+            LoadSongOntoScreen(ref defaultFiles);
+        }
+        public void AddMusicDataToLists(ref List<string> filePaths)
+        {
+            // Tao cac file taglib luu tru thong tin media
+            for (int i = 0; i < filePaths.Count; i++)
+            {
+                fileSongs.Add(TagLib.File.Create(filePaths[i]));
+            }
+            // Load cac music song thanh cac object
+            for (int i = 0; i < filePaths.Count; i++)
+            {
+                songList.Add(new Media(filePaths[i]));
+                joins.Add(songList[i].Title + ";" + songList[i].Artists + ";"
+                    + songList[i].FilePath + ";" + songList[i].Album + ";" + songList[i].Duration + ";" + songList[i].DateAdded
+                    + ";" + songList[i].IsLiked.ToString());
+            }
+        }
+
+        public void SaveToDatabase(ref List<string> joins)
+        {
+            // Luu data vo file csv
+            string startupPath = System.IO.Directory.GetCurrentDirectory();
+            string csv_FilePath = startupPath + "\\Song.csv";
+            StringBuilder sbOutput = new StringBuilder();
+            sbOutput.AppendLine("sep=;");
+            sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
+            for (int i = 0; i < joins.Count; i++)
+            {
+                sbOutput.AppendLine(joins[i]);
+            }
+            File.WriteAllText(csv_FilePath, sbOutput.ToString());
+            // File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
+        }
+
+        public void LoadSongOntoScreen(ref List<string> filePaths)
+        {
+            // Load cac music song thanh cac panel len form
+            for (int i = 0; i < filePaths.Count; i++)
+            {
+                MediaPanel temp = new MediaPanel();
+                temp.Location = new Point(currLocX, currLocY);
+                temp.Dock = DockStyle.Top;
+                temp.InitializeSongItem(fileSongs[filePaths.Count - i - 1], 
+                    songList[filePaths.Count - i - 1].FilePath, filePaths.Count - i);
+                songs.Add(temp);
+                currLocY += 100;
+                gunaElipsePanel2.Controls.Add(temp);
+            }
+        }
         // Event click Add music
         private void gunaButton1_Click(object sender, EventArgs e)
         {
@@ -90,55 +161,12 @@ namespace MediaPlayer.Widgets
                     .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg"));
                     filePaths = files.ToList();
                 }
-                
-                fileSongs = new List<TagLib.File>();
-                songList = new List<Media>();
-                joins = new List<string>();
-
-                
-                for (int i = 0; i < filePaths.Count; i++)
-                {
-                    fileSongs.Add(TagLib.File.Create(filePaths[i]));
-                }
-
-                // Load cac music song thanh cac object
-                for (int i = 0; i < filePaths.Count; i++)
-                {
-                    songList.Add(new Media(filePaths[i]));
-                    joins.Add( songList[i].Title + ";" + songList[i].Artists + ";"
-                        + songList[i].FilePath + ";" + songList[i].Album + ";" + songList[i].Duration + ";" + songList[i].DateAdded
-                        + ";" + songList[i].IsLiked.ToString());
-                }
-
-                // Luu data vo file csv, hien chua can su dung
-                //string csv_FilePath = "MusicDataBase\\Song.csv";
-                //StringBuilder sbOutput = new StringBuilder();
-                //sbOutput.AppendLine("sep=;");
-                //sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
-                //for (int i = 0; i < filePaths.Length; i++)
-                //{
-                //    sbOutput.AppendLine(joins[i]);
-                //}
-                //File.WriteAllText(csv_FilePath, sbOutput.ToString());
-                // File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
-
-                // Load cac music song thanh cac panel len form
-                int xLoc = 0;
-                int yLoc = 300;
-                for (int i = 0; i < filePaths.Count; i++)
-                {
-                    MediaPanel temp = new MediaPanel();
-                    temp.Location = new Point(xLoc, yLoc);
-                    temp.Dock = DockStyle.Top;
-                    temp.InitializeSongItem(fileSongs[i], songList[i].FilePath, i + 1);
-                    songs.Add(temp);
-                    yLoc += 100;
-                    gunaElipsePanel2.Controls.Add(temp);
-                }
+                AddMusicDataToLists(ref filePaths);
+                SaveToDatabase(ref joins);
+                LoadSongOntoScreen(ref filePaths);
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Haven't choose any folder yet !!!");
                 MessageBox.Show(ex.Message);
             }
         }
@@ -283,6 +311,13 @@ namespace MediaPlayer.Widgets
                 listCategories.Add(category_display);
             }
         }
+
+        private void gunaCircleButton1_Click(object sender, EventArgs e)
+        {
+            ResetUserControl();
+            Init();
+        }
+
         private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try 
@@ -297,7 +332,6 @@ namespace MediaPlayer.Widgets
                 else if (selectedChoice == "Artist") SortByArtist();
             }
             catch(Exception ex){
-                //MessageBox.Show("There's nothing to sort !!!");
                 MessageBox.Show(ex.Message);
             }
         }

@@ -42,8 +42,8 @@ namespace MediaPlayer.Widgets
                         gunaElipsePanel3.Controls.Remove(songs[i]);
                     }
                 }
-                // string filePath = gunaTextBox1.Text;
-                string filePath = "MusicDataBase\\Song.csv";
+                string startupPath = System.IO.Directory.GetCurrentDirectory();
+                string filePath = startupPath + "\\Song.csv";
                 try
                 {
                     using (StreamReader reader = new StreamReader(filePath))

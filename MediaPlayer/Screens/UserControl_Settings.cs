@@ -9,14 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TagLib;
-
+using MediaPlayer.Widgets;
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Settings : UserControl
     {
         public delegate void Rebuild();
         public Rebuild rebuild;
-
+        public delegate void GetMusicVideoDirectory(string musicPath, string videoPath);
+        internal void SendMusicVideoDirectory()
+        {
+            GetMusicVideoDirectory sendDirectory = new GetMusicVideoDirectory(UserControl_Library.GetMusicVideoPath);
+            sendDirectory(musicFolderPath, videoFolderPath);
+        }
         //public string musicFolderPath = "C:\\users\\Administrator\\Music";
         //public string videoFolderPath = "C:\\users\\Administrator\\Videos";
         public string musicFolderPath = MediaHelpers.MusicPathFolder;
@@ -33,6 +38,8 @@ namespace MediaPlayer.Widgets
 
             choose_theme_ComboBox.DataSource = themes;
             choose_color_ComboBox.DataSource = colors;
+
+            SendMusicVideoDirectory();
         }
 
         private void choose_music_path_btn_Click(object sender, EventArgs e)
@@ -49,6 +56,8 @@ namespace MediaPlayer.Widgets
                 MediaHelpers.FetchListMedia(MediaTypes.Audio);
                 rebuild();
             }
+
+            SendMusicVideoDirectory();
         }
 
         private void choose_videos_path_btn_Click(object sender, EventArgs e)
@@ -65,6 +74,8 @@ namespace MediaPlayer.Widgets
                 MediaHelpers.FetchListMedia(MediaTypes.Video);
                 rebuild();
             }
+
+            SendMusicVideoDirectory();
         }
 
         private void choose_theme_ComboBox_SelectedValueChanged(object sender, EventArgs e)
