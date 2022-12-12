@@ -53,9 +53,9 @@ namespace MediaPlayer
             this.tabPage_Library = new System.Windows.Forms.TabPage();
             this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
             this.tabPage_Video = new System.Windows.Forms.TabPage();
-            this.UserControl_Video = new MediaPlayer.Widgets.UserControl_ListMedia();
+            this.UserControl_Video = new MediaPlayer.Widgets.UserControl_ListMedia("Video", MediaHelpers.listVideos);
             this.tabPage_Music = new System.Windows.Forms.TabPage();
-            this.userControl_Music = new MediaPlayer.Widgets.UserControl_ListMedia();
+            this.userControl_Music = new MediaPlayer.Widgets.UserControl_ListMedia("Music", MediaHelpers.listSongs);
             this.tabPage_Search = new System.Windows.Forms.TabPage();
             this.userControl_Search1 = new MediaPlayer.Widgets.UserControl_Search();
             this.tabPage_Home = new System.Windows.Forms.TabPage();

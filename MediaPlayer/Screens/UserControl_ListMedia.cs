@@ -28,19 +28,28 @@ namespace MediaPlayer.Widgets
         /// <summary>
         /// Get or Set List Media
         /// </summary>
-        private List<Media> ListMedia = new List<Media>();
-        public UserControl_ListMedia()
+        private List<Media> listMedia = new List<Media>();
+
+        public List<Media> ListMedia
+        {
+            get => listMedia;
+        }
+        public UserControl_ListMedia(string title, List<Media> listMedia)
         {
             InitializeComponent();
+            Title = title;
+            this.listMedia = listMedia;
         }
 
         private void cb_SortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GroupMedia group = new GroupMedia("Dummy 1", MediaHelpers.listSongs)
+            //Ví dụ sort
+            pn_Display.Controls.Clear();
+            GroupMedia group = new GroupMedia("A", ListMedia)
             {
                 Dock = DockStyle.Top
             };
-            GroupMedia gp = new GroupMedia("Dummy 2", MediaHelpers.listSongs)
+            GroupMedia gp = new GroupMedia("B", ListMedia)
             {
                 Dock = DockStyle.Top
             };

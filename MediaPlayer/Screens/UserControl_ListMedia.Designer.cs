@@ -45,9 +45,9 @@
             this.lb_Title.Location = new System.Drawing.Point(3, 4);
             this.lb_Title.Margin = new System.Windows.Forms.Padding(0);
             this.lb_Title.Name = "lb_Title";
-            this.lb_Title.Size = new System.Drawing.Size(157, 62);
+            this.lb_Title.Size = new System.Drawing.Size(124, 62);
             this.lb_Title.TabIndex = 2;
-            this.lb_Title.Text = "Music";
+            this.lb_Title.Text = "Title";
             this.lb_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cb_SortBy
