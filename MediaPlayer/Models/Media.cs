@@ -157,6 +157,7 @@ namespace MediaPlayer.Models
         /// <param name="mediaImage">Ảnh</param>
         public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
         {
+            this.id = Guid.NewGuid().ToString("N");
             this.title = (title != null)? title : "Unknown";
             this.artists = (artist != null) ? artist : "Unknown";
             this.album = (album != null) ? album : "Unknown";

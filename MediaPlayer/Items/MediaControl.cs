@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
-using MediaPlayer.Screens;
 using System.Numerics;
 
 namespace MediaPlayer.Items
@@ -29,9 +28,9 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
-            UserControl_LibrarySong test = new UserControl_LibrarySong();
-            PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
-            datasend(this);
+            //UserControl_LibrarySong test = new UserControl_LibrarySong();
+            //PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
+            //datasend(this);
             // genera new list index of song
             for(int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {

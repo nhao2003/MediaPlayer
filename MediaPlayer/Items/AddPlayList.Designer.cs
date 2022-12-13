@@ -34,6 +34,7 @@
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.btn_Save_Or_Rename = new Guna.UI.WinForms.GunaButton();
             this.btn_Cancel = new Guna.UI.WinForms.GunaButton();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).BeginInit();
             this.gunaPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +150,10 @@
             this.btn_Cancel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_Cancel.Click += new System.EventHandler(this.btn_Cancel_Click);
             // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog1";
+            // 
             // AddPlayList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -178,5 +183,6 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private Guna.UI.WinForms.GunaButton btn_Save_Or_Rename;
         private Guna.UI.WinForms.GunaButton btn_Cancel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

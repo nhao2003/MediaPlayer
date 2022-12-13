@@ -19,12 +19,15 @@ namespace MediaPlayer
         public Form_Main()
         {
             InitializeComponent();
+            userControl_Music.Title = "Music";
+            UserControl_Video.Title = "Video";
+            userControl_Music.ListMedia = MediaHelpers.listSongs;
+            UserControl_Video.ListMedia = MediaHelpers.listVideos;
         }
         private void Form_Main_Load(object sender, EventArgs e)
         {
             userControl_Settings1.rebuild = new UserControl_Settings.Rebuild(rebuildHome);
         }
-
         private static Form_Main instance = new Form_Main();
 
         public static Form_Main Instance

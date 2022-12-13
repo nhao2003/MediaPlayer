@@ -17,14 +17,23 @@ namespace MediaPlayer.Widgets
     {
         public delegate void Send(string path, MediaTypes mediaTypes);
         public Send sendPath;
+
+        private string title;
+
         /// <summary>
         /// Get or Set UserControl MediaList Title
         /// </summary>
-        public String Title
+        public string Title
         {
-            get => lb_Title.Text;
-            set => lb_Title.Text = value;
+            get => title;
+            set
+            {
+                lb_Title.Text = value;
+                title = value;
+            }
+
         }
+
         /// <summary>
         /// Get or Set List Media
         /// </summary>
@@ -33,12 +42,25 @@ namespace MediaPlayer.Widgets
         public List<Media> ListMedia
         {
             get => listMedia;
+            set
+            {
+                listMedia = value;
+                pn_Display.Controls.Clear();
+                GroupMedia group = new GroupMedia("A", ListMedia)
+                {
+                    Dock = DockStyle.Top
+                };
+                GroupMedia gp = new GroupMedia("B", ListMedia)
+                {
+                    Dock = DockStyle.Top
+                };
+                pn_Display.Controls.Add(group);
+                pn_Display.Controls.Add(gp);
+            }
         }
-        public UserControl_ListMedia(string title, List<Media> listMedia)
+        public UserControl_ListMedia()
         {
             InitializeComponent();
-            Title = title;
-            this.listMedia = listMedia;
         }
 
         private void cb_SortBy_SelectedIndexChanged(object sender, EventArgs e)

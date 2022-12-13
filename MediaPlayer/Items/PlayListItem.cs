@@ -14,37 +14,25 @@ using TagLib;
 
 namespace MediaPlayer.Items
 {
-    public partial class MediaItem : UserControl
+    public partial class PlayListItem : UserControl
     {
-        private Media media;
-        private MediaTypes mediaTypes;
-        public MediaItem(Media media, MediaTypes mediaTypes)
+        private Playlist playlist;
+        public Playlist Playlist => playlist;
+        public PlayListItem(Playlist playlist)
         {
-            this.media = media;
-            this.mediaTypes = mediaTypes;
+            this.playlist = playlist;
             InitializeComponent();
-            contextMenu.Tag = media;
-            label_NameSong.Text = media.Title;
-            label_Author.Text = media.Artists;
-            pic_SongPic.Image = media.Image;
-            contextMenu.Play.Click += contextMenuPlay_click;
-        }
-
-        private void contextMenuPlay_click(object sender, EventArgs e)
-        {
-            Form_Main.Instance.ClassifyMedia(media.FilePath, mediaTypes);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media.Image);
+            label_NameSong.Text = playlist.PlayListName;
+            label_Author.Text = $@"{playlist.ListMedia.Count} items";
+            pic_SongPic.Image = this.playlist.BackroundImage;
         }
         private void MediaItem_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == MouseButtons.Right)
             {
-                contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
-            }
-            Form_Main.Instance.ClassifyMedia(media.FilePath, mediaTypes);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media.Image);
+            } 
         }
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)

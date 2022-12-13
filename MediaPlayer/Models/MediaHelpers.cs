@@ -17,7 +17,17 @@ namespace MediaPlayer.Models
         private static string musicPathFolder = $"C:\\Users\\{userName}\\Music";
         private static string videoPathFolder = $"C:\\Users\\{userName}\\Videos";
         private static List<Media> playQueue = new List<Media>();
-        private static List<Playlist> playLists = new List<Playlist>();
+        private static List<Playlist> playLists = new List<Playlist>()
+        {
+            new Playlist("Fake 1"),
+            new Playlist("Fake 2"),
+            new Playlist("Fake 3"),
+            new Playlist("Fake 4"),
+            new Playlist("Fake 5"),
+            new Playlist("Fake 6"),
+            new Playlist("Fake 7"),
+            new Playlist("Fake 8"),
+        };
         private static Playlist favoriteList = new Playlist("Danh sách yêu thích");
 
         /// <summary>
@@ -26,7 +36,12 @@ namespace MediaPlayer.Models
         public static Playlist FavoriteList
         {
             get => favoriteList;
-            set => favoriteList = value;
+            set
+            {
+                favoriteList = value;
+                //TODO: Lỗi chưa paint lại đc
+                //Form_Main.Instance.userControl_Library1.ReFresh();
+            }
         }
         /// <summary>
         /// Gets and sets playlist
@@ -34,7 +49,13 @@ namespace MediaPlayer.Models
         public static List<Playlist> Playlists
         {
             get => playLists;
-            set => playLists = value;
+            set
+            {
+                playLists = value;
+                //TODO: Lỗi chưa paint lại đc
+                //Form_Main.Instance.userControl_Library1.ReFresh();
+                //Form_Main.Instance.userControl_Library1.Refresh();
+            }
         }
         /// <summary>
         /// List các bài nhạc

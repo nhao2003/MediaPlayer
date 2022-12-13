@@ -52,7 +52,7 @@ namespace MediaPlayer.Items
 
         private void FavoriteList_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            MediaHelpers.FavoriteList.ListMedia.Add(media);
         }
 
         private void PlayQueue_Click(object sender, System.EventArgs e)
