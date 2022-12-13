@@ -499,6 +499,9 @@
     <None Include="Resources\not_favorite_hover.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\play_queue.png" />
+    <None Include="Resources\new_playlist.png" />
+    <None Include="Resources\add-to_queue.png" />
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
