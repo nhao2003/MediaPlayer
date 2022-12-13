@@ -12,6 +12,7 @@ using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
 using System.Numerics;
+using TagLib.Riff;
 
 namespace MediaPlayer.Items
 {
@@ -23,7 +24,8 @@ namespace MediaPlayer.Items
         public bool repeatPlaylist = false;
         public bool isPlayingVideo = false;
         Random random = new Random(); //At class level
-        List<int> listIndex = new List<int>(); //At class level
+        static List<int> listIndexDefalt = new List<int>(); //At class level
+        List<int> listIndexPlay = listIndexDefalt;
         public MediaControl()
         {
             InitializeComponent();
@@ -34,7 +36,7 @@ namespace MediaPlayer.Items
             // genera new list index of song
             for(int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
-                listIndex.Add(i);
+                listIndexDefalt.Add(i);
             }
         }
         internal void transferDataFromLib(string filePath)
@@ -60,13 +62,20 @@ namespace MediaPlayer.Items
                 repeatPlaylist = false;
             }
         }
-
-        private void RandomMode()
+        // random mode
+        private List<int> GetRandomListIndex()
         {
-            List<int> listRanIndex = new List<int>();
-            // create array int 0 -> count with random
-            //int n = random.Next(0,litst)
-            // change the next fuction with new array
+            List<int> listRanIndex = listIndexDefalt;
+            int n = listRanIndex.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                int value = listRanIndex[k];
+                listRanIndex[k] = listRanIndex[n];
+                listRanIndex[n] = value;
+            }
+            return listRanIndex;
         }
         public void getPathOfSong(string path)
         {
