@@ -20,12 +20,10 @@ namespace MediaPlayer.Items
     {
         public string path = null;
         public delegate void PassMediaControl(MediaControl control);
-        public bool repeatSong = false;
-        public bool repeatPlaylist = false;
         public bool isPlayingVideo = false;
         Random random = new Random(); //At class level
         static List<int> listIndexDefalt = new List<int>(); //At class level
-        List<int> listIndexPlay = listIndexDefalt;
+        List<int> listIndexPlay;
         public MediaControl()
         {
             InitializeComponent();
@@ -38,45 +36,14 @@ namespace MediaPlayer.Items
             {
                 listIndexDefalt.Add(i);
             }
+            listIndexPlay = new List<int>(listIndexDefalt);
         }
         internal void transferDataFromLib(string filePath)
         {
             path = filePath;
             getPathOfSong(path);
         }
-        private void ChangeRepeatMode()
-        {
-            if (repeatSong == false && repeatPlaylist == false)
-            {
-                repeatSong = true;
-                repeatPlaylist = false;
-            }
-            else if (repeatSong == true && repeatPlaylist == false)
-            {
-                repeatSong = false;
-                repeatPlaylist = true;
-            }
-            else if (repeatSong == false && repeatPlaylist == true)
-            {
-                repeatSong = false;
-                repeatPlaylist = false;
-            }
-        }
-        // random mode
-        private List<int> GetRandomListIndex()
-        {
-            List<int> listRanIndex = listIndexDefalt;
-            int n = listRanIndex.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                int value = listRanIndex[k];
-                listRanIndex[k] = listRanIndex[n];
-                listRanIndex[n] = value;
-            }
-            return listRanIndex;
-        }
+        
         public void getPathOfSong(string path)
         {
             if (isPlayingVideo)
@@ -185,7 +152,7 @@ namespace MediaPlayer.Items
             }
             else if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
-                if (repeatSong)
+                if (PlayMedia.Repeat == RepeatMode.One)
                 {
                     // lap lai bai hat
                     timerSong.Enabled = true;
@@ -283,18 +250,21 @@ namespace MediaPlayer.Items
         private void gunaCircleButton_next_Click(object sender, EventArgs e)
         {
             if (PlayMedia.IsFirst == false) return;
+            // listIndexPlay has array 0 1 2 3 4 ...
+            // in suffer Mode 0 1 3 2 5 4 ....
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
-                if(MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
+                //MessageBox.Show(i.ToString());
+                if(MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
                     if(i != MediaHelpers.listSongs.Count - 1)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[i + 1].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i+1]].FilePath);
                         PlayMedia.playSong();
                     }
-                    else if (i == MediaHelpers.listSongs.Count - 1 && repeatPlaylist == true)
+                    else if (i == MediaHelpers.listSongs.Count - 1 && PlayMedia.Repeat == RepeatMode.All)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[0].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[0]].FilePath);
                         PlayMedia.playSong();
                     }
                     return;
@@ -307,13 +277,13 @@ namespace MediaPlayer.Items
             if (PlayMedia.IsFirst == false) return;
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
-                if (MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
+                if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
                     if (i != 0)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[i - 1].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i-1]].FilePath);
+                        PlayMedia.playSong();
                     }
-                    PlayMedia.playSong();
                     return;
                 }
             }
@@ -395,19 +365,67 @@ namespace MediaPlayer.Items
             }
         }
 
-        private void gunaCircleButton4_Click(object sender, EventArgs e)
+        private void btn_Suffle_Click(object sender, EventArgs e)
         {
+            string st = "";
             if (PlayMedia.Suffle)
             {
                 btn_Suffle.Image = Resources.suffle;
                 btn_Suffle.OnHoverImage = Resources.suffle;
                 PlayMedia.Suffle = false;
+                listIndexPlay = new List<int>(listIndexDefalt);
+                st = "";
+                for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+                {
+                    st += listIndexPlay[i].ToString();
+                }
+                MessageBox.Show(st);
             }
             else
             {
                 btn_Suffle.Image = Resources.suffle_hover;
                 btn_Suffle.OnHoverImage = Resources.suffle_hover;
                 PlayMedia.Suffle = true;
+                listIndexPlay = GetRandomListIndex();
+                st = "";
+                for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+                {
+                    st += listIndexPlay[i].ToString();
+                }
+                MessageBox.Show(st);
+            }
+        }
+        // random mode
+        private List<int> GetRandomListIndex()
+        {
+            if (PlayMedia.IsFirst == false) return new List<int>(listIndexDefalt);
+            List<int> listRanIndex = new List<int>(listIndexDefalt);
+            listRanIndex.Remove(CurrentIndex);
+            int n = listRanIndex.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                int value = listRanIndex[k];
+                listRanIndex[k] = listRanIndex[n];
+                listRanIndex[n] = value;
+            }
+            listRanIndex.Insert(0, CurrentIndex);
+            return listRanIndex;
+        }
+        private int CurrentIndex
+        {
+            get
+            {
+                if (PlayMedia.IsFirst == false) return 0;
+                for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+                {
+                    if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
+                    {
+                        return i;
+                    }
+                }
+                return -1;
             }
         }
     }

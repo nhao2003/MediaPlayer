@@ -215,7 +215,7 @@
             this.btn_Suffle.OnPressedColor = System.Drawing.Color.Black;
             this.btn_Suffle.Size = new System.Drawing.Size(49, 49);
             this.btn_Suffle.TabIndex = 19;
-            this.btn_Suffle.Click += new System.EventHandler(this.gunaCircleButton4_Click);
+            this.btn_Suffle.Click += new System.EventHandler(this.btn_Suffle_Click);
             // 
             // gunaCircleButton_prev
             // 
