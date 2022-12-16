@@ -32,8 +32,8 @@ namespace MediaPlayer
         {
             Form_Main.Instance.MediaControl.SyncWithVideo(_path, WMPLib.WMPPlayState.wmppsStopped);
             Form_Main.Instance.MediaControl.isPlayingVideo = false;
-            if (_path != null) PlayMedia.setURL(_path);
-            PlayMedia.setCurrentTimePlay(currentTimePlay);
+            if (_path != null) PlayMedia.URL = _path;
+            PlayMedia.CurrentTimePlay = currentTimePlay;
         }
 
         public double timeSkip = 10;

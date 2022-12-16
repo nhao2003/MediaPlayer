@@ -110,7 +110,7 @@ namespace MediaPlayer.Items
                 btn_Play.OnHoverImage = Resources.play_hover;
 
                 // Lay path gan cho PlayMedia
-                if (path != null) PlayMedia.setURL(path);
+                if (path != null) PlayMedia.URL = path;
                 PlayMedia.setCurrentTimePlay();
                 // Play
                 timerSong.Enabled = true;
@@ -122,8 +122,8 @@ namespace MediaPlayer.Items
 
         public void pauseCurrentPlayer()
         {
-            if (PlayMedia.IsFirst() == false) return;
-            if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+            if (PlayMedia.IsFirst == false) return;
+            if (PlayMedia.Status == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 timerSong.Enabled = false;
                 btn_Play.Image = Resources.play_hover;
@@ -142,15 +142,15 @@ namespace MediaPlayer.Items
                     return;
                 }
                 // adjust song
-                if (PlayMedia.IsFirst() == false) return;
-                if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                if (PlayMedia.IsFirst == false) return;
+                if (PlayMedia.Status == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     timerSong.Enabled = false;
                     btn_Play.Image = Resources.play_hover;
                     btn_Play.OnHoverImage = Resources.play_hover;
                     PlayMedia.pauseSong();
                 }
-                else if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPaused)
+                else if (PlayMedia.Status == WMPLib.WMPPlayState.wmppsPaused)
                 {
                     btn_Play.Image = Resources.pause_hover;
                     btn_Play.OnHoverImage = Resources.pause_hover;
@@ -175,10 +175,10 @@ namespace MediaPlayer.Items
         {
             if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                MediaTrackBar.Maximum = (int)PlayMedia.getDurationSong();
-                MediaTrackBar.Value = (int)PlayMedia.getCurrentPositionSong();
-                timeSongPlay.Text = PlayMedia.getCurrentPositionStringSong();
-                timeSongEnd.Text = PlayMedia.getDurationStringSong();
+                MediaTrackBar.Maximum = (int)PlayMedia.DurationSong;
+                MediaTrackBar.Value = (int)PlayMedia.CurrentPositionSong;
+                timeSongPlay.Text = PlayMedia.CurrentPositionStringSong;
+                timeSongEnd.Text = PlayMedia.DurationStringSong;
                 btn_Play.Image = Resources.pause_hover;
                 btn_Play.OnHoverImage = Resources.pause_hover;
                 PlayMedia.setCurrentTimePlay();
@@ -207,7 +207,7 @@ namespace MediaPlayer.Items
                 return;
             }
             // adjust song
-            if (PlayMedia.IsFirst() == false) return;
+            if (PlayMedia.IsFirst == false) return;
             PlayMedia.setCurrentPosition(e.X, MediaTrackBar.Width);
         }
         private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
@@ -219,8 +219,8 @@ namespace MediaPlayer.Items
                 return;
             }
             // adjust song
-            if (PlayMedia.IsFirst() == false) return;
-            PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+            if (PlayMedia.IsFirst == false) return;
+            PlayMedia.Volume = gunaTrackBar_Volume.Value;
             SetIconVolume();
         }
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
@@ -232,8 +232,8 @@ namespace MediaPlayer.Items
                 return;
             }
             // adjust song
-            if (PlayMedia.IsFirst() == false) return;
-            PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+            if (PlayMedia.IsFirst == false) return;
+            PlayMedia.Volume = gunaTrackBar_Volume.Value;
             SetIconVolume();
         }
 
@@ -266,7 +266,7 @@ namespace MediaPlayer.Items
                 return;
             }
             // adjust song
-            if (PlayMedia.IsFirst() == false) return;
+            if (PlayMedia.IsFirst == false) return;
             if (PlayMedia.player.settings.volume != 0)
             {
                 PlayMedia.muteVolume();
@@ -275,14 +275,14 @@ namespace MediaPlayer.Items
             }
             else
             {
-                PlayMedia.setVolume(volumeNow);
+                PlayMedia.Volume = volumeNow;
                 gunaTrackBar_Volume.Value = volumeNow;
             }
             SetIconVolume();
         }
         private void gunaCircleButton_next_Click(object sender, EventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
+            if (PlayMedia.IsFirst == false) return;
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 if(MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
@@ -304,7 +304,7 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_prev_Click(object sender, EventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
+            if (PlayMedia.IsFirst == false) return;
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 if (MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)

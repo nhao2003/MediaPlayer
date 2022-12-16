@@ -19,71 +19,77 @@ namespace MediaPlayer.Models
         static bool checkFirst = false;
 
         // set fuction
-        public static bool IsFirst()
+        public static bool IsFirst
         {
-            return checkFirst;
-        }
-        public static void setPath(string value)
-        {
-            path = value;
+            get { return checkFirst; }
         }
         public static void setCurrentTimePlay()
         {
             currentTimePlay = player.Ctlcontrols.currentPosition;
         }
-        public static void setCurrentTimePlay(double n)
-        {
-            currentTimePlay = n;
-        }
         // get function
-        public static double getCurrentTimePlay()
+        public static double CurrentTimePlay
         {
-            return currentTimePlay;
+            get { return currentTimePlay; }
+            set { currentTimePlay = value; }
         }
-        public static WMPLib.WMPPlayState getStatus()
+        public static WMPLib.WMPPlayState Status
         {
-            return player.playState;
+            get { return player.playState; }
         }
 
-        public static double getDurationSong()
+        public static double DurationSong
         {
-            return player.Ctlcontrols.currentItem.duration;
+           get { return player.Ctlcontrols.currentItem.duration; }
         }
-        public static double getCurrentPositionSong()
+        public static double CurrentPositionSong
         {
-            return player.Ctlcontrols.currentPosition;
+            get { return player.Ctlcontrols.currentPosition; }
         }
-        public static string getDurationStringSong()
+        public static string DurationStringSong
         {
-            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
-                return player.Ctlcontrols.currentItem.durationString.ToString();
-            return "00:00";
+            get
+            {
+                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                    return player.Ctlcontrols.currentItem.durationString.ToString();
+                return "00:00";
+            }
         }
-        public static string getCurrentPositionStringSong()
+        public static string CurrentPositionStringSong
         {
-            if(player.playState == WMPLib.WMPPlayState.wmppsPlaying)
-                return player.Ctlcontrols.currentPositionString;
-            return "00:00";
+            get
+            {
+                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                    return player.Ctlcontrols.currentPositionString;
+                return "00:00";
+            }
         }
         // methold
         public static string Path
         {
             get { return path; }
+            set { path = value; }
         }
-        public static void setURL(string Path = null)
+        public static string URL
         {
-            checkFirst = true;
-            player.CreateControl();
-            if (Path != null)
-            {
-                path = Path;
+            set{
+                checkFirst = true;
+                player.CreateControl();
+                if (value != null)
+                {
+                    path = value;
+                }
+                if (path != null)
+                {
+                    currentTimePlay = 0.0;
+                    player.URL = path;
+                    player.Ctlcontrols.stop();
+                }
             }
-            if (path != null)
-            {
-                currentTimePlay = 0.0;
-                player.URL = path;
-                player.Ctlcontrols.stop();
-            }
+        }
+        public static int Volume
+        {
+            set { player.settings.volume = value; }
         }
         public static void continueSong()
         {
@@ -108,10 +114,6 @@ namespace MediaPlayer.Models
         {
             player.Ctlcontrols.pause();
         }
-        public static void setVolume(int volume)
-        {
-            player.settings.volume = volume;
-        }
         public static void muteVolume()
         {
             player.settings.volume = 0;
@@ -129,6 +131,5 @@ namespace MediaPlayer.Models
                 MessageBox.Show(ex.ToString());
             }
         }
-
     }
 }
