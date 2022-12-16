@@ -420,9 +420,6 @@
     <None Include="Resources\repeat-hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\repeat-one.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\replay10s.png" />
   </ItemGroup>
   <ItemGroup>
@@ -471,9 +468,6 @@
     <None Include="Resources\home-hover.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\suffle-hover.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\suffle.png" />
   </ItemGroup>
   <ItemGroup>
@@ -498,6 +492,9 @@
     <None Include="Resources\not_favorite_hover.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\suffle_hover.png" />
+    <None Include="Resources\repeat_on.png" />
+    <None Include="Resources\repeat_one.png" />
     <None Include="Resources\play_queue.png" />
     <None Include="Resources\new_playlist.png" />
     <None Include="Resources\add-to_queue.png" />

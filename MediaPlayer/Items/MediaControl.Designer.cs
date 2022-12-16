@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MediaControl));
             this.timeSongEnd = new Guna.UI.WinForms.GunaLabel();
             this.MediaTrackBar = new Guna.UI.WinForms.GunaTrackBar();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -38,9 +39,9 @@
             this.gunaLabel_NameAthor = new Guna.UI.WinForms.GunaLabel();
             this.timeSongPlay = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel = new Guna.UI.WinForms.GunaPanel();
-            this.gunaCircleButton4 = new Guna.UI.WinForms.GunaCircleButton();
+            this.btn_Suffle = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton_prev = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaCircleButton5 = new Guna.UI.WinForms.GunaCircleButton();
+            this.btn_Repeat = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaCircleButton_next = new Guna.UI.WinForms.GunaCircleButton();
             this.btn_Play = new Guna.UI.WinForms.GunaCircleButton();
             this.timerSong = new System.Windows.Forms.Timer(this.components);
@@ -177,11 +178,11 @@
             this.gunaPanel.AutoSize = true;
             this.gunaPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gunaPanel.Controls.Add(this.timeSongEnd);
-            this.gunaPanel.Controls.Add(this.gunaCircleButton4);
+            this.gunaPanel.Controls.Add(this.btn_Suffle);
             this.gunaPanel.Controls.Add(this.MediaTrackBar);
             this.gunaPanel.Controls.Add(this.timeSongPlay);
             this.gunaPanel.Controls.Add(this.gunaCircleButton_prev);
-            this.gunaPanel.Controls.Add(this.gunaCircleButton5);
+            this.gunaPanel.Controls.Add(this.btn_Repeat);
             this.gunaPanel.Controls.Add(this.gunaCircleButton_next);
             this.gunaPanel.Controls.Add(this.btn_Play);
             this.gunaPanel.Location = new System.Drawing.Point(332, 0);
@@ -190,30 +191,31 @@
             this.gunaPanel.Size = new System.Drawing.Size(591, 120);
             this.gunaPanel.TabIndex = 13;
             // 
-            // gunaCircleButton4
+            // btn_Suffle
             // 
-            this.gunaCircleButton4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gunaCircleButton4.Animated = true;
-            this.gunaCircleButton4.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton4.AnimationSpeed = 0.03F;
-            this.gunaCircleButton4.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton4.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton4.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton4.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton4.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton4.Image = global::MediaPlayer.Properties.Resources.suffle;
-            this.gunaCircleButton4.ImageSize = new System.Drawing.Size(32, 32);
-            this.gunaCircleButton4.Location = new System.Drawing.Point(90, 47);
-            this.gunaCircleButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaCircleButton4.Name = "gunaCircleButton4";
-            this.gunaCircleButton4.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton4.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton4.OnHoverForeColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton4.OnHoverImage = global::MediaPlayer.Properties.Resources.suffle_hover;
-            this.gunaCircleButton4.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton4.Size = new System.Drawing.Size(49, 49);
-            this.gunaCircleButton4.TabIndex = 19;
+            this.btn_Suffle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Suffle.Animated = true;
+            this.btn_Suffle.AnimationHoverSpeed = 0.07F;
+            this.btn_Suffle.AnimationSpeed = 0.03F;
+            this.btn_Suffle.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Suffle.BorderColor = System.Drawing.Color.Black;
+            this.btn_Suffle.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Suffle.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Suffle.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Suffle.ForeColor = System.Drawing.Color.White;
+            this.btn_Suffle.Image = global::MediaPlayer.Properties.Resources.suffle;
+            this.btn_Suffle.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Suffle.Location = new System.Drawing.Point(90, 47);
+            this.btn_Suffle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Suffle.Name = "btn_Suffle";
+            this.btn_Suffle.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_Suffle.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Suffle.OnHoverForeColor = System.Drawing.Color.Transparent;
+            this.btn_Suffle.OnHoverImage = ((System.Drawing.Image)(resources.GetObject("btn_Suffle.OnHoverImage")));
+            this.btn_Suffle.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Suffle.Size = new System.Drawing.Size(49, 49);
+            this.btn_Suffle.TabIndex = 19;
+            this.btn_Suffle.Click += new System.EventHandler(this.gunaCircleButton4_Click);
             // 
             // gunaCircleButton_prev
             // 
@@ -241,30 +243,31 @@
             this.gunaCircleButton_prev.TabIndex = 19;
             this.gunaCircleButton_prev.Click += new System.EventHandler(this.gunaCircleButton_prev_Click);
             // 
-            // gunaCircleButton5
+            // btn_Repeat
             // 
-            this.gunaCircleButton5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.gunaCircleButton5.Animated = true;
-            this.gunaCircleButton5.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton5.AnimationSpeed = 0.03F;
-            this.gunaCircleButton5.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton5.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton5.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton5.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton5.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton5.Image = global::MediaPlayer.Properties.Resources.repeat;
-            this.gunaCircleButton5.ImageSize = new System.Drawing.Size(32, 32);
-            this.gunaCircleButton5.Location = new System.Drawing.Point(453, 47);
-            this.gunaCircleButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaCircleButton5.Name = "gunaCircleButton5";
-            this.gunaCircleButton5.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton5.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton5.OnHoverForeColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton5.OnHoverImage = global::MediaPlayer.Properties.Resources.repeat_hover;
-            this.gunaCircleButton5.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton5.Size = new System.Drawing.Size(49, 49);
-            this.gunaCircleButton5.TabIndex = 18;
+            this.btn_Repeat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_Repeat.Animated = true;
+            this.btn_Repeat.AnimationHoverSpeed = 0.07F;
+            this.btn_Repeat.AnimationSpeed = 0.03F;
+            this.btn_Repeat.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_Repeat.BorderColor = System.Drawing.Color.Black;
+            this.btn_Repeat.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Repeat.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Repeat.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Repeat.ForeColor = System.Drawing.Color.White;
+            this.btn_Repeat.Image = global::MediaPlayer.Properties.Resources.repeat;
+            this.btn_Repeat.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Repeat.Location = new System.Drawing.Point(453, 47);
+            this.btn_Repeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Repeat.Name = "btn_Repeat";
+            this.btn_Repeat.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_Repeat.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Repeat.OnHoverForeColor = System.Drawing.Color.Transparent;
+            this.btn_Repeat.OnHoverImage = global::MediaPlayer.Properties.Resources.repeat_hover;
+            this.btn_Repeat.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Repeat.Size = new System.Drawing.Size(49, 49);
+            this.btn_Repeat.TabIndex = 18;
+            this.btn_Repeat.Click += new System.EventHandler(this.btn_Repeat_Click);
             // 
             // gunaCircleButton_next
             // 
@@ -392,9 +395,9 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel;
         private Guna.UI.WinForms.GunaCircleButton btn_Play;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_next;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton4;
+        private Guna.UI.WinForms.GunaCircleButton btn_Suffle;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_prev;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton5;
+        private Guna.UI.WinForms.GunaCircleButton btn_Repeat;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_Like;
         private System.Windows.Forms.Panel panel1;
         public Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Volume;
