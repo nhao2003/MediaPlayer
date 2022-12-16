@@ -367,19 +367,12 @@ namespace MediaPlayer.Items
 
         private void btn_Suffle_Click(object sender, EventArgs e)
         {
-            string st = "";
             if (PlayMedia.Suffle)
             {
                 btn_Suffle.Image = Resources.suffle;
                 btn_Suffle.OnHoverImage = Resources.suffle;
                 PlayMedia.Suffle = false;
                 listIndexPlay = new List<int>(listIndexDefalt);
-                st = "";
-                for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
-                {
-                    st += listIndexPlay[i].ToString();
-                }
-                MessageBox.Show(st);
             }
             else
             {
@@ -387,12 +380,6 @@ namespace MediaPlayer.Items
                 btn_Suffle.OnHoverImage = Resources.suffle_hover;
                 PlayMedia.Suffle = true;
                 listIndexPlay = GetRandomListIndex();
-                st = "";
-                for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
-                {
-                    st += listIndexPlay[i].ToString();
-                }
-                MessageBox.Show(st);
             }
         }
         // random mode
