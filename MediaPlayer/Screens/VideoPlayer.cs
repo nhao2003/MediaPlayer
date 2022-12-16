@@ -30,10 +30,10 @@ namespace MediaPlayer
         }
         private void VideoPlayer_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Form_Main.Instance.MediaControl.SyncWithVideo(_path, WMPLib.WMPPlayState.wmppsStopped);
             Form_Main.Instance.MediaControl.isPlayingVideo = false;
             if (_path != null) PlayMedia.URL = _path;
-            PlayMedia.CurrentTimePlay = currentTimePlay;
+            PlayMedia.CurrentTimePlay = currentTimePlay + 0.4;
+            Form_Main.Instance.MediaControl.SyncWithVideo(_path, player.playState, true);
         }
 
         public double timeSkip = 10;
@@ -68,7 +68,7 @@ namespace MediaPlayer
         // timer 
         private void timer_Tick(object sender, EventArgs e)
         {
-            Form_Main.Instance.MediaControl.SyncWithVideo(_path, player.playState);
+            Form_Main.Instance.MediaControl.SyncWithVideo(_path, player.playState, false);
             SetIconVolume();
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {

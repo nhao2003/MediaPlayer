@@ -329,7 +329,7 @@ namespace MediaPlayer.Items
 
         // Sync with video
         public VideoPlayer videoScreen = new VideoPlayer();
-        public void SyncWithVideo(string path, WMPLib.WMPPlayState status)
+        public void SyncWithVideo(string path, WMPLib.WMPPlayState status, bool isClosing)
         {
             // ten, anh, thoi luong
             TagLib.File file = TagLib.File.Create(path);
@@ -364,6 +364,13 @@ namespace MediaPlayer.Items
             {
                 btn_Play.Image = Resources.play_hover;
                 btn_Play.OnHoverImage = Resources.play_hover;
+            }
+            if (isClosing && status == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                timerSong.Enabled = true;
+                btn_Play.Image = Resources.pause_hover;
+                btn_Play.OnHoverImage = Resources.pause_hover;
+                PlayMedia.playSong();
             }
         }
 
