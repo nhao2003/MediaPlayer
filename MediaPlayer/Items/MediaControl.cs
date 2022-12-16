@@ -367,5 +367,41 @@ namespace MediaPlayer.Items
             }
         }
 
+        private void btn_Repeat_Click(object sender, EventArgs e)
+        {
+            if (PlayMedia.Repeat == RepeatMode.Off)
+            {
+                PlayMedia.Repeat = RepeatMode.All;
+                btn_Repeat.Image = Resources.repeat_on;
+                btn_Repeat.OnHoverImage = Resources.repeat_on;
+            }
+            else if(PlayMedia.Repeat == RepeatMode.All)
+            {
+                PlayMedia.Repeat = RepeatMode.One;
+                btn_Repeat.Image = Resources.repeat_one;
+                btn_Repeat.OnHoverImage = Resources.repeat_one;
+            } else if (PlayMedia.Repeat == RepeatMode.One)
+            {
+                PlayMedia.Repeat = RepeatMode.Off;
+                btn_Repeat.Image = Resources.repeat;
+                btn_Repeat.OnHoverImage = Resources.repeat;
+            }
+        }
+
+        private void gunaCircleButton4_Click(object sender, EventArgs e)
+        {
+            if (PlayMedia.Suffle)
+            {
+                btn_Suffle.Image = Resources.suffle;
+                btn_Suffle.OnHoverImage = Resources.suffle;
+                PlayMedia.Suffle = false;
+            }
+            else
+            {
+                btn_Suffle.Image = Resources.suffle_hover;
+                btn_Suffle.OnHoverImage = Resources.suffle_hover;
+                PlayMedia.Suffle = true;
+            }
+        }
     }
 }

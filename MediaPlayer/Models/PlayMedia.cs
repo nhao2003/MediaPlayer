@@ -10,14 +10,20 @@ using WMPLib;
 
 namespace MediaPlayer.Models
 {
+    public enum RepeatMode
+    {
+        Off = 0,
+        One = 1,
+        All = 2,
+    }
     static class PlayMedia
     {
         public static AxWMPLib.AxWindowsMediaPlayer player = new AxWMPLib.AxWindowsMediaPlayer();
-
+        public static RepeatMode Repeat = RepeatMode.Off;
         static string path = null;
         static double currentTimePlay = 0.0;
         static bool checkFirst = false;
-
+        public static bool Suffle = false;
         // set fuction
         public static bool IsFirst()
         {
