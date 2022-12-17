@@ -88,7 +88,6 @@ namespace MediaPlayer.Widgets
                 // Xoa cac music panel cu
                 if (songs.Count > 0)
                 {
-                    MessageBox.Show("Success");
                     for (int i = 0; i < songs.Count; i++)
                     {
                         pn_Display.Controls.Remove(songs[i]);
@@ -97,7 +96,6 @@ namespace MediaPlayer.Widgets
                 // Xoa cac category neu co
                 if (listCategories.Count > 0)
                 {
-                    MessageBox.Show("Success");
                     for (int j = 0; j < listCategories.Count; j++)
                     {
                         pn_Display.Controls.Remove(listCategories[j]);
@@ -116,8 +114,7 @@ namespace MediaPlayer.Widgets
         {
             category.Location = new Point(categoryLocation.X, categoryLocation.Y);
             category.Dock = DockStyle.Top;
-            category.Height = 40;
-            category.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
+            category.Height = 35;
             category.InitializeCategory(groupKey);
         }
 
