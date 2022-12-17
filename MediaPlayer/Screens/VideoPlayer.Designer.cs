@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(VideoPlayer));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_SongName = new Guna.UI.WinForms.GunaLabel();
@@ -42,27 +43,27 @@
             this.timeSongPlay = new System.Windows.Forms.Label();
             this.MediaTrackBar = new Guna.UI.WinForms.GunaTrackBar();
             this.timerSong = new System.Windows.Forms.Timer(this.components);
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.timer_Hide = new System.Windows.Forms.Timer(this.components);
             this.Media_Pages = new Bunifu.UI.WinForms.BunifuPages();
             this.VideoPage = new System.Windows.Forms.TabPage();
             this.MusicPage = new System.Windows.Forms.TabPage();
             this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
             this.pic_BackGround = new Guna.UI.WinForms.GunaPictureBox();
+            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.Media_Pages.SuspendLayout();
             this.VideoPage.SuspendLayout();
             this.MusicPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.lb_SongName);
             this.panel1.Controls.Add(this.gunaTrackBar_Volume);
             this.panel1.Controls.Add(this.btn_volum);
@@ -73,7 +74,7 @@
             this.panel1.Controls.Add(this.timeSongEnd);
             this.panel1.Controls.Add(this.timeSongPlay);
             this.panel1.Controls.Add(this.MediaTrackBar);
-            this.panel1.Location = new System.Drawing.Point(0, 520);
+            this.panel1.Location = new System.Drawing.Point(0, 511);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1158, 123);
             this.panel1.TabIndex = 1;
@@ -96,7 +97,7 @@
             // 
             this.gunaTrackBar_Volume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTrackBar_Volume.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gunaTrackBar_Volume.Location = new System.Drawing.Point(963, 65);
+            this.gunaTrackBar_Volume.Location = new System.Drawing.Point(953, 62);
             this.gunaTrackBar_Volume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaTrackBar_Volume.Name = "gunaTrackBar_Volume";
             this.gunaTrackBar_Volume.Size = new System.Drawing.Size(180, 26);
@@ -123,7 +124,7 @@
             this.btn_volum.ForeColor = System.Drawing.Color.White;
             this.btn_volum.Image = global::MediaPlayer.Properties.Resources.volume_high;
             this.btn_volum.ImageSize = new System.Drawing.Size(24, 24);
-            this.btn_volum.Location = new System.Drawing.Point(917, 62);
+            this.btn_volum.Location = new System.Drawing.Point(913, 59);
             this.btn_volum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_volum.Name = "btn_volum";
             this.btn_volum.OnHoverBaseColor = System.Drawing.Color.Transparent;
@@ -155,7 +156,7 @@
             this.btn_Fullscreen.TabIndex = 22;
             this.btn_Fullscreen.Text = "Fullscreen";
             this.btn_Fullscreen.UseVisualStyleBackColor = true;
-            this.btn_Fullscreen.Click += new System.EventHandler(this.btn_tang_Click);
+            this.btn_Fullscreen.Click += new System.EventHandler(this.btn_Fullscreen_Click);
             // 
             // btn_tang
             // 
@@ -182,7 +183,7 @@
             this.btn_play.ForeColor = System.Drawing.Color.Transparent;
             this.btn_play.Image = global::MediaPlayer.Properties.Resources.play;
             this.btn_play.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_play.Location = new System.Drawing.Point(547, 49);
+            this.btn_play.Location = new System.Drawing.Point(549, 46);
             this.btn_play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_play.Name = "btn_play";
             this.btn_play.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
@@ -238,17 +239,6 @@
             // 
             this.timerSong.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // player
-            // 
-            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(0, 0);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(1150, 630);
-            this.player.TabIndex = 2;
-            this.player.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.player_MouseMoveEvent);
-            // 
             // timer_Hide
             // 
             this.timer_Hide.Interval = 1000;
@@ -271,6 +261,22 @@
             this.Media_Pages.SelectedIndex = 0;
             this.Media_Pages.Size = new System.Drawing.Size(1158, 659);
             this.Media_Pages.TabIndex = 3;
+            animation1.AnimateOnlyDifferences = false;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.Media_Pages.Transition = animation1;
             this.Media_Pages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Custom;
             // 
             // VideoPage
@@ -322,6 +328,17 @@
             this.pic_BackGround.TabIndex = 0;
             this.pic_BackGround.TabStop = false;
             // 
+            // player
+            // 
+            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.player.Enabled = true;
+            this.player.Location = new System.Drawing.Point(0, 0);
+            this.player.Name = "player";
+            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
+            this.player.Size = new System.Drawing.Size(1150, 630);
+            this.player.TabIndex = 2;
+            this.player.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.player_MouseMoveEvent);
+            // 
             // VideoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -335,12 +352,12 @@
             this.Load += new System.EventHandler(this.VideoPlayer_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.Media_Pages.ResumeLayout(false);
             this.VideoPage.ResumeLayout(false);
             this.MusicPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
 
         }

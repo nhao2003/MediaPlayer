@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,6 @@ namespace MediaPlayer
             timerSong.Enabled = true;
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
             player.uiMode = "none";
-
         }
         private void VideoPlayer_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -224,6 +224,18 @@ namespace MediaPlayer
             {
                 MessageBox.Show("Video bi loi nut tang: " + ex.ToString());
             }
+        }
+        private void btn_Fullscreen_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            timer_Hide.Enabled = false;
+            player.ClickEvent += Player_ClickEvent;
+        }
+
+        private void Player_ClickEvent(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
+        {
+            timer_Hide.Enabled = true;
+            panel1.Visible = true;
         }
 
         private void timer_Hide_Tick(object sender, EventArgs e)
