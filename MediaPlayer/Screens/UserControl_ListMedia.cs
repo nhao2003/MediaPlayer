@@ -45,20 +45,17 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        // Khai bao cac bien toan cuc
-        static List<string> filePaths = new List<string>();
-        static List<string> joins = new List<string>();
-        static List<TagLib.File> fileSongs = new List<TagLib.File>();
-        static List<Media> songList = new List<Media>();
-        static List<MusicRow> songs = new List<MusicRow>();
-        static List<CategoryPanel> listCategories = new List<CategoryPanel>();
-        static string defaultMusicPath = null, defaultVideoPath;
-        static Point displayPanelLocation = new Point(0, 300);
-       
+        /// <summary>
+        /// Initialize data
+        /// </summary>
+        static SortHandling manageSort;
+        static string defaultMusicPath = null, defaultVideoPath = null;
+        private List<string> filePaths = new List<string>();
 
         public UserControl_ListMedia()
         {
             InitializeComponent();
+            manageSort = new SortHandling(pn_Display);
             Init();
             //GroupMedia group = new GroupMedia("Dummy 1", MediaHelpers.listSongs)
             //{
@@ -78,52 +75,10 @@ namespace MediaPlayer.Widgets
             defaultVideoPath = videoPath;
         }
 
-        /// <summary>
-        /// Reset UserControl (screen)
-        /// </summary>
-        internal void ResetUserControl()
-        {
-            try
-            {
-                // Xoa cac music panel cu
-                if (songs.Count > 0)
-                {
-                    for (int i = 0; i < songs.Count; i++)
-                    {
-                        pn_Display.Controls.Remove(songs[i]);
-                    }
-                }
-                // Xoa cac category neu co
-                if (listCategories.Count > 0)
-                {
-                    for (int j = 0; j < listCategories.Count; j++)
-                    {
-                        pn_Display.Controls.Remove(listCategories[j]);
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-        }
-
-        // Phuong thuc set cac gia tri mac dinh cho categoryPanel
-        public void SetCategoryPanelAttribute(ref CategoryPanel category, Point categoryLocation, string groupKey)
-        {
-            category.Location = new Point(categoryLocation.X, categoryLocation.Y);
-            category.Dock = DockStyle.Top;
-            category.Height = 35;
-            category.InitializeCategory(groupKey);
-        }
-
-        /// <summary>
-        /// Phuong thuc khoi tao khi bat dau chay
-        /// </summary>
         private void Init()
         {
             List<string> defaultFiles = new List<string>();
+
             try
             {
                 defaultFiles = Directory.GetFiles(defaultMusicPath, "*.*", SearchOption.AllDirectories)
@@ -133,93 +88,35 @@ namespace MediaPlayer.Widgets
             {
                 MessageBox.Show(ex.Message);
             }
-            AddMusicDataToLists(ref defaultFiles);
-            SaveToDatabase(ref joins);
-            LoadSongOntoScreen(ref defaultFiles);
+
+            manageSort.AddMusicDataToLists(ref defaultFiles);
+
+            manageSort.SaveToDatabase();
+
+            manageSort.SortByAtoZ();
         }
 
-        /// <summary>
-        /// Them cac bai nhac vo danh sach 
-        /// </summary>
-        /// <param name="filePaths"></param>
-        public void AddMusicDataToLists(ref List<string> filePaths)
-        {
-            // Tao cac file taglib luu tru thong tin media
-            for (int i = 0; i < filePaths.Count; i++)
-            {
-                fileSongs.Add(TagLib.File.Create(filePaths[i]));
-            }
-            // Load cac music song thanh cac object
-            for (int i = 0; i < filePaths.Count; i++)
-            {
-                songList.Add(new Media(filePaths[i]));
-                joins.Add(songList[i].Title + ";" + songList[i].Artists + ";"
-                    + songList[i].FilePath + ";" + songList[i].Album + ";" + songList[i].Duration + ";" + songList[i].DateAdded
-                    + ";" + songList[i].IsLiked.ToString());
-            }
-        }
-
-        /// <summary>
-        /// Load cac panel len man hinh
-        /// </summary>
-        /// <param name="filePaths"></param>
-        public void LoadSongOntoScreen(ref List<string> filePaths)
-        {
-            // Load cac music song thanh cac panel len form
-            for (int i = 0; i < filePaths.Count; i++)
-            {
-                MusicRow temp = new MusicRow();
-                temp.Location = new Point(displayPanelLocation.X, displayPanelLocation.Y);
-                temp.Dock = DockStyle.Top;
-                temp.InitializeSongItem(songList[i]);
-                songs.Add(temp);
-                displayPanelLocation.Y += 100;
-                pn_Display.Controls.Add(temp);
-            }
-        }
-
-        /// <summary>
-        /// Save to csv File
-        /// </summary>
-        /// <param name="joins"></param>
-        public void SaveToDatabase(ref List<string> joins)
-        {
-            // Luu data vo file csv
-            string startupPath = System.IO.Directory.GetCurrentDirectory();
-            string csv_FilePath = startupPath + "\\Song.csv";
-            StringBuilder sbOutput = new StringBuilder();
-            sbOutput.AppendLine("sep=;");
-            sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
-            for (int i = 0; i < joins.Count; i++)
-            {
-                sbOutput.AppendLine(joins[i]);
-            }
-            System.IO.File.WriteAllText(csv_FilePath, sbOutput.ToString());
-            // File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
-        }
-
-        /// <summary>
-        /// Add more music
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void gunaButton1_Click(object sender, EventArgs e)
         {
-            this.ResetUserControl();
+            manageSort.ResetUserControl();
             // Chon folder de lay music
             try
             {
                 FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
                 DialogResult result = folderBrowserDialog.ShowDialog();
+
                 if (result == DialogResult.OK && !string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
                 {
                     var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories)
                     .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg"));
                     filePaths = files.ToList();
                 }
-                AddMusicDataToLists(ref filePaths);
-                SaveToDatabase(ref joins);
-                LoadSongOntoScreen(ref filePaths);
+
+                manageSort.AddMusicDataToLists(ref filePaths);
+                
+                manageSort.SaveToDatabase();
+                
+                manageSort.LoadSongOntoScreen(ref filePaths);
             }
             catch (Exception ex)
             {
@@ -237,13 +134,16 @@ namespace MediaPlayer.Widgets
             try
             {
                 // Goi ham xoa cac category panel, music panel
-                this.ResetUserControl();
+                manageSort.ResetUserControl();
                 // Dua tren lua chon tren combobox ma tien hanh sort
                 string selectedChoice = gunaComboBox1.SelectedItem.ToString();
-                if (selectedChoice == "A to Z") SortByAtoZ();
-                else if (selectedChoice == "Date added") SortByDateAdded();
-                else if (selectedChoice == "Album") SortByAlbum();
-                else if (selectedChoice == "Artist") SortByArtist();
+                if (selectedChoice == "A to Z") manageSort.SortByAtoZ();
+                
+                else if (selectedChoice == "Date added") manageSort.SortByDateAdded();
+                
+                else if (selectedChoice == "Album") manageSort.SortByAlbum();
+               
+                else if (selectedChoice == "Artist") manageSort.SortByArtist();
             }
             catch (Exception ex)
             {
@@ -251,152 +151,34 @@ namespace MediaPlayer.Widgets
             }
         }
 
+
         /// <summary>
-        /// Refresh button Click Event
+        /// Event press F5 to refresh screen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void gunaCircleButton1_Click(object sender, EventArgs e)
+        private void UserControl_ListMedia_KeyDown(object sender, KeyEventArgs e)
         {
-            ResetUserControl();
+            if (e.KeyCode == Keys.F5)
+            {
+                manageSort.ResetUserControl();
+                Init();
+            }
+        }
+
+        private void RefreshClickEvent(object sender, EventArgs e)
+        {
+            manageSort.ResetUserControl();
             Init();
         }
+
+        private void LoadListMediaEvent(object sender, EventArgs e)
+        {
+            manageSort.ResetUserControl();
+            Init();
+        }
+
         
-        /// <summary>
-        /// Sort theo thu tu A - Z
-        /// </summary>
-        public void SortByAtoZ()
-        {
-            var songlist = new List<Media>(songList);
-
-            ResetPanelLocation();
-
-            IEnumerable<IGrouping<char, Media>> res = from song in songlist
-                                                      orderby song.Title ascending
-                                                      group song by song.Title[0];
-            ReInitializeMediaAndCategoryPanel();
-
-            try
-            {
-                DisplaySortMediaItems(res);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-
-        /// <summary>
-        /// Sort theo ngay them nhac
-        /// </summary>
-        public void SortByDateAdded()
-        {
-            var songlist = new List<Media>(songList);
-
-            ResetPanelLocation();
-
-            IEnumerable<IGrouping<DateTime, Media>> res = from song in songlist
-                                                          orderby song.DateAdded ascending
-                                                          group song by song.DateAdded;
-            ReInitializeMediaAndCategoryPanel();
-
-            try
-            {
-                DisplaySortMediaItems(res);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Sort theo nhac si
-        /// </summary>
-        public void SortByArtist()
-        {
-            var songlist = new List<Media>(songList);
-
-            ResetPanelLocation();
-
-            IEnumerable<IGrouping<string, Media>> res = from song in songlist
-                                                        orderby song.Artists ascending
-                                                        group song by song.Artists;
-            ReInitializeMediaAndCategoryPanel();
-
-            try
-            {
-                DisplaySortMediaItems(res);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Sort theo Album
-        /// </summary>
-        public void SortByAlbum()
-        {
-            var songlist = new List<Media>(songList);
-
-            ResetPanelLocation();
-
-            IEnumerable<IGrouping<string, Media>> res = from song in songlist
-                                                        orderby song.Album ascending
-                                                        group song by song.Album;
-            ReInitializeMediaAndCategoryPanel();
-
-            try
-            {
-                DisplaySortMediaItems(res);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private static void ReInitializeMediaAndCategoryPanel()
-        {
-            songs = new List<MusicRow>();
-            listCategories = new List<CategoryPanel>();
-        }
-
-        private static void ResetPanelLocation()
-        {
-            displayPanelLocation.X = 0;
-            displayPanelLocation.Y = 100;
-        }
-        /// <summary>
-        /// Hien thi lai cac mediapanel da sort
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="res"></param>
-        private void DisplaySortMediaItems<T>(IEnumerable<IGrouping<T, Media>> res)
-        {
-            // int panelIndex = 0;
-            foreach (var group in res.Reverse())
-            {
-                foreach (var song in group.Reverse())
-                {
-                    MusicRow songdisplay = new MusicRow();
-                    TagLib.File temp = TagLib.File.Create(song.FilePath);
-                    songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(song);
-                    pn_Display.Controls.Add(songdisplay);
-                    songs.Add(songdisplay);
-                    displayPanelLocation.Y += 100;
-                }
-                displayPanelLocation.Y -= 100;
-                CategoryPanel category_display = new CategoryPanel();
-                SetCategoryPanelAttribute(ref category_display, displayPanelLocation, group.Key.ToString());
-
-                pn_Display.Controls.Add(category_display);
-                listCategories.Add(category_display);
-            }
-        }
+        
     }
 }

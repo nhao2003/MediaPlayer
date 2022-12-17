@@ -91,7 +91,7 @@
             this.gunaCircleButton1.Size = new System.Drawing.Size(61, 62);
             this.gunaCircleButton1.TabIndex = 24;
             this.gunaCircleButton1.Text = "Refresh";
-            this.gunaCircleButton1.Click += new System.EventHandler(this.gunaCircleButton1_Click);
+            this.gunaCircleButton1.Click += new System.EventHandler(this.RefreshClickEvent);
             // 
             // gunaLabel3
             // 
@@ -204,6 +204,8 @@
             this.Controls.Add(this.gunaPanel2);
             this.Name = "UserControl_ListMedia";
             this.Size = new System.Drawing.Size(1084, 645);
+            this.Load += new System.EventHandler(this.LoadListMediaEvent);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserControl_ListMedia_KeyDown);
             this.gunaPanel2.ResumeLayout(false);
             this.gunaPanel2.PerformLayout();
             this.ResumeLayout(false);

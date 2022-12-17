@@ -185,6 +185,7 @@
     <Compile Include="Items\MediaPanel.Designer.cs">
       <DependentUpon>MediaPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Items\SortHandling.cs" />
     <Compile Include="Items\SuggestBar.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -30,11 +30,12 @@ namespace MediaPlayer.Widgets
         private void gunaTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {   
+            {
                 if (nothingWasFound == null)
                 {
                     this.Controls.Remove(nothingWasFound);
                 }
+
                 if (count != 0)
                 {
                     for (int i = 0; i < count; i++)
@@ -42,11 +43,11 @@ namespace MediaPlayer.Widgets
                         gunaElipsePanel3.Controls.Remove(songs[i]);
                     }
                 }
-                string startupPath = System.IO.Directory.GetCurrentDirectory();
-                string filePath = startupPath + "\\Song.csv";
+
+                string dbFilepath = GetDatabaseFilepath();
                 try
                 {
-                    using (StreamReader reader = new StreamReader(filePath))
+                    using (StreamReader reader = new StreamReader(dbFilepath))
                     {
                         string line;
                         count = 0;
@@ -63,8 +64,8 @@ namespace MediaPlayer.Widgets
                         // accounted for columnheader_line
                         count = count - 2;
                     }
-                    
-                    using (StreamReader reader = new StreamReader(filePath))
+
+                    using (StreamReader reader = new StreamReader(dbFilepath))
                     {
                         string line;
                         int idx = 0;
@@ -106,7 +107,7 @@ namespace MediaPlayer.Widgets
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
+
                 string findMusic = gunaTextBox1.Text.ToString();
                 int xLoc = 0;
                 int yLoc = 300;
@@ -141,6 +142,11 @@ namespace MediaPlayer.Widgets
                     gunaElipsePanel3.Controls.Add(nothingWasFound);
                 }
             }
+        }
+
+        private static string GetDatabaseFilepath()
+        {
+            return System.IO.Directory.GetCurrentDirectory() + "\\Song.csv";
         }
 
         private void gunaTextBox1_Enter(object sender, EventArgs e)
