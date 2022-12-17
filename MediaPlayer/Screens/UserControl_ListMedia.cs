@@ -44,8 +44,8 @@ namespace MediaPlayer.Widgets
                 videoScreen.getPathOfSong(s);
             }
         }
-        // Khai bao cac bien toan cuc
 
+        // Khai bao cac bien toan cuc
         static List<string> filePaths = new List<string>();
         static List<string> joins = new List<string>();
         static List<TagLib.File> fileSongs = new List<TagLib.File>();
@@ -53,8 +53,9 @@ namespace MediaPlayer.Widgets
         static List<MediaPanel> songs = new List<MediaPanel>();
         static List<CategoryPanel> listCategories = new List<CategoryPanel>();
         static string defaultMusicPath = null, defaultVideoPath;
-        static int currLocX = 0;
-        static int currLocY = 300;
+        static Point displayPanelLocation = new Point(0, 300);
+       
+
         public UserControl_ListMedia()
         {
             InitializeComponent();
@@ -70,12 +71,16 @@ namespace MediaPlayer.Widgets
             //pn_Display.Controls.Add(group);
             //pn_Display.Controls.Add(gp);
         }
+
         internal static void GetMusicVideoPath(string musicPath, string videoPath)
         {
             defaultMusicPath = musicPath;
             defaultVideoPath = videoPath;
         }
-        // Phuong thuc reset UserControl
+
+        /// <summary>
+        /// Reset UserControl (screen)
+        /// </summary>
         internal void ResetUserControl()
         {
             try
@@ -107,14 +112,15 @@ namespace MediaPlayer.Widgets
         }
 
         // Phuong thuc set cac gia tri mac dinh cho categoryPanel
-        public void SetCategoryPanelAttribute(ref CategoryPanel category, int xLoc, int yLoc, string groupKey)
+        public void SetCategoryPanelAttribute(ref CategoryPanel category, Point categoryLocation, string groupKey)
         {
-            category.Location = new Point(xLoc, yLoc);
+            category.Location = new Point(categoryLocation.X, categoryLocation.Y);
             category.Dock = DockStyle.Top;
             category.Height = 40;
             category.BackColor = System.Drawing.Color.FromArgb(216, 243, 220);
             category.InitializeCategory(groupKey);
         }
+
         /// <summary>
         /// Phuong thuc khoi tao khi bat dau chay
         /// </summary>
@@ -135,6 +141,10 @@ namespace MediaPlayer.Widgets
             LoadSongOntoScreen(ref defaultFiles);
         }
 
+        /// <summary>
+        /// Them cac bai nhac vo danh sach 
+        /// </summary>
+        /// <param name="filePaths"></param>
         public void AddMusicDataToLists(ref List<string> filePaths)
         {
             // Tao cac file taglib luu tru thong tin media
@@ -152,22 +162,30 @@ namespace MediaPlayer.Widgets
             }
         }
 
+        /// <summary>
+        /// Load cac panel len man hinh
+        /// </summary>
+        /// <param name="filePaths"></param>
         public void LoadSongOntoScreen(ref List<string> filePaths)
         {
             // Load cac music song thanh cac panel len form
             for (int i = 0; i < filePaths.Count; i++)
             {
                 MediaPanel temp = new MediaPanel();
-                temp.Location = new Point(currLocX, currLocY);
+                temp.Location = new Point(displayPanelLocation.X, displayPanelLocation.Y);
                 temp.Dock = DockStyle.Top;
                 temp.InitializeSongItem(fileSongs[filePaths.Count - i - 1],
                     songList[filePaths.Count - i - 1].FilePath, filePaths.Count - i);
                 songs.Add(temp);
-                currLocY += 100;
+                displayPanelLocation.Y += 100;
                 pn_Display.Controls.Add(temp);
             }
         }
 
+        /// <summary>
+        /// Save to csv File
+        /// </summary>
+        /// <param name="joins"></param>
         public void SaveToDatabase(ref List<string> joins)
         {
             // Luu data vo file csv
@@ -183,6 +201,7 @@ namespace MediaPlayer.Widgets
             System.IO.File.WriteAllText(csv_FilePath, sbOutput.ToString());
             // File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
         }
+
         /// <summary>
         /// Add more music
         /// </summary>
@@ -211,8 +230,9 @@ namespace MediaPlayer.Widgets
                 MessageBox.Show(ex.Message);
             }
         }
+
         /// <summary>
-        /// Choosing sort option
+        /// Choosing sort option changed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -234,8 +254,9 @@ namespace MediaPlayer.Widgets
                 MessageBox.Show(ex.Message);
             }
         }
+
         /// <summary>
-        /// Refresh
+        /// Refresh button Click Event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -244,143 +265,113 @@ namespace MediaPlayer.Widgets
             ResetUserControl();
             Init();
         }
-
         
-        // Event click Add music
-        // Sort theo thu tu alphabet A-Z
+        /// <summary>
+        /// Sort theo thu tu A - Z
+        /// </summary>
         public void SortByAtoZ()
         {
             var songlist = new List<Media>(songList);
-            int xLoc = 0;
-            int yLoc = 100;
-            int idx = 0;
+
+            ResetPanelLocation();
+
             IEnumerable<IGrouping<char, Media>> res = from song in songlist
                                                       orderby song.Title ascending
                                                       group song by song.Title[0];
-            int i = 0;
-            songs = new List<MediaPanel>();
-            int j = 0;
-            listCategories = new List<CategoryPanel>();
-            foreach (var group in res.Reverse())
-            {
+            ReInitializeMediaAndCategoryPanel();
 
-                foreach (var song in group.Reverse())
-                {
-                    MediaPanel songdisplay = new MediaPanel();
-                    TagLib.File temp = TagLib.File.Create(song.FilePath);
-                    songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
-                    pn_Display.Controls.Add(songdisplay);
-                    songs.Add(songdisplay);
-                    yLoc += 100;
-                }
-                yLoc -= 100;
-                CategoryPanel category_display = new CategoryPanel();
-                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
-
-                pn_Display.Controls.Add(category_display);
-                listCategories.Add(category_display);
-            }
+            DisplaySortMediaItems(res);
         }
-        // Sort theo ngay them nhac
+
+
+        /// <summary>
+        /// Sort theo ngay them nhac
+        /// </summary>
         public void SortByDateAdded()
         {
             var songlist = new List<Media>(songList);
-            int xLoc = 0;
-            int yLoc = 100;
-            int idx = 0;
+
+            ResetPanelLocation();
+
             IEnumerable<IGrouping<DateTime, Media>> res = from song in songlist
                                                           orderby song.DateAdded ascending
                                                           group song by song.DateAdded;
-            int i = 0;
             songs = new List<MediaPanel>();
-            int j = 0;
             listCategories = new List<CategoryPanel>();
-            foreach (var group in res.Reverse())
-            {
 
-                foreach (var song in group.Reverse())
-                {
-                    MediaPanel songdisplay = new MediaPanel();
-                    TagLib.File temp = TagLib.File.Create(song.FilePath);
-                    songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
-                    pn_Display.Controls.Add(songdisplay);
-                    songs.Add(songdisplay);
-                    yLoc += 140;
-                }
-                yLoc -= 100;
-                CategoryPanel category_display = new CategoryPanel();
-                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
-
-                pn_Display.Controls.Add(category_display);
-                listCategories.Add(category_display);
-            }
+            DisplaySortMediaItems(res);
         }
-        // Sort theo ten tac gia
+
+        /// <summary>
+        /// Sort theo nhac si
+        /// </summary>
         public void SortByArtist()
         {
             var songlist = new List<Media>(songList);
-            int xLoc = 0;
-            int yLoc = 100;
-            int idx = 0;
+
+            ResetPanelLocation();
+
             IEnumerable<IGrouping<string, Media>> res = from song in songlist
                                                         orderby song.Artists ascending
                                                         group song by song.Artists;
-            int i = 0;
             songs = new List<MediaPanel>();
-            int j = 0;
             listCategories = new List<CategoryPanel>();
-            foreach (var group in res.Reverse())
-            {
 
-                foreach (var song in group.Reverse())
-                {
-                    MediaPanel songdisplay = new MediaPanel();
-                    TagLib.File temp = TagLib.File.Create(song.FilePath);
-                    songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
-                    pn_Display.Controls.Add(songdisplay);
-                    songs.Add(songdisplay);
-                    yLoc += 100;
-                }
-                yLoc -= 100;
-                CategoryPanel category_display = new CategoryPanel();
-                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
-
-                pn_Display.Controls.Add(category_display);
-                listCategories.Add(category_display);
-            }
+            DisplaySortMediaItems(res);
         }
+
+        /// <summary>
+        /// Sort theo Album
+        /// </summary>
         public void SortByAlbum()
         {
             var songlist = new List<Media>(songList);
-            int xLoc = 0;
-            int yLoc = 100;
-            int idx = 0;
+
+            ResetPanelLocation();
+
             IEnumerable<IGrouping<string, Media>> res = from song in songlist
                                                         orderby song.Album ascending
                                                         group song by song.Album;
-            int i = 0;
             songs = new List<MediaPanel>();
-            int j = 0;
             listCategories = new List<CategoryPanel>();
+
+            DisplaySortMediaItems(res);
+        }
+
+        private static void ReInitializeMediaAndCategoryPanel()
+        {
+            songs = new List<MediaPanel>();
+            listCategories = new List<CategoryPanel>();
+        }
+
+        private static void ResetPanelLocation()
+        {
+            displayPanelLocation.X = 0;
+            displayPanelLocation.Y = 100;
+        }
+        /// <summary>
+        /// Hien thi lai cac mediapanel da sort
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="res"></param>
+        private void DisplaySortMediaItems<T>(IEnumerable<IGrouping<T, Media>> res)
+        {
+            int panelIndex = 0;
             foreach (var group in res.Reverse())
             {
-
                 foreach (var song in group.Reverse())
                 {
                     MediaPanel songdisplay = new MediaPanel();
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, song.FilePath, idx++);
+                    songdisplay.InitializeSongItem(temp, song.FilePath, panelIndex++);
                     pn_Display.Controls.Add(songdisplay);
                     songs.Add(songdisplay);
-                    yLoc += 100;
+                    displayPanelLocation.Y += 100;
                 }
-                yLoc -= 100;
+                displayPanelLocation.Y -= 100;
                 CategoryPanel category_display = new CategoryPanel();
-                SetCategoryPanelAttribute(ref category_display, xLoc, yLoc, group.Key.ToString());
+                SetCategoryPanelAttribute(ref category_display, displayPanelLocation, group.Key.ToString());
 
                 pn_Display.Controls.Add(category_display);
                 listCategories.Add(category_display);
