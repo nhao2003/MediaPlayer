@@ -17,6 +17,14 @@ namespace MediaPlayer.Items
     public partial class MusicRow : UserControl
     {
         private Media _media;
+        public delegate void PassDataBetweenForms(string filePath);
+        static MediaControl mediaControl;
+        private string filePath;
+        public void GetMediaControl(MediaControl control)
+        {
+            mediaControl = control;
+        }
+
         public Media Media
         {
             get
@@ -38,6 +46,15 @@ namespace MediaPlayer.Items
             InitializeComponent();
         }
 
+        public void InitializeSongItem(Media initializeMedia)
+        {
+            pic_Song.Image = initializeMedia.Image;
+            label_NameSong.Text = initializeMedia.Title;
+            label_NameSinger.Text = initializeMedia.Artists;
+            label_Duration.Text = initializeMedia.DurationText;
+            filePath = initializeMedia.FilePath;
+        }
+
         private void MusicRow_MouseEnter(object sender, EventArgs e)
         {
             panel_MusicRow.BaseColor = Color.FromArgb(40, 40, 40);
@@ -50,8 +67,10 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            Form_Main.Instance.MediaControl.getPathOfSong(_media.FilePath);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
+            //Form_Main.Instance.MediaControl.getPathOfSong(_media.FilePath);
+            //Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
+            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
+            datasend(filePath);
         }
 
         private void btn_Like_Click(object sender, EventArgs e)

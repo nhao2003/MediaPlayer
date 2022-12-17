@@ -27,9 +27,11 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
-            MediaPanel test = new MediaPanel();
+
+            MusicRow test = new MusicRow();
             PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
             datasend(this);
+
             // genera new list index of song
             for(int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {

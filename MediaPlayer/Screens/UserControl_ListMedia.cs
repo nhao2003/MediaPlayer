@@ -50,7 +50,7 @@ namespace MediaPlayer.Widgets
         static List<string> joins = new List<string>();
         static List<TagLib.File> fileSongs = new List<TagLib.File>();
         static List<Media> songList = new List<Media>();
-        static List<MediaPanel> songs = new List<MediaPanel>();
+        static List<MusicRow> songs = new List<MusicRow>();
         static List<CategoryPanel> listCategories = new List<CategoryPanel>();
         static string defaultMusicPath = null, defaultVideoPath;
         static Point displayPanelLocation = new Point(0, 300);
@@ -171,11 +171,10 @@ namespace MediaPlayer.Widgets
             // Load cac music song thanh cac panel len form
             for (int i = 0; i < filePaths.Count; i++)
             {
-                MediaPanel temp = new MediaPanel();
+                MusicRow temp = new MusicRow();
                 temp.Location = new Point(displayPanelLocation.X, displayPanelLocation.Y);
                 temp.Dock = DockStyle.Top;
-                temp.InitializeSongItem(fileSongs[filePaths.Count - i - 1],
-                    songList[filePaths.Count - i - 1].FilePath, filePaths.Count - i);
+                temp.InitializeSongItem(songList[i]);
                 songs.Add(temp);
                 displayPanelLocation.Y += 100;
                 pn_Display.Controls.Add(temp);
@@ -280,7 +279,14 @@ namespace MediaPlayer.Widgets
                                                       group song by song.Title[0];
             ReInitializeMediaAndCategoryPanel();
 
-            DisplaySortMediaItems(res);
+            try
+            {
+                DisplaySortMediaItems(res);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -296,10 +302,16 @@ namespace MediaPlayer.Widgets
             IEnumerable<IGrouping<DateTime, Media>> res = from song in songlist
                                                           orderby song.DateAdded ascending
                                                           group song by song.DateAdded;
-            songs = new List<MediaPanel>();
-            listCategories = new List<CategoryPanel>();
+            ReInitializeMediaAndCategoryPanel();
 
-            DisplaySortMediaItems(res);
+            try
+            {
+                DisplaySortMediaItems(res);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -314,10 +326,16 @@ namespace MediaPlayer.Widgets
             IEnumerable<IGrouping<string, Media>> res = from song in songlist
                                                         orderby song.Artists ascending
                                                         group song by song.Artists;
-            songs = new List<MediaPanel>();
-            listCategories = new List<CategoryPanel>();
+            ReInitializeMediaAndCategoryPanel();
 
-            DisplaySortMediaItems(res);
+            try
+            {
+                DisplaySortMediaItems(res);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         /// <summary>
@@ -332,15 +350,21 @@ namespace MediaPlayer.Widgets
             IEnumerable<IGrouping<string, Media>> res = from song in songlist
                                                         orderby song.Album ascending
                                                         group song by song.Album;
-            songs = new List<MediaPanel>();
-            listCategories = new List<CategoryPanel>();
+            ReInitializeMediaAndCategoryPanel();
 
-            DisplaySortMediaItems(res);
+            try
+            {
+                DisplaySortMediaItems(res);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private static void ReInitializeMediaAndCategoryPanel()
         {
-            songs = new List<MediaPanel>();
+            songs = new List<MusicRow>();
             listCategories = new List<CategoryPanel>();
         }
 
@@ -356,15 +380,15 @@ namespace MediaPlayer.Widgets
         /// <param name="res"></param>
         private void DisplaySortMediaItems<T>(IEnumerable<IGrouping<T, Media>> res)
         {
-            int panelIndex = 0;
+            // int panelIndex = 0;
             foreach (var group in res.Reverse())
             {
                 foreach (var song in group.Reverse())
                 {
-                    MediaPanel songdisplay = new MediaPanel();
+                    MusicRow songdisplay = new MusicRow();
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
                     songdisplay.Dock = DockStyle.Top;
-                    songdisplay.InitializeSongItem(temp, song.FilePath, panelIndex++);
+                    songdisplay.InitializeSongItem(song);
                     pn_Display.Controls.Add(songdisplay);
                     songs.Add(songdisplay);
                     displayPanelLocation.Y += 100;
