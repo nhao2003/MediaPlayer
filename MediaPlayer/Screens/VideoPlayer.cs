@@ -33,31 +33,28 @@ namespace MediaPlayer
         private void VideoPlayer_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form_Main.Instance.MediaControl.isPlayingVideo = false;
-            if (_path != null) PlayMedia.URL = _path;
+            if (_media != null) PlayMedia.URL = _media.FilePath;
             PlayMedia.CurrentTimePlay = currentTimePlay + 0.4;
-            Form_Main.Instance.MediaControl.SyncWithVideo(_path, player.playState, true);
+            Form_Main.Instance.MediaControl.SyncWithVideo(_media, player.playState, true);
         }
 
         public double timeSkip = 10;
         public double currentTimePlay = 0.0;
-        private string _path = "";
+        private Media _media;
 
-        public void getPathOfSong(string path)
+        public void getPathOfSong(Media media)
         {
             try
             {
-                player.URL = path;
-                _path = path;
+                _media = media;
+                player.URL = media.FilePath;
 
-                TagLib.File file = TagLib.File.Create(path);
-                lb_SongName.Text = (file.Tag.Title != null)
-                ? file.Tag.Title.ToString()
-                : Path.GetFileNameWithoutExtension(path);
+                lb_SongName.Text = media.Title;
 
-                MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
+                MediaTrackBar.Maximum = (int)media.Duration.TotalSeconds;
                 MediaTrackBar.Value = 0;
                 timeSongPlay.Text = "00:00";
-                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds / 60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds % 60);
+                timeSongEnd.Text = media.DurationText;
 
                 currentTimePlay = player.Ctlcontrols.currentPosition;
             }
@@ -70,7 +67,7 @@ namespace MediaPlayer
         // timer 
         private void timer_Tick(object sender, EventArgs e)
         {
-            Form_Main.Instance.MediaControl.SyncWithVideo(_path, player.playState, false);
+            Form_Main.Instance.MediaControl.SyncWithVideo(_media, player.playState, false);
             SetIconVolume();
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {

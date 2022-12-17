@@ -282,31 +282,15 @@ namespace MediaPlayer.Items
 
         // Sync with video
         public VideoPlayer videoScreen = new VideoPlayer();
-        public void SyncWithVideo(string path, WMPLib.WMPPlayState status, bool isClosing)
+        public void SyncWithVideo(Media media, WMPLib.WMPPlayState status, bool isClosing)
         {
             // ten, anh, thoi luong
-            TagLib.File file = TagLib.File.Create(path);
-            gunaLabel_SongName.Text = (file.Tag.Title != null)
-                ? file.Tag.Title.ToString()
-                : Path.GetFileNameWithoutExtension(path);
-            gunaLabel_NameAthor.Text = (file.Tag.Album);
-            if (gunaLabel_NameAthor.Text == "") gunaLabel_NameAthor.Text = "UnKnow";
+            gunaLabel_SongName.Text = media.Title;
+            gunaLabel_NameAthor.Text = media.Artists;
             SetIconVolume();
-            try
-            {
-                var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
-                gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
-            }
-            catch (Exception)
-            {
-                gunaPictureBox_SongImage.Image = Resources.defaultImage;
-            }
-            finally
-            {
-                MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
-                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds / 60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds % 60);
-                
-            }
+            gunaPictureBox_SongImage.Image = media.Image;
+            MediaTrackBar.Maximum = (int)media.Duration.TotalSeconds;
+            timeSongEnd.Text = media.DurationText;
             // button
             if (status == WMPLib.WMPPlayState.wmppsPlaying)
             {
