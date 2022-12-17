@@ -50,7 +50,7 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            Form_Main.Instance.MediaControl.getPathOfSong(_media.FilePath);
+            Form_Main.Instance.ClassifyMedia(_media);
             Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
         }
 

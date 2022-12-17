@@ -30,7 +30,7 @@ namespace MediaPlayer.Items
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            Form_Main.Instance.ClassifyMedia(media.FilePath, media.MediaTypes);
+            Form_Main.Instance.ClassifyMedia(media);
             Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media.Image);
         }
         private void MediaItem_Click(object sender, EventArgs e)
@@ -41,7 +41,7 @@ namespace MediaPlayer.Items
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
-            Form_Main.Instance.ClassifyMedia(media.FilePath, media.MediaTypes);
+            Form_Main.Instance.ClassifyMedia(media);
             Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media.Image);
         }
 

@@ -18,7 +18,7 @@ namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
     {
-        public string path = null;
+        public Media _media = null;
         public delegate void PassMediaControl(MediaControl control);
         public bool isPlayingVideo = false;
         Random random = new Random(); //At class level
@@ -38,53 +38,36 @@ namespace MediaPlayer.Items
             }
             listIndexPlay = new List<int>(listIndexDefalt);
         }
-        internal void transferDataFromLib(string filePath)
+        internal void transferDataFromLib(Media media)
         {
-            path = filePath;
-            getPathOfSong(path);
+            _media = media;
+            getPathOfSong(_media);
         }
         
-        public void getPathOfSong(string path)
+        public void getPathOfSong(Media media)
         {
             if (isPlayingVideo)
             {
                 MessageBox.Show("Video is playing! Please turn off video");
                 return;
             }
-            TagLib.File file = TagLib.File.Create(path);
-            gunaLabel_SongName.Text = (file.Tag.Title != null)
-                ? file.Tag.Title.ToString()
-                : Path.GetFileNameWithoutExtension(path);
-            gunaLabel_NameAthor.Text = (file.Tag.Album);
-            if (gunaLabel_NameAthor.Text == "") gunaLabel_NameAthor.Text = "UnKnow";
-            try
-            {
-                var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
-                gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
-            }
-            catch (Exception)
-            {
-                //MessageBox.Show("Media Control , get path song: " + ex.ToString());
-                gunaPictureBox_SongImage.Image = Resources.defaultImage;
-            }
-            finally
-            {
-                MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
-                MediaTrackBar.Value = 0;
-                timeSongPlay.Text = "00:00";
-                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds / 60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds % 60);
-                btn_Play.Image = Resources.play_hover;
-                btn_Play.OnHoverImage = Resources.play_hover;
+            if (media == null) _media = media;
+            gunaLabel_SongName.Text = media.Title;
+            gunaLabel_NameAthor.Text = media.Artists;
+            gunaPictureBox_SongImage.Image = media.Image;
+            MediaTrackBar.Maximum = (int)media.Duration.TotalSeconds;
+            MediaTrackBar.Value = 0;
+            timeSongPlay.Text = "00:00";
+            timeSongEnd.Text = media.DurationText;
 
-                // Lay path gan cho PlayMedia
-                if (path != null) PlayMedia.URL = path;
-                PlayMedia.setCurrentTimePlay();
-                // Play
-                timerSong.Enabled = true;
-                btn_Play.Image = Resources.pause_hover;
-                btn_Play.OnHoverImage = Resources.pause_hover;
-                PlayMedia.playSong();
-            }
+            // Lay path gan cho PlayMedia
+            if (media.FilePath != null) PlayMedia.URL = media.FilePath;
+            PlayMedia.setCurrentTimePlay();
+            // Play
+            timerSong.Enabled = true;
+            btn_Play.Image = Resources.pause_hover;
+            btn_Play.OnHoverImage = Resources.pause_hover;
+            PlayMedia.playSong();
         }
 
         public void pauseCurrentPlayer()
@@ -259,12 +242,12 @@ namespace MediaPlayer.Items
                 {
                     if(i != MediaHelpers.listSongs.Count - 1)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i+1]].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i+1]]);
                         PlayMedia.playSong();
                     }
                     else if (i == MediaHelpers.listSongs.Count - 1 && PlayMedia.Repeat == RepeatMode.All)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[0]].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[0]]);
                         PlayMedia.playSong();
                     }
                     return;
@@ -281,7 +264,7 @@ namespace MediaPlayer.Items
                 {
                     if (i != 0)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i-1]].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i-1]]);
                         PlayMedia.playSong();
                     }
                     return;
