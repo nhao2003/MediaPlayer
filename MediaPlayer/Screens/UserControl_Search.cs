@@ -107,7 +107,7 @@ namespace MediaPlayer.Widgets
                 }
                 
                 string findMusic = gunaTextBox1.Text.ToString();
-                int xLoc = 0;
+                //int xLoc = 0;
                 int yLoc = 300;
                 //songs = new UserControl_LibrarySong[count];
                 bool isMusicFounded = false;

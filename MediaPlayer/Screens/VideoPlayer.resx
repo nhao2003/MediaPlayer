@@ -120,6 +120,9 @@
   <metadata name="timerSong.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="timer_Hide.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>275, 17</value>
+  </metadata>
   <data name="player.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
@@ -131,9 +134,6 @@
         USwAAAs=
 </value>
   </data>
-  <metadata name="timer_Hide.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>275, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pic_Avatar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -764,7 +764,7 @@
   <data name="pic_BackGround.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA4QAAAJYCAIAAAC1p7+MAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAIeNJREFUeF7t1rFtVAEQBUAauFrpzbW4BJLLIHLgAIRWesHbvx2MNEXMj7+/v+HZ
+        wAAADsABataJCQAAIeNJREFUeF7t1rFtVAEQBUAauFrpzbW4BJLLIHLgAIRWesHbvx2MNEXMj7+/v+HZ
         5xc8+/gDz37+gmevNzySUW71D4j6B0T9A2IVBIaMcqt/QNQ/IOofEKsgMGSUW/0Dov4BUf+AWAWBIaPc
         6h8Q9Q+I+gfEKggMGeVW/4Cof0DUPyBWQWDIKLf6B0T9A6L+AbEKAkNGudU/IOofEPUPiFUQGDLKrf4B
         Uf+AqH9ArILAkFFu9Q+I+gdE/QNiFQSGjHKrf0DUPyDqHxCrIDBklFv9A6L+AVH/gFgFgSGj3OofEPUP
