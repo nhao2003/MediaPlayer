@@ -36,9 +36,9 @@ namespace MediaPlayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation1 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
-            this.userControl_Music = new UserControl_ListMedia();
-            this.UserControl_Video = new UserControl_ListMedia();
+            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            this.userControl_Music = new MediaPlayer.Widgets.UserControl_ListMedia();
+            this.UserControl_Video = new MediaPlayer.Widgets.UserControl_ListMedia();
             this.gunaPanel_MediaControl = new Guna.UI.WinForms.GunaPanel();
             this.MediaControl = new MediaPlayer.Items.MediaControl();
             this.Panel_SlidingBar = new Guna.UI.WinForms.GunaPanel();
@@ -82,6 +82,7 @@ namespace MediaPlayer
             this.userControl_Music.Name = "userControl_Music";
             this.userControl_Music.Size = new System.Drawing.Size(946, 607);
             this.userControl_Music.TabIndex = 0;
+            this.userControl_Music.Title = null;
             // 
             // UserControl_Video
             // 
@@ -91,6 +92,7 @@ namespace MediaPlayer
             this.UserControl_Video.Name = "UserControl_Video";
             this.UserControl_Video.Size = new System.Drawing.Size(946, 607);
             this.UserControl_Video.TabIndex = 0;
+            this.UserControl_Video.Title = null;
             // 
             // gunaPanel_MediaControl
             // 
@@ -424,9 +426,8 @@ namespace MediaPlayer
             // 
             this.tabPage_Search.Controls.Add(this.userControl_Search1);
             this.tabPage_Search.Location = new System.Drawing.Point(4, 4);
-            this.tabPage_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage_Search.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Search.Name = "tabPage_Search";
-            this.tabPage_Search.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage_Search.Size = new System.Drawing.Size(946, 607);
             this.tabPage_Search.TabIndex = 1;
             this.tabPage_Search.Text = "tabPage_Search";
@@ -434,11 +435,12 @@ namespace MediaPlayer
             // 
             // userControl_Search1
             // 
+            this.userControl_Search1.BackColor = System.Drawing.Color.Black;
             this.userControl_Search1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Search1.Location = new System.Drawing.Point(3, 2);
+            this.userControl_Search1.Location = new System.Drawing.Point(0, 0);
             this.userControl_Search1.Margin = new System.Windows.Forms.Padding(0);
             this.userControl_Search1.Name = "userControl_Search1";
-            this.userControl_Search1.Size = new System.Drawing.Size(940, 603);
+            this.userControl_Search1.Size = new System.Drawing.Size(946, 607);
             this.userControl_Search1.TabIndex = 0;
             // 
             // tabPage_Home
@@ -478,29 +480,29 @@ namespace MediaPlayer
             this.MainPages.Multiline = true;
             this.MainPages.Name = "MainPages";
             this.MainPages.Padding = new System.Drawing.Point(0, 0);
-            this.MainPages.Page = this.tabPage_Library;
-            this.MainPages.PageIndex = 4;
-            this.MainPages.PageName = "tabPage_Library";
-            this.MainPages.PageTitle = "tabPage_Library";
+            this.MainPages.Page = this.tabPage_Home;
+            this.MainPages.PageIndex = 0;
+            this.MainPages.PageName = "tabPage_Home";
+            this.MainPages.PageTitle = "tabPage_Home";
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(954, 636);
             this.MainPages.TabIndex = 15;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.MainPages.Transition = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 1F;
+            this.MainPages.Transition = animation2;
             this.MainPages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             // 
             // Form_Main

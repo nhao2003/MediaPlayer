@@ -15,9 +15,11 @@ namespace MediaPlayer
 {
     public partial class VideoPlayer : Form
     {
+        private DateTime date = DateTime.Now;
         public VideoPlayer()
         {
             InitializeComponent();
+            timer_Hide.Start();
         }
         private void VideoPlayer_Load(object sender, EventArgs e)
         {
@@ -224,5 +226,26 @@ namespace MediaPlayer
             }
         }
 
+        private void timer_Hide_Tick(object sender, EventArgs e)
+        {
+            if (DateTime.Now > date)
+            {
+                panel1.Visible = false;
+            }
+            else if (DateTime.Now <= date)
+            {
+                panel1.Visible = true;
+            }
+        }
+        private int x = 0;
+        private int y = 0;
+
+        private void player_MouseMoveEvent(object sender, AxWMPLib._WMPOCXEvents_MouseMoveEvent e)
+        {
+            if (e.fX != x && e.fY != y)
+                date = DateTime.Now + TimeSpan.FromSeconds(5);
+            x = e.fX;
+            y = e.fY;
+        }
     }
 }

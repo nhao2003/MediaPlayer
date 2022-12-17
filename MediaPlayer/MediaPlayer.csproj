@@ -243,12 +243,6 @@
     <Compile Include="Screens\UserControl_Settings.Designer.cs">
       <DependentUpon>UserControl_Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="Screens\VideoCopy.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Screens\VideoCopy.Designer.cs">
-      <DependentUpon>VideoCopy.cs</DependentUpon>
-    </Compile>
     <Compile Include="Screens\VideoPlayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,9 +306,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Settings.resx">
       <DependentUpon>UserControl_Settings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Screens\VideoCopy.resx">
-      <DependentUpon>VideoCopy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\VideoPlayer.resx">
       <DependentUpon>VideoPlayer.cs</DependentUpon>
