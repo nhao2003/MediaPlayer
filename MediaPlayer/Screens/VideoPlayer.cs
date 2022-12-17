@@ -36,6 +36,7 @@ namespace MediaPlayer
             if (_media != null) PlayMedia.URL = _media.FilePath;
             PlayMedia.CurrentTimePlay = currentTimePlay + 0.4;
             Form_Main.Instance.MediaControl.SyncWithVideo(_media, player.playState, true);
+            Form_Main.Instance.Show();
         }
 
         public double timeSkip = 10;
@@ -86,6 +87,7 @@ namespace MediaPlayer
             {
                 Form_Main.Instance.MediaControl.isPlayingVideo = false;
                 this.Close();
+                Form_Main.Instance.Show();
             }
         }
         private string getDurationStringSong()

@@ -78,6 +78,7 @@ namespace MediaPlayer
             if(n == 2) _oldButton = btn_Music;
             else _oldButton = btn_Video;
         }
+        VideoPlayer videoScreen = new VideoPlayer();
         public void ClassifyMedia(Media media)
         {
             if (media.MediaTypes == MediaTypes.Audio)
@@ -89,12 +90,16 @@ namespace MediaPlayer
             {
                 try
                 {
+                    if (videoScreen.Visible == false)
+                    {
+                        videoScreen = new VideoPlayer();
+                        videoScreen.Show();
+                    }
                     MediaControl.pauseCurrentPlayer();
-                    VideoPlayer videoScreen = new VideoPlayer();
                     videoScreen.getPathOfSong(media);
                     MediaControl.isPlayingVideo = true;
                     MediaControl.videoScreen = videoScreen;
-                    if (videoScreen.Visible == false) videoScreen.Show();
+                    this.Hide();
                 }
                 catch(Exception ex)
                 {
