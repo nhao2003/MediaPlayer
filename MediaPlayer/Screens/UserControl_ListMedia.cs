@@ -18,46 +18,36 @@ namespace MediaPlayer.Widgets
         public delegate void Send(string path, MediaTypes mediaTypes);
         public Send sendPath;
 
-        private string title;
-
         /// <summary>
         /// Get or Set UserControl MediaList Title
         /// </summary>
         public string Title
         {
-            get => title;
+            get => lb_Title.Text;
             set
             {
                 lb_Title.Text = value;
-                title = value;
             }
-
         }
 
+        private List<Media> _listMedia;
         /// <summary>
         /// Get or Set List Media
         /// </summary>
-        private List<Media> listMedia = new List<Media>();
-
-        public List<Media> ListMedia
-        {
-            get => listMedia;
+        public List<Media> ListMedia {
+            get => _listMedia??(_listMedia = new List<Media>());
             set
             {
-                listMedia = value;
                 pn_Display.Controls.Clear();
-                GroupMedia group = new GroupMedia("A", ListMedia)
-                {
-                    Dock = DockStyle.Top
-                };
-                GroupMedia gp = new GroupMedia("B", ListMedia)
+                _listMedia = value;
+                GroupMedia group = new GroupMedia("A", _listMedia)
                 {
                     Dock = DockStyle.Top
                 };
                 pn_Display.Controls.Add(group);
-                pn_Display.Controls.Add(gp);
             }
         }
+
         public UserControl_ListMedia()
         {
             InitializeComponent();

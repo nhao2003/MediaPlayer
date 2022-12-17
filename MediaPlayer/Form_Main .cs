@@ -101,6 +101,13 @@ namespace MediaPlayer
                 }
             }
         }
+
+        public void DisplayPlayList(Playlist playlist)
+        {
+            userControl_PlayList.Title = playlist.PlayListName;
+            userControl_PlayList.ListMedia = playlist.ListMedia;
+            MainPages.SetPage(6);
+        }
         public void rebuildHome()
         {
             this.tabPage_Home.Controls.Remove(this.userControl_Home1);

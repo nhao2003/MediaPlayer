@@ -33,21 +33,22 @@ namespace MediaPlayer.Items
             {
                 return;
             } 
+            Form_Main.Instance.DisplayPlayList(playlist);
         }
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)
         {
-            this.panel_MediaItem.BaseColor = Color.FromArgb(40, 40, 40);
+            panel_MediaItem.BaseColor = Color.FromArgb(40, 40, 40);
         }
 
         private void panel_MediaItem_MouseHover(object sender, EventArgs e)
         {
-            this.panel_MediaItem.BaseColor = Color.FromArgb(40, 40, 40);
+            panel_MediaItem.BaseColor = Color.FromArgb(40, 40, 40);
         }
 
         private void label_Author_MouseLeave(object sender, EventArgs e)
         {
-            this.panel_MediaItem.BaseColor = Color.FromArgb(24, 24, 24);
+            panel_MediaItem.BaseColor = Color.FromArgb(24, 24, 24);
         }
 
     }
