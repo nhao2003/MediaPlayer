@@ -116,7 +116,7 @@ namespace MediaPlayer.Widgets
                 
                 manageSort.SaveToDatabase();
                 
-                manageSort.LoadSongOntoScreen(ref filePaths);
+                manageSort.LoadSongOntoScreen();
             }
             catch (Exception ex)
             {

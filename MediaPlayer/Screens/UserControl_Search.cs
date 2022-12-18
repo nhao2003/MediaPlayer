@@ -17,136 +17,40 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Search : UserControl
     {
+        static SortHandling searchAndSort;
+        static string defaultMusicPath = null, defaultVideoPath = null;
+        private List<Media> textSearchMedia = new List<Media>();
+
         public UserControl_Search()
         {
             InitializeComponent();
+            searchAndSort = new SortHandling(pn_Search);
+            Init();
         }
-        static Media[] SongList;
-        static MediaPanel[] songs;
-        static string[] split;
-        static TagLib.File[] f;
-        static int count = new int();
-        static GunaLabel nothingWasFound = null;
-        private void gunaTextBox1_KeyDown(object sender, KeyEventArgs e)
+
+        internal static void GetMusicVideoPath(string musicPath, string videoPath)
         {
-            if (e.KeyCode == Keys.Enter)
+            defaultMusicPath = musicPath;
+            defaultVideoPath = videoPath;
+        }
+
+        public void Init()
+        {
+            List<string> defaultFiles = new List<string>();
+
+            try
             {
-                if (nothingWasFound == null)
-                {
-                    this.Controls.Remove(nothingWasFound);
-                }
-
-                if (count != 0)
-                {
-                    for (int i = 0; i < count; i++)
-                    {
-                        gunaElipsePanel3.Controls.Remove(songs[i]);
-                    }
-                }
-
-                string dbFilepath = GetDatabaseFilepath();
-                try
-                {
-                    using (StreamReader reader = new StreamReader(dbFilepath))
-                    {
-                        string line;
-                        count = 0;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (count == 0)
-                            {
-                                count++;
-                                continue;
-                            }
-                            count++;
-                        }
-                        // accounted for sep; line 
-                        // accounted for columnheader_line
-                        count = count - 2;
-                    }
-
-                    using (StreamReader reader = new StreamReader(dbFilepath))
-                    {
-                        string line;
-                        int idx = 0;
-                        SongList = new Media[count];
-                        f = new TagLib.File[count];
-                        bool firstLine = true;
-                        bool secondLine = true;
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            // pass sep; line
-                            if (firstLine)
-                            {
-                                firstLine = false;
-                                continue;
-                            }
-                            // pass column_header line
-                            else if (secondLine)
-                            {
-                                secondLine = false;
-                                continue;
-                            }
-                            // MessageBox.Show(line);
-                            split = line.Split(';');
-                            SongList[idx] = new Media();
-                            SongList[idx].Title = split[0];
-                            SongList[idx].Artists = split[1];
-                            SongList[idx].FilePath = split[2];
-                            f[idx] = TagLib.File.Create(split[2]);
-                            SongList[idx].Album = split[3];
-                            SongList[idx].Duration = TimeSpan.Parse(split[4]);
-                            SongList[idx].DateAdded = DateTime.Parse(split[5]);
-                            SongList[idx].IsLiked = bool.Parse(split[6]);
-                            idx = idx + 1;
-                        }
-                    }
-                }
-
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-
-                string findMusic = gunaTextBox1.Text.ToString();
-                int xLoc = 0;
-                int yLoc = 300;
-                songs = new MediaPanel[count];
-                bool isMusicFounded = false;
-                for (int i = 0; i < count; i++)
-                {
-                    //  -> not case insensitive
-                    bool findTitle = SongList[i].Title.IndexOf(findMusic, StringComparison.OrdinalIgnoreCase) >= 0;
-                    bool findArtists = SongList[i].Artists.IndexOf(findMusic, StringComparison.OrdinalIgnoreCase) >= 0;
-                    bool findAlbum = SongList[i].Album.IndexOf(findMusic, StringComparison.OrdinalIgnoreCase) >= 0;
-                    if (!findTitle && !findAlbum && !findArtists) continue;
-                    // if (!SongList[i].Title.Contains(findMusic)) continue;
-                    isMusicFounded = true;
-                    songs[i] = new MediaPanel();
-                    songs[i].Location = new Point(xLoc, yLoc);
-                    songs[i].Dock = DockStyle.Top;
-                    songs[i].InitializeSongItem(f[i], SongList[i].FilePath, i + 1);
-                    yLoc += 100;
-                    gunaElipsePanel3.Controls.Add(songs[i]);
-                }
-
-                if (!isMusicFounded)
-                {
-                    nothingWasFound = new GunaLabel();
-                    nothingWasFound.Text = "Kiem tra chinh ta cua ban hoac kiem noi dung khac";
-                    nothingWasFound.Font = new Font("Inter", 14, FontStyle.Bold);
-                    nothingWasFound.Width = 800;
-                    nothingWasFound.Height = 100;
-                    nothingWasFound.Location = new Point(0, 300);
-                    nothingWasFound.Dock = DockStyle.Top;
-                    gunaElipsePanel3.Controls.Add(nothingWasFound);
-                }
+                defaultFiles = Directory.GetFiles(defaultMusicPath, "*.*", SearchOption.AllDirectories)
+                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg")).ToList();
             }
-        }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-        private static string GetDatabaseFilepath()
-        {
-            return System.IO.Directory.GetCurrentDirectory() + "\\Song.csv";
+            searchAndSort.AddMusicDataToLists(ref defaultFiles);
+
+            searchAndSort.SaveToDatabase();
         }
 
         private void gunaTextBox1_Enter(object sender, EventArgs e)
@@ -164,6 +68,66 @@ namespace MediaPlayer.Widgets
             {
                 gunaTextBox1.Text = "Nhập tên nhạc / Album / Ca sĩ";
                 gunaTextBox1.ForeColor = Color.Green;
+            }
+        }
+
+        private void ChangeSortEvent(object sender, EventArgs e)
+        {
+            try
+            {
+                // Goi ham xoa cac category panel, music panel
+                searchAndSort.ResetUserControl();
+
+                // Dua tren lua chon tren combobox ma tien hanh sort
+                string selectedChoice = gunaComboBox1.SelectedItem.ToString();
+
+                if (selectedChoice == "A to Z") searchAndSort.SortByAtoZ(textSearchMedia);
+
+                else if (selectedChoice == "Date added") searchAndSort.SortByDateAdded(textSearchMedia);
+
+                else if (selectedChoice == "Album") searchAndSort.SortByAlbum(textSearchMedia);
+
+                else if (selectedChoice == "Artist") searchAndSort.SortByArtist(textSearchMedia);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void EventClickRefresh(object sender, EventArgs e)
+        {
+            searchAndSort.ResetUserControl();
+            Init();
+        }
+
+        private void EventSearchText(object sender, EventArgs e)
+        {
+            string searchText = gunaTextBox1.Text;
+
+            SearchSongByText(searchText);
+
+            if (textSearchMedia.Count <= 0) MessageBox.Show("Không có bài nào trùng kết quả tìm kiếm");
+            else
+            {
+                searchAndSort.ResetUserControl();
+                searchAndSort.LoadSongOntoScreen(textSearchMedia);
+            }
+        }
+
+        private void SearchSongByText(string searchText)
+        {
+            textSearchMedia = new List<Media>();
+            foreach (var item in searchAndSort.GetListMedia())
+            {
+                bool isFoundTitle = item.Title.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool isFoundAlbum = item.Album.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool isFoundArtists = item.Artists.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
+
+                if (isFoundTitle == true || isFoundArtists == true || isFoundAlbum == true)
+                {
+                    textSearchMedia.Add(item);
+                }
             }
         }
     }

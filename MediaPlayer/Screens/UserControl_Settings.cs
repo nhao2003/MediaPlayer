@@ -17,14 +17,19 @@ namespace MediaPlayer.Widgets
         public delegate void Rebuild();
         public Rebuild rebuild;
         public delegate void GetMusicVideoDirectory(string musicPath, string videoPath);
+
         internal void SendMusicVideoDirectory()
         {
-            GetMusicVideoDirectory sendDirectoryToLib = new GetMusicVideoDirectory(UserControl_Library.GetMusicVideoPath);
-            sendDirectoryToLib(musicFolderPath, videoFolderPath);
+            GetMusicVideoDirectory sendDirectoryToLibraryTab = new GetMusicVideoDirectory(UserControl_Library.GetMusicVideoPath);
+            sendDirectoryToLibraryTab(musicFolderPath, videoFolderPath);
 
-            GetMusicVideoDirectory sendDirectoryToMusic = new GetMusicVideoDirectory(UserControl_ListMedia.GetMusicVideoPath);
-            sendDirectoryToMusic(musicFolderPath, videoFolderPath);
+            GetMusicVideoDirectory sendDirectoryToMusicTab = new GetMusicVideoDirectory(UserControl_ListMedia.GetMusicVideoPath);
+            sendDirectoryToMusicTab(musicFolderPath, videoFolderPath);
+
+            GetMusicVideoDirectory sendDirectoryToSearchTab = new GetMusicVideoDirectory(UserControl_Search.GetMusicVideoPath);
+            sendDirectoryToSearchTab(musicFolderPath, videoFolderPath);
         }
+
         //public string musicFolderPath = "C:\\users\\Administrator\\Music";
         //public string videoFolderPath = "C:\\users\\Administrator\\Videos";
         public string musicFolderPath = MediaHelpers.MusicPathFolder;

@@ -28,12 +28,19 @@ namespace MediaPlayer.Items
 
         public SortHandling()
         {
+
         }
 
         public SortHandling(GunaPanel panelContainingMusicRows)
         {
             this.PanelContainingMusicRows = panelContainingMusicRows;
         }
+
+        public List<Media> GetListMedia()
+        {
+            return songList;
+        }
+
         internal void ResetUserControl()
         {
             try
@@ -96,15 +103,27 @@ namespace MediaPlayer.Items
             return false;
         }
 
-        public void LoadSongOntoScreen(ref List<string> filePaths)
+        public void LoadSongOntoScreen(List<Media> listSongNeedToBeLoaded = null)
         {
+            List<Media> loadSongs;
+
+            if (listSongNeedToBeLoaded == null)
+            {
+                loadSongs = new List<Media>(songList);
+            }
+
+            else
+            {
+                loadSongs = new List<Media>(listSongNeedToBeLoaded);
+            }
+
             // Load cac music song thanh cac panel len form
-            for (int i = 0; i < songList.Count; i++)
+            for (int i = 0; i < loadSongs.Count; i++)
             {
                 MusicRow temp = new MusicRow();
                 temp.Location = new Point(displayPanelLocation.X, displayPanelLocation.Y);
                 temp.Dock = DockStyle.Top;
-                temp.InitializeSongItem(songList[i]);
+                temp.InitializeSongItem(loadSongs[i]);
                 songs.Add(temp);
                 displayPanelLocation.Y += 100;
                 PanelContainingMusicRows.Controls.Add(temp);
@@ -127,9 +146,18 @@ namespace MediaPlayer.Items
             // File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
         }
 
-        public void SortByAtoZ()
+        public void SortByAtoZ(List<Media> listNeedToBeSorted = null)
         {
-            var songlist = new List<Media>(songList);
+            List<Media> songlist;
+
+            if (listNeedToBeSorted == null)
+            {
+                songlist = new List<Media>(songList);
+            }
+            else
+            {
+                songlist = new List<Media>(listNeedToBeSorted);
+            }
 
             ResetPanelLocation();
 
@@ -148,9 +176,18 @@ namespace MediaPlayer.Items
             }
         }
 
-        public void SortByDateAdded()
+        public void SortByDateAdded(List<Media> listNeedToBeSorted = null)
         {
-            var songlist = new List<Media>(songList);
+            List<Media> songlist;
+
+            if (listNeedToBeSorted == null)
+            {
+                songlist = new List<Media>(songList);
+            }
+            else
+            {
+                songlist = new List<Media>(listNeedToBeSorted);
+            }
 
             ResetPanelLocation();
 
@@ -169,9 +206,18 @@ namespace MediaPlayer.Items
             }
         }
 
-        public void SortByArtist()
+        public void SortByArtist(List<Media> listNeedToBeSorted = null)
         {
-            var songlist = new List<Media>(songList);
+            List<Media> songlist;
+
+            if (listNeedToBeSorted == null)
+            {
+                songlist = new List<Media>(songList);
+            }
+            else
+            {
+                songlist = new List<Media>(listNeedToBeSorted);
+            }
 
             ResetPanelLocation();
 
@@ -190,9 +236,18 @@ namespace MediaPlayer.Items
             }
         }
 
-        public void SortByAlbum()
+        public void SortByAlbum(List<Media> listNeedToBeSorted = null)
         {
-            var songlist = new List<Media>(songList);
+            List<Media> songlist;
+
+            if (listNeedToBeSorted == null)
+            {
+                songlist = new List<Media>(songList);
+            }
+            else
+            {
+                songlist = new List<Media>(listNeedToBeSorted);
+            }
 
             ResetPanelLocation();
 
@@ -230,14 +285,19 @@ namespace MediaPlayer.Items
                 foreach (var song in group.Reverse())
                 {
                     MusicRow songdisplay = new MusicRow();
+
                     TagLib.File temp = TagLib.File.Create(song.FilePath);
+
                     songdisplay.Dock = DockStyle.Top;
                     songdisplay.InitializeSongItem(song);
+
                     PanelContainingMusicRows.Controls.Add(songdisplay);
                     songs.Add(songdisplay);
+
                     displayPanelLocation.Y += 100;
                 }
                 displayPanelLocation.Y -= 100;
+
                 CategoryPanel category_display = new CategoryPanel();
                 SetCategoryPanelAttribute(ref category_display, displayPanelLocation, group.Key.ToString());
 
