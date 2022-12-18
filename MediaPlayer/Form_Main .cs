@@ -19,12 +19,15 @@ namespace MediaPlayer
         public Form_Main()
         {
             InitializeComponent();
+            userControl_Music.Title = "Music";
+            UserControl_Video.Title = "Video";
+            userControl_Music.ListMedia = MediaHelpers.listSongs;
+            UserControl_Video.ListMedia = MediaHelpers.listVideos;
         }
         private void Form_Main_Load(object sender, EventArgs e)
         {
             userControl_Settings1.rebuild = new UserControl_Settings.Rebuild(rebuildHome);
         }
-
         private static Form_Main instance = new Form_Main();
 
         public static Form_Main Instance
@@ -75,17 +78,41 @@ namespace MediaPlayer
             if(n == 2) _oldButton = btn_Music;
             else _oldButton = btn_Video;
         }
-
-        public void ClassifyMedia(String s, MediaTypes mediaTypes)
+        VideoPlayer videoScreen = new VideoPlayer();
+        public void ClassifyMedia(Media media)
         {
-            if (mediaTypes == MediaTypes.Audio) MediaControl.getPathOfSong(s);
+            if (media.MediaTypes == MediaTypes.Audio)
+            {
+                if(media != null)
+                    MediaControl.getPathOfSong(media);
+            }
             else
             {
-                MediaControl.pauseCurrentPlayer();
-                VideoPlayer videoScreen = new VideoPlayer();
-                videoScreen.Show();
-                videoScreen.getPathOfSong(s);
+                try
+                {
+                    if (videoScreen.Visible == false)
+                    {
+                        videoScreen = new VideoPlayer();
+                        videoScreen.Show();
+                    }
+                    MediaControl.pauseCurrentPlayer();
+                    videoScreen.getPathOfSong(media);
+                    MediaControl.isPlayingVideo = true;
+                    MediaControl.videoScreen = videoScreen;
+                    this.Hide();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
+        }
+
+        public void DisplayPlayList(Playlist playlist)
+        {
+            userControl_PlayList.Title = playlist.PlayListName;
+            userControl_PlayList.ListMedia = playlist.ListMedia;
+            MainPages.SetPage(6);
         }
         public void rebuildHome()
         {

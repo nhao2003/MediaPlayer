@@ -157,6 +157,7 @@ namespace MediaPlayer.Models
         /// <param name="mediaImage">Ảnh</param>
         public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
         {
+            this.id = Guid.NewGuid().ToString("N");
             this.title = (title != null)? title : "Unknown";
             this.artists = (artist != null) ? artist : "Unknown";
             this.album = (album != null) ? album : "Unknown";
@@ -174,13 +175,14 @@ namespace MediaPlayer.Models
         {
             TagLib.File taglib = TagLib.File.Create(path);
 
-            this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : "Unknow";
+            this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
             this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = DateTime.Now;
             this.filePath = path;
             this.mediaType = taglib.Properties.MediaTypes;
             this.others = taglib;
+            
             if (taglib.Tag.Pictures.Length > 0)
             {
                 var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);

@@ -21,27 +21,34 @@ namespace MediaPlayer.Widgets
     {
         public delegate void Send(string path, MediaTypes mediaTypes);
         public Send sendPath;
+
         /// <summary>
         /// Get or Set UserControl MediaList Title
         /// </summary>
-        public String Title
+        public string Title
         {
             get => lb_Title.Text;
-            set => lb_Title.Text = value;
+            set
+            {
+                lb_Title.Text = value;
+            }
         }
+
+        private List<Media> _listMedia;
         /// <summary>
         /// Get or Set List Media
         /// </summary>
-        private List<Media> ListMedia = new List<Media>();
-        public void sendChildPath(String s, MediaTypes mediaTypes)
-        {
-            if (mediaTypes == MediaTypes.Audio) Form_Main.Instance.MediaControl.getPathOfSong(s);
-            else
+        public List<Media> ListMedia {
+            get => _listMedia??(_listMedia = new List<Media>());
+            set
             {
-                Form_Main.Instance.MediaControl.getPathOfSong(s);
-                VideoPlayer videoScreen = new VideoPlayer();
-                videoScreen.Show();
-                videoScreen.getPathOfSong(s);
+                pn_Display.Controls.Clear();
+                _listMedia = value;
+                GroupMedia group = new GroupMedia("A", _listMedia)
+                {
+                    Dock = DockStyle.Top
+                };
+                pn_Display.Controls.Add(group);
             }
         }
 

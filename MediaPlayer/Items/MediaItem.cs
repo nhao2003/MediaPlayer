@@ -16,12 +16,10 @@ namespace MediaPlayer.Items
 {
     public partial class MediaItem : UserControl
     {
-        private Media Media;
-        MediaTypes mediaTypes;
-        public MediaItem(Media media, MediaTypes mediaTypes)
+        private Media media;
+        public MediaItem(Media media)
         {
-            this.Media = media;
-            this.mediaTypes = mediaTypes;
+            this.media = media;
             InitializeComponent();
             contextMenu.Tag = media;
             label_NameSong.Text = media.Title;
@@ -32,8 +30,8 @@ namespace MediaPlayer.Items
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            Form_Main.Instance.ClassifyMedia(Media.FilePath, mediaTypes);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(Media.Image);
+            Form_Main.Instance.ClassifyMedia(media);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media.Image);
         }
         private void MediaItem_Click(object sender, EventArgs e)
         {
@@ -43,8 +41,8 @@ namespace MediaPlayer.Items
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
-            Form_Main.Instance.ClassifyMedia(Media.FilePath, mediaTypes);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(Media.Image);
+            Form_Main.Instance.ClassifyMedia(media);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media.Image);
         }
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)

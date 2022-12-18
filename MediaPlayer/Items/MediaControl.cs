@@ -12,17 +12,18 @@ using MediaPlayer.Models;
 using System.IO;
 using MediaPlayer.Widgets;
 using System.Numerics;
+using TagLib.Riff;
 
 namespace MediaPlayer.Items
 {
     public partial class MediaControl : UserControl
     {
-        public string path = null;
+        public Media _media = null;
         public delegate void PassMediaControl(MediaControl control);
-        public bool repeatSong = false;
-        public bool repeatPlaylist = false;
+        public bool isPlayingVideo = false;
         Random random = new Random(); //At class level
-        List<int> listIndex = new List<int>(); //At class level
+        static List<int> listIndexDefalt = new List<int>(); //At class level
+        List<int> listIndexPlay;
         public MediaControl()
         {
             InitializeComponent();
@@ -35,84 +36,46 @@ namespace MediaPlayer.Items
             // genera new list index of song
             for(int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
-                listIndex.Add(i);
+                listIndexDefalt.Add(i);
             }
+            listIndexPlay = new List<int>(listIndexDefalt);
         }
-        internal void transferDataFromLib(string filePath)
+        internal void transferDataFromLib(Media media)
         {
-            path = filePath;
-            getPathOfSong(path);
+            _media = media;
+            getPathOfSong(_media);
         }
-        private void ChangeRepeatMode()
+        
+        public void getPathOfSong(Media media)
         {
-            if (repeatSong == false && repeatPlaylist == false)
+            if (isPlayingVideo)
             {
-                repeatSong = true;
-                repeatPlaylist = false;
+                MessageBox.Show("Video is playing! Please turn off video");
+                return;
             }
-            else if (repeatSong == true && repeatPlaylist == false)
-            {
-                repeatSong = false;
-                repeatPlaylist = true;
-            }
-            else if (repeatSong == false && repeatPlaylist == true)
-            {
-                repeatSong = false;
-                repeatPlaylist = false;
-            }
-        }
+            if (media == null) _media = media;
+            gunaLabel_SongName.Text = media.Title;
+            gunaLabel_NameAthor.Text = media.Artists;
+            gunaPictureBox_SongImage.Image = media.Image;
+            MediaTrackBar.Maximum = (int)media.Duration.TotalSeconds;
+            MediaTrackBar.Value = 0;
+            timeSongPlay.Text = "00:00";
+            timeSongEnd.Text = media.DurationText;
 
-        private void RandomMode()
-        {
-            List<int> listRanIndex = new List<int>();
-            // create array int 0 -> count with random
-            //int n = random.Next(0,litst)
-            // change the next fuction with new array
-        }
-        public void getPathOfSong(string path)
-        {
-            TagLib.File file = TagLib.File.Create(path);
-            gunaLabel_SongName.Text = (file.Tag.Title);
-            gunaLabel_NameAthor.Text = (file.Tag.Album);
-            try
-            {
-                var ff = TagLib.File.Create(path);
-                byte[] bin;
-                if (file.Tag.Pictures.Length > 0)
-                {
-                    bin = (byte[])(file.Tag.Pictures[0].Data.Data);
-                    gunaPictureBox_SongImage.Image = Image.FromStream(new MemoryStream(bin));
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                // Lay path gan cho PlayMedia
-                if (path != null) PlayMedia.setURL(path);
-
-                MediaTrackBar.Maximum = (int)file.Properties.Duration.TotalSeconds;
-                MediaTrackBar.Value = 0;
-                timeSongPlay.Text = "00:00";
-                timeSongEnd.Text = string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds / 60) + ":" + string.Format("{0:00}", (int)file.Properties.Duration.TotalSeconds % 60);
-                btn_Play.Image = Resources.play_hover;
-                btn_Play.OnHoverImage = Resources.play_hover;
-
-                PlayMedia.setCurrentTimePlay();
-                // Play
-                timerSong.Enabled = true;
-                btn_Play.Image = Resources.pause_hover;
-                btn_Play.OnHoverImage = Resources.pause_hover;
-                PlayMedia.playSong();
-            }
+            // Lay path gan cho PlayMedia
+            if (media.FilePath != null) PlayMedia.URL = media.FilePath;
+            PlayMedia.setCurrentTimePlay();
+            // Play
+            timerSong.Enabled = true;
+            btn_Play.Image = Resources.pause_hover;
+            btn_Play.OnHoverImage = Resources.pause_hover;
+            PlayMedia.playSong();
         }
 
         public void pauseCurrentPlayer()
         {
-            if (PlayMedia.IsFirst() == false) return;
-            if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+            if (PlayMedia.IsFirst == false) return;
+            if (PlayMedia.Status == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 timerSong.Enabled = false;
                 btn_Play.Image = Resources.play_hover;
@@ -124,15 +87,22 @@ namespace MediaPlayer.Items
         {
             try
             {
-                if (PlayMedia.IsFirst() == false) return;
-                if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPlaying)
+                // adjust video
+                if (isPlayingVideo)
+                {
+                    videoScreen.click_btn_play();
+                    return;
+                }
+                // adjust song
+                if (PlayMedia.IsFirst == false) return;
+                if (PlayMedia.Status == WMPLib.WMPPlayState.wmppsPlaying)
                 {
                     timerSong.Enabled = false;
                     btn_Play.Image = Resources.play_hover;
                     btn_Play.OnHoverImage = Resources.play_hover;
                     PlayMedia.pauseSong();
                 }
-                else if (PlayMedia.getStatus() == WMPLib.WMPPlayState.wmppsPaused)
+                else if (PlayMedia.Status == WMPLib.WMPPlayState.wmppsPaused)
                 {
                     btn_Play.Image = Resources.pause_hover;
                     btn_Play.OnHoverImage = Resources.pause_hover;
@@ -157,22 +127,20 @@ namespace MediaPlayer.Items
         {
             if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                MediaTrackBar.Maximum = (int)PlayMedia.getDurationSong();
-                MediaTrackBar.Value = (int)PlayMedia.getCurrentPositionSong();
-                timeSongPlay.Text = PlayMedia.getCurrentPositionStringSong();
-                timeSongEnd.Text = PlayMedia.getDurationStringSong();
+                MediaTrackBar.Maximum = (int)PlayMedia.DurationSong;
+                MediaTrackBar.Value = (int)PlayMedia.CurrentPositionSong;
+                timeSongPlay.Text = PlayMedia.CurrentPositionStringSong;
+                timeSongEnd.Text = PlayMedia.DurationStringSong;
                 btn_Play.Image = Resources.pause_hover;
                 btn_Play.OnHoverImage = Resources.pause_hover;
                 PlayMedia.setCurrentTimePlay();
             }
             else if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
-                if (repeatSong)
+                if (PlayMedia.Repeat == RepeatMode.One)
                 {
                     // lap lai bai hat
                     timerSong.Enabled = true;
-                    //btn_Play.Image = Resources.pause_hover;
-                    //btn_Play.OnHoverImage = Resources.pause_hover;
                     PlayMedia.playSong();
                 }
                 else
@@ -184,19 +152,40 @@ namespace MediaPlayer.Items
 
         private void MediaTrackBar_MouseDown(object sender, MouseEventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.setCurrentPosition(e.X, MediaTrackBar.Width);
+                return;
+            }
+            // adjust song
+            if (PlayMedia.IsFirst == false) return;
             PlayMedia.setCurrentPosition(e.X, MediaTrackBar.Width);
         }
         private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
-            PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.changeVolume(gunaTrackBar_Volume.Value);
+                return;
+            }
+            // adjust song
+            if (PlayMedia.IsFirst == false) return;
+            PlayMedia.Volume = gunaTrackBar_Volume.Value;
             SetIconVolume();
         }
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
-            PlayMedia.setVolume(gunaTrackBar_Volume.Value);
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.changeVolume(gunaTrackBar_Volume.Value);
+                return;
+            }
+            // adjust song
+            if (PlayMedia.IsFirst == false) return;
+            PlayMedia.Volume = gunaTrackBar_Volume.Value;
             SetIconVolume();
         }
 
@@ -204,7 +193,6 @@ namespace MediaPlayer.Items
 
         private void SetIconVolume()
         {
-            if (PlayMedia.IsFirst() == false) return;
             if (gunaTrackBar_Volume.Value == 0)
             {
                 btn_Volume.Image = Resources.volume_mute;
@@ -220,11 +208,17 @@ namespace MediaPlayer.Items
                 btn_Volume.Image = Resources.volume_high;
                 btn_Volume.OnHoverImage = Resources.volume_high_hover;
             }
-            
         }
         private void gunaCircleButton_Volume_Click(object sender, EventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
+            // adjust video
+            if (isPlayingVideo)
+            {
+                videoScreen.changeMute();
+                return;
+            }
+            // adjust song
+            if (PlayMedia.IsFirst == false) return;
             if (PlayMedia.player.settings.volume != 0)
             {
                 PlayMedia.muteVolume();
@@ -233,26 +227,29 @@ namespace MediaPlayer.Items
             }
             else
             {
-                PlayMedia.setVolume(volumeNow);
+                PlayMedia.Volume = volumeNow;
                 gunaTrackBar_Volume.Value = volumeNow;
             }
             SetIconVolume();
         }
         private void gunaCircleButton_next_Click(object sender, EventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
+            if (PlayMedia.IsFirst == false) return;
+            // listIndexPlay has array 0 1 2 3 4 ...
+            // in suffer Mode 0 1 3 2 5 4 ....
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
-                if(MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
+                //MessageBox.Show(i.ToString());
+                if(MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
                     if(i != MediaHelpers.listSongs.Count - 1)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[i + 1].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i+1]]);
                         PlayMedia.playSong();
                     }
-                    else if (i == MediaHelpers.listSongs.Count - 1 && repeatPlaylist == true)
+                    else if (i == MediaHelpers.listSongs.Count - 1 && PlayMedia.Repeat == RepeatMode.All)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[0].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[0]]);
                         PlayMedia.playSong();
                     }
                     return;
@@ -262,16 +259,16 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_prev_Click(object sender, EventArgs e)
         {
-            if (PlayMedia.IsFirst() == false) return;
+            if (PlayMedia.IsFirst == false) return;
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
-                if (MediaHelpers.listSongs[i].FilePath == PlayMedia.Path)
+                if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
                     if (i != 0)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[i - 1].FilePath);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i-1]]);
+                        PlayMedia.playSong();
                     }
-                    PlayMedia.playSong();
                     return;
                 }
             }
@@ -279,10 +276,113 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_Like_Click(object sender, EventArgs e)
         {
-            VideoPlayer video = new VideoPlayer();
-            video.Width = 900;
-            video.Height = 600;
-            video.ShowDialog();
+            //VideoPlayer video = new VideoPlayer();
+            //video.Width = 900;
+            //video.Height = 600;
+            //video.ShowDialog();
+        }
+
+        // Sync with video
+        public VideoPlayer videoScreen = new VideoPlayer();
+        public void SyncWithVideo(Media media, WMPLib.WMPPlayState status, bool isClosing)
+        {
+            // ten, anh, thoi luong
+            gunaLabel_SongName.Text = media.Title;
+            gunaLabel_NameAthor.Text = media.Artists;
+            SetIconVolume();
+            gunaPictureBox_SongImage.Image = media.Image;
+            MediaTrackBar.Maximum = (int)media.Duration.TotalSeconds;
+            timeSongEnd.Text = media.DurationText;
+            // button
+            if (status == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                btn_Play.Image = Resources.pause_hover;
+                btn_Play.OnHoverImage = Resources.pause_hover;
+            }
+            else
+            {
+                btn_Play.Image = Resources.play_hover;
+                btn_Play.OnHoverImage = Resources.play_hover;
+            }
+            if (isClosing && status == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                timerSong.Enabled = true;
+                btn_Play.Image = Resources.pause_hover;
+                btn_Play.OnHoverImage = Resources.pause_hover;
+                PlayMedia.playSong();
+            }
+        }
+
+        private void btn_Repeat_Click(object sender, EventArgs e)
+        {
+            if (PlayMedia.Repeat == RepeatMode.Off)
+            {
+                PlayMedia.Repeat = RepeatMode.All;
+                btn_Repeat.Image = Resources.repeat_on;
+                btn_Repeat.OnHoverImage = Resources.repeat_on;
+            }
+            else if(PlayMedia.Repeat == RepeatMode.All)
+            {
+                PlayMedia.Repeat = RepeatMode.One;
+                btn_Repeat.Image = Resources.repeat_one;
+                btn_Repeat.OnHoverImage = Resources.repeat_one;
+            } else if (PlayMedia.Repeat == RepeatMode.One)
+            {
+                PlayMedia.Repeat = RepeatMode.Off;
+                btn_Repeat.Image = Resources.repeat;
+                btn_Repeat.OnHoverImage = Resources.repeat;
+            }
+        }
+
+        private void btn_Suffle_Click(object sender, EventArgs e)
+        {
+            if (PlayMedia.Suffle)
+            {
+                btn_Suffle.Image = Resources.suffle;
+                btn_Suffle.OnHoverImage = Resources.suffle;
+                PlayMedia.Suffle = false;
+                listIndexPlay = new List<int>(listIndexDefalt);
+            }
+            else
+            {
+                btn_Suffle.Image = Resources.suffle_hover;
+                btn_Suffle.OnHoverImage = Resources.suffle_hover;
+                PlayMedia.Suffle = true;
+                listIndexPlay = GetRandomListIndex();
+            }
+        }
+        // random mode
+        private List<int> GetRandomListIndex()
+        {
+            if (PlayMedia.IsFirst == false) return new List<int>(listIndexDefalt);
+            List<int> listRanIndex = new List<int>(listIndexDefalt);
+            listRanIndex.Remove(CurrentIndex);
+            int n = listRanIndex.Count;
+            while (n > 1)
+            {
+                n--;
+                int k = random.Next(n + 1);
+                int value = listRanIndex[k];
+                listRanIndex[k] = listRanIndex[n];
+                listRanIndex[n] = value;
+            }
+            listRanIndex.Insert(0, CurrentIndex);
+            return listRanIndex;
+        }
+        private int CurrentIndex
+        {
+            get
+            {
+                if (PlayMedia.IsFirst == false) return 0;
+                for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+                {
+                    if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
+                    {
+                        return i;
+                    }
+                }
+                return -1;
+            }
         }
     }
 }

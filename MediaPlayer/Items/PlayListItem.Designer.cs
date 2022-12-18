@@ -1,6 +1,6 @@
 ﻿namespace MediaPlayer.Items
 {
-    partial class MediaItem
+    partial class PlayListItem
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,7 +32,6 @@
             this.label_Author = new Guna.UI.WinForms.GunaLabel();
             this.label_NameSong = new Guna.UI.WinForms.GunaLabel();
             this.pic_SongPic = new Guna.UI.WinForms.GunaPictureBox();
-            this.contextMenu = new MediaPlayer.Items.CustomContextMenu(media);
             this.panel_MediaItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SongPic)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +47,7 @@
             this.panel_MediaItem.Location = new System.Drawing.Point(0, 0);
             this.panel_MediaItem.Name = "panel_MediaItem";
             this.panel_MediaItem.Radius = 10;
-            this.panel_MediaItem.Size = new System.Drawing.Size(200, 300);
+            this.panel_MediaItem.Size = new System.Drawing.Size(200, 270);
             this.panel_MediaItem.TabIndex = 0;
             this.panel_MediaItem.Click += new System.EventHandler(this.MediaItem_Click);
             this.panel_MediaItem.MouseEnter += new System.EventHandler(this.panel_MediaItem_MouseEnter);
@@ -57,13 +56,15 @@
             // 
             // label_Author
             // 
+            this.label_Author.AutoEllipsis = true;
+            this.label_Author.AutoSize = true;
             this.label_Author.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.label_Author.ForeColor = System.Drawing.Color.Silver;
             this.label_Author.Location = new System.Drawing.Point(3, 231);
             this.label_Author.Name = "label_Author";
-            this.label_Author.Size = new System.Drawing.Size(194, 59);
+            this.label_Author.Size = new System.Drawing.Size(51, 20);
             this.label_Author.TabIndex = 5;
-            this.label_Author.Text = "gunaLabel2";
+            this.label_Author.Text = "0 item";
             this.label_Author.Click += new System.EventHandler(this.MediaItem_Click);
             this.label_Author.MouseEnter += new System.EventHandler(this.panel_MediaItem_MouseEnter);
             this.label_Author.MouseLeave += new System.EventHandler(this.label_Author_MouseLeave);
@@ -80,7 +81,7 @@
             this.label_NameSong.Name = "label_NameSong";
             this.label_NameSong.Size = new System.Drawing.Size(197, 28);
             this.label_NameSong.TabIndex = 4;
-            this.label_NameSong.Text = "MediaName";
+            this.label_NameSong.Text = "PlayListName";
             this.label_NameSong.Click += new System.EventHandler(this.MediaItem_Click);
             this.label_NameSong.MouseEnter += new System.EventHandler(this.panel_MediaItem_MouseEnter);
             this.label_NameSong.MouseLeave += new System.EventHandler(this.label_Author_MouseLeave);
@@ -103,32 +104,18 @@
             this.pic_SongPic.MouseLeave += new System.EventHandler(this.label_Author_MouseLeave);
             this.pic_SongPic.MouseHover += new System.EventHandler(this.panel_MediaItem_MouseHover);
             // 
-            // contextMenu
-            // 
-            this.contextMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenu.Name = "contextMenu";
-            this.contextMenu.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.contextMenu.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
-            this.contextMenu.RenderStyle.ColorTable = null;
-            this.contextMenu.RenderStyle.RoundedEdges = true;
-            this.contextMenu.RenderStyle.SelectionArrowColor = System.Drawing.Color.White;
-            this.contextMenu.RenderStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.contextMenu.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.contextMenu.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
-            this.contextMenu.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.contextMenu.Size = new System.Drawing.Size(142, 88);
-            // 
-            // MediaItem
+            // PlayListItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.panel_MediaItem);
-            this.MaximumSize = new System.Drawing.Size(200, 300);
-            this.MinimumSize = new System.Drawing.Size(200, 300);
-            this.Name = "MediaItem";
-            this.Size = new System.Drawing.Size(200, 300);
+            this.MaximumSize = new System.Drawing.Size(200, 270);
+            this.MinimumSize = new System.Drawing.Size(200, 270);
+            this.Name = "PlayListItem";
+            this.Size = new System.Drawing.Size(200, 270);
             this.panel_MediaItem.ResumeLayout(false);
+            this.panel_MediaItem.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SongPic)).EndInit();
             this.ResumeLayout(false);
 
@@ -140,6 +127,5 @@
         private Guna.UI.WinForms.GunaLabel label_Author;
         private Guna.UI.WinForms.GunaLabel label_NameSong;
         private Guna.UI.WinForms.GunaPictureBox pic_SongPic;
-        private CustomContextMenu contextMenu;
     }
 }

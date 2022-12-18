@@ -33,7 +33,7 @@ namespace MediaPlayer.Items
             int x = 10;
             for (int i = 0; i < listSongs.Count && i < 8; i++)
             {
-                mediaItem = new MediaItem(listSongs[i], mediaTypes)
+                mediaItem = new MediaItem(listSongs[i])
                 {
                     Location = new Point(x, 0),
                 };

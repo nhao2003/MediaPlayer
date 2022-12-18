@@ -44,8 +44,8 @@
             // 
             // gunaLabel_Recent
             // 
-            this.gunaLabel_Recent.Font = new System.Drawing.Font("Inter", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaLabel_Recent.ForeColor = System.Drawing.Color.Black;
+            this.gunaLabel_Recent.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.gunaLabel_Recent.ForeColor = System.Drawing.Color.White;
             this.gunaLabel_Recent.Location = new System.Drawing.Point(3, 0);
             this.gunaLabel_Recent.Name = "gunaLabel_Recent";
             this.gunaLabel_Recent.Size = new System.Drawing.Size(201, 69);
@@ -57,7 +57,7 @@
             this.gunaElipsePanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
+            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.Gray;
             this.gunaElipsePanel2.Controls.Add(this.gunaTextBox1);
             this.gunaElipsePanel2.Controls.Add(this.gunaPictureBox1);
             this.gunaElipsePanel2.Location = new System.Drawing.Point(36, 52);
@@ -71,15 +71,14 @@
             this.gunaTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTextBox1.BackColor = System.Drawing.Color.Black;
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.Silver;
+            this.gunaTextBox1.BaseColor = System.Drawing.Color.Gray;
+            this.gunaTextBox1.BorderColor = System.Drawing.Color.Gray;
             this.gunaTextBox1.BorderSize = 0;
             this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.SystemColors.ControlText;
+            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.Gray;
+            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.Gray;
+            this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.Empty;
             this.gunaTextBox1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaTextBox1.ForeColor = System.Drawing.Color.Green;
             this.gunaTextBox1.Location = new System.Drawing.Point(72, 5);
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.PasswordChar = '\0';
@@ -97,7 +96,7 @@
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Image = global::MediaPlayer.Properties.Resources.search;
             this.gunaPictureBox1.InitialImage = global::MediaPlayer.Properties.Resources.search;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(35, 13);
+            this.gunaPictureBox1.Location = new System.Drawing.Point(25, 13);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
             this.gunaPictureBox1.Size = new System.Drawing.Size(31, 30);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -114,6 +113,7 @@
             this.gunaElipsePanel1.Controls.Add(this.gunaElipsePanel2);
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel_Recent);
             this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gunaElipsePanel1.ForeColor = System.Drawing.Color.White;
             this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 120);
@@ -202,6 +202,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pn_Search);
             this.Controls.Add(this.gunaElipsePanel1);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserControl_Search";
             this.Size = new System.Drawing.Size(1084, 645);
             this.gunaElipsePanel2.ResumeLayout(false);
