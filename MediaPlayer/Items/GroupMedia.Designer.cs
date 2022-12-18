@@ -42,6 +42,7 @@
             this.panel_Title.Name = "panel_Title";
             this.panel_Title.Size = new System.Drawing.Size(898, 57);
             this.panel_Title.TabIndex = 0;
+            this.panel_Title.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Title_Paint);
             // 
             // lb_Title
             // 

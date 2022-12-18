@@ -140,31 +140,6 @@ namespace MediaPlayer.Widgets
             this.pn_Display.Size = new System.Drawing.Size(1084, 522);
             this.pn_Display.TabIndex = 7;
             // 
-            // gunaCircleButton1
-            // 
-            this.gunaCircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaCircleButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton1.AnimationSpeed = 0.03F;
-            this.gunaCircleButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaCircleButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.Image = null;
-            this.gunaCircleButton1.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(500, 17);
-            this.gunaCircleButton1.Name = "gunaCircleButton1";
-            this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.OnHoverImage = null;
-            this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.Size = new System.Drawing.Size(61, 62);
-            this.gunaCircleButton1.TabIndex = 0;
-            this.gunaCircleButton1.Text = "Refresh";
-            this.gunaCircleButton1.Click += new System.EventHandler(this.gunaCircleButton1_Click);
-            // 
             // UserControl_Library
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

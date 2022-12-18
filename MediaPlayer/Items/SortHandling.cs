@@ -79,11 +79,11 @@ namespace MediaPlayer.Items
 
         public void AddMusicDataToLists(ref List<string> filePaths)
         {
+
             // Tao cac file taglib luu tru thong tin media
             for (int i = 0; i < filePaths.Count; i++)
             {
                 if (CheckSongExistsInLists(filePaths[i])) continue;
-
                 fileSongs.Add(TagLib.File.Create(filePaths[i]));
 
                 songList.Add(new Media(filePaths[i]));
@@ -111,7 +111,6 @@ namespace MediaPlayer.Items
             {
                 loadSongs = new List<Media>(songList);
             }
-
             else
             {
                 loadSongs = new List<Media>(listSongNeedToBeLoaded);
@@ -208,8 +207,9 @@ namespace MediaPlayer.Items
 
         public void SortByArtist(List<Media> listNeedToBeSorted = null)
         {
-            List<Media> songlist;
 
+            List<Media> songlist;
+            
             if (listNeedToBeSorted == null)
             {
                 songlist = new List<Media>(songList);

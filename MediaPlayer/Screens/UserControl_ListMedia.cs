@@ -95,7 +95,7 @@ namespace MediaPlayer.Widgets
             {
                 MessageBox.Show(ex.Message);
             }
-
+            
             manageSort.AddMusicDataToLists(ref defaultFiles);
 
             manageSort.SaveToDatabase();
@@ -184,8 +184,5 @@ namespace MediaPlayer.Widgets
             manageSort.ResetUserControl();
             Init();
         }
-
-        
-        
     }
 }

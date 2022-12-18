@@ -62,7 +62,6 @@
             this.gunaPanel2.Controls.Add(this.gunaComboBox1);
             this.gunaPanel2.Controls.Add(this.btn_Suffle_Play);
             this.gunaPanel2.Controls.Add(this.lb_Title);
-            this.gunaPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaPanel2.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel2.Name = "gunaPanel2";
             this.gunaPanel2.Size = new System.Drawing.Size(1084, 150);
@@ -81,7 +80,7 @@
             this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
             this.gunaCircleButton1.Image = null;
             this.gunaCircleButton1.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(493, 59);
+            this.gunaCircleButton1.Location = new System.Drawing.Point(1377, 59);
             this.gunaCircleButton1.Name = "gunaCircleButton1";
             this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -100,7 +99,7 @@
             this.gunaLabel3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaLabel3.ForeColor = System.Drawing.Color.White;
             this.gunaLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gunaLabel3.Location = new System.Drawing.Point(574, 78);
+            this.gunaLabel3.Location = new System.Drawing.Point(1458, 78);
             this.gunaLabel3.Name = "gunaLabel3";
             this.gunaLabel3.Size = new System.Drawing.Size(114, 31);
             this.gunaLabel3.TabIndex = 27;
@@ -112,6 +111,7 @@
             this.gunaButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaButton1.AnimationHoverSpeed = 0.07F;
             this.gunaButton1.AnimationSpeed = 0.03F;
+            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
             this.gunaButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.gunaButton1.BorderColor = System.Drawing.Color.Black;
             this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
@@ -120,7 +120,7 @@
             this.gunaButton1.ForeColor = System.Drawing.Color.Black;
             this.gunaButton1.Image = ((System.Drawing.Image)(resources.GetObject("gunaButton1.Image")));
             this.gunaButton1.ImageSize = new System.Drawing.Size(30, 30);
-            this.gunaButton1.Location = new System.Drawing.Point(871, 78);
+            this.gunaButton1.Location = new System.Drawing.Point(1755, 78);
             this.gunaButton1.Name = "gunaButton1";
             this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -151,7 +151,7 @@
             "Artist",
             "Album",
             "Date added"});
-            this.gunaComboBox1.Location = new System.Drawing.Point(703, 78);
+            this.gunaComboBox1.Location = new System.Drawing.Point(1587, 78);
             this.gunaComboBox1.Name = "gunaComboBox1";
             this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
@@ -189,7 +189,6 @@
             // 
             this.pn_Display.AutoScroll = true;
             this.pn_Display.BackColor = System.Drawing.Color.Transparent;
-            this.pn_Display.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_Display.Location = new System.Drawing.Point(0, 150);
             this.pn_Display.Name = "pn_Display";
             this.pn_Display.Size = new System.Drawing.Size(1084, 495);

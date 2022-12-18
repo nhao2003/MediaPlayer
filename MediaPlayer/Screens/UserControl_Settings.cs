@@ -20,9 +20,6 @@ namespace MediaPlayer.Widgets
 
         internal void SendMusicVideoDirectory()
         {
-            GetMusicVideoDirectory sendDirectoryToLibraryTab = new GetMusicVideoDirectory(UserControl_Library.GetMusicVideoPath);
-            sendDirectoryToLibraryTab(musicFolderPath, videoFolderPath);
-
             GetMusicVideoDirectory sendDirectoryToMusicTab = new GetMusicVideoDirectory(UserControl_ListMedia.GetMusicVideoPath);
             sendDirectoryToMusicTab(musicFolderPath, videoFolderPath);
 

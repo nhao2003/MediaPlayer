@@ -17,7 +17,7 @@ namespace MediaPlayer.Items
     public partial class MusicRow : UserControl
     {
         private Media _media;
-        public delegate void PassDataBetweenForms(string filePath);
+        public delegate void PassDataBetweenForms(Media media);
         static MediaControl mediaControl;
         private string filePath;
         public void GetMediaControl(MediaControl control)
@@ -70,7 +70,7 @@ namespace MediaPlayer.Items
             //Form_Main.Instance.MediaControl.getPathOfSong(_media.FilePath);
             //Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
             PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
-            datasend(filePath);
+            datasend(Media);
         }
 
         private void btn_Like_Click(object sender, EventArgs e)

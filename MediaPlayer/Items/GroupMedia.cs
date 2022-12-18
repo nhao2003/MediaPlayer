@@ -42,5 +42,10 @@ namespace MediaPlayer.Items
                 panel_Display.Controls.Add(musicRow);
             }
         }
+
+        private void panel_Title_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

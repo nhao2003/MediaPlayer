@@ -186,12 +186,6 @@
     <Compile Include="Items\MediaControl.Designer.cs">
       <DependentUpon>MediaControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Items\MediaPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Items\MediaPanel.Designer.cs">
-      <DependentUpon>MediaPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Items\SortHandling.cs" />
     <Compile Include="Items\SuggestBar.cs">
       <SubType>UserControl</SubType>
@@ -283,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\MediaControl.resx">
       <DependentUpon>MediaControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Items\MediaPanel.resx">
-      <DependentUpon>MediaPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\MusicRow.resx">
       <DependentUpon>MusicRow.cs</DependentUpon>

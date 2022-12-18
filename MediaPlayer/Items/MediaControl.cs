@@ -53,7 +53,7 @@ namespace MediaPlayer.Items
                 MessageBox.Show("Video is playing! Please turn off video");
                 return;
             }
-            if (media == null) _media = media;
+            if (media != null) _media = media;
             gunaLabel_SongName.Text = media.Title;
             gunaLabel_NameAthor.Text = media.Artists;
             gunaPictureBox_SongImage.Image = media.Image;
