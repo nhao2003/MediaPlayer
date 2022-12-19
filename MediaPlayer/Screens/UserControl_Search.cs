@@ -36,20 +36,24 @@ namespace MediaPlayer.Widgets
 
         public void Init()
         {
-            List<string> defaultFiles = new List<string>();
+            List<string> defaultMusicFiles = new List<string>();
+            List<string> defaultVideoFiles = new List<string>();
 
             try
             {
-                defaultFiles = Directory.GetFiles(defaultMusicPath, "*.*", SearchOption.AllDirectories)
+                defaultMusicFiles = Directory.GetFiles(defaultMusicPath, "*.*", SearchOption.AllDirectories)
                     .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg")).ToList();
+
+                defaultVideoFiles = Directory.GetFiles(defaultVideoPath, "*.*", SearchOption.AllDirectories)
+                    .Where(s => s.EndsWith(".mp4") || s.EndsWith(".mov") || s.EndsWith(".wmv") || s.EndsWith(".avi")
+                    || s.EndsWith(".mkv")).ToList();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            searchAndSort.AddMusicDataToLists(ref defaultFiles);
-
+            searchAndSort.AddMusicDataToLists(ref defaultMusicFiles);
+            searchAndSort.AddMusicDataToLists(ref defaultVideoFiles);
             searchAndSort.SaveToDatabase();
         }
 
@@ -107,8 +111,7 @@ namespace MediaPlayer.Widgets
 
             SearchSongByText(searchText);
 
-            if (textSearchMedia.Count <= 0) MessageBox.Show("Không có bài nào trùng kết quả tìm kiếm");
-            else
+            if (textSearchMedia.Count > 0)
             {
                 searchAndSort.ResetUserControl();
                 searchAndSort.LoadSongOntoScreen(textSearchMedia);
