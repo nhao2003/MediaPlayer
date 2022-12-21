@@ -16,16 +16,6 @@ namespace MediaPlayer.Widgets
     {
         public delegate void Rebuild();
         public Rebuild rebuild;
-        public delegate void GetMusicVideoDirectory(string musicPath, string videoPath);
-
-        internal void SendMusicVideoDirectory()
-        {
-            GetMusicVideoDirectory sendDirectoryToMusicTab = new GetMusicVideoDirectory(UserControl_ListMedia.GetMusicVideoPath);
-            sendDirectoryToMusicTab(musicFolderPath, videoFolderPath);
-
-            GetMusicVideoDirectory sendDirectoryToSearchTab = new GetMusicVideoDirectory(UserControl_Search.GetMusicVideoPath);
-            sendDirectoryToSearchTab(musicFolderPath, videoFolderPath);
-        }
 
         //public string musicFolderPath = "C:\\users\\Administrator\\Music";
         //public string videoFolderPath = "C:\\users\\Administrator\\Videos";
@@ -43,8 +33,6 @@ namespace MediaPlayer.Widgets
 
             choose_theme_ComboBox.DataSource = themes;
             choose_color_ComboBox.DataSource = colors;
-
-            SendMusicVideoDirectory();
         }
 
         private void choose_music_path_btn_Click(object sender, EventArgs e)
@@ -62,7 +50,6 @@ namespace MediaPlayer.Widgets
                 rebuild();
             }
 
-            SendMusicVideoDirectory();
         }
 
         private void choose_videos_path_btn_Click(object sender, EventArgs e)
@@ -80,7 +67,6 @@ namespace MediaPlayer.Widgets
                 rebuild();
             }
 
-            SendMusicVideoDirectory();
         }
 
         private void choose_theme_ComboBox_SelectedValueChanged(object sender, EventArgs e)
