@@ -33,6 +33,7 @@ namespace MediaPlayer
         private void VideoPlayer_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form_Main.Instance.MediaControl.isPlayingVideo = false;
+            Form_Main.Instance.MediaControl._media = _media;
             if (_media != null) PlayMedia.URL = _media.FilePath;
             PlayMedia.CurrentTimePlay = currentTimePlay + 0.4;
             Form_Main.Instance.MediaControl.SyncWithVideo(_media, player.playState, true);
@@ -56,8 +57,8 @@ namespace MediaPlayer
                 MediaTrackBar.Value = 0;
                 timeSongPlay.Text = "00:00";
                 timeSongEnd.Text = media.DurationText;
-
                 currentTimePlay = player.Ctlcontrols.currentPosition;
+
             }
             catch (Exception e)
             {
@@ -124,6 +125,10 @@ namespace MediaPlayer
         {
             click_btn_play();
         }
+        public void setCurrentTimePlay()
+        {
+            player.Ctlcontrols.currentPosition = currentTimePlay;
+        }
         public void click_btn_play()
         {
             try
@@ -135,7 +140,7 @@ namespace MediaPlayer
                 }
                 else if (player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 {
-                    player.Ctlcontrols.currentPosition = currentTimePlay;
+                    setCurrentTimePlay();
                     player.Ctlcontrols.play();
                     //timerSong.Enabled = true;
                 }

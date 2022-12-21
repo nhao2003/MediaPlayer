@@ -375,7 +375,7 @@
         private Guna.UI.WinForms.GunaLabel lb_SongName;
         private System.Windows.Forms.Timer timerSong;
         private System.Windows.Forms.Button btn_Fullscreen;
-        private AxWMPLib.AxWindowsMediaPlayer player;
+        public AxWMPLib.AxWindowsMediaPlayer player;
         private System.Windows.Forms.Timer timer_Hide;
         private Bunifu.UI.WinForms.BunifuPages Media_Pages;
         private System.Windows.Forms.TabPage VideoPage;

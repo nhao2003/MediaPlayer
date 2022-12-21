@@ -13,6 +13,7 @@ using System.IO;
 using MediaPlayer.Widgets;
 using System.Numerics;
 using TagLib.Riff;
+using TagLib;
 
 namespace MediaPlayer.Items
 {
@@ -313,6 +314,40 @@ namespace MediaPlayer.Items
             }
         }
 
+        private void gunaPictureBox_SongImage_Click(object sender, EventArgs e)
+        {
+            if (isPlayingVideo) return;
+            if (PlayMedia.IsFirst == false) return;
+            if (_media.MediaTypes == MediaTypes.Audio)
+            {
+                
+            }
+            else
+            {
+                try
+                {
+                    if (videoScreen.Visible == false)
+                    {
+                        videoScreen = new VideoPlayer();
+                        videoScreen.Show();
+                    }
+                    pauseCurrentPlayer();
+                    Form_Main.Instance.videoScreen = videoScreen;
+                    Form_Main.Instance.videoScreen.getPathOfSong(_media);
+                    isPlayingVideo = true;
+                    // sync
+                    videoScreen.click_btn_play();
+                    videoScreen.currentTimePlay = (int)PlayMedia.CurrentPositionSong;
+                    videoScreen.setCurrentTimePlay();
+                    Form_Main.Instance.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("song image click error: " + ex.Message);
+                }
+            }
+        }
+
         private void btn_Repeat_Click(object sender, EventArgs e)
         {
             if (PlayMedia.Repeat == RepeatMode.Off)
@@ -384,5 +419,6 @@ namespace MediaPlayer.Items
                 return -1;
             }
         }
+
     }
 }
