@@ -56,15 +56,15 @@ namespace MediaPlayer.Models
             IEnumerable<IGrouping<char, Media>> res = from song in list
                                                       orderby song.Title ascending
                                                       group song by song.Title[0];
-            return res;
+            return res.Reverse();
         }
 
-        public static IEnumerable<IGrouping<DateTime, Media>> SortListDateAdded(List<Media> list)
+        public static IEnumerable<IGrouping<string, Media>> SortListDateAdded(List<Media> list)
         {
-            IEnumerable<IGrouping<DateTime, Media>> res = from song in list
+            IEnumerable<IGrouping<string, Media>> res = from song in list
                                                           orderby song.DateAdded ascending
-                                                          group song by song.DateAdded;
-            return res;
+                                                          group song by song.DateAdded.ToString("dd/MM/yyyy");
+            return res.Reverse();
         }
 
         public static IEnumerable<IGrouping<string, Media>> SortListAlbum(List<Media> list)
@@ -72,7 +72,7 @@ namespace MediaPlayer.Models
             IEnumerable<IGrouping<string, Media>> res = from song in list
                                                         orderby song.Album ascending
                                                         group song by song.Album;
-            return res;
+            return res.Reverse();
         }
 
         public static IEnumerable<IGrouping<string, Media>> SortListArtists(List<Media> list)
@@ -80,7 +80,7 @@ namespace MediaPlayer.Models
             IEnumerable<IGrouping<string, Media>> res = from song in list
                                                         orderby song.Artists ascending
                                                         group song by song.Artists;
-            return res;
+            return res.Reverse();
         }
     }
 }

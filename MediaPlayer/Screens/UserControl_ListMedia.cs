@@ -42,13 +42,51 @@ namespace MediaPlayer.Widgets
             get => _listMedia;
             set
             {
-                pn_Display.Controls.Clear();
                 _listMedia = value;
-                GroupMedia group = new GroupMedia("A", _listMedia)
+                SortMediaAToZ();
+                cb_SortBy.SelectedIndex = 0;
+            }
+        }
+        public void SortMediaAToZ()
+        {
+            IEnumerable<IGrouping<char, Media>> sortByAToZ = Playlist.SortListAToZ(_listMedia);
+            DisplayMediaItems(sortByAToZ);
+        }
+
+        public void SortMediaByDateAdded()
+        {
+            IEnumerable<IGrouping<string, Media>> sortByDateAdded = Playlist.SortListDateAdded(_listMedia);
+            DisplayMediaItems(sortByDateAdded);
+        }
+
+        public void SortMediaByAlbum()
+        {
+            IEnumerable<IGrouping<string, Media>> sortByAlbum = Playlist.SortListAlbum(_listMedia);
+            DisplayMediaItems(sortByAlbum);
+        }
+
+        public void SortMediaByArtists()
+        {
+            IEnumerable<IGrouping<string, Media>> sortByArtists = Playlist.SortListArtists(_listMedia);
+            DisplayMediaItems(sortByArtists);
+        }
+
+        private void DisplayMediaItems<T>(IEnumerable<IGrouping<T, Media>> sortAToZ)
+        {
+            pn_Display.Controls.Clear();
+            try
+            {
+                foreach (var group in sortAToZ)
                 {
-                    Dock = DockStyle.Top
-                };
-                pn_Display.Controls.Add(group);
+
+                    GroupMedia temp = new GroupMedia(group.Key.ToString(), group.ToList());
+                    temp.Dock = DockStyle.Top;
+                    pn_Display.Controls.Add(temp);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -56,31 +94,13 @@ namespace MediaPlayer.Widgets
         /// Initialize data
         /// </summary>
         static SortHandling manageSort;
-        static string defaultMusicPath = null, defaultVideoPath = null;
         private List<string> filePaths = new List<string>();
 
         public UserControl_ListMedia()
         {
             InitializeComponent();
             manageSort = new SortHandling(pn_Display);
-            //GroupMedia group = new GroupMedia("Dummy 1", MediaHelpers.listSongs)
-            //{
-            //    Dock = DockStyle.Top
-            //};
-            //GroupMedia gp = new GroupMedia("Dummy 2", MediaHelpers.listSongs)
-            //{
-            //    Dock = DockStyle.Top
-            //};
-            //pn_Display.Controls.Add(group);
-            //pn_Display.Controls.Add(gp);
         }
-
-        internal static void GetMusicVideoPath(string musicPath, string videoPath)
-        {
-            defaultMusicPath = musicPath;
-            defaultVideoPath = videoPath;
-        }
-
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {
@@ -111,20 +131,6 @@ namespace MediaPlayer.Widgets
         }
 
         /// <summary>
-        /// Event press F5 to refresh screen
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void UserControl_ListMedia_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.F5)
-            {
-                manageSort.ResetUserControl();
-                //Init();
-            }
-        }
-
-        /// <summary>
         /// Choosing sort option changed
         /// </summary>
         /// <param name="sender"></param>
@@ -136,31 +142,30 @@ namespace MediaPlayer.Widgets
                 // Goi ham xoa cac category panel, music panel
                 manageSort.ResetUserControl();
                 // Dua tren lua chon tren combobox ma tien hanh sort
-                string selectedChoice = gunaComboBox1.SelectedItem.ToString();
-                if (selectedChoice == "A to Z") manageSort.SortByAtoZ();
-
-                else if (selectedChoice == "Date added") manageSort.SortByDateAdded();
-
-                else if (selectedChoice == "Album") manageSort.SortByAlbum();
-
-                else if (selectedChoice == "Artist") manageSort.SortByArtist();
+                string selectedChoice = cb_SortBy.SelectedItem.ToString();
+                switch (selectedChoice)
+                {
+                    case "A to Z":
+                        SortMediaAToZ();
+                        break;
+                    case "Date added":
+                        SortMediaByDateAdded();
+                        break;
+                    case "Album":
+                        SortMediaByAlbum();
+                        break;
+                    case "Artist":
+                        SortMediaByArtists();
+                        break;
+                    default:
+                        SortMediaAToZ();
+                        break;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void btn_Refresh_Click(object sender, EventArgs e)
-        {
-            manageSort.ResetUserControl();
-            //Init();
-        }
-
-        private void LoadListMediaEvent(object sender, EventArgs e)
-        {
-            manageSort.ResetUserControl();
-            //Init();
         }
     }
 }
