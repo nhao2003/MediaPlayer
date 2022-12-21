@@ -63,7 +63,6 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
             manageSort = new SortHandling(pn_Display);
-            Init();
             //GroupMedia group = new GroupMedia("Dummy 1", MediaHelpers.listSongs)
             //{
             //    Dock = DockStyle.Top
@@ -82,26 +81,6 @@ namespace MediaPlayer.Widgets
             defaultVideoPath = videoPath;
         }
 
-        private void Init()
-        {
-            List<string> defaultFiles = new List<string>();
-
-            try
-            {
-                defaultFiles = Directory.GetFiles(defaultMusicPath, "*.*", SearchOption.AllDirectories)
-                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg")).ToList();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-            manageSort.AddMusicDataToLists(ref defaultFiles);
-
-            manageSort.SaveToDatabase();
-
-            manageSort.SortByAtoZ();
-        }
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {
@@ -141,7 +120,7 @@ namespace MediaPlayer.Widgets
             if (e.KeyCode == Keys.F5)
             {
                 manageSort.ResetUserControl();
-                Init();
+                //Init();
             }
         }
 
@@ -175,13 +154,13 @@ namespace MediaPlayer.Widgets
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
             manageSort.ResetUserControl();
-            Init();
+            //Init();
         }
 
         private void LoadListMediaEvent(object sender, EventArgs e)
         {
             manageSort.ResetUserControl();
-            Init();
+            //Init();
         }
     }
 }

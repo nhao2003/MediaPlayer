@@ -36,25 +36,7 @@ namespace MediaPlayer.Widgets
 
         public void Init()
         {
-            List<string> defaultMusicFiles = new List<string>();
-            List<string> defaultVideoFiles = new List<string>();
-
-            try
-            {
-                defaultMusicFiles = Directory.GetFiles(defaultMusicPath, "*.*", SearchOption.AllDirectories)
-                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg")).ToList();
-
-                defaultVideoFiles = Directory.GetFiles(defaultVideoPath, "*.*", SearchOption.AllDirectories)
-                    .Where(s => s.EndsWith(".mp4") || s.EndsWith(".mov") || s.EndsWith(".wmv") || s.EndsWith(".avi")
-                    || s.EndsWith(".mkv")).ToList();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            searchAndSort.AddMusicDataToLists(ref defaultMusicFiles);
-            searchAndSort.AddMusicDataToLists(ref defaultVideoFiles);
-            searchAndSort.SaveToDatabase();
+            
         }
 
         private void gunaTextBox1_Enter(object sender, EventArgs e)
@@ -117,11 +99,20 @@ namespace MediaPlayer.Widgets
                 searchAndSort.LoadSongOntoScreen(textSearchMedia);
             }
         }
-
+        public List<Media> MergeSongListAndVideoList
+        {
+            get
+            {
+                List<Media> list = MediaHelpers.listSongs;
+                list.AddRange(MediaHelpers.listVideos);
+                return list;
+            }
+        }
         private void SearchSongByText(string searchText)
         {
             textSearchMedia = new List<Media>();
-            foreach (var item in searchAndSort.GetListMedia())
+
+            foreach (var item in MergeSongListAndVideoList)
             {
                 bool isFoundTitle = item.Title.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool isFoundAlbum = item.Album.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
