@@ -132,34 +132,6 @@ namespace MediaPlayer.Widgets
         }
 
         /// <summary>
-        /// Choosing sort option changed
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gunaComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                // Goi ham xoa cac category panel, music panel
-                manageSort.ResetUserControl();
-                // Dua tren lua chon tren combobox ma tien hanh sort
-                string selectedChoice = gunaComboBox1.SelectedItem.ToString();
-                if (selectedChoice == "A to Z") manageSort.SortByAtoZ();
-                
-                else if (selectedChoice == "Date added") manageSort.SortByDateAdded();
-                
-                else if (selectedChoice == "Album") manageSort.SortByAlbum();
-               
-                else if (selectedChoice == "Artist") manageSort.SortByArtist();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-
-        /// <summary>
         /// Event press F5 to refresh screen
         /// </summary>
         /// <param name="sender"></param>
@@ -173,7 +145,34 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        private void RefreshClickEvent(object sender, EventArgs e)
+        /// <summary>
+        /// Choosing sort option changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChangeSortOptionEvent(object sender, EventArgs e)
+        {
+            try
+            {
+                // Goi ham xoa cac category panel, music panel
+                manageSort.ResetUserControl();
+                // Dua tren lua chon tren combobox ma tien hanh sort
+                string selectedChoice = gunaComboBox1.SelectedItem.ToString();
+                if (selectedChoice == "A to Z") manageSort.SortByAtoZ();
+
+                else if (selectedChoice == "Date added") manageSort.SortByDateAdded();
+
+                else if (selectedChoice == "Album") manageSort.SortByAlbum();
+
+                else if (selectedChoice == "Artist") manageSort.SortByArtist();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
         {
             manageSort.ResetUserControl();
             Init();

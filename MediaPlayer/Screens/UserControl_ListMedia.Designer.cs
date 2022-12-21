@@ -37,6 +37,9 @@
             this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
             this.btn_Suffle_Play = new Guna.UI.WinForms.GunaButton();
             this.pn_Display = new Guna.UI.WinForms.GunaPanel();
+            this.lb_SortBy = new System.Windows.Forms.Label();
+            this.cb_SortBy = new Guna.UI.WinForms.GunaComboBox();
+            this.btn_Refresh = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +59,9 @@
             // gunaPanel2
             // 
             this.gunaPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.gunaPanel2.Controls.Add(this.btn_Refresh);
+            this.gunaPanel2.Controls.Add(this.lb_SortBy);
+            this.gunaPanel2.Controls.Add(this.cb_SortBy);
             this.gunaPanel2.Controls.Add(this.gunaCircleButton1);
             this.gunaPanel2.Controls.Add(this.gunaLabel3);
             this.gunaPanel2.Controls.Add(this.gunaButton1);
@@ -90,7 +96,6 @@
             this.gunaCircleButton1.Size = new System.Drawing.Size(61, 62);
             this.gunaCircleButton1.TabIndex = 24;
             this.gunaCircleButton1.Text = "Refresh";
-            this.gunaCircleButton1.Click += new System.EventHandler(this.RefreshClickEvent);
             // 
             // gunaLabel3
             // 
@@ -158,7 +163,6 @@
             this.gunaComboBox1.Radius = 15;
             this.gunaComboBox1.Size = new System.Drawing.Size(139, 31);
             this.gunaComboBox1.TabIndex = 26;
-            this.gunaComboBox1.SelectedIndexChanged += new System.EventHandler(this.gunaComboBox1_SelectedIndexChanged);
             // 
             // btn_Suffle_Play
             // 
@@ -194,6 +198,69 @@
             this.pn_Display.Size = new System.Drawing.Size(1084, 495);
             this.pn_Display.TabIndex = 7;
             // 
+            // lb_SortBy
+            // 
+            this.lb_SortBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lb_SortBy.AutoSize = true;
+            this.lb_SortBy.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.lb_SortBy.ForeColor = System.Drawing.Color.White;
+            this.lb_SortBy.Location = new System.Drawing.Point(810, 90);
+            this.lb_SortBy.Name = "lb_SortBy";
+            this.lb_SortBy.Size = new System.Drawing.Size(88, 30);
+            this.lb_SortBy.TabIndex = 29;
+            this.lb_SortBy.Text = "Sort by:";
+            // 
+            // cb_SortBy
+            // 
+            this.cb_SortBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_SortBy.BackColor = System.Drawing.Color.Transparent;
+            this.cb_SortBy.BaseColor = System.Drawing.Color.White;
+            this.cb_SortBy.BorderColor = System.Drawing.Color.Silver;
+            this.cb_SortBy.BorderSize = 0;
+            this.cb_SortBy.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cb_SortBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_SortBy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_SortBy.FocusedColor = System.Drawing.Color.Empty;
+            this.cb_SortBy.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cb_SortBy.ForeColor = System.Drawing.Color.Black;
+            this.cb_SortBy.FormattingEnabled = true;
+            this.cb_SortBy.Items.AddRange(new object[] {
+            "A to Z",
+            "Date added"});
+            this.cb_SortBy.Location = new System.Drawing.Point(925, 90);
+            this.cb_SortBy.Name = "cb_SortBy";
+            this.cb_SortBy.OnHoverItemBaseColor = System.Drawing.Color.Lime;
+            this.cb_SortBy.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cb_SortBy.Radius = 10;
+            this.cb_SortBy.Size = new System.Drawing.Size(135, 31);
+            this.cb_SortBy.StartIndex = 0;
+            this.cb_SortBy.TabIndex = 28;
+            this.cb_SortBy.SelectedIndexChanged += new System.EventHandler(this.ChangeSortOptionEvent);
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.AnimationHoverSpeed = 0.07F;
+            this.btn_Refresh.AnimationSpeed = 0.03F;
+            this.btn_Refresh.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btn_Refresh.BorderColor = System.Drawing.Color.Black;
+            this.btn_Refresh.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Refresh.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Refresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Refresh.ForeColor = System.Drawing.Color.White;
+            this.btn_Refresh.Image = null;
+            this.btn_Refresh.ImageSize = new System.Drawing.Size(52, 52);
+            this.btn_Refresh.Location = new System.Drawing.Point(716, 68);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btn_Refresh.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Refresh.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Refresh.OnHoverImage = null;
+            this.btn_Refresh.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Refresh.Size = new System.Drawing.Size(67, 66);
+            this.btn_Refresh.TabIndex = 30;
+            this.btn_Refresh.Text = "Refresh";
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
+            // 
             // UserControl_ListMedia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -221,5 +288,8 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaButton gunaButton1;
         private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private System.Windows.Forms.Label lb_SortBy;
+        private Guna.UI.WinForms.GunaComboBox cb_SortBy;
+        private Guna.UI.WinForms.GunaCircleButton btn_Refresh;
     }
 }
