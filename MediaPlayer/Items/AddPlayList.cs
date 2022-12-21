@@ -16,7 +16,7 @@ namespace MediaPlayer.Items
     public partial class AddPlayList : Form
     {
         private bool isRename = false;
-        private Playlist playlist;
+        private Playlist playlist = new Playlist();
         /// <summary>
         /// Add playlist or rename
         /// </summary>
@@ -40,7 +40,7 @@ namespace MediaPlayer.Items
                 if (index > 0)
                 {
                     MediaHelpers.Playlists[index].PlayListName = tb_NamePlayList.Text;
-                    if(openFileDialog.FileName!= "")
+                    if(openFileDialog.CheckFileExists)
                         MediaHelpers.Playlists[index].BackroundImageFileName = openFileDialog.FileName;
                 }
             }
@@ -50,7 +50,6 @@ namespace MediaPlayer.Items
                 Tag = playlist;
                 MediaHelpers.Playlists.Add(playlist);
             }
-
             DialogResult = DialogResult.OK;
         }
 
@@ -92,7 +91,6 @@ namespace MediaPlayer.Items
             {
                 pic_BackGround.Image = Image.FromFile(openFileDialog.FileName);
                 playlist.BackroundImageFileName = openFileDialog.FileName;
-                openFileDialog.Dispose();
             }
         }
     }
