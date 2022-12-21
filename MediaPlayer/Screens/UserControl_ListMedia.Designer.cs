@@ -58,6 +58,8 @@
             // 
             // gunaPanel2
             // 
+            this.gunaPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaPanel2.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanel2.Controls.Add(this.btn_Refresh);
             this.gunaPanel2.Controls.Add(this.lb_SortBy);
@@ -75,6 +77,7 @@
             // 
             // btn_Refresh
             // 
+            this.btn_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Refresh.AnimationHoverSpeed = 0.07F;
             this.btn_Refresh.AnimationSpeed = 0.03F;
             this.btn_Refresh.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
@@ -255,6 +258,8 @@
             // 
             // pn_Display
             // 
+            this.pn_Display.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pn_Display.AutoScroll = true;
             this.pn_Display.BackColor = System.Drawing.Color.Transparent;
             this.pn_Display.Location = new System.Drawing.Point(0, 150);

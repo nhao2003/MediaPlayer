@@ -14,6 +14,7 @@ using TagLib;
 
 namespace MediaPlayer
 {
+    
     public partial class Form_Main : Form
     {
         public Form_Main()
@@ -78,7 +79,7 @@ namespace MediaPlayer
             if(n == 2) _oldButton = btn_Music;
             else _oldButton = btn_Video;
         }
-        VideoPlayer videoScreen = new VideoPlayer();
+        public VideoPlayer videoScreen = new VideoPlayer();
         public void ClassifyMedia(Media media)
         {
             if (media.MediaTypes == MediaTypes.Audio)

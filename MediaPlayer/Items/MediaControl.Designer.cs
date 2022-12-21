@@ -362,6 +362,7 @@
             this.gunaPictureBox_SongImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox_SongImage.TabIndex = 8;
             this.gunaPictureBox_SongImage.TabStop = false;
+            this.gunaPictureBox_SongImage.Click += new System.EventHandler(this.gunaPictureBox_SongImage_Click);
             // 
             // MediaControl
             // 

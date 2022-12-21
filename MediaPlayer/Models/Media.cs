@@ -190,7 +190,17 @@ namespace MediaPlayer.Models
             }
             else
             {
-                this.image = Resources.defaultImage;
+                try
+                {
+                    var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                    string fileName = "video_thumbnail" + title + ".jpg";
+                    ffMpeg.GetVideoThumbnail(path,fileName , 5);
+                    this.image = Image.FromFile(fileName);
+                }
+                catch
+                {
+                    this.image = Resources.defaultImage;
+                }
             }
         }
         public void Like()

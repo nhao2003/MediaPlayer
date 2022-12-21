@@ -92,6 +92,9 @@
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.0.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NReco.VideoConverter">
+      <HintPath>C:\Users\Administrator\Downloads\NReco.VideoConverter.dll</HintPath>
+    </Reference>
     <Reference Include="Siticone.UI">
       <HintPath>..\..\..\..\Downloads\Siticone.UI.dll</HintPath>
     </Reference>

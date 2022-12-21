@@ -46,17 +46,17 @@
             this.timer_Hide = new System.Windows.Forms.Timer(this.components);
             this.Media_Pages = new Bunifu.UI.WinForms.BunifuPages();
             this.VideoPage = new System.Windows.Forms.TabPage();
+            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.MusicPage = new System.Windows.Forms.TabPage();
             this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
             this.pic_BackGround = new Guna.UI.WinForms.GunaPictureBox();
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1.SuspendLayout();
             this.Media_Pages.SuspendLayout();
             this.VideoPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.MusicPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -291,6 +291,17 @@
             this.VideoPage.Text = "tabPage1";
             this.VideoPage.UseVisualStyleBackColor = true;
             // 
+            // player
+            // 
+            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.player.Enabled = true;
+            this.player.Location = new System.Drawing.Point(0, 0);
+            this.player.Name = "player";
+            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
+            this.player.Size = new System.Drawing.Size(1150, 630);
+            this.player.TabIndex = 2;
+            this.player.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.player_MouseMoveEvent);
+            // 
             // MusicPage
             // 
             this.MusicPage.Controls.Add(this.pic_Avatar);
@@ -328,17 +339,6 @@
             this.pic_BackGround.TabIndex = 0;
             this.pic_BackGround.TabStop = false;
             // 
-            // player
-            // 
-            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(0, 0);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(1150, 630);
-            this.player.TabIndex = 2;
-            this.player.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.player_MouseMoveEvent);
-            // 
             // VideoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -354,10 +354,10 @@
             this.panel1.PerformLayout();
             this.Media_Pages.ResumeLayout(false);
             this.VideoPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.MusicPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -375,7 +375,7 @@
         private Guna.UI.WinForms.GunaLabel lb_SongName;
         private System.Windows.Forms.Timer timerSong;
         private System.Windows.Forms.Button btn_Fullscreen;
-        private AxWMPLib.AxWindowsMediaPlayer player;
+        public AxWMPLib.AxWindowsMediaPlayer player;
         private System.Windows.Forms.Timer timer_Hide;
         private Bunifu.UI.WinForms.BunifuPages Media_Pages;
         private System.Windows.Forms.TabPage VideoPage;
