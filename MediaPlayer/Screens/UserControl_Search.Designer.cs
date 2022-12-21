@@ -33,9 +33,6 @@
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
-            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
             this.pn_Search = new Guna.UI.WinForms.GunaPanel();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -107,9 +104,6 @@
             // 
             this.gunaElipsePanel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(243)))), ((int)(((byte)(220)))));
-            this.gunaElipsePanel1.Controls.Add(this.gunaCircleButton1);
-            this.gunaElipsePanel1.Controls.Add(this.gunaLabel3);
-            this.gunaElipsePanel1.Controls.Add(this.gunaComboBox1);
             this.gunaElipsePanel1.Controls.Add(this.gunaElipsePanel2);
             this.gunaElipsePanel1.Controls.Add(this.gunaLabel_Recent);
             this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -118,73 +112,6 @@
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
             this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 120);
             this.gunaElipsePanel1.TabIndex = 3;
-            // 
-            // gunaCircleButton1
-            // 
-            this.gunaCircleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaCircleButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton1.AnimationSpeed = 0.03F;
-            this.gunaCircleButton1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.gunaCircleButton1.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.Image = null;
-            this.gunaCircleButton1.ImageSize = new System.Drawing.Size(52, 52);
-            this.gunaCircleButton1.Location = new System.Drawing.Point(1023, 40);
-            this.gunaCircleButton1.Name = "gunaCircleButton1";
-            this.gunaCircleButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaCircleButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton1.OnHoverImage = null;
-            this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton1.Size = new System.Drawing.Size(61, 62);
-            this.gunaCircleButton1.TabIndex = 30;
-            this.gunaCircleButton1.Text = "Refresh";
-            this.gunaCircleButton1.Click += new System.EventHandler(this.EventClickRefresh);
-            // 
-            // gunaLabel3
-            // 
-            this.gunaLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaLabel3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaLabel3.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaLabel3.ForeColor = System.Drawing.Color.Black;
-            this.gunaLabel3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.gunaLabel3.Location = new System.Drawing.Point(758, 65);
-            this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(114, 31);
-            this.gunaLabel3.TabIndex = 29;
-            this.gunaLabel3.Text = "Sort by:";
-            this.gunaLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // gunaComboBox1
-            // 
-            this.gunaComboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox1.BorderColor = System.Drawing.Color.Silver;
-            this.gunaComboBox1.BorderSize = 0;
-            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.ItemHeight = 25;
-            this.gunaComboBox1.Items.AddRange(new object[] {
-            "A to Z",
-            "Artist",
-            "Album",
-            "Date added"});
-            this.gunaComboBox1.Location = new System.Drawing.Point(878, 67);
-            this.gunaComboBox1.Name = "gunaComboBox1";
-            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Radius = 15;
-            this.gunaComboBox1.Size = new System.Drawing.Size(139, 31);
-            this.gunaComboBox1.TabIndex = 28;
-            this.gunaComboBox1.SelectedIndexChanged += new System.EventHandler(this.ChangeSortEvent);
             // 
             // pn_Search
             // 
@@ -219,9 +146,6 @@
         private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
-        private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
         private Guna.UI.WinForms.GunaPanel pn_Search;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton1;
     }
 }

@@ -103,7 +103,7 @@ namespace MediaPlayer.Widgets
         {
             get
             {
-                List<Media> list = MediaHelpers.listSongs;
+                List<Media> list = new List<Media>(MediaHelpers.listSongs);
                 list.AddRange(MediaHelpers.listVideos);
                 return list;
             }
