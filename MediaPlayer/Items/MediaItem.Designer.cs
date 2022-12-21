@@ -32,7 +32,7 @@
             this.label_Author = new Guna.UI.WinForms.GunaLabel();
             this.label_NameSong = new Guna.UI.WinForms.GunaLabel();
             this.pic_SongPic = new Guna.UI.WinForms.GunaPictureBox();
-            this.contextMenu = new MediaPlayer.Items.CustomContextMenu(media);
+            this.contextMenu = new MediaPlayer.Items.CustomContextMenu(_media);
             this.panel_MediaItem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_SongPic)).BeginInit();
             this.SuspendLayout();

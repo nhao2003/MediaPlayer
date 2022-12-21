@@ -34,12 +34,12 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        private List<Media> _listMedia;
+        private List<Media> _listMedia = new List<Media>();
         /// <summary>
         /// Get or Set List Media
         /// </summary>
         public List<Media> ListMedia {
-            get => _listMedia??(_listMedia = new List<Media>());
+            get => _listMedia;
             set
             {
                 pn_Display.Controls.Clear();
