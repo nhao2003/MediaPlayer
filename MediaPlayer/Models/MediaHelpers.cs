@@ -14,8 +14,8 @@ namespace MediaPlayer.Models
     static class MediaHelpers
     {
         private static string userName = Environment.UserName;
-        private static string musicPathFolder = $"C:\\Users\\{userName}\\Music";
-        private static string videoPathFolder = $"C:\\Users\\{userName}\\Videos";
+        private static string musicPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+        private static string videoPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
         private static List<Media> playQueue = new List<Media>();
         private static List<Playlist> playLists = new List<Playlist>()
         {

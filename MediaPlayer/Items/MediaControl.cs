@@ -320,7 +320,16 @@ namespace MediaPlayer.Items
             if (PlayMedia.IsFirst == false) return;
             if (_media.MediaTypes == MediaTypes.Audio)
             {
-                
+                //qua trang detail song
+                if (videoScreen.Visible == false)
+                    {
+                        videoScreen = new VideoPlayer();
+                        videoScreen.Show();
+                    }
+                    pauseCurrentPlayer();
+                    Form_Main.Instance.videoScreen = videoScreen;
+                    Form_Main.Instance.videoScreen.getPathOfSong(_media);
+                    isPlayingVideo = true;
             }
             else
             {
