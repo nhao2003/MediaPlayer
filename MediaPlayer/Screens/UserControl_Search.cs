@@ -18,25 +18,20 @@ namespace MediaPlayer.Widgets
     public partial class UserControl_Search : UserControl
     {
         static SortHandling searchAndSort;
-        static string defaultMusicPath = null, defaultVideoPath = null;
         private List<Media> textSearchMedia = new List<Media>();
-
+        public List<Media> MergeSongListAndVideoList
+        {
+            get
+            {
+                List<Media> list = new List<Media>(MediaHelpers.listSongs);
+                list.AddRange(MediaHelpers.listVideos);
+                return list;
+            }
+        }
         public UserControl_Search()
         {
             InitializeComponent();
             searchAndSort = new SortHandling(pn_Search);
-            Init();
-        }
-
-        internal static void GetMusicVideoPath(string musicPath, string videoPath)
-        {
-            defaultMusicPath = musicPath;
-            defaultVideoPath = videoPath;
-        }
-
-        public void Init()
-        {
-            
         }
 
         private void gunaTextBox1_Enter(object sender, EventArgs e)
@@ -57,57 +52,19 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        private void ChangeSortEvent(object sender, EventArgs e)
-        {
-            try
-            {
-                // Goi ham xoa cac category panel, music panel
-                searchAndSort.ResetUserControl();
-
-                // Dua tren lua chon tren combobox ma tien hanh sort
-                string selectedChoice = gunaComboBox1.SelectedItem.ToString();
-
-                if (selectedChoice == "A to Z") searchAndSort.SortByAtoZ(textSearchMedia);
-
-                else if (selectedChoice == "Date added") searchAndSort.SortByDateAdded(textSearchMedia);
-
-                else if (selectedChoice == "Album") searchAndSort.SortByAlbum(textSearchMedia);
-
-                else if (selectedChoice == "Artist") searchAndSort.SortByArtist(textSearchMedia);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void EventClickRefresh(object sender, EventArgs e)
-        {
-            searchAndSort.ResetUserControl();
-            Init();
-        }
-
         private void EventSearchText(object sender, EventArgs e)
         {
             string searchText = gunaTextBox1.Text;
 
             SearchSongByText(searchText);
+            searchAndSort.ResetUserControl();
 
             if (textSearchMedia.Count > 0)
             {
-                searchAndSort.ResetUserControl();
                 searchAndSort.LoadSongOntoScreen(textSearchMedia);
             }
         }
-        public List<Media> MergeSongListAndVideoList
-        {
-            get
-            {
-                List<Media> list = new List<Media>(MediaHelpers.listSongs);
-                list.AddRange(MediaHelpers.listVideos);
-                return list;
-            }
-        }
+        
         private void SearchSongByText(string searchText)
         {
             textSearchMedia = new List<Media>();

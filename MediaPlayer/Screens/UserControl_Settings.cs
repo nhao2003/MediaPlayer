@@ -22,9 +22,6 @@ namespace MediaPlayer.Widgets
         {
             GetMusicVideoDirectory sendDirectoryToMusicTab = new GetMusicVideoDirectory(UserControl_ListMedia.GetMusicVideoPath);
             sendDirectoryToMusicTab(musicFolderPath, videoFolderPath);
-
-            GetMusicVideoDirectory sendDirectoryToSearchTab = new GetMusicVideoDirectory(UserControl_Search.GetMusicVideoPath);
-            sendDirectoryToSearchTab(musicFolderPath, videoFolderPath);
         }
 
         //public string musicFolderPath = "C:\\users\\Administrator\\Music";
