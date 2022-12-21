@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TagLib;
+using File = TagLib.File;
 
 namespace MediaPlayer.Models
 {
@@ -13,9 +15,9 @@ namespace MediaPlayer.Models
         private String playListID;
         private String playListName;
         private List<Media> listMedia = new List<Media>();
-        private Image backroundImage;
+        private string backroundImageFillName = null;
         private DateTime dateCreated;
-
+        private static string ImageBackgroundFolder = $@"C:\Users\{Environment.UserName}\Documents\Media Player\PLay List Image Background";
         public String PlayListID => playListID;
 
         public String PlayListName
@@ -24,12 +26,17 @@ namespace MediaPlayer.Models
             set => playListName = value;
         }
 
-        public Image BackroundImage
+        public string BackroundImageFileName
         {
-            set { backroundImage = value; }
-            get { return backroundImage; }
+            set
+            {
+                FileInfo file = new FileInfo(value);
+                file.CopyTo(backroundImageFillName, true);
+                backroundImageFillName = value;
+            }
+            get => backroundImageFillName;
         }
-
+        public Image BackGroundImage => Image.FromFile(backroundImageFillName);
         public List<Media> ListMedia
         {
             get => listMedia;
@@ -41,11 +48,11 @@ namespace MediaPlayer.Models
             set => dateCreated = value;
             get { return dateCreated; }
         }
-        public Playlist(String name = "Unnamed", Image backroundImage = null , List<Media> listMedia = null)
+        public Playlist(String name = "Unnamed", string backroundImageFillName = null , List<Media> listMedia = null)
         {
             this.playListID = Guid.NewGuid().ToString("N");
             this.playListName = name;
-            this.backroundImage = backroundImage;
+            this.backroundImageFillName = backroundImageFillName;
             this.dateCreated = DateTime.Now;
             if(listMedia != null)
                 ListMedia = listMedia;

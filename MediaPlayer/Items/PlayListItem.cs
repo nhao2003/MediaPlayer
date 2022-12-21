@@ -24,7 +24,7 @@ namespace MediaPlayer.Items
             InitializeComponent();
             label_NameSong.Text = playlist.PlayListName;
             label_Author.Text = $@"{playlist.ListMedia.Count} items";
-            pic_SongPic.Image = this.playlist.BackroundImage;
+            pic_SongPic.Image = this.playlist.BackGroundImage;
         }
         private void MediaItem_Click(object sender, EventArgs e)
         {
