@@ -10,13 +10,13 @@ namespace MediaPlayer.Models
 {
     public class Playlist
     {
-        private String playListID;
-        private String playListName;
+        private string playListID;
+        private string playListName;
         private List<Media> listMedia = new List<Media>();
         private string backroundImageFileName = null;
         private DateTime dateCreated;
-        private static string ImageBackgroundFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Media Player", "Play List Image");
-        public String PlayListID => playListID;
+        private static readonly string ImageBackgroundFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ "\\Media Player\\Play List Image";
+        public string PlayListID => playListID;
 
         public String PlayListName
         {
@@ -32,13 +32,13 @@ namespace MediaPlayer.Models
                 string FileName = playListID + file.Extension;
                 if (backroundImageFileName == null)
                     backroundImageFileName = Path.Combine(ImageBackgroundFolder, FileName);
-                if (!Directory.Exists(ImageBackgroundFolder))
-                {
-                    Directory.CreateDirectory(Path.GetDirectoryName(backroundImageFileName));
-                }
-                if(!File.Exists(backroundImageFileName))
-                    File.Delete(backroundImageFileName);
-                File.Copy(value, backroundImageFileName);
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Media Player");
+                Directory.CreateDirectory(ImageBackgroundFolder);
+                if (File.Exists(backroundImageFileName))
+                    File.Copy(value, backroundImageFileName, true);
+                else
+                    File.Copy(value, backroundImageFileName);
+                MessageBox.Show(backroundImageFileName);
             }
             get => backroundImageFileName;
         }
