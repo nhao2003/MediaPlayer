@@ -162,7 +162,7 @@ namespace MediaPlayer.Models
             this.artists = (artist != null) ? artist : "Unknown";
             this.album = (album != null) ? album : "Unknown";
             this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
-            this.dateAdded = dateAdded;
+            this.dateAdded = System.IO.File.GetCreationTime(path);
             this.filePath = path;
             this.image = mediaImage;
             this.others = TagLib.File.Create(path);
