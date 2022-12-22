@@ -78,6 +78,13 @@ namespace MediaPlayer
             MainPages.SetPage(n);
             if(n == 2) _oldButton = btn_Music;
             else _oldButton = btn_Video;
+            if (_oldButton != null)
+            {
+                _oldButton.Image = _oldButton.OnHoverImage;
+                _oldButton.ForeColor = Color.White;
+                btn_Home.Image = (Image)btn_Home.Tag;
+                btn_Home.ForeColor = Color.Silver;
+            }
         }
         public VideoPlayer videoScreen = new VideoPlayer();
         public void ClassifyMedia(Media media)

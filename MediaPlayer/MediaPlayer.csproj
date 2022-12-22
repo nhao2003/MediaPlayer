@@ -488,12 +488,16 @@
     <None Include="Resources\not_favorite_hover.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\paint-palette-100.png" />
+    <None Include="Resources\paint-brush-100.png" />
     <None Include="Resources\suffle_hover.png" />
     <None Include="Resources\repeat_on.png" />
     <None Include="Resources\repeat_one.png" />
     <None Include="Resources\play_queue.png" />
     <None Include="Resources\new_playlist.png" />
     <None Include="Resources\add-to_queue.png" />
+    <None Include="Resources\folder-16.png" />
+    <None Include="Resources\folder-128.png" />
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

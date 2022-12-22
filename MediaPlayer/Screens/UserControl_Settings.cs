@@ -22,7 +22,7 @@ namespace MediaPlayer.Widgets
         public string musicFolderPath = MediaHelpers.MusicPathFolder;
         public string videoFolderPath = MediaHelpers.VideoPathFolder;
 
-        public List<string> themes = new List<string>() { "Light", "Dark" };
+        public List<string> themes = new List<string>() { "Dark", "Light"};
         public List<string> colors = new List<string>() { "Green", "Blue", "Red", "Yellow" };
         public UserControl_Settings()
         {

@@ -337,7 +337,7 @@ namespace MediaPlayer.Items
                     isPlayingVideo = true;
                     // sync
                     videoScreen.click_btn_play();
-                    videoScreen.currentTimePlay = (int)PlayMedia.CurrentPositionSong;
+                    videoScreen.currentTimePlay = (int)PlayMedia.CurrentPositionSong + 0.6;
                     videoScreen.setCurrentTimePlay();
                     videoScreen.changeVolume(gunaTrackBar_Volume.Value);
                     Form_Main.Instance.Hide();
