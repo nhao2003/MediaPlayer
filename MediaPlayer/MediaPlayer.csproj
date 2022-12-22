@@ -93,7 +93,7 @@
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="NReco.VideoConverter">
-      <HintPath>C:\Users\Administrator\Downloads\NReco.VideoConverter.dll</HintPath>
+      <HintPath>Resources\NReco.VideoConverter.dll</HintPath>
     </Reference>
     <Reference Include="Siticone.UI">
       <HintPath>..\..\..\..\Downloads\Siticone.UI.dll</HintPath>
