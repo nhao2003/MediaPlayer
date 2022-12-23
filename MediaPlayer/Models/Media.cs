@@ -18,11 +18,11 @@ namespace MediaPlayer.Models
     /// </summary>
     public class Media
     {
-        private String id;
-        private String title;
-        private String artists;
-        private String album;
-        private String filePath;
+        private string id;
+        private string title;
+        private string artists;
+        private string album;
+        private string filePath;
         private Image image;
         private TimeSpan duration;
         private DateTime dateAdded;
@@ -33,11 +33,11 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Lấy ID
         /// </summary>
-        public String Id => id;
+        public string Id => id;
         /// <summary>
         /// Tên media
         /// </summary>
-        public String Title
+        public string Title
         {
             set => title = value;
             get
@@ -49,7 +49,7 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Tên ca sĩ
         /// </summary>
-        public String Artists {
+        public string Artists {
             set => artists = value;
             get
             {
@@ -57,7 +57,7 @@ namespace MediaPlayer.Models
                 return artists;
             }
         }
-        public String Album
+        public string Album
         {
             set => album = value;
             get
@@ -114,7 +114,7 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Lấy patch của bài hát
         /// </summary>
-        public String FilePath
+        public string FilePath
         {
             set => filePath = value;
             get
@@ -126,11 +126,11 @@ namespace MediaPlayer.Models
         /// Lấy duration bài hát dưới dạng text
         /// Ví dụ: 03:18
         /// </summary>
-        public String DurationText
+        public string DurationText
         {
             get
             {
-                String durationText = "";
+                string durationText = "";
                 if (duration.Minutes < 10)
                     durationText += 0;
                 durationText += duration.Minutes.ToString() + ':';
@@ -176,7 +176,7 @@ namespace MediaPlayer.Models
             TagLib.File taglib = TagLib.File.Create(path);
 
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
-            this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
+            this.artists = (taglib.Tag.Album != null) ? string.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = System.IO.File.GetCreationTime(path);
             this.filePath = path;

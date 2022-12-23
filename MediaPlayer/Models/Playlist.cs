@@ -18,7 +18,7 @@ namespace MediaPlayer.Models
         private static readonly string ImageBackgroundFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ "\\Media Player\\Play List Image";
         public string PlayListID => playListID;
 
-        public String PlayListName
+        public string PlayListName
         {
             get => playListName;
             set => playListName = value;
@@ -56,12 +56,12 @@ namespace MediaPlayer.Models
             set => dateCreated = value;
             get { return dateCreated; }
         }
-        public Playlist(String name = "Unnamed", string backroundImageFileName = null , List<Media> listMedia = null)
+        public Playlist(string name = "Unnamed", string backroundImageFileName = null , List<Media> listMedia = null)
         {
-            this.playListID = Guid.NewGuid().ToString("N");
-            this.playListName = name;
+            playListID = Guid.NewGuid().ToString("N");
+            playListName = name;
             this.backroundImageFileName = backroundImageFileName;
-            this.dateCreated = DateTime.Now;
+            dateCreated = DateTime.Now;
             if(listMedia != null)
                 ListMedia = listMedia;
         }

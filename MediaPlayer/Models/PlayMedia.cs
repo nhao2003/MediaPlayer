@@ -52,16 +52,16 @@ namespace MediaPlayer.Models
         {
             get { return player.Ctlcontrols.currentPosition; }
         }
-        public static string DurationStringSong
+        public static string DurationstringSong
         {
             get
             {
                 if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
-                    return player.Ctlcontrols.currentItem.durationString.ToString();
+                    return player.Ctlcontrols.currentItem.durationString;
                 return "00:00";
             }
         }
-        public static string CurrentPositionStringSong
+        public static string CurrentPositionstringSong
         {
             get
             {

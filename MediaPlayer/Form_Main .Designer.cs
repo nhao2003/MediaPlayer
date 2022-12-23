@@ -63,6 +63,8 @@ namespace MediaPlayer
             this.MainPages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage_Playlist = new System.Windows.Forms.TabPage();
             this.userControl_PlayList = new MediaPlayer.Widgets.UserControl_ListMedia();
+            this.tabPage_Playing = new System.Windows.Forms.TabPage();
+            this.userControl_Playing = new MediaPlayer.Widgets.UserControl_Playing();
             this.gunaPanel_MediaControl.SuspendLayout();
             this.Panel_SlidingBar.SuspendLayout();
             this.gunaPanel1.SuspendLayout();
@@ -74,6 +76,7 @@ namespace MediaPlayer
             this.tabPage_Home.SuspendLayout();
             this.MainPages.SuspendLayout();
             this.tabPage_Playlist.SuspendLayout();
+            this.tabPage_Playing.SuspendLayout();
             this.SuspendLayout();
             // 
             // userControl_Music
@@ -478,16 +481,17 @@ namespace MediaPlayer
             this.MainPages.Controls.Add(this.tabPage_Library);
             this.MainPages.Controls.Add(this.tabPage_Settings);
             this.MainPages.Controls.Add(this.tabPage_Playlist);
+            this.MainPages.Controls.Add(this.tabPage_Playing);
             this.MainPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainPages.Location = new System.Drawing.Point(228, 0);
             this.MainPages.Margin = new System.Windows.Forms.Padding(0);
             this.MainPages.Multiline = true;
             this.MainPages.Name = "MainPages";
             this.MainPages.Padding = new System.Drawing.Point(0, 0);
-            this.MainPages.Page = this.tabPage_Home;
-            this.MainPages.PageIndex = 0;
-            this.MainPages.PageName = "tabPage_Home";
-            this.MainPages.PageTitle = "tabPage_Home";
+            this.MainPages.Page = this.tabPage_Playing;
+            this.MainPages.PageIndex = 7;
+            this.MainPages.PageName = "tabPage_Playing";
+            this.MainPages.PageTitle = "tabPage_Playing";
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(954, 636);
             this.MainPages.TabIndex = 15;
@@ -530,6 +534,27 @@ namespace MediaPlayer
             this.userControl_PlayList.TabIndex = 0;
             this.userControl_PlayList.Title = "";
             // 
+            // tabPage_Playing
+            // 
+            this.tabPage_Playing.Controls.Add(this.userControl_Playing);
+            this.tabPage_Playing.Location = new System.Drawing.Point(4, 4);
+            this.tabPage_Playing.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage_Playing.Name = "tabPage_Playing";
+            this.tabPage_Playing.Size = new System.Drawing.Size(946, 607);
+            this.tabPage_Playing.TabIndex = 7;
+            this.tabPage_Playing.Text = "tabPage_Playing";
+            this.tabPage_Playing.UseVisualStyleBackColor = true;
+            // 
+            // userControl_Playing
+            // 
+            this.userControl_Playing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.userControl_Playing.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Playing.Location = new System.Drawing.Point(0, 0);
+            this.userControl_Playing.Media = null;
+            this.userControl_Playing.Name = "userControl_Playing";
+            this.userControl_Playing.Size = new System.Drawing.Size(946, 607);
+            this.userControl_Playing.TabIndex = 0;
+            // 
             // Form_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -556,6 +581,7 @@ namespace MediaPlayer
             this.tabPage_Home.ResumeLayout(false);
             this.MainPages.ResumeLayout(false);
             this.tabPage_Playlist.ResumeLayout(false);
+            this.tabPage_Playing.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -586,7 +612,9 @@ namespace MediaPlayer
         public UserControl_Library userControl_Library1;
         private TabPage tabPage_Playlist;
         private UserControl_ListMedia userControl_PlayList;
-        public Bunifu.UI.WinForms.BunifuPages MainPages;
+        private Bunifu.UI.WinForms.BunifuPages MainPages;
+        private TabPage tabPage_Playing;
+        private UserControl_Playing userControl_Playing;
     }
 }
 

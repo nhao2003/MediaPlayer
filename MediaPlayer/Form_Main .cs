@@ -131,5 +131,11 @@ namespace MediaPlayer
             };
             this.tabPage_Home.Controls.Add(this.userControl_Home1);
         }
+
+        public void ViewPlayingSong(Media media)
+        {
+            userControl_Playing.Media = media;
+            MainPages.SetPage(7);
+        }
     }
 }

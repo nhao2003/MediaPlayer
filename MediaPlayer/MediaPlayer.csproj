@@ -202,6 +202,7 @@
     <Compile Include="Items\MusicRow.Designer.cs">
       <DependentUpon>MusicRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\GaussianBlur.cs" />
     <Compile Include="Models\MediaHelpers.cs" />
     <Compile Include="Models\PlayMedia.cs" />
     <Compile Include="Models\Playlist.cs" />
@@ -235,6 +236,12 @@
     </Compile>
     <Compile Include="Screens\UserControl_ListMedia.Designer.cs">
       <DependentUpon>UserControl_ListMedia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UserControl_Playing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UserControl_Playing.Designer.cs">
+      <DependentUpon>UserControl_Playing.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\UserControl_Search.cs">
       <SubType>UserControl</SubType>
@@ -305,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_ListMedia.resx">
       <DependentUpon>UserControl_ListMedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UserControl_Playing.resx">
+      <DependentUpon>UserControl_Playing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Search.resx">
       <DependentUpon>UserControl_Search.cs</DependentUpon>

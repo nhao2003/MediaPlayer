@@ -130,8 +130,8 @@ namespace MediaPlayer.Items
             {
                 MediaTrackBar.Maximum = (int)PlayMedia.DurationSong;
                 MediaTrackBar.Value = (int)PlayMedia.CurrentPositionSong;
-                timeSongPlay.Text = PlayMedia.CurrentPositionStringSong;
-                timeSongEnd.Text = PlayMedia.DurationStringSong;
+                timeSongPlay.Text = PlayMedia.CurrentPositionstringSong;
+                timeSongEnd.Text = PlayMedia.DurationstringSong;
                 btn_Play.Image = Resources.pause_hover;
                 btn_Play.OnHoverImage = Resources.pause_hover;
                 PlayMedia.setCurrentTimePlay();
@@ -320,7 +320,8 @@ namespace MediaPlayer.Items
             if (PlayMedia.IsFirst == false) return;
             if (_media.MediaTypes == MediaTypes.Audio)
             {
-                //qua trang detail song
+                MessageBox.Show("View");
+                Form_Main.Instance.ViewPlayingSong(_media);
             }
             else
             {
