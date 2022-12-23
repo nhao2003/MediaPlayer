@@ -1,73 +1,59 @@
-﻿using MediaPlayer.Items;
-using MediaPlayer.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TagLib;
-using System.IO;
-using CsvHelper;
-using Guna.UI.WinForms;
-using MediaPlayer.Widgets;
+using MediaPlayer.Items;
+using MediaPlayer.Models;
 
-namespace MediaPlayer.Widgets
+
+namespace MediaPlayer.Screens
 {
     public partial class UserControl_ListMedia : UserControl
     {
-        public delegate void Send(string path, MediaTypes mediaTypes);
-        public Send sendPath;
-
+        public UserControl_ListMedia()
+        {
+            InitializeComponent();
+        }
         /// <summary>
         /// Get or Set UserControl MediaList Title
         /// </summary>
         public string Title
         {
             get => lb_Title.Text;
-            set
-            {
-                lb_Title.Text = value;
-            }
+            set => lb_Title.Text = value;
         }
 
-        private List<Media> _listMedia = new List<Media>();
+        private List<Media> _listMedia;
+
         /// <summary>
         /// Get or Set List Media
         /// </summary>
-        public List<Media> ListMedia {
+        public List<Media> ListMedia { 
             get => _listMedia;
-            set
-            {
-                _listMedia = value;
-                SortMediaAToZ();
-                cb_SortBy.SelectedIndex = 0;
-            }
+            set => _listMedia = value;
         }
+
         public void SortMediaAToZ()
         {
-            IEnumerable<IGrouping<char, Media>> sortByAToZ = Playlist.SortListAToZ(_listMedia);
+            IEnumerable<IGrouping<char, Media>> sortByAToZ = Playlist.SortListAToZ(ListMedia);
             DisplayMediaItems(sortByAToZ);
         }
 
         public void SortMediaByDateAdded()
         {
-            IEnumerable<IGrouping<string, Media>> sortByDateAdded = Playlist.SortListDateAdded(_listMedia);
+            IEnumerable<IGrouping<string, Media>> sortByDateAdded = Playlist.SortListDateAdded(ListMedia);
             DisplayMediaItems(sortByDateAdded);
         }
 
         public void SortMediaByAlbum()
         {
-            IEnumerable<IGrouping<string, Media>> sortByAlbum = Playlist.SortListAlbum(_listMedia);
+            IEnumerable<IGrouping<string, Media>> sortByAlbum = Playlist.SortListAlbum(ListMedia);
             DisplayMediaItems(sortByAlbum);
         }
 
         public void SortMediaByArtists()
         {
-            IEnumerable<IGrouping<string, Media>> sortByArtists = Playlist.SortListArtists(_listMedia);
+            IEnumerable<IGrouping<string, Media>> sortByArtists = Playlist.SortListArtists(ListMedia);
             DisplayMediaItems(sortByArtists);
         }
 
@@ -91,46 +77,6 @@ namespace MediaPlayer.Widgets
         }
 
         /// <summary>
-        /// Initialize data
-        /// </summary>
-        static SortHandling manageSort;
-        private List<string> filePaths = new List<string>();
-
-        public UserControl_ListMedia()
-        {
-            InitializeComponent();
-            manageSort = new SortHandling(pn_Display);
-        }
-
-        private void gunaButton1_Click(object sender, EventArgs e)
-        {
-            manageSort.ResetUserControl();
-            // Chon folder de lay music
-            try
-            {
-                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-                DialogResult result = folderBrowserDialog.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
-                {
-                    var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories)
-                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg"));
-                    filePaths = files.ToList();
-                }
-
-                manageSort.AddMusicDataToLists(ref filePaths);
-                
-                manageSort.SaveToDatabase();
-                
-                manageSort.LoadSongOntoScreen();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
         /// Choosing sort option changed
         /// </summary>
         /// <param name="sender"></param>
@@ -139,8 +85,6 @@ namespace MediaPlayer.Widgets
         {
             try
             {
-                // Goi ham xoa cac category panel, music panel
-                manageSort.ResetUserControl();
                 // Dua tren lua chon tren combobox ma tien hanh sort
                 string selectedChoice = cb_SortBy.SelectedItem.ToString();
                 switch (selectedChoice)

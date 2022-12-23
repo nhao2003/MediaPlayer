@@ -79,10 +79,10 @@ namespace MediaPlayer.Items
             foreach (var c in codecs)
             {
                 string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
-                openFileDialog.Filter = String.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, codecName, c.FilenameExtension);
+                openFileDialog.Filter = string.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, codecName, c.FilenameExtension);
                 sep = "|";
             }
-            openFileDialog.Filter = String.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, "All Files", "*.*");
+            openFileDialog.Filter = string.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, "All Files", "*.*");
             openFileDialog.DefaultExt = ".png";
 
             DialogResult result = openFileDialog.ShowDialog();

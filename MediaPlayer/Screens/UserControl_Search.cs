@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MediaPlayer.Models;
 using System.IO;
-using CsvHelper;
 using Guna.UI.WinForms;
 using MediaPlayer.Widgets;
 using MediaPlayer.Items;

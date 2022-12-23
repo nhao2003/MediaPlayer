@@ -22,7 +22,7 @@ namespace MediaPlayer.Items
             InitializeComponent();
         }
 
-        public DisplayMediaItems(String title, List<Media> listSongs, MediaTypes mediaTypes)
+        public DisplayMediaItems(string title, List<Media> listSongs, MediaTypes mediaTypes)
         {
             InitializeComponent();
             label_Title.Text = title;

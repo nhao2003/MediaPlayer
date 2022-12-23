@@ -16,7 +16,7 @@ namespace MediaPlayer.Items
         /// <summary>
         /// Get or set Group Music Title
         /// </summary>
-        public String Title
+        public string Title
         {
             get => lb_Title.Text;
             set => lb_Title.Text = value;

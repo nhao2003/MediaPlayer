@@ -12,7 +12,6 @@ using System.Drawing;
 using System.Windows.Forms;
 using TagLib;
 using System.IO;
-using CsvHelper;
 using MediaPlayer.Widgets;
 namespace MediaPlayer.Items
 {
@@ -129,21 +128,21 @@ namespace MediaPlayer.Items
             }
         }
 
-        public void SaveToDatabase()
-        {
-            // Luu data vo file csv
-            string startupPath = System.IO.Directory.GetCurrentDirectory();
-            string csv_FilePath = startupPath + "\\Song.csv";
-            StringBuilder sbOutput = new StringBuilder();
-            sbOutput.AppendLine("sep=;");
-            sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
-            for (int i = 0; i < joins.Count; i++)
-            {
-                sbOutput.AppendLine(joins[i]);
-            }
-            System.IO.File.WriteAllText(csv_FilePath, sbOutput.ToString());
-            // File.AppendAllText(csv_FilePath, sbOutput.ToString()); // (for appending use)
-        }
+        //public void SaveToDatabase()
+        //{
+        //    // Luu data vo file csv
+        //    string startupPath = System.IO.Directory.GetCurrentDirectory();
+        //    string csv_FilePath = startupPath + "\\Song.csv";
+        //    stringBuilder sbOutput = new stringBuilder();
+        //    sbOutput.AppendLine("sep=;");
+        //    sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
+        //    for (int i = 0; i < joins.Count; i++)
+        //    {
+        //        sbOutput.AppendLine(joins[i]);
+        //    }
+        //    System.IO.File.WriteAllText(csv_FilePath, sbOutput.Tostring());
+        //    // File.AppendAllText(csv_FilePath, sbOutput.Tostring()); // (for appending use)
+        //}
 
         public void SortByAtoZ(List<Media> listNeedToBeSorted = null)
         {

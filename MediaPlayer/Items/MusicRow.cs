@@ -69,7 +69,8 @@ namespace MediaPlayer.Items
         private void MusicRow_Click(object sender, EventArgs e)
         {
             Form_Main.Instance.ClassifyMedia(_media);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
+            //TODO:Xoá cmt
+            //Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
         }
 
         private void btn_Like_Click(object sender, EventArgs e)

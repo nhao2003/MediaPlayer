@@ -120,7 +120,7 @@ namespace MediaPlayer.Items
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -130,8 +130,8 @@ namespace MediaPlayer.Items
             {
                 MediaTrackBar.Maximum = (int)PlayMedia.DurationSong;
                 MediaTrackBar.Value = (int)PlayMedia.CurrentPositionSong;
-                timeSongPlay.Text = PlayMedia.CurrentPositionStringSong;
-                timeSongEnd.Text = PlayMedia.DurationStringSong;
+                timeSongPlay.Text = PlayMedia.CurrentPositionstringSong;
+                timeSongEnd.Text = PlayMedia.DurationstringSong;
                 btn_Play.Image = Resources.pause_hover;
                 btn_Play.OnHoverImage = Resources.pause_hover;
                 PlayMedia.setCurrentTimePlay();
@@ -240,7 +240,7 @@ namespace MediaPlayer.Items
             // in suffer Mode 0 1 3 2 5 4 ....
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
-                //MessageBox.Show(i.ToString());
+                //MessageBox.Show(i.Tostring());
                 if(MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
                     if(i != MediaHelpers.listSongs.Count - 1)
