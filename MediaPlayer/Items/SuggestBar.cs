@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using MediaPlayer.Models;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MediaPlayer.Models;
 
 namespace MediaPlayer.Items
 {
@@ -24,9 +16,9 @@ namespace MediaPlayer.Items
                 musicRow = new MusicRow()
                 {
                     Location = new Point(0, i * 75),
-                    Anchor = AnchorStyles.Left | AnchorStyles.Right, 
+                    Anchor = AnchorStyles.Left | AnchorStyles.Right,
                 };
-                if(i == 0) pic_main.Image = MediaHelpers.listSongs[i].Image;
+                if (i == 0) pic_main.Image = MediaHelpers.listSongs[i].Image;
                 musicRow.Media = MediaHelpers.listSongs[i];
                 panel_MusicRow.Controls.Add(musicRow);
             }

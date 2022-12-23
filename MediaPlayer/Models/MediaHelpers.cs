@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TagLib;
 
@@ -122,7 +116,7 @@ namespace MediaPlayer.Models
             {
                 throw new Exception("MediaTypes is invalid");
             }
-            string[] filePaths = {};
+            string[] filePaths = { };
             // chon file =======================================================
             try
             {

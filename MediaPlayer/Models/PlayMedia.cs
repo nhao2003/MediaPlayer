@@ -1,12 +1,5 @@
-﻿using MediaPlayer.Widgets;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
-using WMPLib;
 
 namespace MediaPlayer.Models
 {
@@ -46,7 +39,7 @@ namespace MediaPlayer.Models
 
         public static double DurationSong
         {
-           get { return player.Ctlcontrols.currentItem.duration; }
+            get { return player.Ctlcontrols.currentItem.duration; }
         }
         public static double CurrentPositionSong
         {
@@ -78,7 +71,8 @@ namespace MediaPlayer.Models
         }
         public static string URL
         {
-            set{
+            set
+            {
                 checkFirst = true;
                 player.CreateControl();
                 if (value != null)

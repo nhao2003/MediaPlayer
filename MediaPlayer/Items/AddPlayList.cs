@@ -1,15 +1,8 @@
 ﻿using MediaPlayer.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MediaPlayer.Items
 {
@@ -40,7 +33,7 @@ namespace MediaPlayer.Items
                 if (index > 0)
                 {
                     MediaHelpers.Playlists[index].PlayListName = tb_NamePlayList.Text;
-                    if(openFileDialog.CheckFileExists)
+                    if (openFileDialog.CheckFileExists)
                         MediaHelpers.Playlists[index].BackroundImageFileName = openFileDialog.FileName;
                 }
             }

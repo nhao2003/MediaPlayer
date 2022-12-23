@@ -1,18 +1,8 @@
-﻿using MediaPlayer.Properties;
+﻿using MediaPlayer.Models;
+using MediaPlayer.Properties;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MediaPlayer.Models;
-using System.IO;
-using MediaPlayer.Widgets;
-using System.Numerics;
-using TagLib.Riff;
 using TagLib;
 
 namespace MediaPlayer.Items
@@ -35,7 +25,7 @@ namespace MediaPlayer.Items
             datasend(this);
 
             // genera new list index of song
-            for(int i = 0; i < MediaHelpers.listSongs.Count; i++)
+            for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 listIndexDefalt.Add(i);
             }
@@ -46,7 +36,7 @@ namespace MediaPlayer.Items
             _media = media;
             getPathOfSong(_media);
         }
-        
+
         public void getPathOfSong(Media media)
         {
             if (isPlayingVideo)
@@ -241,11 +231,11 @@ namespace MediaPlayer.Items
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 //MessageBox.Show(i.ToString());
-                if(MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
+                if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
-                    if(i != MediaHelpers.listSongs.Count - 1)
+                    if (i != MediaHelpers.listSongs.Count - 1)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i+1]]);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i + 1]]);
                         PlayMedia.playSong();
                     }
                     else if (i == MediaHelpers.listSongs.Count - 1 && PlayMedia.Repeat == RepeatMode.All)
@@ -267,7 +257,7 @@ namespace MediaPlayer.Items
                 {
                     if (i != 0)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i-1]]);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i - 1]]);
                         PlayMedia.playSong();
                     }
                     return;
@@ -358,12 +348,13 @@ namespace MediaPlayer.Items
                 btn_Repeat.Image = Resources.repeat_on;
                 btn_Repeat.OnHoverImage = Resources.repeat_on;
             }
-            else if(PlayMedia.Repeat == RepeatMode.All)
+            else if (PlayMedia.Repeat == RepeatMode.All)
             {
                 PlayMedia.Repeat = RepeatMode.One;
                 btn_Repeat.Image = Resources.repeat_one;
                 btn_Repeat.OnHoverImage = Resources.repeat_one;
-            } else if (PlayMedia.Repeat == RepeatMode.One)
+            }
+            else if (PlayMedia.Repeat == RepeatMode.One)
             {
                 PlayMedia.Repeat = RepeatMode.Off;
                 btn_Repeat.Image = Resources.repeat;

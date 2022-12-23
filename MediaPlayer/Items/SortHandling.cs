@@ -1,19 +1,12 @@
 ﻿using Guna.UI.WinForms;
+using MediaPlayer.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MediaPlayer.Items;
-using MediaPlayer.Models;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
 using System.Windows.Forms;
-using TagLib;
-using System.IO;
-using CsvHelper;
-using MediaPlayer.Widgets;
 namespace MediaPlayer.Items
 {
     internal class SortHandling
@@ -209,7 +202,7 @@ namespace MediaPlayer.Items
         {
 
             List<Media> songlist;
-            
+
             if (listNeedToBeSorted == null)
             {
                 songlist = new List<Media>(songList);

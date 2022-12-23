@@ -1,18 +1,8 @@
 ﻿using MediaPlayer.Items;
 using MediaPlayer.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TagLib;
-using File = TagLib.File;
 
 namespace MediaPlayer.Widgets
 {
@@ -45,7 +35,7 @@ namespace MediaPlayer.Widgets
             DialogResult dialogResult = addPlayList.ShowDialog();
             if (dialogResult == DialogResult.OK)
             {
-                Playlist playlist = (Playlist) addPlayList.Tag;
+                Playlist playlist = (Playlist)addPlayList.Tag;
                 PlayListItem item = new PlayListItem(playlist);
                 pn_Display.Controls.Add(item);
             }

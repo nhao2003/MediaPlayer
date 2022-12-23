@@ -1,15 +1,9 @@
-﻿using System;
+﻿using MediaPlayer.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MediaPlayer.Models;
 using TagLib;
-using static ns6.WinApi;
 
 namespace MediaPlayer.Items
 {
@@ -46,7 +40,7 @@ namespace MediaPlayer.Items
 
         private void label_SeeAll_Click(object sender, EventArgs e)
         {
-            if(mediaTypes == MediaTypes.Audio)
+            if (mediaTypes == MediaTypes.Audio)
             {
                 Form_Main.Instance.ChangePage(2);
             }

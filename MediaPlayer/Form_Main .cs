@@ -1,20 +1,15 @@
-﻿using MediaPlayer.Items;
+﻿using Guna.UI.WinForms;
+using MediaPlayer.Items;
+using MediaPlayer.Models;
 using MediaPlayer.Widgets;
 using System;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Drawing;
-using System.Runtime.CompilerServices;
-using WMPLib;
-using System.Threading;
-using System.Threading.Tasks;
-using Guna.UI.WinForms;
-using MediaPlayer.Models;
+using System.Windows.Forms;
 using TagLib;
 
 namespace MediaPlayer
 {
-    
+
     public partial class Form_Main : Form
     {
         public Form_Main()
@@ -76,7 +71,7 @@ namespace MediaPlayer
         public void ChangePage(int n)
         {
             MainPages.SetPage(n);
-            if(n == 2) _oldButton = btn_Music;
+            if (n == 2) _oldButton = btn_Music;
             else _oldButton = btn_Video;
             if (_oldButton != null)
             {
@@ -91,7 +86,7 @@ namespace MediaPlayer
         {
             if (media.MediaTypes == MediaTypes.Audio)
             {
-                if(media != null)
+                if (media != null)
                     MediaControl.getPathOfSong(media);
             }
             else
@@ -109,7 +104,7 @@ namespace MediaPlayer
                     MediaControl.videoScreen = videoScreen;
                     this.Hide();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }

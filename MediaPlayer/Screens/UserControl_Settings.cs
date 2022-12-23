@@ -1,15 +1,8 @@
 ﻿using MediaPlayer.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TagLib;
-using MediaPlayer.Widgets;
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Settings : UserControl
@@ -22,7 +15,7 @@ namespace MediaPlayer.Widgets
         public string musicFolderPath = MediaHelpers.MusicPathFolder;
         public string videoFolderPath = MediaHelpers.VideoPathFolder;
 
-        public List<string> themes = new List<string>() { "Dark", "Light"};
+        public List<string> themes = new List<string>() { "Dark", "Light" };
         public List<string> colors = new List<string>() { "Green", "Blue", "Red", "Yellow" };
         public UserControl_Settings()
         {

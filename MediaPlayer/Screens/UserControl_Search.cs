@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using MediaPlayer.Items;
 using MediaPlayer.Models;
-using System.IO;
-using CsvHelper;
-using Guna.UI.WinForms;
-using MediaPlayer.Widgets;
-using MediaPlayer.Items;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Search : UserControl
@@ -64,7 +55,7 @@ namespace MediaPlayer.Widgets
                 searchAndSort.LoadSongOntoScreen(textSearchMedia);
             }
         }
-        
+
         private void SearchSongByText(string searchText)
         {
             textSearchMedia = new List<Media>();

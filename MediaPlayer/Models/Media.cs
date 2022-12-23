@@ -1,13 +1,7 @@
-﻿using ns2;
+﻿using MediaPlayer.Properties;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MediaPlayer.Properties;
 using TagLib;
 
 
@@ -49,7 +43,8 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Tên ca sĩ
         /// </summary>
-        public string Artists {
+        public string Artists
+        {
             set => artists = value;
             get
             {
@@ -158,7 +153,7 @@ namespace MediaPlayer.Models
         public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
         {
             this.id = Guid.NewGuid().ToString("N");
-            this.title = (title != null)? title : "Unknown";
+            this.title = (title != null) ? title : "Unknown";
             this.artists = (artist != null) ? artist : "Unknown";
             this.album = (album != null) ? album : "Unknown";
             this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
@@ -182,7 +177,7 @@ namespace MediaPlayer.Models
             this.filePath = path;
             this.mediaType = taglib.Properties.MediaTypes;
             this.others = taglib;
-            
+
             if (taglib.Tag.Pictures.Length > 0)
             {
                 var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
@@ -194,7 +189,7 @@ namespace MediaPlayer.Models
                 {
                     var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
                     string fileName = "video_thumbnail" + title + ".jpg";
-                    ffMpeg.GetVideoThumbnail(path,fileName , 5);
+                    ffMpeg.GetVideoThumbnail(path, fileName, 5);
                     this.image = Image.FromFile(fileName);
                 }
                 catch
@@ -212,6 +207,6 @@ namespace MediaPlayer.Models
         {
 
         }
-        
-}
+
+    }
 }
