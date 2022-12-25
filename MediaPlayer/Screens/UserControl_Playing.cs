@@ -18,8 +18,11 @@ namespace MediaPlayer.Widgets
                 if (value == null) return;
                 _media = value;
                 pic_Avatar.Image = _media.Image;
-                pic_BackGround.Image = GaussianBlur.Blur(_media.Image, 100);
-                pic_Avatar.BackgroundImage = GaussianBlur.Blur(_media.Image, 100);
+                this.BackgroundImage = GaussianBlur.Blur(_media.Image, radial: 100);
+                lbSong.Text = _media.Title;
+                lbArtist.Text = _media.Artists;
+                lb_Duration.Text = _media.DurationText;
+                lb_dateAdd.Text = _media.DateAdded.ToString();
                 RotationTimer.Start();
             }
         }
