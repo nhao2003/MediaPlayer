@@ -15,6 +15,7 @@ namespace MediaPlayer
         public Form_Main()
         {
             InitializeComponent();
+            _oldButton = btn_Home;
             userControl_Music.Title = "Music";
             UserControl_Video.Title = "Video";
             userControl_Music.ListMedia = MediaHelpers.listSongs;
