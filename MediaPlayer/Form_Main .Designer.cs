@@ -614,7 +614,7 @@ namespace MediaPlayer
         private UserControl_ListMedia userControl_PlayList;
         private Bunifu.UI.WinForms.BunifuPages MainPages;
         private TabPage tabPage_Playing;
-        private UserControl_Playing userControl_Playing;
+        public UserControl_Playing userControl_Playing;
     }
 }
 

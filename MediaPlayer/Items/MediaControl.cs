@@ -1,5 +1,6 @@
 ﻿using MediaPlayer.Models;
 using MediaPlayer.Properties;
+using MediaPlayer.Widgets;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -61,6 +62,9 @@ namespace MediaPlayer.Items
             btn_Play.Image = Resources.pause_hover;
             btn_Play.OnHoverImage = Resources.pause_hover;
             PlayMedia.playSong();
+
+            // gan nhac cho trang songPlaying
+            Form_Main.Instance.userControl_Playing.Media = media;
         }
 
         public void pauseCurrentPlayer()
@@ -310,7 +314,7 @@ namespace MediaPlayer.Items
             if (PlayMedia.IsFirst == false) return;
             if (_media.MediaTypes == MediaTypes.Audio)
             {
-                Form_Main.Instance.ViewPlayingSong(_media);
+                Form_Main.Instance.ViewPlayingSong();
             }
             else
             {

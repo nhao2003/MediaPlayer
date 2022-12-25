@@ -36,7 +36,7 @@ namespace MediaPlayer.Items
             if (_media == null) return;
             if (_media.MediaTypes == MediaTypes.Audio)
             {
-                Form_Main.Instance.ViewPlayingSong(_media);
+                Form_Main.Instance.ViewPlayingSong();
             }
         }
     }

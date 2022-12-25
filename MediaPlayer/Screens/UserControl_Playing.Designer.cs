@@ -33,13 +33,14 @@
             this.pic_BackGround = new Guna.UI.WinForms.GunaPictureBox();
             this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
             this.RotationTimer = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             this.SuspendLayout();
             // 
             // pic_BackGround
             // 
-            this.pic_BackGround.BackColor = System.Drawing.Color.Black;
+            this.pic_BackGround.BackColor = System.Drawing.Color.Gainsboro;
             this.pic_BackGround.BaseColor = System.Drawing.Color.Transparent;
             this.pic_BackGround.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pic_BackGround.Location = new System.Drawing.Point(0, 0);
@@ -69,10 +70,23 @@
             this.RotationTimer.Interval = 25;
             this.RotationTimer.Tick += new System.EventHandler(this.RotationTimer_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(409, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 35);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Name: ";
+            // 
             // UserControl_Playing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pic_Avatar);
             this.Controls.Add(this.pic_BackGround);
             this.Name = "UserControl_Playing";
@@ -81,6 +95,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -89,5 +104,6 @@
         private Guna.UI.WinForms.GunaPictureBox pic_BackGround;
         private Guna.UI.WinForms.GunaPictureBox pic_Avatar;
         private System.Windows.Forms.Timer RotationTimer;
+        private System.Windows.Forms.Label label1;
     }
 }

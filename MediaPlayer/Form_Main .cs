@@ -127,9 +127,8 @@ namespace MediaPlayer
             this.tabPage_Home.Controls.Add(this.userControl_Home1);
         }
 
-        public void ViewPlayingSong(Media media)
+        public void ViewPlayingSong()
         {
-            userControl_Playing.Media = media;
             MainPages.SetPage(7);
             btn_Home.Image = (Image)btn_Home.Tag;
             btn_Home.ForeColor = Color.Silver;
