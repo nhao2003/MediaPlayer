@@ -126,13 +126,13 @@ namespace MediaPlayer
             };
             this.tabPage_Home.Controls.Add(this.userControl_Home1);
         }
-
+        GunaButton fakeBtn = new GunaButton();
         public void ViewPlayingSong()
         {
             MainPages.SetPage(7);
-            btn_Home.Image = (Image)btn_Home.Tag;
-            btn_Home.ForeColor = Color.Silver;
-            _oldButton = btn_Settings;
+            _oldButton.Image = (Image)_oldButton.Tag;
+            _oldButton.ForeColor = Color.Silver;
+            _oldButton = fakeBtn;
         }
     }
 }

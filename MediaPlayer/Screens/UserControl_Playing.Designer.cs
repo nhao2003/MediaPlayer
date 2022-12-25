@@ -121,7 +121,7 @@
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(413, 210);
+            this.label7.Location = new System.Drawing.Point(413, 212);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 35);
             this.label7.TabIndex = 4;
@@ -135,7 +135,7 @@
             this.lb_Duration.BackColor = System.Drawing.Color.Transparent;
             this.lb_Duration.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lb_Duration.ForeColor = System.Drawing.Color.Black;
-            this.lb_Duration.Location = new System.Drawing.Point(602, 210);
+            this.lb_Duration.Location = new System.Drawing.Point(602, 212);
             this.lb_Duration.Name = "lb_Duration";
             this.lb_Duration.Size = new System.Drawing.Size(468, 44);
             this.lb_Duration.TabIndex = 4;

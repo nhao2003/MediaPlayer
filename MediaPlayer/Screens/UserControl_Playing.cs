@@ -60,7 +60,8 @@ namespace MediaPlayer.Widgets
                 // rotate
                 if(angle < 360)
                 {
-                    angle += 1f;
+                    angle += 10f;
+                    if(360 - angle < 10) angle = 360;
                     Bitmap img = (Bitmap)Media.Image;
                     img = RotateImage(img, angle);
                     pic_Avatar.Image = img;

@@ -120,6 +120,7 @@ namespace MediaPlayer.Items
         }
         private void timer_Tick(object sender, EventArgs e)
         {
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
             if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 MediaTrackBar.Maximum = (int)PlayMedia.DurationSong;
