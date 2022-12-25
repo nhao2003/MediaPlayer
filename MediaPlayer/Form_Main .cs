@@ -131,6 +131,9 @@ namespace MediaPlayer
         {
             userControl_Playing.Media = media;
             MainPages.SetPage(7);
+            btn_Home.Image = (Image)btn_Home.Tag;
+            btn_Home.ForeColor = Color.Silver;
+            _oldButton = btn_Settings;
         }
     }
 }

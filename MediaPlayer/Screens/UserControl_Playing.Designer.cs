@@ -28,36 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_Playing));
             this.pic_BackGround = new Guna.UI.WinForms.GunaPictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
+            this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
+            this.RotationTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pic_Avatar
-            // 
-            this.pic_Avatar.BackColor = System.Drawing.Color.Transparent;
-            this.pic_Avatar.BaseColor = System.Drawing.Color.Transparent;
-            this.pic_Avatar.Image = global::MediaPlayer.Properties.Resources.favorite_hover;
-            this.pic_Avatar.Location = new System.Drawing.Point(13, 329);
-            this.pic_Avatar.Name = "pic_Avatar";
-            this.pic_Avatar.Radius = 30;
-            this.pic_Avatar.Size = new System.Drawing.Size(300, 300);
-            this.pic_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_Avatar.TabIndex = 1;
-            this.pic_Avatar.TabStop = false;
             // 
             // pic_BackGround
             // 
-            this.pic_BackGround.BaseColor = System.Drawing.Color.White;
+            this.pic_BackGround.BackColor = System.Drawing.Color.Black;
+            this.pic_BackGround.BaseColor = System.Drawing.Color.Transparent;
             this.pic_BackGround.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pic_BackGround.Image = global::MediaPlayer.Properties.Resources.defaultImage;
             this.pic_BackGround.Location = new System.Drawing.Point(0, 0);
             this.pic_BackGround.Name = "pic_BackGround";
             this.pic_BackGround.Size = new System.Drawing.Size(1084, 645);
             this.pic_BackGround.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_BackGround.TabIndex = 0;
             this.pic_BackGround.TabStop = false;
+            // 
+            // pic_Avatar
+            // 
+            this.pic_Avatar.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Avatar.BaseColor = System.Drawing.Color.Transparent;
+            this.pic_Avatar.Image = ((System.Drawing.Image)(resources.GetObject("pic_Avatar.Image")));
+            this.pic_Avatar.InitialImage = ((System.Drawing.Image)(resources.GetObject("pic_Avatar.InitialImage")));
+            this.pic_Avatar.Location = new System.Drawing.Point(25, 21);
+            this.pic_Avatar.Margin = new System.Windows.Forms.Padding(10);
+            this.pic_Avatar.Name = "pic_Avatar";
+            this.pic_Avatar.Radius = 20;
+            this.pic_Avatar.Size = new System.Drawing.Size(362, 362);
+            this.pic_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Avatar.TabIndex = 3;
+            this.pic_Avatar.TabStop = false;
+            // 
+            // RotationTimer
+            // 
+            this.RotationTimer.Interval = 25;
+            this.RotationTimer.Tick += new System.EventHandler(this.RotationTimer_Tick);
             // 
             // UserControl_Playing
             // 
@@ -67,8 +77,9 @@
             this.Controls.Add(this.pic_BackGround);
             this.Name = "UserControl_Playing";
             this.Size = new System.Drawing.Size(1084, 645);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
+            this.Load += new System.EventHandler(this.UserControl_Playing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -77,5 +88,6 @@
 
         private Guna.UI.WinForms.GunaPictureBox pic_BackGround;
         private Guna.UI.WinForms.GunaPictureBox pic_Avatar;
+        private System.Windows.Forms.Timer RotationTimer;
     }
 }

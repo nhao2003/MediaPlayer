@@ -61,7 +61,7 @@ namespace MediaPlayer.Items
         private void MusicRow_Click(object sender, EventArgs e)
         {
             Form_Main.Instance.ClassifyMedia(_media);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
 
         private void btn_Like_Click(object sender, EventArgs e)

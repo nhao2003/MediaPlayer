@@ -352,8 +352,8 @@
             // 
             // gunaPictureBox_SongImage
             // 
-            this.gunaPictureBox_SongImage.BackColor = System.Drawing.Color.Transparent;
-            this.gunaPictureBox_SongImage.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox_SongImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.gunaPictureBox_SongImage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.gunaPictureBox_SongImage.Location = new System.Drawing.Point(13, 13);
             this.gunaPictureBox_SongImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaPictureBox_SongImage.Name = "gunaPictureBox_SongImage";

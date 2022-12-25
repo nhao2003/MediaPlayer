@@ -310,7 +310,6 @@ namespace MediaPlayer.Items
             if (PlayMedia.IsFirst == false) return;
             if (_media.MediaTypes == MediaTypes.Audio)
             {
-                MessageBox.Show("View");
                 Form_Main.Instance.ViewPlayingSong(_media);
             }
             else
