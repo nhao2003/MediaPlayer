@@ -88,5 +88,18 @@ namespace MediaPlayer.Widgets
 
             return rotatedImage;
         }
+
+        private void pic_Avatar_Click(object sender, EventArgs e)
+        {
+            if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                Form_Main.Instance.MediaControl.pauseCurrentPlayer();
+            }
+            else
+            {
+                Form_Main.Instance.MediaControl.startTimer = true;
+                PlayMedia.playSong();
+            }
+        }
     }
 }

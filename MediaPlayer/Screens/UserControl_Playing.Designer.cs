@@ -57,6 +57,7 @@
             this.pic_Avatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_Avatar.TabIndex = 3;
             this.pic_Avatar.TabStop = false;
+            this.pic_Avatar.Click += new System.EventHandler(this.pic_Avatar_Click);
             // 
             // RotationTimer
             // 

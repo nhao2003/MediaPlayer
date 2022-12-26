@@ -116,8 +116,13 @@ namespace MediaPlayer.Items
             {
                 MessageBox.Show(ex.ToString());
             }
-
         }
+
+        public bool startTimer
+        {
+            set { timerSong.Enabled = value; }
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
