@@ -23,9 +23,6 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
             searchAndSort = new SortHandling(pn_Search);
-            DataProvider test = new DataProvider();
-            test.Init();
-            
         }
 
         private void gunaTextBox1_Enter(object sender, EventArgs e)
