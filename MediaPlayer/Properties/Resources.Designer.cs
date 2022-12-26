@@ -143,6 +143,16 @@ namespace MediaPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap folder_128 {
+            get {
+                object obj = ResourceManager.GetObject("folder_128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap forward {
             get {
                 object obj = ResourceManager.GetObject("forward", resourceCulture);
@@ -276,6 +286,26 @@ namespace MediaPlayer.Properties {
         internal static System.Drawing.Bitmap not_favorite_hover {
             get {
                 object obj = ResourceManager.GetObject("not_favorite_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint_brush_100 {
+            get {
+                object obj = ResourceManager.GetObject("paint_brush_100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap paint_palette_100 {
+            get {
+                object obj = ResourceManager.GetObject("paint_palette_100", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

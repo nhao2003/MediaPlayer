@@ -1,16 +1,6 @@
 ﻿using MediaPlayer.Items;
-using ns2;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MediaPlayer.Models;
+using System.Windows.Forms;
 using TagLib;
 
 namespace MediaPlayer.Widgets
@@ -21,7 +11,7 @@ namespace MediaPlayer.Widgets
         DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", MediaHelpers.listSongs, MediaTypes.Audio)
         {
             Dock = DockStyle.Bottom,
-            
+
         };
 
         private DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", MediaHelpers.listVideos, MediaTypes.Video)

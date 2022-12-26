@@ -58,6 +58,8 @@
             // 
             // gunaPanel2
             // 
+            this.gunaPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaPanel2.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanel2.Controls.Add(this.btn_Refresh);
             this.gunaPanel2.Controls.Add(this.lb_SortBy);
@@ -75,24 +77,25 @@
             // 
             // btn_Refresh
             // 
+            this.btn_Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Refresh.AnimationHoverSpeed = 0.07F;
             this.btn_Refresh.AnimationSpeed = 0.03F;
             this.btn_Refresh.BaseColor = System.Drawing.Color.Transparent;
             this.btn_Refresh.BorderColor = System.Drawing.Color.Black;
             this.btn_Refresh.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_Refresh.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_Refresh.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Refresh.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Refresh.ForeColor = System.Drawing.Color.White;
             this.btn_Refresh.Image = null;
             this.btn_Refresh.ImageSize = new System.Drawing.Size(52, 52);
-            this.btn_Refresh.Location = new System.Drawing.Point(716, 68);
+            this.btn_Refresh.Location = new System.Drawing.Point(741, 81);
             this.btn_Refresh.Name = "btn_Refresh";
             this.btn_Refresh.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btn_Refresh.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btn_Refresh.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_Refresh.OnHoverImage = null;
             this.btn_Refresh.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_Refresh.Size = new System.Drawing.Size(67, 66);
+            this.btn_Refresh.Size = new System.Drawing.Size(50, 50);
             this.btn_Refresh.TabIndex = 30;
             this.btn_Refresh.Text = "Refresh";
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
@@ -255,6 +258,9 @@
             // 
             // pn_Display
             // 
+            this.pn_Display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pn_Display.AutoScroll = true;
             this.pn_Display.BackColor = System.Drawing.Color.Transparent;
             this.pn_Display.Location = new System.Drawing.Point(0, 150);

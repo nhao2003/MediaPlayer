@@ -1,22 +1,15 @@
 ﻿using MediaPlayer.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MediaPlayer.Items
 {
     public partial class AddPlayList : Form
     {
         private bool isRename = false;
-        private Playlist playlist;
+        private Playlist playlist = new Playlist();
         /// <summary>
         /// Add playlist or rename
         /// </summary>
@@ -40,16 +33,16 @@ namespace MediaPlayer.Items
                 if (index > 0)
                 {
                     MediaHelpers.Playlists[index].PlayListName = tb_NamePlayList.Text;
-                    MediaHelpers.Playlists[index].BackroundImage = pic_BackGround.Image;
+                    if (openFileDialog.CheckFileExists)
+                        MediaHelpers.Playlists[index].BackroundImageFileName = openFileDialog.FileName;
                 }
             }
             else
             {
-                Playlist playlist = new Playlist(tb_NamePlayList.Text, pic_BackGround.Image);
+                Playlist playlist = new Playlist(tb_NamePlayList.Text, openFileDialog.FileName);
                 Tag = playlist;
                 MediaHelpers.Playlists.Add(playlist);
             }
-
             DialogResult = DialogResult.OK;
         }
 
@@ -79,10 +72,10 @@ namespace MediaPlayer.Items
             foreach (var c in codecs)
             {
                 string codecName = c.CodecName.Substring(8).Replace("Codec", "Files").Trim();
-                openFileDialog.Filter = String.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, codecName, c.FilenameExtension);
+                openFileDialog.Filter = string.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, codecName, c.FilenameExtension);
                 sep = "|";
             }
-            openFileDialog.Filter = String.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, "All Files", "*.*");
+            openFileDialog.Filter = string.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, "All Files", "*.*");
             openFileDialog.DefaultExt = ".png";
 
             DialogResult result = openFileDialog.ShowDialog();
@@ -90,6 +83,7 @@ namespace MediaPlayer.Items
             if (result != DialogResult.Cancel)
             {
                 pic_BackGround.Image = Image.FromFile(openFileDialog.FileName);
+                playlist.BackroundImageFileName = openFileDialog.FileName;
             }
         }
     }

@@ -1,13 +1,7 @@
-﻿using ns2;
+﻿using MediaPlayer.Properties;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MediaPlayer.Properties;
 using TagLib;
 
 
@@ -18,11 +12,11 @@ namespace MediaPlayer.Models
     /// </summary>
     public class Media
     {
-        private String id;
-        private String title;
-        private String artists;
-        private String album;
-        private String filePath;
+        private string id;
+        private string title;
+        private string artists;
+        private string album;
+        private string filePath;
         private Image image;
         private TimeSpan duration;
         private DateTime dateAdded;
@@ -33,11 +27,11 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Lấy ID
         /// </summary>
-        public String Id => id;
+        public string Id => id;
         /// <summary>
         /// Tên media
         /// </summary>
-        public String Title
+        public string Title
         {
             set => title = value;
             get
@@ -49,7 +43,8 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Tên ca sĩ
         /// </summary>
-        public String Artists {
+        public string Artists
+        {
             set => artists = value;
             get
             {
@@ -57,7 +52,7 @@ namespace MediaPlayer.Models
                 return artists;
             }
         }
-        public String Album
+        public string Album
         {
             set => album = value;
             get
@@ -114,7 +109,7 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Lấy patch của bài hát
         /// </summary>
-        public String FilePath
+        public string FilePath
         {
             set => filePath = value;
             get
@@ -126,11 +121,11 @@ namespace MediaPlayer.Models
         /// Lấy duration bài hát dưới dạng text
         /// Ví dụ: 03:18
         /// </summary>
-        public String DurationText
+        public string DurationText
         {
             get
             {
-                String durationText = "";
+                string durationText = "";
                 if (duration.Minutes < 10)
                     durationText += 0;
                 durationText += duration.Minutes.ToString() + ':';
@@ -158,7 +153,7 @@ namespace MediaPlayer.Models
         public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
         {
             this.id = Guid.NewGuid().ToString("N");
-            this.title = (title != null)? title : "Unknown";
+            this.title = (title != null) ? title : "Unknown";
             this.artists = (artist != null) ? artist : "Unknown";
             this.album = (album != null) ? album : "Unknown";
             this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
@@ -176,13 +171,13 @@ namespace MediaPlayer.Models
             TagLib.File taglib = TagLib.File.Create(path);
 
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
-            this.artists = (taglib.Tag.Album != null) ? String.Join(", ", taglib.Tag.Album) : "Unknow";
+            this.artists = (taglib.Tag.Album != null) ? string.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = System.IO.File.GetCreationTime(path);
             this.filePath = path;
             this.mediaType = taglib.Properties.MediaTypes;
             this.others = taglib;
-            
+
             if (taglib.Tag.Pictures.Length > 0)
             {
                 var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
@@ -190,7 +185,17 @@ namespace MediaPlayer.Models
             }
             else
             {
-                this.image = Resources.defaultImage;
+                try
+                {
+                    var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                    string fileName = "video_thumbnail" + title + ".jpg";
+                    ffMpeg.GetVideoThumbnail(path, fileName, 5);
+                    this.image = Image.FromFile(fileName);
+                }
+                catch
+                {
+                    this.image = Resources.defaultImage;
+                }
             }
         }
         public void Like()
@@ -202,6 +207,6 @@ namespace MediaPlayer.Models
         {
 
         }
-        
-}
+
+    }
 }

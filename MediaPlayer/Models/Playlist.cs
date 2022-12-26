@@ -1,34 +1,55 @@
-﻿using System;
+﻿using MediaPlayer.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TagLib;
+using System.Windows.Forms;
 
 namespace MediaPlayer.Models
 {
     public class Playlist
     {
-        private String playListID;
-        private String playListName;
+        private string playListID;
+        private string playListName;
         private List<Media> listMedia = new List<Media>();
-        private Image backroundImage;
+        private string backroundImageFileName = null;
         private DateTime dateCreated;
+        private static readonly string ImageBackgroundFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Media Player\\Play List Image";
+        public string PlayListID => playListID;
 
-        public String PlayListID => playListID;
-
-        public String PlayListName
+        public string PlayListName
         {
             get => playListName;
             set => playListName = value;
         }
 
-        public Image BackroundImage
+        public string BackroundImageFileName
         {
-            set { backroundImage = value; }
-            get { return backroundImage; }
+            set
+            {
+                try
+                {
+                    FileInfo file = new FileInfo(value);
+                    string FileName = playListID + file.Extension;
+                    if (backroundImageFileName == null)
+                        backroundImageFileName = Path.Combine(ImageBackgroundFolder, FileName);
+                    Directory.CreateDirectory(ImageBackgroundFolder);
+                    if (File.Exists(backroundImageFileName))
+                        File.Copy(value, backroundImageFileName, true);
+                    else
+                        File.Copy(value, backroundImageFileName);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Lỗi thêm ảnh! Vui lòng thử tắt chương trình diệt Virus!", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            get => backroundImageFileName;
         }
+
+        public Image BackGroundImage => backroundImageFileName == null ? Resources.defaultImage : Image.FromFile(backroundImageFileName);
 
         public List<Media> ListMedia
         {
@@ -41,13 +62,13 @@ namespace MediaPlayer.Models
             set => dateCreated = value;
             get { return dateCreated; }
         }
-        public Playlist(String name = "Unnamed", Image backroundImage = null , List<Media> listMedia = null)
+        public Playlist(string name = "Unnamed", string backroundImageFileName = null, List<Media> listMedia = null)
         {
-            this.playListID = Guid.NewGuid().ToString("N");
-            this.playListName = name;
-            this.backroundImage = backroundImage;
-            this.dateCreated = DateTime.Now;
-            if(listMedia != null)
+            playListID = Guid.NewGuid().ToString("N");
+            playListName = name;
+            this.backroundImageFileName = backroundImageFileName;
+            dateCreated = DateTime.Now;
+            if (listMedia != null)
                 ListMedia = listMedia;
         }
 
@@ -62,8 +83,8 @@ namespace MediaPlayer.Models
         public static IEnumerable<IGrouping<string, Media>> SortListDateAdded(List<Media> list)
         {
             IEnumerable<IGrouping<string, Media>> res = from song in list
-                                                          orderby song.DateAdded ascending
-                                                          group song by song.DateAdded.ToString("dd/MM/yyyy");
+                                                        orderby song.DateAdded ascending
+                                                        group song by song.DateAdded.ToString("dd/MM/yyyy");
             return res.Reverse();
         }
 

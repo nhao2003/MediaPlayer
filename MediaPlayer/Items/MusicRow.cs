@@ -1,16 +1,8 @@
 ﻿using MediaPlayer.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
 using MediaPlayer.Properties;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace MediaPlayer.Items
 {
@@ -53,6 +45,7 @@ namespace MediaPlayer.Items
             label_NameSinger.Text = initializeMedia.Artists;
             label_Duration.Text = initializeMedia.DurationText;
             filePath = initializeMedia.FilePath;
+            _media = initializeMedia;
         }
 
         private void MusicRow_MouseEnter(object sender, EventArgs e)
@@ -67,10 +60,8 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
-            //Form_Main.Instance.MediaControl.getPathOfSong(_media.FilePath);
-            //Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
-            PassDataBetweenForms datasend = new PassDataBetweenForms(mediaControl.transferDataFromLib);
-            datasend(Media);
+            Form_Main.Instance.ClassifyMedia(_media);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
 
         private void btn_Like_Click(object sender, EventArgs e)

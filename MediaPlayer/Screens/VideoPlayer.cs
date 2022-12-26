@@ -1,15 +1,6 @@
 ﻿using MediaPlayer.Models;
 using MediaPlayer.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaPlayer
@@ -33,6 +24,7 @@ namespace MediaPlayer
         private void VideoPlayer_FormClosing(object sender, FormClosingEventArgs e)
         {
             Form_Main.Instance.MediaControl.isPlayingVideo = false;
+            Form_Main.Instance.MediaControl._media = _media;
             if (_media != null) PlayMedia.URL = _media.FilePath;
             PlayMedia.CurrentTimePlay = currentTimePlay + 0.4;
             Form_Main.Instance.MediaControl.SyncWithVideo(_media, player.playState, true);
@@ -56,8 +48,8 @@ namespace MediaPlayer
                 MediaTrackBar.Value = 0;
                 timeSongPlay.Text = "00:00";
                 timeSongEnd.Text = media.DurationText;
-
                 currentTimePlay = player.Ctlcontrols.currentPosition;
+
             }
             catch (Exception e)
             {
@@ -74,14 +66,14 @@ namespace MediaPlayer
             {
                 MediaTrackBar.Maximum = (int)player.Ctlcontrols.currentItem.duration;
                 MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
-                timeSongPlay.Text = getCurrentPositionStringSong();
-                timeSongEnd.Text = getDurationStringSong();
+                timeSongPlay.Text = getCurrentPositionstringSong();
+                timeSongEnd.Text = getDurationstringSong();
                 currentTimePlay = player.Ctlcontrols.currentPosition;
 
                 // sync with mediaControl
                 Form_Main.Instance.MediaControl.MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
                 Form_Main.Instance.MediaControl.gunaTrackBar_Volume.Value = gunaTrackBar_Volume.Value;
-                Form_Main.Instance.MediaControl.timeSongPlay.Text = getCurrentPositionStringSong();
+                Form_Main.Instance.MediaControl.timeSongPlay.Text = getCurrentPositionstringSong();
             }
             else if (player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
@@ -90,13 +82,13 @@ namespace MediaPlayer
                 Form_Main.Instance.Show();
             }
         }
-        private string getDurationStringSong()
+        private string getDurationstringSong()
         {
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 return player.Ctlcontrols.currentItem.durationString.ToString();
             return "00:00";
         }
-        private string getCurrentPositionStringSong()
+        private string getCurrentPositionstringSong()
         {
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 return player.Ctlcontrols.currentPositionString;
@@ -124,6 +116,10 @@ namespace MediaPlayer
         {
             click_btn_play();
         }
+        public void setCurrentTimePlay()
+        {
+            player.Ctlcontrols.currentPosition = currentTimePlay;
+        }
         public void click_btn_play()
         {
             try
@@ -135,7 +131,7 @@ namespace MediaPlayer
                 }
                 else if (player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 {
-                    player.Ctlcontrols.currentPosition = currentTimePlay;
+                    setCurrentTimePlay();
                     player.Ctlcontrols.play();
                     //timerSong.Enabled = true;
                 }

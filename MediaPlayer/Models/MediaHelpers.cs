@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TagLib;
 
@@ -14,8 +8,8 @@ namespace MediaPlayer.Models
     static class MediaHelpers
     {
         private static string userName = Environment.UserName;
-        private static string musicPathFolder = $"C:\\Users\\{"tuanb"}\\Music";
-        private static string videoPathFolder = $"C:\\Users\\{"tuanb"}\\Videos";
+        private static string musicPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+        private static string videoPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
         private static List<Media> playQueue = new List<Media>();
         private static List<Playlist> playLists = new List<Playlist>()
         {
@@ -122,7 +116,7 @@ namespace MediaPlayer.Models
             {
                 throw new Exception("MediaTypes is invalid");
             }
-            string[] filePaths = {};
+            string[] filePaths = { };
             // chon file =======================================================
             try
             {

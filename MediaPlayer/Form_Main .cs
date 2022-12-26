@@ -1,24 +1,21 @@
-﻿using MediaPlayer.Items;
+﻿using Guna.UI.WinForms;
+using MediaPlayer.Items;
+using MediaPlayer.Models;
 using MediaPlayer.Widgets;
 using System;
-using System.ComponentModel;
-using System.Windows.Forms;
 using System.Drawing;
-using System.Runtime.CompilerServices;
-using WMPLib;
-using System.Threading;
-using System.Threading.Tasks;
-using Guna.UI.WinForms;
-using MediaPlayer.Models;
+using System.Windows.Forms;
 using TagLib;
 
 namespace MediaPlayer
 {
+
     public partial class Form_Main : Form
     {
         public Form_Main()
         {
             InitializeComponent();
+            _oldButton = btn_Home;
             userControl_Music.Title = "Music";
             UserControl_Video.Title = "Video";
             userControl_Music.ListMedia = MediaHelpers.listSongs;
@@ -75,15 +72,22 @@ namespace MediaPlayer
         public void ChangePage(int n)
         {
             MainPages.SetPage(n);
-            if(n == 2) _oldButton = btn_Music;
+            if (n == 2) _oldButton = btn_Music;
             else _oldButton = btn_Video;
+            if (_oldButton != null)
+            {
+                _oldButton.Image = _oldButton.OnHoverImage;
+                _oldButton.ForeColor = Color.White;
+                btn_Home.Image = (Image)btn_Home.Tag;
+                btn_Home.ForeColor = Color.Silver;
+            }
         }
-        VideoPlayer videoScreen = new VideoPlayer();
+        public VideoPlayer videoScreen = new VideoPlayer();
         public void ClassifyMedia(Media media)
         {
             if (media.MediaTypes == MediaTypes.Audio)
             {
-                if(media != null)
+                if (media != null)
                     MediaControl.getPathOfSong(media);
             }
             else
@@ -101,7 +105,7 @@ namespace MediaPlayer
                     MediaControl.videoScreen = videoScreen;
                     this.Hide();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
@@ -122,6 +126,14 @@ namespace MediaPlayer
                 Dock = DockStyle.Fill,
             };
             this.tabPage_Home.Controls.Add(this.userControl_Home1);
+        }
+        GunaButton fakeBtn = new GunaButton();
+        public void ViewPlayingSong()
+        {
+            MainPages.SetPage(7);
+            _oldButton.Image = (Image)_oldButton.Tag;
+            _oldButton.ForeColor = Color.Silver;
+            _oldButton = fakeBtn;
         }
     }
 }

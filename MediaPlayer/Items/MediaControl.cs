@@ -1,18 +1,10 @@
-﻿using MediaPlayer.Properties;
+﻿using MediaPlayer.Models;
+using MediaPlayer.Properties;
+using MediaPlayer.Widgets;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MediaPlayer.Models;
-using System.IO;
-using MediaPlayer.Widgets;
-using System.Numerics;
-using TagLib.Riff;
+using TagLib;
 
 namespace MediaPlayer.Items
 {
@@ -34,7 +26,7 @@ namespace MediaPlayer.Items
             datasend(this);
 
             // genera new list index of song
-            for(int i = 0; i < MediaHelpers.listSongs.Count; i++)
+            for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 listIndexDefalt.Add(i);
             }
@@ -45,7 +37,7 @@ namespace MediaPlayer.Items
             _media = media;
             getPathOfSong(_media);
         }
-        
+
         public void getPathOfSong(Media media)
         {
             if (isPlayingVideo)
@@ -70,6 +62,9 @@ namespace MediaPlayer.Items
             btn_Play.Image = Resources.pause_hover;
             btn_Play.OnHoverImage = Resources.pause_hover;
             PlayMedia.playSong();
+
+            // gan nhac cho trang songPlaying
+            Form_Main.Instance.userControl_Playing.Media = media;
         }
 
         public void pauseCurrentPlayer()
@@ -125,12 +120,13 @@ namespace MediaPlayer.Items
         }
         private void timer_Tick(object sender, EventArgs e)
         {
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
             if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 MediaTrackBar.Maximum = (int)PlayMedia.DurationSong;
                 MediaTrackBar.Value = (int)PlayMedia.CurrentPositionSong;
-                timeSongPlay.Text = PlayMedia.CurrentPositionStringSong;
-                timeSongEnd.Text = PlayMedia.DurationStringSong;
+                timeSongPlay.Text = PlayMedia.CurrentPositionstringSong;
+                timeSongEnd.Text = PlayMedia.DurationstringSong;
                 btn_Play.Image = Resources.pause_hover;
                 btn_Play.OnHoverImage = Resources.pause_hover;
                 PlayMedia.setCurrentTimePlay();
@@ -240,11 +236,11 @@ namespace MediaPlayer.Items
             for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
             {
                 //MessageBox.Show(i.ToString());
-                if(MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
+                if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
-                    if(i != MediaHelpers.listSongs.Count - 1)
+                    if (i != MediaHelpers.listSongs.Count - 1)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i+1]]);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i + 1]]);
                         PlayMedia.playSong();
                     }
                     else if (i == MediaHelpers.listSongs.Count - 1 && PlayMedia.Repeat == RepeatMode.All)
@@ -266,7 +262,7 @@ namespace MediaPlayer.Items
                 {
                     if (i != 0)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i-1]]);
+                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i - 1]]);
                         PlayMedia.playSong();
                     }
                     return;
@@ -313,6 +309,41 @@ namespace MediaPlayer.Items
             }
         }
 
+        private void gunaPictureBox_SongImage_Click(object sender, EventArgs e)
+        {
+            if (isPlayingVideo) return;
+            if (PlayMedia.IsFirst == false) return;
+            if (_media.MediaTypes == MediaTypes.Audio)
+            {
+                Form_Main.Instance.ViewPlayingSong();
+            }
+            else
+            {
+                try
+                {
+                    if (videoScreen.Visible == false)
+                    {
+                        videoScreen = new VideoPlayer();
+                        videoScreen.Show();
+                    }
+                    pauseCurrentPlayer();
+                    Form_Main.Instance.videoScreen = videoScreen;
+                    Form_Main.Instance.videoScreen.getPathOfSong(_media);
+                    isPlayingVideo = true;
+                    // sync
+                    videoScreen.click_btn_play();
+                    videoScreen.currentTimePlay = (int)PlayMedia.CurrentPositionSong + 0.6;
+                    videoScreen.setCurrentTimePlay();
+                    videoScreen.changeVolume(gunaTrackBar_Volume.Value);
+                    Form_Main.Instance.Hide();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("song image click error: " + ex.Message);
+                }
+            }
+        }
+
         private void btn_Repeat_Click(object sender, EventArgs e)
         {
             if (PlayMedia.Repeat == RepeatMode.Off)
@@ -321,12 +352,13 @@ namespace MediaPlayer.Items
                 btn_Repeat.Image = Resources.repeat_on;
                 btn_Repeat.OnHoverImage = Resources.repeat_on;
             }
-            else if(PlayMedia.Repeat == RepeatMode.All)
+            else if (PlayMedia.Repeat == RepeatMode.All)
             {
                 PlayMedia.Repeat = RepeatMode.One;
                 btn_Repeat.Image = Resources.repeat_one;
                 btn_Repeat.OnHoverImage = Resources.repeat_one;
-            } else if (PlayMedia.Repeat == RepeatMode.One)
+            }
+            else if (PlayMedia.Repeat == RepeatMode.One)
             {
                 PlayMedia.Repeat = RepeatMode.Off;
                 btn_Repeat.Image = Resources.repeat;
@@ -384,5 +416,6 @@ namespace MediaPlayer.Items
                 return -1;
             }
         }
+
     }
 }

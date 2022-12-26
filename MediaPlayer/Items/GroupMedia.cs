@@ -1,12 +1,6 @@
 ﻿using MediaPlayer.Models;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MediaPlayer.Items
@@ -16,7 +10,7 @@ namespace MediaPlayer.Items
         /// <summary>
         /// Get or set Group Music Title
         /// </summary>
-        public String Title
+        public string Title
         {
             get => lb_Title.Text;
             set => lb_Title.Text = value;

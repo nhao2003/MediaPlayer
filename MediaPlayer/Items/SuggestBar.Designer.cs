@@ -74,6 +74,7 @@
             this.pic_main.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_main.TabIndex = 2;
             this.pic_main.TabStop = false;
+            this.pic_main.Click += new System.EventHandler(this.pic_main_Click);
             // 
             // SuggestBar
             // 

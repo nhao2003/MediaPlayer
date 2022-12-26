@@ -2,18 +2,11 @@
 using MediaPlayer.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TagLib;
-using System.IO;
-using CsvHelper;
-using Guna.UI.WinForms;
-using MediaPlayer.Widgets;
 
 namespace MediaPlayer.Widgets
 {
@@ -38,7 +31,8 @@ namespace MediaPlayer.Widgets
         /// <summary>
         /// Get or Set List Media
         /// </summary>
-        public List<Media> ListMedia {
+        public List<Media> ListMedia
+        {
             get => _listMedia;
             set
             {
@@ -85,7 +79,7 @@ namespace MediaPlayer.Widgets
                     pn_Display.Controls.Add(temp);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

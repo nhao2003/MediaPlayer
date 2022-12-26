@@ -1,16 +1,7 @@
-﻿using ns2;
+﻿using MediaPlayer.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MediaPlayer.Models;
-using TagLib;
 
 namespace MediaPlayer.Items
 {
@@ -31,7 +22,7 @@ namespace MediaPlayer.Items
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
             Form_Main.Instance.ClassifyMedia(_media);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
         private void MediaItem_Click(object sender, EventArgs e)
         {
@@ -42,7 +33,7 @@ namespace MediaPlayer.Items
                 return;
             }
             Form_Main.Instance.ClassifyMedia(_media);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media.Image);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
 
         private void panel_MediaItem_MouseEnter(object sender, EventArgs e)

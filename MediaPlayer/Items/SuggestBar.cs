@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using MediaPlayer.Models;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MediaPlayer.Models;
+using TagLib;
 
 namespace MediaPlayer.Items
 {
     public partial class SuggestBar : UserControl
     {
         public int numOfMediaShow = 5;
+        public Media _media = null;
         public SuggestBar()
         {
             MusicRow musicRow;
@@ -24,16 +18,26 @@ namespace MediaPlayer.Items
                 musicRow = new MusicRow()
                 {
                     Location = new Point(0, i * 75),
-                    Anchor = AnchorStyles.Left | AnchorStyles.Right, 
+                    Anchor = AnchorStyles.Left | AnchorStyles.Right,
                 };
-                if(i == 0) pic_main.Image = MediaHelpers.listSongs[i].Image;
+                if (i == 0) pic_main.Image = MediaHelpers.listSongs[i].Image;
                 musicRow.Media = MediaHelpers.listSongs[i];
                 panel_MusicRow.Controls.Add(musicRow);
             }
         }
-        public void changeImage(Image image)
+        public void changeImage(Media media)
         {
-            pic_main.Image = image;
+            _media = media;
+            pic_main.Image = media.Image;
+        }
+
+        private void pic_main_Click(object sender, System.EventArgs e)
+        {
+            if (_media == null) return;
+            if (_media.MediaTypes == MediaTypes.Audio)
+            {
+                Form_Main.Instance.ViewPlayingSong();
+            }
         }
     }
 }

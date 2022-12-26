@@ -101,6 +101,9 @@
       <HintPath>..\packages\Microsoft.Bcl.HashCode.1.0.0\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="NReco.VideoConverter">
+      <HintPath>Resources\NReco.VideoConverter.dll</HintPath>
+    </Reference>
     <Reference Include="Siticone.UI">
       <HintPath>..\..\..\..\Downloads\Siticone.UI.dll</HintPath>
     </Reference>
@@ -121,6 +124,16 @@
     </Reference>
     <Reference Include="System.Design" />
     <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
@@ -218,7 +231,7 @@
     <Compile Include="Items\MusicRow.Designer.cs">
       <DependentUpon>MusicRow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\DataProvider.cs" />
+    <Compile Include="Models\GaussianBlur.cs" />
     <Compile Include="Models\MediaHelpers.cs" />
     <Compile Include="Models\PlayMedia.cs" />
     <Compile Include="Models\Playlist.cs" />
@@ -252,6 +265,12 @@
     </Compile>
     <Compile Include="Screens\UserControl_ListMedia.Designer.cs">
       <DependentUpon>UserControl_ListMedia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Screens\UserControl_Playing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Screens\UserControl_Playing.Designer.cs">
+      <DependentUpon>UserControl_Playing.cs</DependentUpon>
     </Compile>
     <Compile Include="Screens\UserControl_Search.cs">
       <SubType>UserControl</SubType>
@@ -322,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_ListMedia.resx">
       <DependentUpon>UserControl_ListMedia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Screens\UserControl_Playing.resx">
+      <DependentUpon>UserControl_Playing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Screens\UserControl_Search.resx">
       <DependentUpon>UserControl_Search.cs</DependentUpon>
@@ -505,12 +527,16 @@
     <None Include="Resources\not_favorite_hover.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\paint-palette-100.png" />
+    <None Include="Resources\paint-brush-100.png" />
     <None Include="Resources\suffle_hover.png" />
     <None Include="Resources\repeat_on.png" />
     <None Include="Resources\repeat_one.png" />
     <None Include="Resources\play_queue.png" />
     <None Include="Resources\new_playlist.png" />
     <None Include="Resources\add-to_queue.png" />
+    <None Include="Resources\folder-16.png" />
+    <None Include="Resources\folder-128.png" />
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

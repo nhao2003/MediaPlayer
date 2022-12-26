@@ -352,16 +352,17 @@
             // 
             // gunaPictureBox_SongImage
             // 
-            this.gunaPictureBox_SongImage.BackColor = System.Drawing.Color.Transparent;
-            this.gunaPictureBox_SongImage.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox_SongImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.gunaPictureBox_SongImage.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.gunaPictureBox_SongImage.Location = new System.Drawing.Point(13, 13);
             this.gunaPictureBox_SongImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaPictureBox_SongImage.Name = "gunaPictureBox_SongImage";
             this.gunaPictureBox_SongImage.Radius = 10;
             this.gunaPictureBox_SongImage.Size = new System.Drawing.Size(91, 90);
-            this.gunaPictureBox_SongImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox_SongImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.gunaPictureBox_SongImage.TabIndex = 8;
             this.gunaPictureBox_SongImage.TabStop = false;
+            this.gunaPictureBox_SongImage.Click += new System.EventHandler(this.gunaPictureBox_SongImage_Click);
             // 
             // MediaControl
             // 
