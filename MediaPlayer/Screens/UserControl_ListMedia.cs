@@ -37,8 +37,22 @@ namespace MediaPlayer.Widgets
             set
             {
                 _listMedia = value;
+                setMediaType();
                 SortMediaAToZ();
                 cb_SortBy.SelectedIndex = 0;
+            }
+        }
+        private MediaTypes _mediaTypeOfScreen;
+
+        public void setMediaType()
+        {
+            if (_listMedia.Equals(MediaHelpers.listSongs))
+            {
+                _mediaTypeOfScreen = MediaTypes.Audio;
+            }
+            else if (_listMedia.Equals(MediaHelpers.listVideos))
+            {
+                _mediaTypeOfScreen = MediaTypes.Video;
             }
         }
 
@@ -66,12 +80,12 @@ namespace MediaPlayer.Widgets
             DisplayMediaItems(sortByArtists);
         }
 
-        private void DisplayMediaItems<T>(IEnumerable<IGrouping<T, Media>> sortAToZ)
+        private void DisplayMediaItems<T>(IEnumerable<IGrouping<T, Media>> sortResult)
         {
             pn_Display.Controls.Clear();
             try
             {
-                foreach (var group in sortAToZ)
+                foreach (var group in sortResult)
                 {
 
                     GroupMedia temp = new GroupMedia(group.Key.ToString(), group.ToList());
@@ -95,6 +109,7 @@ namespace MediaPlayer.Widgets
         {
             InitializeComponent();
             manageSort = new SortHandling(pn_Display);
+            setMediaType();
         }
 
         /// <summary>
@@ -137,7 +152,15 @@ namespace MediaPlayer.Widgets
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            
+            if (this._mediaTypeOfScreen == MediaTypes.Audio)
+            {
+                _listMedia = MediaHelpers.listSongs;
+            }
+            else if (this._mediaTypeOfScreen == MediaTypes.Video)
+            {
+                _listMedia = MediaHelpers.listVideos;
+            }
+            SortMediaAToZ();
         }
     }
 }
