@@ -152,6 +152,11 @@ namespace MediaPlayer.Widgets
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
+            Refresh();
+        }
+
+        public void Refresh()
+        {
             if (this._mediaTypeOfScreen == MediaTypes.Audio)
             {
                 _listMedia = MediaHelpers.listSongs;
