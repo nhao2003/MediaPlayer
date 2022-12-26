@@ -77,7 +77,7 @@
             // 
             this.btn_Refresh.AnimationHoverSpeed = 0.07F;
             this.btn_Refresh.AnimationSpeed = 0.03F;
-            this.btn_Refresh.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btn_Refresh.BaseColor = System.Drawing.Color.Transparent;
             this.btn_Refresh.BorderColor = System.Drawing.Color.Black;
             this.btn_Refresh.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_Refresh.FocusedColor = System.Drawing.Color.Empty;
@@ -95,6 +95,7 @@
             this.btn_Refresh.Size = new System.Drawing.Size(67, 66);
             this.btn_Refresh.TabIndex = 30;
             this.btn_Refresh.Text = "Refresh";
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // lb_SortBy
             // 
@@ -199,7 +200,6 @@
             this.gunaButton1.Size = new System.Drawing.Size(188, 39);
             this.gunaButton1.TabIndex = 25;
             this.gunaButton1.Text = "Add music";
-            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
             // 
             // gunaComboBox1
             // 

@@ -24,6 +24,7 @@ namespace MediaPlayer.Widgets
 
         public List<string> themes = new List<string>() { "Light", "Dark" };
         public List<string> colors = new List<string>() { "Green", "Blue", "Red", "Yellow" };
+
         public UserControl_Settings()
         {
             InitializeComponent();

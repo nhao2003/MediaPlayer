@@ -47,6 +47,7 @@ namespace MediaPlayer.Widgets
                 cb_SortBy.SelectedIndex = 0;
             }
         }
+
         public void SortMediaAToZ()
         {
             IEnumerable<IGrouping<char, Media>> sortByAToZ = Playlist.SortListAToZ(_listMedia);
@@ -102,34 +103,6 @@ namespace MediaPlayer.Widgets
             manageSort = new SortHandling(pn_Display);
         }
 
-        private void gunaButton1_Click(object sender, EventArgs e)
-        {
-            manageSort.ResetUserControl();
-            // Chon folder de lay music
-            try
-            {
-                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
-                DialogResult result = folderBrowserDialog.ShowDialog();
-
-                if (result == DialogResult.OK && !string.IsNullOrEmpty(folderBrowserDialog.SelectedPath))
-                {
-                    var files = Directory.GetFiles(folderBrowserDialog.SelectedPath, "*.*", SearchOption.AllDirectories)
-                    .Where(s => s.EndsWith(".mp3") || s.EndsWith(".flac") || s.EndsWith(".wav") || s.EndsWith(".ogg"));
-                    filePaths = files.ToList();
-                }
-
-                manageSort.AddMusicDataToLists(ref filePaths);
-                
-                manageSort.SaveToDatabase();
-                
-                manageSort.LoadSongOntoScreen();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         /// <summary>
         /// Choosing sort option changed
         /// </summary>
@@ -166,6 +139,11 @@ namespace MediaPlayer.Widgets
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btn_Refresh_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
