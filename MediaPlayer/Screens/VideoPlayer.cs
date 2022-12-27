@@ -220,7 +220,7 @@ namespace MediaPlayer
                 MessageBox.Show("Video bi loi nut tang: " + ex.ToString());
             }
         }
-        private void btn_Fullscreen_Click(object sender, EventArgs e)
+        private void btn_Hide_Click(object sender, EventArgs e)
         {
             panel1.Visible = false;
             timer_Hide.Enabled = false;
@@ -253,6 +253,55 @@ namespace MediaPlayer
                 date = DateTime.Now + TimeSpan.FromSeconds(5);
             x = e.fX;
             y = e.fY;
+        }
+        private bool _fullScreen = false;
+
+        public bool FullScreen
+        {
+            get => _fullScreen;
+            set
+            {
+                if(value == _fullScreen) return;
+                if (value)
+                {
+                    FormBorderStyle = FormBorderStyle.None;
+                    WindowState = FormWindowState.Maximized;
+                }
+                else
+                {
+                    WindowState = FormWindowState.Normal;
+                    FormBorderStyle = FormBorderStyle.Sizable;
+                }
+                _fullScreen = value;
+            }
+        }
+        private void btn_FullScreen_Click(object sender, EventArgs e)
+        {
+            FullScreen = !FullScreen;
+        }
+
+        private void VideoPlayer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                FullScreen = false;
+            }
+        }
+
+        private void player_KeyDownEvent(object sender, AxWMPLib._WMPOCXEvents_KeyDownEvent e)
+        {
+            if (e.nKeyCode == 27)
+            {
+                FullScreen = false;
+            }
+        }
+
+        private void panel1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape && WindowState == FormWindowState.Maximized)
+            {
+                FullScreen = false;
+            }
         }
     }
 }

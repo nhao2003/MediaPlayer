@@ -40,7 +40,7 @@ namespace MediaPlayer.Models
                     else
                         File.Copy(value, backroundImageFileName);
                 }
-                catch (Exception e)
+                catch
                 {
                     MessageBox.Show("Lỗi thêm ảnh! Vui lòng thử tắt chương trình diệt Virus!", "Lỗi",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);

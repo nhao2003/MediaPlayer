@@ -538,6 +538,10 @@
     <None Include="Resources\add-to_queue.png" />
     <None Include="Resources\folder-16.png" />
     <None Include="Resources\folder-128.png" />
+    <None Include="Resources\hide_control_hover.png" />
+    <None Include="Resources\Full_Screen.png" />
+    <None Include="Resources\Full_Screen_Hover.png" />
+    <None Include="Resources\hide_control.png" />
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
