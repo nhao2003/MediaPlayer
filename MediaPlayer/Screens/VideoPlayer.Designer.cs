@@ -39,7 +39,6 @@
             this.btn_FullScreen = new Guna.UI.WinForms.GunaCircleButton();
             this.btn_Hide = new Guna.UI.WinForms.GunaCircleButton();
             this.btn_tang = new Guna.UI.WinForms.GunaCircleButton();
-            this.btn_play = new Guna.UI.WinForms.GunaCircleButton();
             this.timeSongEnd = new System.Windows.Forms.Label();
             this.timeSongPlay = new System.Windows.Forms.Label();
             this.MediaTrackBar = new Guna.UI.WinForms.GunaTrackBar();
@@ -47,17 +46,18 @@
             this.timer_Hide = new System.Windows.Forms.Timer(this.components);
             this.Media_Pages = new Bunifu.UI.WinForms.BunifuPages();
             this.VideoPage = new System.Windows.Forms.TabPage();
-            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.MusicPage = new System.Windows.Forms.TabPage();
             this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
             this.pic_BackGround = new Guna.UI.WinForms.GunaPictureBox();
+            this.btn_play = new Guna.UI.WinForms.GunaCircleButton();
+            this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel1.SuspendLayout();
             this.Media_Pages.SuspendLayout();
             this.VideoPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.MusicPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,6 +65,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.btn_play);
             this.panel1.Controls.Add(this.lb_SongName);
             this.panel1.Controls.Add(this.gunaTrackBar_Volume);
             this.panel1.Controls.Add(this.btn_volum);
@@ -72,7 +73,6 @@
             this.panel1.Controls.Add(this.btn_FullScreen);
             this.panel1.Controls.Add(this.btn_Hide);
             this.panel1.Controls.Add(this.btn_tang);
-            this.panel1.Controls.Add(this.btn_play);
             this.panel1.Controls.Add(this.timeSongEnd);
             this.panel1.Controls.Add(this.timeSongPlay);
             this.panel1.Controls.Add(this.MediaTrackBar);
@@ -100,7 +100,7 @@
             // 
             this.gunaTrackBar_Volume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.gunaTrackBar_Volume.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gunaTrackBar_Volume.Location = new System.Drawing.Point(1003, 62);
+            this.gunaTrackBar_Volume.Location = new System.Drawing.Point(991, 62);
             this.gunaTrackBar_Volume.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gunaTrackBar_Volume.Name = "gunaTrackBar_Volume";
             this.gunaTrackBar_Volume.Size = new System.Drawing.Size(139, 26);
@@ -128,7 +128,7 @@
             this.btn_volum.ForeColor = System.Drawing.Color.White;
             this.btn_volum.Image = global::MediaPlayer.Properties.Resources.volume_high;
             this.btn_volum.ImageSize = new System.Drawing.Size(24, 24);
-            this.btn_volum.Location = new System.Drawing.Point(963, 59);
+            this.btn_volum.Location = new System.Drawing.Point(951, 59);
             this.btn_volum.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_volum.Name = "btn_volum";
             this.btn_volum.OnHoverBaseColor = System.Drawing.Color.Transparent;
@@ -178,15 +178,15 @@
             this.btn_FullScreen.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_FullScreen.ForeColor = System.Drawing.Color.White;
             this.btn_FullScreen.Image = global::MediaPlayer.Properties.Resources.Full_Screen;
-            this.btn_FullScreen.ImageSize = new System.Drawing.Size(32, 32);
-            this.btn_FullScreen.Location = new System.Drawing.Point(384, 62);
+            this.btn_FullScreen.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_FullScreen.Location = new System.Drawing.Point(726, 64);
             this.btn_FullScreen.Name = "btn_FullScreen";
             this.btn_FullScreen.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btn_FullScreen.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btn_FullScreen.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_FullScreen.OnHoverImage = global::MediaPlayer.Properties.Resources.Full_Screen_Hover;
             this.btn_FullScreen.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_FullScreen.Size = new System.Drawing.Size(32, 32);
+            this.btn_FullScreen.Size = new System.Drawing.Size(25, 25);
             this.btn_FullScreen.TabIndex = 22;
             this.btn_FullScreen.Click += new System.EventHandler(this.btn_FullScreen_Click);
             this.btn_FullScreen.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VideoPlayer_KeyDown);
@@ -203,15 +203,15 @@
             this.btn_Hide.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_Hide.ForeColor = System.Drawing.Color.White;
             this.btn_Hide.Image = global::MediaPlayer.Properties.Resources.hide_control;
-            this.btn_Hide.ImageSize = new System.Drawing.Size(32, 32);
-            this.btn_Hide.Location = new System.Drawing.Point(728, 62);
+            this.btn_Hide.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_Hide.Location = new System.Drawing.Point(403, 64);
             this.btn_Hide.Name = "btn_Hide";
             this.btn_Hide.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btn_Hide.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btn_Hide.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_Hide.OnHoverImage = global::MediaPlayer.Properties.Resources.hide_control_hover;
             this.btn_Hide.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_Hide.Size = new System.Drawing.Size(32, 32);
+            this.btn_Hide.Size = new System.Drawing.Size(25, 25);
             this.btn_Hide.TabIndex = 22;
             this.btn_Hide.Click += new System.EventHandler(this.btn_Hide_Click);
             this.btn_Hide.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VideoPlayer_KeyDown);
@@ -240,33 +240,6 @@
             this.btn_tang.TabIndex = 22;
             this.btn_tang.Click += new System.EventHandler(this.btn_tang_Click);
             this.btn_tang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VideoPlayer_KeyDown);
-            // 
-            // btn_play
-            // 
-            this.btn_play.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn_play.Animated = true;
-            this.btn_play.AnimationHoverSpeed = 0.07F;
-            this.btn_play.AnimationSpeed = 0.03F;
-            this.btn_play.BaseColor = System.Drawing.Color.Transparent;
-            this.btn_play.BorderColor = System.Drawing.Color.Black;
-            this.btn_play.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_play.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_play.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_play.ForeColor = System.Drawing.Color.Transparent;
-            this.btn_play.Image = global::MediaPlayer.Properties.Resources.play;
-            this.btn_play.ImageSize = new System.Drawing.Size(50, 50);
-            this.btn_play.Location = new System.Drawing.Point(547, 46);
-            this.btn_play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_play.Name = "btn_play";
-            this.btn_play.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.btn_play.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.btn_play.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(220)))), ((int)(((byte)(188)))));
-            this.btn_play.OnHoverImage = global::MediaPlayer.Properties.Resources.play_hover;
-            this.btn_play.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_play.Size = new System.Drawing.Size(64, 64);
-            this.btn_play.TabIndex = 21;
-            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
-            this.btn_play.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VideoPlayer_KeyDown);
             // 
             // timeSongEnd
             // 
@@ -365,18 +338,6 @@
             this.VideoPage.Text = "tabPage1";
             this.VideoPage.UseVisualStyleBackColor = true;
             // 
-            // player
-            // 
-            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(0, 0);
-            this.player.Name = "player";
-            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(1150, 630);
-            this.player.TabIndex = 2;
-            this.player.KeyDownEvent += new AxWMPLib._WMPOCXEvents_KeyDownEventHandler(this.player_KeyDownEvent);
-            this.player.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.player_MouseMoveEvent);
-            // 
             // MusicPage
             // 
             this.MusicPage.Controls.Add(this.pic_Avatar);
@@ -414,6 +375,44 @@
             this.pic_BackGround.TabIndex = 0;
             this.pic_BackGround.TabStop = false;
             // 
+            // btn_play
+            // 
+            this.btn_play.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_play.Animated = true;
+            this.btn_play.AnimationHoverSpeed = 0.07F;
+            this.btn_play.AnimationSpeed = 0.03F;
+            this.btn_play.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_play.BorderColor = System.Drawing.Color.Black;
+            this.btn_play.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_play.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_play.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_play.ForeColor = System.Drawing.Color.White;
+            this.btn_play.Image = global::MediaPlayer.Properties.Resources.play;
+            this.btn_play.ImageSize = new System.Drawing.Size(50, 50);
+            this.btn_play.Location = new System.Drawing.Point(550, 48);
+            this.btn_play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_play.Name = "btn_play";
+            this.btn_play.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_play.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_play.OnHoverForeColor = System.Drawing.Color.Transparent;
+            this.btn_play.OnHoverImage = global::MediaPlayer.Properties.Resources.play_hover;
+            this.btn_play.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_play.Size = new System.Drawing.Size(64, 64);
+            this.btn_play.TabIndex = 26;
+            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
+            // 
+            // player
+            // 
+            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.player.Enabled = true;
+            this.player.Location = new System.Drawing.Point(0, 0);
+            this.player.Name = "player";
+            this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
+            this.player.Size = new System.Drawing.Size(1150, 630);
+            this.player.TabIndex = 2;
+            this.player.KeyDownEvent += new AxWMPLib._WMPOCXEvents_KeyDownEventHandler(this.player_KeyDownEvent);
+            this.player.MouseMoveEvent += new AxWMPLib._WMPOCXEvents_MouseMoveEventHandler(this.player_MouseMoveEvent);
+            // 
             // VideoPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -430,10 +429,10 @@
             this.panel1.PerformLayout();
             this.Media_Pages.ResumeLayout(false);
             this.VideoPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.MusicPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_BackGround)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -445,7 +444,6 @@
         private System.Windows.Forms.Label timeSongPlay;
         private Guna.UI.WinForms.GunaCircleButton btn_giam;
         private Guna.UI.WinForms.GunaCircleButton btn_tang;
-        private Guna.UI.WinForms.GunaCircleButton btn_play;
         private Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Volume;
         private Guna.UI.WinForms.GunaCircleButton btn_volum;
         private Guna.UI.WinForms.GunaLabel lb_SongName;
@@ -459,5 +457,6 @@
         private Guna.UI.WinForms.GunaPictureBox pic_Avatar;
         private Guna.UI.WinForms.GunaPictureBox pic_BackGround;
         private Guna.UI.WinForms.GunaCircleButton btn_FullScreen;
+        private Guna.UI.WinForms.GunaCircleButton btn_play;
     }
 }

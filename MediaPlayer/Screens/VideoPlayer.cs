@@ -62,6 +62,7 @@ namespace MediaPlayer
         {
             Form_Main.Instance.MediaControl.SyncWithVideo(_media, player.playState, false);
             SetIconVolume();
+            setIconPlay();
             if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 MediaTrackBar.Maximum = (int)player.Ctlcontrols.currentItem.duration;
@@ -112,9 +113,23 @@ namespace MediaPlayer
                 btn_volum.OnHoverImage = Resources.volume_high_hover;
             }
         }
+        public void setIconPlay()
+        {
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            {
+                btn_play.Image = Resources.pause_hover;
+                btn_play.OnHoverImage = Resources.pause_hover;
+            }
+            else
+            {
+                btn_play.Image = Resources.play_hover;
+                btn_play.OnHoverImage = Resources.play_hover;
+            }
+        }
         private void btn_play_Click(object sender, EventArgs e)
         {
             click_btn_play();
+            setIconPlay();
         }
         public void setCurrentTimePlay()
         {
