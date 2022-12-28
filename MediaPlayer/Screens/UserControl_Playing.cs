@@ -91,15 +91,7 @@ namespace MediaPlayer.Widgets
 
         private void pic_Avatar_Click(object sender, EventArgs e)
         {
-            if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
-            {
-                Form_Main.Instance.MediaControl.pauseCurrentPlayer();
-            }
-            else
-            {
-                Form_Main.Instance.MediaControl.startTimer = true;
-                PlayMedia.playSong();
-            }
+            Form_Main.Instance.MediaControl.click_btn_play();
         }
     }
 }

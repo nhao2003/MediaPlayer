@@ -80,6 +80,10 @@ namespace MediaPlayer.Items
         }
         private void gunaCircleButton_Play_Click(object sender, EventArgs e)
         {
+            click_btn_play();
+        }
+        public void click_btn_play()
+        {
             try
             {
                 // adjust video
@@ -117,7 +121,6 @@ namespace MediaPlayer.Items
                 MessageBox.Show(ex.ToString());
             }
         }
-
         public bool startTimer
         {
             set { timerSong.Enabled = value; }
@@ -307,10 +310,7 @@ namespace MediaPlayer.Items
             }
             if (isClosing && status == WMPLib.WMPPlayState.wmppsPlaying)
             {
-                timerSong.Enabled = true;
-                btn_Play.Image = Resources.pause_hover;
-                btn_Play.OnHoverImage = Resources.pause_hover;
-                PlayMedia.playSong();
+                click_btn_play();
             }
         }
 
@@ -421,6 +421,5 @@ namespace MediaPlayer.Items
                 return -1;
             }
         }
-
     }
 }

@@ -26,7 +26,7 @@ namespace MediaPlayer
             Form_Main.Instance.MediaControl.isPlayingVideo = false;
             Form_Main.Instance.MediaControl._media = _media;
             if (_media != null) PlayMedia.URL = _media.FilePath;
-            PlayMedia.CurrentTimePlay = currentTimePlay + 0.4;
+            PlayMedia.CurrentTimePlay = currentTimePlay + 0.6;
             Form_Main.Instance.MediaControl.SyncWithVideo(_media, player.playState, true);
             Form_Main.Instance.Show();
         }
