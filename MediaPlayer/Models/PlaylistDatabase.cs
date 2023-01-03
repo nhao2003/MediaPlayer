@@ -125,6 +125,72 @@ namespace MediaPlayer.Models
 
             playlistDatabaseConnection.Close();
         }
+        public Playlist QueryPlaylistGivenPlaylistID(string playlistID)
+        {
+            Playlist result = new Playlist();
+            playlistDatabaseConnection.Open();
+            string queryPlaylist = "SELECT PlaylistID, PlaylistName, PlaylistThumbnailPath, PlaylistDateOfCreation FROM Playlist " +
+                "WHERE PlaylistID = @playlistID"; 
+            var sqlCommand = new SQLiteCommand(queryPlaylist, playlistDatabaseConnection);
+            var dataReader = sqlCommand.ExecuteReader();
+            
+            while (dataReader.Read())
+            {
+                List<Media> mediaInPlaylist = QueryAllMediaInGivenPlaylist(playlistID);
+                result = new Playlist(dataReader["PlaylistID"].ToString(), dataReader["PlaylistName"].ToString(),
+                    dataReader["PlaylistThumbnailPath"].ToString(), mediaInPlaylist);
+                break;
+            }
+            playlistDatabaseConnection.Close();
+            return result;
+        }
+        public List <Playlist> QueryAllPlaylists()
+        {
+            playlistDatabaseConnection.Open();
+            List<Playlist> playlistsInDatabase = new List<Playlist>();
+            List<Media> mediaInPlaylist = new List<Media>();
+
+            string queryPlaylists = "SELECT PlaylistID, PlaylistName, PlaylistThumbnailPath, PlaylistDateOfCreation FROM Playlist";
+            var sqlCommand = new SQLiteCommand(queryPlaylists, playlistDatabaseConnection);
+            var dataReader = sqlCommand.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                
+                Playlist playlist;
+                try
+                {
+                    mediaInPlaylist = QueryAllMediaInGivenPlaylist(dataReader["PlaylistID"].ToString());
+                    playlist = new Playlist(dataReader["PlaylistID"].ToString(), dataReader["PlaylistName"].ToString(),
+                    dataReader["PlaylistThumbnailPath"].ToString(), mediaInPlaylist);
+                    playlistsInDatabase.Add(playlist);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+            playlistDatabaseConnection.Close();
+            return playlistsInDatabase;
+        }
+
+        public List<Media> QueryAllMediaInGivenPlaylist(string playlistID)
+        {
+            List<Media> mediasInPlaylist = new List<Media>();
+
+            string queryMedia = "SELECT MediaPath FROM PlaylistMedias WHERE PlaylistID = @playlistID";
+            var sqlCommand = new SQLiteCommand(queryMedia, playlistDatabaseConnection);
+            sqlCommand.Parameters.AddWithValue("@playlistID", playlistID);
+            SQLiteDataReader dataReader = sqlCommand.ExecuteReader();
+
+            while (dataReader.Read())
+            {
+                Media addMedia = new Media(dataReader["MediaPath"].ToString());
+                mediasInPlaylist.Add(addMedia);
+            }
+            return mediasInPlaylist;
+        }
+
         private void AddValueIntoPlaylistMediasinSQLCommand(Playlist playlistContainsMedia, Media insertMedia, SQLiteCommand sqlCommand)
         {
             sqlCommand.Parameters.AddWithValue("@mediaPath", insertMedia.FilePath);

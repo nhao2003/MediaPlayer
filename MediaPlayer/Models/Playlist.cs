@@ -62,9 +62,10 @@ namespace MediaPlayer.Models
             set => dateCreated = value;
             get { return dateCreated; }
         }
-        public Playlist(string name = "Unnamed", string backroundImageFileName = null, List<Media> listMedia = null)
+        public Playlist(string id = null, string name = "Unnamed", string backroundImageFileName = null, List<Media> listMedia = null)
         {
-            playListID = Guid.NewGuid().ToString("N");
+            if (id == null) playListID = Guid.NewGuid().ToString("N");
+            else playListID = id;
             playListName = name;
             this.backroundImageFileName = backroundImageFileName;
             dateCreated = DateTime.Now;
