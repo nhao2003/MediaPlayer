@@ -96,21 +96,34 @@ namespace MediaPlayer.Models
             playlistDatabaseConnection.Close();
         }
 
-
-        public void TestInsertOperation()
+        public void UpdatePlaylist(Playlist updatePlaylist)
         {
-            Playlist testPlaylist = new Playlist("TestInsert", @"C:\Users\tuanb\Downloads\Pictures\DOkiRkcWkAAojb-.jfif");
-            Media testMedia = new Media(@"C:\Users\tuanb\Downloads\Music\Dangerous Nightcore - Deamn.mp3");
+            playlistDatabaseConnection.Open();
 
-            try
-            {
-                this.InsertPlaylist(testPlaylist);
-                this.InsertMediaIntoPlaylistMedias(testPlaylist, testMedia);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            string updateQuery = "UPDATE Playlist\n"
+                + "SET PlaylistName = @playlistName, PlaylistThumbnailPath = @playlistThumbnailPath, "
+                + "PlaylistDateOfCreation = @playlistDateOfCreation\n"
+                + "WHERE PlaylistID = @playlistID";
+            SQLiteCommand sqlCommand = new SQLiteCommand(updateQuery, playlistDatabaseConnection);
+            
+            AddValueIntoPlaylistinSQLCommand(updatePlaylist, sqlCommand);
+            RunSqlCommand(sqlCommand);
+
+            playlistDatabaseConnection.Close();
+        }
+        public void UpdateMedia(Playlist playlistContainsMedia, Media updateMedia)
+        {
+            playlistDatabaseConnection.Open();
+
+            string updateQuery = "UPDATE PlaylistMedias\n"
+                + "SET PlaylistID = @playlistID\n"
+                + "WHERE MediaPath = @mediaPath";
+            SQLiteCommand sqlCommand = new SQLiteCommand(updateQuery, playlistDatabaseConnection);
+
+            AddValueIntoPlaylistMediasinSQLCommand(playlistContainsMedia, updateMedia, sqlCommand);
+            RunSqlCommand(sqlCommand);
+
+            playlistDatabaseConnection.Close();
         }
         private void AddValueIntoPlaylistMediasinSQLCommand(Playlist playlistContainsMedia, Media insertMedia, SQLiteCommand sqlCommand)
         {

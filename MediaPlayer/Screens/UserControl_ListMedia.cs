@@ -110,6 +110,7 @@ namespace MediaPlayer.Widgets
             InitializeComponent();
             manageSort = new SortHandling(pn_Display);
             setMediaType();
+
         }
 
         /// <summary>
