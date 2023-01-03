@@ -92,7 +92,7 @@
             this.label_NameSinger.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             this.label_NameSinger.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
             // 
-            // label_NameSong
+            // label_Name
             // 
             this.label_NameSong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label_NameSong.AutoEllipsis = true;
@@ -100,7 +100,7 @@
             this.label_NameSong.ForeColor = System.Drawing.Color.White;
             this.label_NameSong.Location = new System.Drawing.Point(72, 12);
             this.label_NameSong.Margin = new System.Windows.Forms.Padding(0);
-            this.label_NameSong.Name = "label_NameSong";
+            this.label_NameSong.Name = "label_Name";
             this.label_NameSong.Size = new System.Drawing.Size(475, 26);
             this.label_NameSong.TabIndex = 21;
             this.label_NameSong.Text = "Heads in the cloud";

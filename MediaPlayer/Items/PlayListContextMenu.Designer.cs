@@ -2,7 +2,7 @@
 
 namespace MediaPlayer.Items
 {
-    partial class CustomContextMenu
+    partial class PlayListContextMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -35,9 +35,11 @@ namespace MediaPlayer.Items
             this.PlayQueue = new System.Windows.Forms.ToolStripMenuItem();
             this.FavoriteList = new System.Windows.Forms.ToolStripMenuItem();
             this.AddTo_Separator = new System.Windows.Forms.ToolStripSeparator();
+            this.NewPlaylist = new System.Windows.Forms.ToolStripMenuItem();
             this.Play = new System.Windows.Forms.ToolStripMenuItem();
             this.PlayNext = new System.Windows.Forms.ToolStripMenuItem();
-            this.NewPlaylist = new System.Windows.Forms.ToolStripMenuItem();
+            this.Rename = new System.Windows.Forms.ToolStripMenuItem();
+            this.Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.SuspendLayout();
             // 
             // Separator
@@ -84,6 +86,15 @@ namespace MediaPlayer.Items
             this.AddTo_Separator.Name = "AddTo_Separator";
             this.AddTo_Separator.Size = new System.Drawing.Size(200, 6);
             // 
+            // NewPlaylist
+            // 
+            this.NewPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.NewPlaylist.ForeColor = System.Drawing.Color.White;
+            this.NewPlaylist.Image = global::MediaPlayer.Properties.Resources.new_playlist;
+            this.NewPlaylist.Name = "NewPlaylist";
+            this.NewPlaylist.Size = new System.Drawing.Size(203, 32);
+            this.NewPlaylist.Text = "New Playlist";
+            // 
             // Play
             // 
             this.Play.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -102,23 +113,32 @@ namespace MediaPlayer.Items
             this.PlayNext.Size = new System.Drawing.Size(163, 32);
             this.PlayNext.Text = "Play next";
             // 
-            // NewPlaylist
+            // Rename
             // 
-            this.NewPlaylist.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.NewPlaylist.ForeColor = System.Drawing.Color.White;
-            this.NewPlaylist.Image = global::MediaPlayer.Properties.Resources.new_playlist;
-            this.NewPlaylist.Name = "NewPlaylist";
-            this.NewPlaylist.Size = new System.Drawing.Size(203, 32);
-            this.NewPlaylist.Text = "New Playlist";
+            this.Rename.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Rename.ForeColor = System.Drawing.Color.White;
+            this.Rename.Name = "Rename";
+            this.Rename.Size = new System.Drawing.Size(163, 32);
+            this.Rename.Text = "Rename";
             // 
-            // CustomContextMenu
+            // Delete
+            // 
+            this.Delete.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Delete.ForeColor = System.Drawing.Color.White;
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(163, 32);
+            this.Delete.Text = "Delete";
+            // 
+            // PlayListContextMenu
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Play,
             this.PlayNext,
             this.Separator,
-            this.AddTo});
+            this.AddTo,
+            this.Rename,
+            this.Delete});
             this.RenderStyle.ArrowColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.RenderStyle.BorderColor = System.Drawing.Color.Gainsboro;
             this.RenderStyle.ColorTable = null;
@@ -128,7 +148,7 @@ namespace MediaPlayer.Items
             this.RenderStyle.SelectionForeColor = System.Drawing.Color.White;
             this.RenderStyle.SeparatorColor = System.Drawing.Color.Gainsboro;
             this.RenderStyle.TextRenderingHint = Guna.UI.WinForms.DrawingTextRenderingHint.SystemDefault;
-            this.Size = new System.Drawing.Size(164, 106);
+            this.Size = new System.Drawing.Size(164, 170);
             this.ResumeLayout(false);
 
         }
@@ -141,5 +161,7 @@ namespace MediaPlayer.Items
         private ToolStripMenuItem FavoriteList;
         private ToolStripSeparator AddTo_Separator;
         private ToolStripMenuItem NewPlaylist;
+        private ToolStripMenuItem Rename;
+        private ToolStripMenuItem Delete;
     }
 }

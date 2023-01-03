@@ -29,7 +29,7 @@ namespace MediaPlayer.Models
         /// </summary>
         public string Id => id;
         /// <summary>
-        /// Tên media
+        /// Tên playlist
         /// </summary>
         public string Title
         {
@@ -169,7 +169,7 @@ namespace MediaPlayer.Models
         public Media(string path)
         {
             TagLib.File taglib = TagLib.File.Create(path);
-
+            this.id = Guid.NewGuid().ToString("N");
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
             this.artists = (taglib.Tag.Album != null) ? string.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
@@ -208,7 +208,7 @@ namespace MediaPlayer.Models
 
         public Media()
         {
-
+            this.id = Guid.NewGuid().ToString("N");
         }
 
     }

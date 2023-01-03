@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace MediaPlayer.Models
@@ -17,13 +18,11 @@ namespace MediaPlayer.Models
         private DateTime dateCreated;
         private static readonly string ImageBackgroundFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Media Player\\Play List Image";
         public string PlayListID => playListID;
-
         public string PlayListName
         {
             get => playListName;
             set => playListName = value;
         }
-
         public string BackroundImageFileName
         {
             set
@@ -49,14 +48,28 @@ namespace MediaPlayer.Models
             get => backroundImageFileName;
         }
 
-        public Image BackGroundImage => backroundImageFileName == null ? Resources.defaultImage : Image.FromFile(backroundImageFileName);
+        public Image BackGroundImage =>  File.Exists(backroundImageFileName) ? Image.FromFile(backroundImageFileName) : Resources.defaultImage;
 
         public List<Media> ListMedia
         {
             get => listMedia;
-            set => listMedia = value;
         }
-
+        public void AddMedia(Media media)
+        {
+            if (listMedia.Exists(x=> x.FilePath == media.FilePath))
+            {
+                return;
+            }
+            listMedia.Add(media);
+            MediaHelpers.Database.InsertMediaIntoPlaylistMedias(this, media);
+        }
+        public void AddRangeMedia(List<Media> medias)
+        {
+            foreach (Media media in medias)
+            {
+                AddMedia(media);
+            }
+        }
         public DateTime DateCreated
         {
             set => dateCreated = value;
@@ -70,7 +83,7 @@ namespace MediaPlayer.Models
             this.backroundImageFileName = backroundImageFileName;
             dateCreated = DateTime.Now;
             if (listMedia != null)
-                ListMedia = listMedia;
+                this.listMedia = listMedia;
         }
 
         public static IEnumerable<IGrouping<char, Media>> SortListAToZ(List<Media> list)

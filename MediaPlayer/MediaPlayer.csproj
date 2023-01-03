@@ -182,11 +182,17 @@
     <Compile Include="Items\CategoryPanel.Designer.cs">
       <DependentUpon>CategoryPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Items\CustomContextMenu.cs">
+    <Compile Include="Items\PlayListContextMenu.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Items\CustomContextMenu.Designer.cs">
-      <DependentUpon>CustomContextMenu.cs</DependentUpon>
+    <Compile Include="Items\PlayListContextMenu.Designer.cs">
+      <DependentUpon>PlayListContextMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\MediaContextMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Items\MediaContextMenu.Designer.cs">
+      <DependentUpon>MediaContextMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Items\DisplayMediaItems.cs">
       <SubType>UserControl</SubType>
@@ -300,8 +306,11 @@
     <EmbeddedResource Include="Items\CategoryPanel.resx">
       <DependentUpon>CategoryPanel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Items\CustomContextMenu.resx">
-      <DependentUpon>CustomContextMenu.cs</DependentUpon>
+    <EmbeddedResource Include="Items\PlayListContextMenu.resx">
+      <DependentUpon>PlayListContextMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Items\MediaContextMenu.resx">
+      <DependentUpon>MediaContextMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\DisplayMediaItems.resx">
       <DependentUpon>DisplayMediaItems.cs</DependentUpon>

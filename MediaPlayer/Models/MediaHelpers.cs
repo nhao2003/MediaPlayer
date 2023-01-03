@@ -7,48 +7,58 @@ namespace MediaPlayer.Models
 {
     static class MediaHelpers
     {
+        private static PlaylistDatabase database = new PlaylistDatabase();
         private static string userName = Environment.UserName;
         private static string musicPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
         private static string videoPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
         private static List<Media> playQueue = new List<Media>();
-        private static List<Playlist> playLists = new List<Playlist>()
-        {
-            new Playlist("Fake 1"),
-            new Playlist("Fake 2"),
-            new Playlist("Fake 3"),
-            new Playlist("Fake 4"),
-            new Playlist("Fake 5"),
-            new Playlist("Fake 6"),
-            new Playlist("Fake 7"),
-            new Playlist("Fake 8"),
-        };
+        public static PlaylistDatabase Database {
+            set { database = value; }
+            get { return database; } 
+        }
+        private static List<Playlist> allPlayList = database.QueryAllPlaylists();
         private static Playlist favoriteList = new Playlist("Danh sách yêu thích");
-
         /// <summary>
         /// Gets or sets FavoriteList
         /// </summary>
-        public static Playlist FavoriteList
-        {
-            get => favoriteList;
-            set
-            {
-                favoriteList = value;
-                //TODO: Lỗi chưa paint lại đc
-                //Form_Main.Instance.userControl_Library1.ReFresh();
-            }
-        }
+        public static Playlist FavoriteList => favoriteList;
         /// <summary>
         /// Gets and sets playlist
         /// </summary>
-        public static List<Playlist> Playlists
+        public static List<Playlist> AllPlayList
         {
-            get => playLists;
-            set
+            get
             {
-                playLists = value;
-                //TODO: Lỗi chưa paint lại đc
-                //Form_Main.Instance.userControl_Library1.ReFresh();
-                //Form_Main.Instance.userControl_Library1.Refresh();
+                return allPlayList;
+            }
+        }
+
+        public static void UpdatePlaylist(Playlist playlist)
+        {
+            int index = MediaHelpers.AllPlayList.FindIndex(pl => pl.PlayListID == playlist.PlayListID);
+            if (index > 0)
+            {
+                allPlayList[index] = playlist;
+                Database.UpdatePlaylist(playlist);
+            }
+        }
+        public static void AddPlayList(Playlist playlist)
+        {
+            if (allPlayList.Exists(x => x.PlayListID == playlist.PlayListID))
+            {
+                throw new Exception("Playlist trùng ID");
+            }
+            allPlayList.Add(playlist);
+            database.InsertPlaylist(playlist);
+        }
+        public static void DeletePlayList(Playlist playlist)
+        {
+            int index = allPlayList.FindIndex(x => x.PlayListID == playlist.PlayListID);
+            if (index >= 0)
+            {
+                database.DeletePlaylist(allPlayList[index].PlayListID);
+                allPlayList.RemoveAt(index);
+                MessageBox.Show("Đã xóa");
             }
         }
         /// <summary>
@@ -60,7 +70,7 @@ namespace MediaPlayer.Models
         /// </summary>
         public static List<Media> listVideos = new List<Media>();
         /// <summary>
-        /// Danh sách media đang chờ.
+        /// Danh sách playlist đang chờ.
         /// Có thể chứa nhạc và video.
         /// </summary>
         public static List<Media> PlayQueue

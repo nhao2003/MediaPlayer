@@ -12,7 +12,9 @@ namespace MediaPlayer.Models
     {
         static string playlistDatabaseFilePath = "Data Source=" + Environment.CurrentDirectory + "\\Playlist.db";
         static SQLiteConnection playlistDatabaseConnection = new SQLiteConnection(playlistDatabaseFilePath);
-
+        public PlaylistDatabase() {
+            InitializeTables();
+        }
         public void InitializeTables()
         {
             string createPlaylistTable = "CREATE TABLE IF NOT EXISTS Playlist(" +

@@ -6,10 +6,10 @@ using System.Windows.Forms;
 
 namespace MediaPlayer.Items
 {
-    public partial class CustomContextMenu : GunaContextMenuStrip
+    public partial class MediaContextMenu : GunaContextMenuStrip
     {
         private Media media;
-        public CustomContextMenu(Media media)
+        public MediaContextMenu(Media media)
         {
             this.media = media;
             InitializeComponent();
@@ -18,7 +18,7 @@ namespace MediaPlayer.Items
 
         private void InitializeAddtoDrop()
         {
-            MediaHelpers.Playlists.ForEach(pl =>
+            MediaHelpers.AllPlayList.ForEach(pl =>
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();
                 item.Text = pl.PlayListName;
@@ -28,13 +28,14 @@ namespace MediaPlayer.Items
                 item.ForeColor = Color.White;
                 AddTo.DropDownItems.Add(item);
             });
+            NewPlaylist.Click+= NewPlaylist_Click;
         }
 
         private void Item_AddToPlayList(object sender, EventArgs e)
         {
             ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            int index = MediaHelpers.Playlists.FindIndex(fi => fi.PlayListID == (string)item.Tag);
-            MediaHelpers.Playlists[index].ListMedia.Add(media);
+            int index = MediaHelpers.AllPlayList.FindIndex(fi => fi.PlayListID == (string)item.Tag);
+            MediaHelpers.AllPlayList[index].AddMedia(media);
         }
 
 

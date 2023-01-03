@@ -13,16 +13,16 @@ namespace MediaPlayer.Widgets
         public UserControl_Library()
         {
             InitializeComponent();
-            ReFresh();
+            UpdateScreen();
         }
         private void cb_SortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ReFresh();
+            UpdateScreen();
         }
-        public void ReFresh()
+        public void UpdateScreen()
         {
             pn_Display.Controls.Clear();
-            MediaHelpers.Playlists.ForEach(pl =>
+            MediaHelpers.AllPlayList.ForEach(pl =>
             {
                 PlayListItem item = new PlayListItem(pl);
                 pn_Display.Controls.Add(item);

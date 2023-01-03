@@ -53,7 +53,7 @@ namespace MediaPlayer
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
             this.tabPage_Library = new System.Windows.Forms.TabPage();
-            this.userControl_Library1 = new MediaPlayer.Widgets.UserControl_Library();
+            this.userControl_Library = new MediaPlayer.Widgets.UserControl_Library();
             this.tabPage_Video = new System.Windows.Forms.TabPage();
             this.tabPage_Music = new System.Windows.Forms.TabPage();
             this.tabPage_Search = new System.Windows.Forms.TabPage();
@@ -386,7 +386,7 @@ namespace MediaPlayer
             // 
             // tabPage_Library
             // 
-            this.tabPage_Library.Controls.Add(this.userControl_Library1);
+            this.tabPage_Library.Controls.Add(this.userControl_Library);
             this.tabPage_Library.Location = new System.Drawing.Point(4, 4);
             this.tabPage_Library.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage_Library.Name = "tabPage_Library";
@@ -395,16 +395,16 @@ namespace MediaPlayer
             this.tabPage_Library.Text = "tabPage_Library";
             this.tabPage_Library.UseVisualStyleBackColor = true;
             // 
-            // userControl_Library1
+            // userControl_Library
             // 
-            this.userControl_Library1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.userControl_Library1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.userControl_Library1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControl_Library1.Location = new System.Drawing.Point(0, 0);
-            this.userControl_Library1.Margin = new System.Windows.Forms.Padding(0);
-            this.userControl_Library1.Name = "userControl_Library1";
-            this.userControl_Library1.Size = new System.Drawing.Size(946, 607);
-            this.userControl_Library1.TabIndex = 0;
+            this.userControl_Library.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.userControl_Library.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.userControl_Library.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControl_Library.Location = new System.Drawing.Point(0, 0);
+            this.userControl_Library.Margin = new System.Windows.Forms.Padding(0);
+            this.userControl_Library.Name = "userControl_Library";
+            this.userControl_Library.Size = new System.Drawing.Size(946, 607);
+            this.userControl_Library.TabIndex = 0;
             // 
             // tabPage_Video
             // 
@@ -609,7 +609,7 @@ namespace MediaPlayer
         private TabPage tabPage_Home;
         public UserControl_Home userControl_Home1;
         private UserControl_ListMedia UserControl_Video;
-        public UserControl_Library userControl_Library1;
+        public UserControl_Library userControl_Library;
         private TabPage tabPage_Playlist;
         private UserControl_ListMedia userControl_PlayList;
         private Bunifu.UI.WinForms.BunifuPages MainPages;

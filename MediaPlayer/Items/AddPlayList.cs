@@ -20,6 +20,7 @@ namespace MediaPlayer.Items
             if (playlist != null)
             {
                 this.playlist = playlist;
+                tb_NamePlayList.Text = playlist.PlayListName;
                 isRename = true;
                 btn_Save_Or_Rename.Text = @"Rename";
             }
@@ -29,19 +30,15 @@ namespace MediaPlayer.Items
         {
             if (isRename)
             {
-                int index = MediaHelpers.Playlists.FindIndex(pl => pl.PlayListID == playlist.PlayListID);
-                if (index > 0)
-                {
-                    MediaHelpers.Playlists[index].PlayListName = tb_NamePlayList.Text;
-                    if (openFileDialog.CheckFileExists)
-                        MediaHelpers.Playlists[index].BackroundImageFileName = openFileDialog.FileName;
-                }
+                playlist.PlayListName = tb_NamePlayList.Text;
+                MediaHelpers.UpdatePlaylist(this.playlist);
+                Tag = this.playlist;
             }
             else
             {
-                Playlist playlist = new Playlist(tb_NamePlayList.Text, openFileDialog.FileName);
+                Playlist playlist = new Playlist(null, tb_NamePlayList.Text, openFileDialog.FileName);
                 Tag = playlist;
-                MediaHelpers.Playlists.Add(playlist);
+                MediaHelpers.AddPlayList(playlist);
             }
             DialogResult = DialogResult.OK;
         }

@@ -73,7 +73,7 @@ namespace MediaPlayer.Items
         public void AddMusicDataToLists(ref List<string> filePaths)
         {
 
-            // Tao cac file taglib luu tru thong tin media
+            // Tao cac file taglib luu tru thong tin playlist
             for (int i = 0; i < filePaths.Count; i++)
             {
                 if (CheckSongExistsInLists(filePaths[i])) continue;

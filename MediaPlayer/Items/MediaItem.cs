@@ -12,11 +12,10 @@ namespace MediaPlayer.Items
         {
             this._media = media;
             InitializeComponent();
-            contextMenu.Tag = media;
             label_NameSong.Text = media.Title;
             label_Author.Text = media.Artists;
             pic_SongPic.Image = media.Image;
-            contextMenu.Play.Click += contextMenuPlay_click;
+            
         }
 
         private void contextMenuPlay_click(object sender, EventArgs e)
@@ -29,6 +28,8 @@ namespace MediaPlayer.Items
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == MouseButtons.Right)
             {
+                MediaContextMenu contextMenu = new MediaContextMenu(_media);
+                contextMenu.Play.Click += contextMenuPlay_click;
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
