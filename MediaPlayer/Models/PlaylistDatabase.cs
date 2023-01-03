@@ -132,18 +132,26 @@ namespace MediaPlayer.Models
         {
             Playlist result = new Playlist();
             playlistDatabaseConnection.Open();
+
             string queryPlaylist = "SELECT PlaylistID, PlaylistName, PlaylistThumbnailPath, PlaylistDateOfCreation FROM Playlist " +
                 "WHERE PlaylistID = @playlistID"; 
             var sqlCommand = new SQLiteCommand(queryPlaylist, playlistDatabaseConnection);
             var dataReader = sqlCommand.ExecuteReader();
-            
-            while (dataReader.Read())
+            try
             {
-                List<Media> mediaInPlaylist = QueryAllMediaInGivenPlaylist(playlistID);
-                result = new Playlist(dataReader["PlaylistID"].ToString(), dataReader["PlaylistName"].ToString(),
-                    dataReader["PlaylistThumbnailPath"].ToString(), mediaInPlaylist);
-                break;
+                while (dataReader.Read())
+                {
+                    List<Media> mediaInPlaylist = QueryAllMediaInGivenPlaylist(playlistID);
+                    result = new Playlist(dataReader["PlaylistID"].ToString(), dataReader["PlaylistName"].ToString(),
+                        dataReader["PlaylistThumbnailPath"].ToString(), mediaInPlaylist);
+                    break;
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
             playlistDatabaseConnection.Close();
             return result;
         }
@@ -156,22 +164,20 @@ namespace MediaPlayer.Models
             string queryPlaylists = "SELECT PlaylistID, PlaylistName, PlaylistThumbnailPath, PlaylistDateOfCreation FROM Playlist";
             var sqlCommand = new SQLiteCommand(queryPlaylists, playlistDatabaseConnection);
             var dataReader = sqlCommand.ExecuteReader();
-
-            while (dataReader.Read())
+            try
             {
-                
-                Playlist playlist;
-                try
+                while (dataReader.Read())
                 {
+                    Playlist playlist;
                     mediaInPlaylist = QueryAllMediaInGivenPlaylist(dataReader["PlaylistID"].ToString());
                     playlist = new Playlist(dataReader["PlaylistID"].ToString(), dataReader["PlaylistName"].ToString(),
                     dataReader["PlaylistThumbnailPath"].ToString(), mediaInPlaylist);
                     playlistsInDatabase.Add(playlist);
                 }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
             playlistDatabaseConnection.Close();
             return playlistsInDatabase;
@@ -194,24 +200,21 @@ namespace MediaPlayer.Models
                     Media addMedia = new Media(path);
                     mediasInPlaylist.Add(addMedia);
                 }
-                else
-                {
-                    DeleteMediasGivenPath(path);
-                }
             }
             return mediasInPlaylist;
         }
         public void DeletePlaylist(string playlistID)
         {
             DeleteMediasInGivenPlaylist(playlistID);
-            playlistDatabaseConnection.Open();
-
+            if (playlistDatabaseConnection.State == System.Data.ConnectionState.Closed)
+            {
+                playlistDatabaseConnection.Open();
+            }
             string deleteQuery = "DELETE FROM Playlist " +
                 "WHERE PlaylistID = @playlistID";
             var sqlCommand = new SQLiteCommand(deleteQuery, playlistDatabaseConnection);
             sqlCommand.Parameters.AddWithValue("@playlistID", playlistID);
             RunSqlCommand(sqlCommand);
-
             playlistDatabaseConnection.Close();
         }
         public void DeleteMediasInGivenPlaylist(string playlistID)
@@ -220,13 +223,11 @@ namespace MediaPlayer.Models
             {
                 playlistDatabaseConnection.Open();
             }
-
             string deleteQuery = "DELETE FROM PlaylistMedias " +
                 "WHERE PlaylistID = @playlistID ";
             var sqlCommand = new SQLiteCommand(deleteQuery, playlistDatabaseConnection);
             sqlCommand.Parameters.AddWithValue("@playlistID", playlistID);
             RunSqlCommand(sqlCommand);
-
             playlistDatabaseConnection.Close();
         }
         public void DeleteMediasGivenPath(string mediaPath)
@@ -235,16 +236,34 @@ namespace MediaPlayer.Models
             {
                 playlistDatabaseConnection.Open();
             }
-
             string deleteQuery = "DELETE FROM PlaylistMedias " +
                 "WHERE MediaPath = @mediaPath";
             var sqlCommand = new SQLiteCommand(deleteQuery, playlistDatabaseConnection);
             sqlCommand.Parameters.AddWithValue("@mediaPath", mediaPath);
             RunSqlCommand(sqlCommand);
-
             playlistDatabaseConnection.Close();
         }
+        public void DeleteNotExistMedias()
+        {
+            playlistDatabaseConnection.Open();
+            string query = "SELECT MediaPath FROM PlaylistMedias";
+            List<string> deletePaths = new List<string>();
+            var sqlCommand = new SQLiteCommand(query, playlistDatabaseConnection);
+            var dataReader = sqlCommand.ExecuteReader();
 
+            while (dataReader.Read())
+            {
+                if (System.IO.File.Exists(dataReader["MediaPath"].ToString()) == false) 
+                    deletePaths.Add(dataReader["MediaPath"].ToString());
+            }
+            playlistDatabaseConnection.Close();
+
+            foreach (var path in deletePaths)
+            {
+                DeleteMediasGivenPath(path);
+            }
+
+        }
         private void AddValueIntoPlaylistMediasinSQLCommand(Playlist playlistContainsMedia, Media insertMedia, SQLiteCommand sqlCommand)
         {
             sqlCommand.Parameters.AddWithValue("@mediaPath", insertMedia.FilePath);
