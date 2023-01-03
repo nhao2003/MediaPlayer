@@ -188,8 +188,16 @@ namespace MediaPlayer.Models
 
             while (dataReader.Read())
             {
-                Media addMedia = new Media(dataReader["MediaPath"].ToString());
-                mediasInPlaylist.Add(addMedia);
+                string path = dataReader["MediaPath"].ToString();
+                if (System.IO.File.Exists(path))
+                {
+                    Media addMedia = new Media(path);
+                    mediasInPlaylist.Add(addMedia);
+                }
+                else
+                {
+                    DeleteMediasGivenPath(path);
+                }
             }
             return mediasInPlaylist;
         }
