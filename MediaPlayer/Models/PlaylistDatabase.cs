@@ -125,6 +125,7 @@ namespace MediaPlayer.Models
 
             playlistDatabaseConnection.Close();
         }
+
         public Playlist QueryPlaylistGivenPlaylistID(string playlistID)
         {
             Playlist result = new Playlist();
@@ -189,6 +190,49 @@ namespace MediaPlayer.Models
                 mediasInPlaylist.Add(addMedia);
             }
             return mediasInPlaylist;
+        }
+        public void DeletePlaylist(string playlistID)
+        {
+            DeleteMediasInGivenPlaylist(playlistID);
+            playlistDatabaseConnection.Open();
+
+            string deleteQuery = "DELETE FROM Playlist " +
+                "WHERE PlaylistID = @playlistID";
+            var sqlCommand = new SQLiteCommand(deleteQuery, playlistDatabaseConnection);
+            sqlCommand.Parameters.AddWithValue("@playlistID", playlistID);
+            RunSqlCommand(sqlCommand);
+
+            playlistDatabaseConnection.Close();
+        }
+        public void DeleteMediasInGivenPlaylist(string playlistID)
+        {
+            if (playlistDatabaseConnection.State == System.Data.ConnectionState.Closed)
+            {
+                playlistDatabaseConnection.Open();
+            }
+
+            string deleteQuery = "DELETE FROM PlaylistMedias " +
+                "WHERE PlaylistID = @playlistID ";
+            var sqlCommand = new SQLiteCommand(deleteQuery, playlistDatabaseConnection);
+            sqlCommand.Parameters.AddWithValue("@playlistID", playlistID);
+            RunSqlCommand(sqlCommand);
+
+            playlistDatabaseConnection.Close();
+        }
+        public void DeleteMediasGivenPath(string mediaPath)
+        {
+            if (playlistDatabaseConnection.State == System.Data.ConnectionState.Closed)
+            {
+                playlistDatabaseConnection.Open();
+            }
+
+            string deleteQuery = "DELETE FROM PlaylistMedias " +
+                "WHERE MediaPath = @mediaPath";
+            var sqlCommand = new SQLiteCommand(deleteQuery, playlistDatabaseConnection);
+            sqlCommand.Parameters.AddWithValue("@mediaPath", mediaPath);
+            RunSqlCommand(sqlCommand);
+
+            playlistDatabaseConnection.Close();
         }
 
         private void AddValueIntoPlaylistMediasinSQLCommand(Playlist playlistContainsMedia, Media insertMedia, SQLiteCommand sqlCommand)
