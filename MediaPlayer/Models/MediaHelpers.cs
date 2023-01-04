@@ -12,6 +12,7 @@ namespace MediaPlayer.Models
         private static string musicPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
         private static string videoPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
         private static List<Media> playQueue = new List<Media>();
+        private static List<int> listIndexDefalt = new List<int>();// list index of playQueue
         public static PlaylistDatabase Database
         {
             set { database = value; }
@@ -79,7 +80,61 @@ namespace MediaPlayer.Models
         public static List<Media> PlayQueue
         {
             set => playQueue = value;
-            get => PlayQueue;
+            get => playQueue;
+        }
+        /// <summary>
+        /// list index of playQueue
+        /// </summary>
+        public static List<int> ListIndexPlayQueue
+        {
+            get
+            {
+                listIndexDefalt.Clear();
+                // genera new list index of song
+                for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
+                {
+                    listIndexDefalt.Add(i);
+                }
+                return listIndexDefalt;
+            }
+        }
+        /// <summary>
+        /// Random mode
+        /// </summary>
+        /// <returns></returns>
+        public static List<int> ListRanDomIndex
+        {
+            get
+            {
+                Random random = new Random();
+                List<int> listRanIndex = new List<int>(ListIndexPlayQueue);
+                listRanIndex.Remove(CurrentIndex);
+                int n = listRanIndex.Count;
+                while (n > 1)
+                {
+                    n--;
+                    int k = random.Next(n + 1);
+                    int value = listRanIndex[k];
+                    listRanIndex[k] = listRanIndex[n];
+                    listRanIndex[n] = value;
+                }
+                listRanIndex.Insert(0, CurrentIndex);
+                return listRanIndex;
+            }
+        }
+        private static int CurrentIndex
+        {
+            get
+            {
+                for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
+                {
+                    if (MediaHelpers.PlayQueue[ListIndexPlayQueue[i]].FilePath == PlayMedia.Path)
+                    {
+                        return i;
+                    }
+                }
+                return -1;
+            }
         }
         /// <summary>
         /// Đường dẫn thư mục nhạc

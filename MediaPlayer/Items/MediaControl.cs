@@ -7,13 +7,16 @@ using TagLib;
 
 namespace MediaPlayer.Items
 {
+    // khi bam vao bai hat, them vao queue (done)
+    // add to queue thi them vao cuoi queue
+    // play next thi them vao queue nhung o sau bai dang hat
+    // bam play list thi clear queue, play list
+    // play next play list la chay sau khi het play tiep
     public partial class MediaControl : UserControl
     {
         public Media _media = null;
         public delegate void PassMediaControl(MediaControl control);
         public bool isPlayingVideo = false;
-        Random random = new Random(); //At class level
-        static List<int> listIndexDefalt = new List<int>(); //At class level
         List<int> listIndexPlay;
         public MediaControl()
         {
@@ -23,13 +26,7 @@ namespace MediaPlayer.Items
             MusicRow test = new MusicRow();
             PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
             datasend(this);
-
-            // genera new list index of song
-            for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
-            {
-                listIndexDefalt.Add(i);
-            }
-            listIndexPlay = new List<int>(listIndexDefalt);
+            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
         }
         internal void transferDataFromLib(Media media)
         {
@@ -64,6 +61,8 @@ namespace MediaPlayer.Items
 
             // gan nhac cho trang songPlaying
             Form_Main.Instance.userControl_Playing.Media = media;
+            // tang them mot don vi cho listIndexPlay
+            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
         }
 
         public void pauseCurrentPlayer()
@@ -240,19 +239,19 @@ namespace MediaPlayer.Items
             if (PlayMedia.IsFirst == false) return;
             // listIndexPlay has array 0 1 2 3 4 ...
             // in suffer Mode 0 1 3 2 5 4 ....
-            for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+            for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
             {
                 //MessageBox.Show(i.ToString());
-                if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
+                if (MediaHelpers.PlayQueue[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
-                    if (i != MediaHelpers.listSongs.Count - 1)
+                    if (i != MediaHelpers.PlayQueue.Count - 1)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i + 1]]);
+                        getPathOfSong(MediaHelpers.PlayQueue[listIndexPlay[i + 1]]);
                         PlayMedia.playSong();
                     }
-                    else if (i == MediaHelpers.listSongs.Count - 1 && PlayMedia.Repeat == RepeatMode.All)
+                    else if (i == MediaHelpers.PlayQueue.Count - 1 && PlayMedia.Repeat == RepeatMode.All)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[0]]);
+                        getPathOfSong(MediaHelpers.PlayQueue[listIndexPlay[0]]);
                         PlayMedia.playSong();
                     }
                     return;
@@ -263,13 +262,13 @@ namespace MediaPlayer.Items
         private void gunaCircleButton_prev_Click(object sender, EventArgs e)
         {
             if (PlayMedia.IsFirst == false) return;
-            for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
+            for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
             {
-                if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
+                if (MediaHelpers.PlayQueue[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
                     if (i != 0)
                     {
-                        getPathOfSong(MediaHelpers.listSongs[listIndexPlay[i - 1]]);
+                        getPathOfSong(MediaHelpers.PlayQueue[listIndexPlay[i - 1]]);
                         PlayMedia.playSong();
                     }
                     return;
@@ -377,47 +376,14 @@ namespace MediaPlayer.Items
                 btn_Suffle.Image = Resources.suffle;
                 btn_Suffle.OnHoverImage = Resources.suffle;
                 PlayMedia.Suffle = false;
-                listIndexPlay = new List<int>(listIndexDefalt);
+                listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
             }
             else
             {
                 btn_Suffle.Image = Resources.suffle_hover;
                 btn_Suffle.OnHoverImage = Resources.suffle_hover;
                 PlayMedia.Suffle = true;
-                listIndexPlay = GetRandomListIndex();
-            }
-        }
-        // random mode
-        private List<int> GetRandomListIndex()
-        {
-            if (PlayMedia.IsFirst == false) return new List<int>(listIndexDefalt);
-            List<int> listRanIndex = new List<int>(listIndexDefalt);
-            listRanIndex.Remove(CurrentIndex);
-            int n = listRanIndex.Count;
-            while (n > 1)
-            {
-                n--;
-                int k = random.Next(n + 1);
-                int value = listRanIndex[k];
-                listRanIndex[k] = listRanIndex[n];
-                listRanIndex[n] = value;
-            }
-            listRanIndex.Insert(0, CurrentIndex);
-            return listRanIndex;
-        }
-        private int CurrentIndex
-        {
-            get
-            {
-                if (PlayMedia.IsFirst == false) return 0;
-                for (int i = 0; i < MediaHelpers.listSongs.Count; i++)
-                {
-                    if (MediaHelpers.listSongs[listIndexPlay[i]].FilePath == PlayMedia.Path)
-                    {
-                        return i;
-                    }
-                }
-                return -1;
+                listIndexPlay = MediaHelpers.ListRanDomIndex;
             }
         }
     }

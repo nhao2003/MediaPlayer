@@ -85,6 +85,7 @@ namespace MediaPlayer
         public VideoPlayer videoScreen = new VideoPlayer();
         public void ClassifyMedia(Media media)
         {
+            MediaHelpers.PlayQueue.Add(media);
             if (media.MediaTypes == MediaTypes.Audio)
             {
                 if (media != null)
