@@ -245,7 +245,7 @@ namespace MediaPlayer.Models
             playlistDatabaseConnection.Close();
         }
 
-        public void DeleteMediasGivenPath(string mediaPath, string playlistID)
+        public void DeleteMediaInAPlaylist(string mediaPath, string playlistID)
         {
             if (playlistDatabaseConnection.State == System.Data.ConnectionState.Closed)
             {
