@@ -63,10 +63,7 @@ namespace MediaPlayer.Items
                 addPlayList.ShowDialog();
                 Form_Main.Instance.userControl_Library.UpdateScreen();
             }
-            else
-            {
-                throw new System.NotImplementedException();
-            }
+           
 
         }
 
@@ -124,6 +121,10 @@ namespace MediaPlayer.Items
             {
                 Form_Main.Instance.ClassifyMedia(media);
                 Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media);
+            }
+            else
+            {
+                throw new System.NotImplementedException();
             }
         }
     }
