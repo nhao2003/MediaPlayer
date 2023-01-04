@@ -19,11 +19,10 @@ namespace MediaPlayer.Models
         private Image image;
         private TimeSpan duration;
         private DateTime dateAdded;
-        private bool isLiked = false;
         private TagLib.File others;
         private MediaTypes mediaType;
         public MediaTypes MediaTypes { get { return mediaType; } }
-
+        public string PlaylistID = null;
         /// <summary>
         /// Tên playlist
         /// </summary>
@@ -89,17 +88,6 @@ namespace MediaPlayer.Models
             get
             {
                 return dateAdded;
-            }
-        }
-        /// <summary>
-        /// Lấy thông tin yêu thích
-        /// </summary>
-        public bool IsLiked
-        {
-            set => isLiked = value;
-            get
-            {
-                return isLiked;
             }
         }
         /// <summary>
@@ -195,11 +183,6 @@ namespace MediaPlayer.Models
                 }
             }
         }
-        public void Like()
-        {
-            isLiked = !isLiked;
-        }
-
         public Media()
         {
 

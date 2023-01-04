@@ -1,5 +1,4 @@
 ﻿using MediaPlayer.Models;
-using MediaPlayer.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -16,7 +15,6 @@ namespace MediaPlayer.Items
         {
             mediaControl = control;
         }
-
         public Media Media
         {
             get
@@ -60,23 +58,22 @@ namespace MediaPlayer.Items
 
         private void MusicRow_Click(object sender, EventArgs e)
         {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (me.Button == MouseButtons.Right)
+            {
+                ContextMenu contextMenu = new ContextMenu(_media);
+                contextMenu.Play.Click += contextMenuPlay_click;
+                contextMenu.Show(ToolStripDropDown.MousePosition);
+                return;
+            }
             Form_Main.Instance.ClassifyMedia(_media);
             Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
 
-        private void btn_Like_Click(object sender, EventArgs e)
+        private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            _media.Like();
-            if (_media.IsLiked)
-            {
-                btn_Like.Image = Resources.favorite_hover;
-                btn_Like.OnHoverImage = Resources.favorite_hover;
-            }
-            else
-            {
-                btn_Like.Image = Resources.favorite;
-                btn_Like.OnHoverImage = Resources.not_favorite_hover;
-            }
+            Form_Main.Instance.ClassifyMedia(_media);
+            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
     }
 }

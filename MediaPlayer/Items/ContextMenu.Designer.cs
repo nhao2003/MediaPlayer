@@ -33,7 +33,6 @@ namespace MediaPlayer.Items
             this.Separator = new System.Windows.Forms.ToolStripSeparator();
             this.AddTo = new System.Windows.Forms.ToolStripMenuItem();
             this.PlayQueue = new System.Windows.Forms.ToolStripMenuItem();
-            this.FavoriteList = new System.Windows.Forms.ToolStripMenuItem();
             this.AddTo_Separator = new System.Windows.Forms.ToolStripSeparator();
             this.NewPlaylist = new System.Windows.Forms.ToolStripMenuItem();
             this.Play = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +52,6 @@ namespace MediaPlayer.Items
             // 
             this.AddTo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.PlayQueue,
-            this.FavoriteList,
             this.AddTo_Separator,
             this.NewPlaylist});
             this.AddTo.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -70,14 +68,6 @@ namespace MediaPlayer.Items
             this.PlayQueue.Name = "PlayQueue";
             this.PlayQueue.Size = new System.Drawing.Size(203, 32);
             this.PlayQueue.Text = "Play queue";
-            // 
-            // FavoriteList
-            // 
-            this.FavoriteList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.FavoriteList.ForeColor = System.Drawing.Color.White;
-            this.FavoriteList.Name = "FavoriteList";
-            this.FavoriteList.Size = new System.Drawing.Size(203, 32);
-            this.FavoriteList.Text = "Favorite List";
             // 
             // AddTo_Separator
             // 
@@ -129,7 +119,7 @@ namespace MediaPlayer.Items
             this.Delete.Size = new System.Drawing.Size(163, 32);
             this.Delete.Text = "Delete";
             // 
-            // PlayListContextMenu
+            // ContextMenu
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -158,7 +148,6 @@ namespace MediaPlayer.Items
         private ToolStripSeparator Separator;
         private ToolStripMenuItem AddTo;
         private ToolStripMenuItem PlayQueue;
-        private ToolStripMenuItem FavoriteList;
         private ToolStripSeparator AddTo_Separator;
         private ToolStripMenuItem NewPlaylist;
         private ToolStripMenuItem Rename;

@@ -276,7 +276,7 @@ namespace MediaPlayer
             get => _fullScreen;
             set
             {
-                if(value == _fullScreen) return;
+                if (value == _fullScreen) return;
                 if (value)
                 {
                     FormBorderStyle = FormBorderStyle.None;

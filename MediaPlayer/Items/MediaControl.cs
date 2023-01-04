@@ -1,6 +1,5 @@
 ﻿using MediaPlayer.Models;
 using MediaPlayer.Properties;
-using MediaPlayer.Widgets;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;

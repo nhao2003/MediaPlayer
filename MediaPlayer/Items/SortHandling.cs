@@ -82,8 +82,7 @@ namespace MediaPlayer.Items
                 songList.Add(new Media(filePaths[i]));
 
                 joins.Add(songList[i].Title + ";" + songList[i].Artists + ";"
-                    + songList[i].FilePath + ";" + songList[i].Album + ";" + songList[i].Duration + ";" + songList[i].DateAdded
-                    + ";" + songList[i].IsLiked.ToString());
+                    + songList[i].FilePath + ";" + songList[i].Album + ";" + songList[i].Duration + ";" + songList[i].DateAdded);
             }
         }
 
@@ -129,7 +128,7 @@ namespace MediaPlayer.Items
             string csv_FilePath = startupPath + "\\Song.csv";
             StringBuilder sbOutput = new StringBuilder();
             sbOutput.AppendLine("sep=;");
-            sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded;isLiked");
+            sbOutput.AppendLine("Title;Artists;FilePath;Album;Duration;DateAdded");
             for (int i = 0; i < joins.Count; i++)
             {
                 sbOutput.AppendLine(joins[i]);

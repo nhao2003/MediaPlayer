@@ -45,7 +45,6 @@
             this.gunaCircleButton_next = new Guna.UI.WinForms.GunaCircleButton();
             this.btn_Play = new Guna.UI.WinForms.GunaCircleButton();
             this.timerSong = new System.Windows.Forms.Timer(this.components);
-            this.gunaCircleButton_Like = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaPictureBox_SongImage = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1.SuspendLayout();
             this.gunaPanel.SuspendLayout();
@@ -143,7 +142,7 @@
             this.gunaLabel_SongName.ForeColor = System.Drawing.Color.White;
             this.gunaLabel_SongName.Location = new System.Drawing.Point(120, 24);
             this.gunaLabel_SongName.Name = "gunaLabel_SongName";
-            this.gunaLabel_SongName.Size = new System.Drawing.Size(180, 23);
+            this.gunaLabel_SongName.Size = new System.Drawing.Size(189, 23);
             this.gunaLabel_SongName.TabIndex = 6;
             this.gunaLabel_SongName.Text = "Tên bài hát";
             // 
@@ -155,7 +154,7 @@
             this.gunaLabel_NameAthor.ForeColor = System.Drawing.Color.White;
             this.gunaLabel_NameAthor.Location = new System.Drawing.Point(120, 48);
             this.gunaLabel_NameAthor.Name = "gunaLabel_NameAthor";
-            this.gunaLabel_NameAthor.Size = new System.Drawing.Size(153, 56);
+            this.gunaLabel_NameAthor.Size = new System.Drawing.Size(189, 56);
             this.gunaLabel_NameAthor.TabIndex = 7;
             this.gunaLabel_NameAthor.Text = "Tên ca sĩ";
             // 
@@ -325,31 +324,6 @@
             // 
             this.timerSong.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // gunaCircleButton_Like
-            // 
-            this.gunaCircleButton_Like.Animated = true;
-            this.gunaCircleButton_Like.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton_Like.AnimationSpeed = 0.03F;
-            this.gunaCircleButton_Like.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton_Like.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_Like.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton_Like.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton_Like.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton_Like.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton_Like.Image = global::MediaPlayer.Properties.Resources.favorite;
-            this.gunaCircleButton_Like.ImageSize = new System.Drawing.Size(32, 32);
-            this.gunaCircleButton_Like.Location = new System.Drawing.Point(283, 59);
-            this.gunaCircleButton_Like.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaCircleButton_Like.Name = "gunaCircleButton_Like";
-            this.gunaCircleButton_Like.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton_Like.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_Like.OnHoverForeColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton_Like.OnHoverImage = global::MediaPlayer.Properties.Resources.favorite_hover;
-            this.gunaCircleButton_Like.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton_Like.Size = new System.Drawing.Size(35, 37);
-            this.gunaCircleButton_Like.TabIndex = 19;
-            this.gunaCircleButton_Like.Click += new System.EventHandler(this.gunaCircleButton_Like_Click);
-            // 
             // gunaPictureBox_SongImage
             // 
             this.gunaPictureBox_SongImage.BackColor = System.Drawing.Color.Transparent;
@@ -369,7 +343,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.Controls.Add(this.gunaCircleButton_Like);
             this.Controls.Add(this.gunaPanel);
             this.Controls.Add(this.gunaLabel_SongName);
             this.Controls.Add(this.panel1);
@@ -399,7 +372,6 @@
         private Guna.UI.WinForms.GunaCircleButton btn_Suffle;
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_prev;
         private Guna.UI.WinForms.GunaCircleButton btn_Repeat;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton_Like;
         private System.Windows.Forms.Panel panel1;
         public Guna.UI.WinForms.GunaTrackBar gunaTrackBar_Volume;
         private Guna.UI.WinForms.GunaCircleButton btn_Volume;

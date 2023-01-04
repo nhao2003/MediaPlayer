@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Data.SQLite;
 using System.Windows.Forms;
 namespace MediaPlayer.Models
@@ -12,7 +8,8 @@ namespace MediaPlayer.Models
     {
         static string playlistDatabaseFilePath = "Data Source=" + Environment.CurrentDirectory + "\\Playlist.db";
         static SQLiteConnection playlistDatabaseConnection = new SQLiteConnection(playlistDatabaseFilePath);
-        public PlaylistDatabase() {
+        public PlaylistDatabase()
+        {
             InitializeTables();
         }
         public void InitializeTables()
@@ -27,7 +24,7 @@ namespace MediaPlayer.Models
             {
                 CreateTable(createPlaylistTable);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error Creating Playlist Table");
             }
@@ -109,7 +106,7 @@ namespace MediaPlayer.Models
                 + "PlaylistDateOfCreation = @playlistDateOfCreation\n"
                 + "WHERE PlaylistID = @playlistID";
             SQLiteCommand sqlCommand = new SQLiteCommand(updateQuery, playlistDatabaseConnection);
-            
+
             AddValueIntoPlaylistinSQLCommand(updatePlaylist, sqlCommand);
             RunSqlCommand(sqlCommand);
 
@@ -136,7 +133,7 @@ namespace MediaPlayer.Models
             playlistDatabaseConnection.Open();
 
             string queryPlaylist = "SELECT PlaylistID, PlaylistName, PlaylistThumbnailPath, PlaylistDateOfCreation FROM Playlist " +
-                "WHERE PlaylistID = @playlistID"; 
+                "WHERE PlaylistID = @playlistID";
             var sqlCommand = new SQLiteCommand(queryPlaylist, playlistDatabaseConnection);
             var dataReader = sqlCommand.ExecuteReader();
             try
@@ -149,15 +146,15 @@ namespace MediaPlayer.Models
                     break;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
             playlistDatabaseConnection.Close();
             return result;
         }
-        public List <Playlist> QueryAllPlaylists()
+        public List<Playlist> QueryAllPlaylists()
         {
             playlistDatabaseConnection.Open();
             List<Playlist> playlistsInDatabase = new List<Playlist>();
@@ -200,6 +197,7 @@ namespace MediaPlayer.Models
                 if (System.IO.File.Exists(path))
                 {
                     Media addMedia = new Media(path);
+                    addMedia.PlaylistID = playlistID;
                     mediasInPlaylist.Add(addMedia);
                 }
             }
@@ -270,7 +268,7 @@ namespace MediaPlayer.Models
 
             while (dataReader.Read())
             {
-                if (System.IO.File.Exists(dataReader["MediaPath"].ToString()) == false) 
+                if (System.IO.File.Exists(dataReader["MediaPath"].ToString()) == false)
                     deletePaths.Add(dataReader["MediaPath"].ToString());
             }
             playlistDatabaseConnection.Close();

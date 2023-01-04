@@ -17,10 +17,10 @@ namespace MediaPlayer.Items
             InitializeComponent();
             InitializeAddtoDrop();
         }
-        public ContextMenu(Media media, Playlist playlist = null)
+        public ContextMenu(Media media)
         {
             this.media = media;
-            this.playlist = playlist;
+            this.playlist = MediaHelpers.AllPlayList.Find(x => x.PlayListID == media.PlaylistID);
             InitializeComponent();
             InitializeAddtoDrop();
         }
@@ -37,52 +37,56 @@ namespace MediaPlayer.Items
                 item.ForeColor = Color.White;
                 AddTo.DropDownItems.Add(item);
             });
-            NewPlaylist.Click+= NewPlaylist_Click;
+            NewPlaylist.Click += NewPlaylist_Click;
             Delete.Click += Btn_Delete_Click;
-            Play.Click+= Play_Click;
-            PlayNext.Click+= PlayNext_Click;
-            PlayQueue.Click+= PlayQueue_Click;
-            FavoriteList.Click+= FavoriteList_Click;
+            Play.Click += Play_Click;
+            PlayNext.Click += PlayNext_Click;
+            PlayQueue.Click += PlayQueue_Click;
             Rename.Click += Rename_Click;
             if (playlist == null)
             {
-                Rename.Visible= false;
-                Rename.Enabled= false;
+                Rename.Visible = false;
+                Rename.Enabled = false;
             }
-            if(media != null && playlist == null)
+            if (media != null && playlist == null)
             {
-                Delete.Visible= false;
-                Delete.Enabled= false;
+                Delete.Visible = false;
+                Delete.Enabled = false;
             }
         }
 
         private void Rename_Click(object sender, EventArgs e)
         {
-            if(media== null)
+            if (media == null)
             {
                 AddPlayList addPlayList = new AddPlayList(playlist);
                 addPlayList.ShowDialog();
                 Form_Main.Instance.userControl_Library.UpdateScreen();
             }
-            
+            else
+            {
+                throw new System.NotImplementedException();
+            }
+
         }
 
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
-            if(media == null)
+            if (media == null)
             {
                 MediaHelpers.DeletePlayList(playlist);
                 Form_Main.Instance.userControl_Library.UpdateScreen();
             }
-            else
+            else if (media != null && playlist != null)
             {
-
+                MediaHelpers.DeleteMediaFromPlaylist(media.FilePath, playlist.PlayListID);
+                Form_Main.Instance.userControl_PlayList.UpdateScreen();
             }
         }
 
         private void Item_AddToPlayList(object sender, EventArgs e)
         {
-            if(media != null)
+            if (media != null)
             {
                 ToolStripMenuItem item = (ToolStripMenuItem)sender;
                 int index = MediaHelpers.AllPlayList.FindIndex(fi => fi.PlayListID == (string)item.Tag);
@@ -104,11 +108,6 @@ namespace MediaPlayer.Items
             Form_Main.Instance.userControl_Library.UpdateScreen();
         }
 
-        private void FavoriteList_Click(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
         private void PlayQueue_Click(object sender, System.EventArgs e)
         {
             throw new System.NotImplementedException();
@@ -121,7 +120,11 @@ namespace MediaPlayer.Items
 
         private void Play_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            if (media != null)
+            {
+                Form_Main.Instance.ClassifyMedia(media);
+                Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media);
+            }
         }
     }
 }

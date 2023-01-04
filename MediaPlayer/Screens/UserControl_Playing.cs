@@ -1,5 +1,4 @@
 ﻿using MediaPlayer.Models;
-using ns2;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -58,16 +57,16 @@ namespace MediaPlayer.Widgets
                 // phong to radius
                 if (pic_Avatar.Radius >= 20 && angle == 360) pic_Avatar.Radius -= 10;
                 // rotate
-                if(angle < 360)
+                if (angle < 360)
                 {
                     angle += 10f;
-                    if(360 - angle < 10) angle = 360;
+                    if (360 - angle < 10) angle = 360;
                     Bitmap img = (Bitmap)Media.Image;
                     img = RotateImage(img, angle);
                     pic_Avatar.Image = img;
                 }
             }
-                
+
         }
         private Bitmap RotateImage(Bitmap bmp, float angle)
         {

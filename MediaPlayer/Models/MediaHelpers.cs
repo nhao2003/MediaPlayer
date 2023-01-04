@@ -12,19 +12,12 @@ namespace MediaPlayer.Models
         private static string musicPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
         private static string videoPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
         private static List<Media> playQueue = new List<Media>();
-        public static PlaylistDatabase Database {
+        public static PlaylistDatabase Database
+        {
             set { database = value; }
-            get { return database; } 
+            get { return database; }
         }
         private static List<Playlist> allPlayList = database.QueryAllPlaylists();
-        private static Playlist favoriteList = new Playlist("Danh sách yêu thích");
-        /// <summary>
-        /// Gets or sets FavoriteList
-        /// </summary>
-        public static Playlist FavoriteList => favoriteList;
-        /// <summary>
-        /// Gets and sets playlist
-        /// </summary>
         public static List<Playlist> AllPlayList
         {
             get
@@ -61,9 +54,15 @@ namespace MediaPlayer.Models
                 MessageBox.Show("Đã xóa");
             }
         }
-        public static void DeleteMediaFromPlaylist(string playlistid)
+        public static void DeleteMediaFromPlaylist(string mediaPath, string playlistID)
         {
-            database.DeleteMediasInGivenPlaylist(playlistid);
+            int index = allPlayList.FindIndex(x => x.PlayListID == playlistID);
+            if (index >= 0)
+            {
+                int indexOfMedia = allPlayList[index].ListMedia.FindIndex(x => x.FilePath == mediaPath);
+                allPlayList[index].ListMedia.RemoveAt(indexOfMedia);
+            }
+            database.DeleteMediaInAPlaylist(mediaPath, playlistID);
         }
         /// <summary>
         /// List các bài nhạc

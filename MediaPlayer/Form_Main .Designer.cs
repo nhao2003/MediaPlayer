@@ -3,6 +3,7 @@ using Guna.UI.WinForms;
 using MediaPlayer.Widgets;
 using System.Windows.Forms;
 using MediaPlayer.Models;
+using MediaPlayer.Items;
 
 namespace MediaPlayer
 {
@@ -597,7 +598,7 @@ namespace MediaPlayer
         private GunaButton btn_Home;
         private GunaPanel gunaPanel1;
         private GunaGradientTileButton Logo;
-        public Items.MediaControl MediaControl;
+        public MediaControl MediaControl;
         private TabPage tabPage_Settings;
         private UserControl_Settings userControl_Settings1;
         private TabPage tabPage_Library;
@@ -611,7 +612,7 @@ namespace MediaPlayer
         private UserControl_ListMedia UserControl_Video;
         public UserControl_Library userControl_Library;
         private TabPage tabPage_Playlist;
-        private UserControl_ListMedia userControl_PlayList;
+        public UserControl_ListMedia userControl_PlayList;
         private Bunifu.UI.WinForms.BunifuPages MainPages;
         private TabPage tabPage_Playing;
         public UserControl_Playing userControl_Playing;

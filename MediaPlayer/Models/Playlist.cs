@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace MediaPlayer.Models
@@ -29,7 +28,7 @@ namespace MediaPlayer.Models
             {
                 try
                 {
-                    backroundImageFileName= value;
+                    backroundImageFileName = value;
                 }
                 catch
                 {
@@ -40,7 +39,7 @@ namespace MediaPlayer.Models
             get => backroundImageFileName;
         }
 
-        public Image BackGroundImage =>  File.Exists(backroundImageFileName) ? Image.FromFile(backroundImageFileName) : Resources.defaultImage;
+        public Image BackGroundImage => File.Exists(backroundImageFileName) ? Image.FromFile(backroundImageFileName) : Resources.defaultImage;
 
         public List<Media> ListMedia
         {
@@ -48,10 +47,11 @@ namespace MediaPlayer.Models
         }
         public void AddMedia(Media media)
         {
-            if (listMedia.Exists(x=> x.FilePath == media.FilePath))
+            if (listMedia.Exists(x => x.FilePath == media.FilePath))
             {
                 return;
             }
+            media.PlaylistID = PlayListID;
             listMedia.Add(media);
             MediaHelpers.Database.InsertMediaIntoPlaylistMedias(this, media);
         }

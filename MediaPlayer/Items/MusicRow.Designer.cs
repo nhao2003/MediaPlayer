@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.panel_MusicRow = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pic_Song = new Guna.UI.WinForms.GunaPictureBox();
             this.label_Duration = new System.Windows.Forms.Label();
             this.label_NameSinger = new Guna.UI.WinForms.GunaLabel();
             this.label_NameSong = new Guna.UI.WinForms.GunaLabel();
-            this.pic_Song = new Guna.UI.WinForms.GunaPictureBox();
-            this.btn_Like = new Guna.UI.WinForms.GunaCircleButton();
             this.panel_MusicRow.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Song)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +43,6 @@
             this.panel_MusicRow.BaseColor = System.Drawing.Color.Transparent;
             this.panel_MusicRow.Controls.Add(this.pic_Song);
             this.panel_MusicRow.Controls.Add(this.label_Duration);
-            this.panel_MusicRow.Controls.Add(this.btn_Like);
             this.panel_MusicRow.Controls.Add(this.label_NameSinger);
             this.panel_MusicRow.Controls.Add(this.label_NameSong);
             this.panel_MusicRow.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -59,6 +57,19 @@
             this.panel_MusicRow.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
             this.panel_MusicRow.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             this.panel_MusicRow.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
+            // 
+            // pic_Song
+            // 
+            this.pic_Song.BackColor = System.Drawing.Color.Transparent;
+            this.pic_Song.BaseColor = System.Drawing.Color.White;
+            this.pic_Song.Location = new System.Drawing.Point(15, 8);
+            this.pic_Song.Name = "pic_Song";
+            this.pic_Song.Radius = 10;
+            this.pic_Song.Size = new System.Drawing.Size(55, 55);
+            this.pic_Song.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pic_Song.TabIndex = 24;
+            this.pic_Song.TabStop = false;
+            this.pic_Song.Click += new System.EventHandler(this.MusicRow_Click);
             // 
             // label_Duration
             // 
@@ -92,7 +103,7 @@
             this.label_NameSinger.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             this.label_NameSinger.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
             // 
-            // label_Name
+            // label_NameSong
             // 
             this.label_NameSong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label_NameSong.AutoEllipsis = true;
@@ -100,7 +111,7 @@
             this.label_NameSong.ForeColor = System.Drawing.Color.White;
             this.label_NameSong.Location = new System.Drawing.Point(72, 12);
             this.label_NameSong.Margin = new System.Windows.Forms.Padding(0);
-            this.label_NameSong.Name = "label_Name";
+            this.label_NameSong.Name = "label_NameSong";
             this.label_NameSong.Size = new System.Drawing.Size(475, 26);
             this.label_NameSong.TabIndex = 21;
             this.label_NameSong.Text = "Heads in the cloud";
@@ -108,48 +119,6 @@
             this.label_NameSong.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
             this.label_NameSong.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
             this.label_NameSong.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
-            // 
-            // pic_Song
-            // 
-            this.pic_Song.BackColor = System.Drawing.Color.Transparent;
-            this.pic_Song.BaseColor = System.Drawing.Color.White;
-            this.pic_Song.Location = new System.Drawing.Point(15, 8);
-            this.pic_Song.Name = "pic_Song";
-            this.pic_Song.Radius = 10;
-            this.pic_Song.Size = new System.Drawing.Size(55, 55);
-            this.pic_Song.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic_Song.TabIndex = 24;
-            this.pic_Song.TabStop = false;
-            this.pic_Song.Click += new System.EventHandler(this.MusicRow_Click);
-            // 
-            // btn_Like
-            // 
-            this.btn_Like.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Like.Animated = true;
-            this.btn_Like.AnimationHoverSpeed = 0.07F;
-            this.btn_Like.AnimationSpeed = 0.5F;
-            this.btn_Like.BaseColor = System.Drawing.Color.Transparent;
-            this.btn_Like.BorderColor = System.Drawing.Color.Black;
-            this.btn_Like.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_Like.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_Like.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Like.ForeColor = System.Drawing.Color.White;
-            this.btn_Like.Image = global::MediaPlayer.Properties.Resources.favorite;
-            this.btn_Like.ImageSize = new System.Drawing.Size(25, 25);
-            this.btn_Like.Location = new System.Drawing.Point(567, 12);
-            this.btn_Like.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Like.Name = "btn_Like";
-            this.btn_Like.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.btn_Like.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_Like.OnHoverForeColor = System.Drawing.Color.Transparent;
-            this.btn_Like.OnHoverImage = global::MediaPlayer.Properties.Resources.not_favorite_hover;
-            this.btn_Like.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_Like.Size = new System.Drawing.Size(35, 37);
-            this.btn_Like.TabIndex = 22;
-            this.btn_Like.Click += new System.EventHandler(this.btn_Like_Click);
-            this.btn_Like.MouseEnter += new System.EventHandler(this.MusicRow_MouseEnter);
-            this.btn_Like.MouseLeave += new System.EventHandler(this.MusicRow_MouseLeave);
-            this.btn_Like.MouseHover += new System.EventHandler(this.MusicRow_MouseEnter);
             // 
             // MusicRow
             // 
@@ -173,7 +142,6 @@
         private Guna.UI.WinForms.GunaElipsePanel panel_MusicRow;
         private Guna.UI.WinForms.GunaLabel label_NameSinger;
         private Guna.UI.WinForms.GunaLabel label_NameSong;
-        private Guna.UI.WinForms.GunaCircleButton btn_Like;
         private System.Windows.Forms.Label label_Duration;
         private Guna.UI.WinForms.GunaPictureBox pic_Song;
     }

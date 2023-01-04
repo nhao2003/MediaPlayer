@@ -24,7 +24,8 @@ namespace MediaPlayer.Items
             {
                 ContextMenu contextMenu = new ContextMenu(playlist);
                 contextMenu.Show(ToolStripDropDown.MousePosition);
-            }else
+            }
+            else
                 Form_Main.Instance.DisplayPlayList(playlist);
         }
 
