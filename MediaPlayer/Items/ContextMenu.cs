@@ -63,8 +63,6 @@ namespace MediaPlayer.Items
                 addPlayList.ShowDialog();
                 Form_Main.Instance.userControl_Library.UpdateScreen();
             }
-           
-
         }
 
         private void Btn_Delete_Click(object sender, EventArgs e)
@@ -115,8 +113,6 @@ namespace MediaPlayer.Items
             if (media != null)
             {
                 MediaHelpers.AddToQueue(media);
-                //MessageBox.Show(MediaHelpers.PlayQueue.Count.ToString());
-
             }
             else
             {

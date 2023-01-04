@@ -44,7 +44,7 @@
             this.lb_Title.AutoSize = true;
             this.lb_Title.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.lb_Title.ForeColor = System.Drawing.Color.White;
-            this.lb_Title.Location = new System.Drawing.Point(33, 26);
+            this.lb_Title.Location = new System.Drawing.Point(70, 25);
             this.lb_Title.Name = "lb_Title";
             this.lb_Title.Size = new System.Drawing.Size(272, 41);
             this.lb_Title.TabIndex = 0;
@@ -74,7 +74,7 @@
             this.tb_NamePlayList.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
             this.tb_NamePlayList.FocusedForeColor = System.Drawing.SystemColors.ControlText;
             this.tb_NamePlayList.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.tb_NamePlayList.Location = new System.Drawing.Point(49, 257);
+            this.tb_NamePlayList.Location = new System.Drawing.Point(49, 267);
             this.tb_NamePlayList.Name = "tb_NamePlayList";
             this.tb_NamePlayList.PasswordChar = '\0';
             this.tb_NamePlayList.Radius = 10;
@@ -109,7 +109,7 @@
             this.btn_Save_Or_Rename.ForeColor = System.Drawing.Color.White;
             this.btn_Save_Or_Rename.Image = null;
             this.btn_Save_Or_Rename.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Save_Or_Rename.Location = new System.Drawing.Point(49, 363);
+            this.btn_Save_Or_Rename.Location = new System.Drawing.Point(49, 351);
             this.btn_Save_Or_Rename.Name = "btn_Save_Or_Rename";
             this.btn_Save_Or_Rename.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btn_Save_Or_Rename.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -136,7 +136,7 @@
             this.btn_Cancel.ForeColor = System.Drawing.Color.White;
             this.btn_Cancel.Image = null;
             this.btn_Cancel.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Cancel.Location = new System.Drawing.Point(217, 363);
+            this.btn_Cancel.Location = new System.Drawing.Point(217, 351);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btn_Cancel.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -158,12 +158,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.ClientSize = new System.Drawing.Size(413, 439);
+            this.BackColor = System.Drawing.Color.Black;
+            this.ClientSize = new System.Drawing.Size(413, 428);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_Save_Or_Rename);
             this.Controls.Add(this.gunaPanel1);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AddPlayList";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
