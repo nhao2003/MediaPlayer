@@ -99,6 +99,23 @@ namespace MediaPlayer.Models
             }
         }
         /// <summary>
+        /// Add a media to play queue
+        /// if media is exit, remote this and add to the last position
+        /// </summary>
+        /// <param name="media"></param>
+        public static void AddToQueue(Media media)
+        {
+            // check media is exit
+            for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
+            {
+                if (MediaHelpers.PlayQueue[i].FilePath == media.FilePath)
+                {
+                    MediaHelpers.PlayQueue.Remove(MediaHelpers.PlayQueue[i]);
+                }
+            }
+            MediaHelpers.PlayQueue.Add(media);
+        }
+        /// <summary>
         /// Random mode
         /// </summary>
         /// <returns></returns>
