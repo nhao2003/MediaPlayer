@@ -27,8 +27,8 @@ namespace MediaPlayer.Items
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
-            Form_Main.Instance.ClassifyMedia(_media);
             MediaHelpers.isPlayingPlaylist = false;
+            Form_Main.Instance.ClassifyMedia(_media);
             Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
 

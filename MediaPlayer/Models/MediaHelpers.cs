@@ -123,6 +123,7 @@ namespace MediaPlayer.Models
                 }
             }
             PlayQueue.Add(media);
+            Form_Main.Instance.MediaControl.UpdateListIndexPlay();
         }
         /// <summary>
         /// add this media next to the current media is playing
@@ -140,6 +141,7 @@ namespace MediaPlayer.Models
             }
             // insert this media next to current playing
             PlayQueue.Insert(CurrentIndex+1, media);
+            Form_Main.Instance.MediaControl.UpdateListIndexPlay();
         }
         /// <summary>
         /// Random mode
