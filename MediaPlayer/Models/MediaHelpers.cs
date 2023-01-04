@@ -91,7 +91,7 @@ namespace MediaPlayer.Models
             {
                 listIndexDefalt.Clear();
                 // genera new list index of song
-                for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
+                for (int i = 0; i < PlayQueue.Count; i++)
                 {
                     listIndexDefalt.Add(i);
                 }
@@ -105,15 +105,32 @@ namespace MediaPlayer.Models
         /// <param name="media"></param>
         public static void AddToQueue(Media media)
         {
-            // check media is exit
-            for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
+            // check media is exit, if exit => remote
+            for (int i = 0; i < PlayQueue.Count; i++)
             {
-                if (MediaHelpers.PlayQueue[i].FilePath == media.FilePath)
+                if (PlayQueue[i].FilePath == media.FilePath)
                 {
-                    MediaHelpers.PlayQueue.Remove(MediaHelpers.PlayQueue[i]);
+                    PlayQueue.Remove(PlayQueue[i]);
                 }
             }
-            MediaHelpers.PlayQueue.Add(media);
+            PlayQueue.Add(media);
+        }
+        /// <summary>
+        /// add this media next to the current media is playing
+        /// </summary>
+        /// <param name="media"></param>
+        public static void AddNextToCurrrentPlaying(Media media)
+        {
+            // check media is exit, if exit => remote
+            for (int i = 0; i < PlayQueue.Count; i++)
+            {
+                if (PlayQueue[i].FilePath == media.FilePath)
+                {
+                    PlayQueue.Remove(PlayQueue[i]);
+                }
+            }
+            // insert this media next to current playing
+            PlayQueue.Insert(CurrentIndex+1, media);
         }
         /// <summary>
         /// Random mode
@@ -139,13 +156,16 @@ namespace MediaPlayer.Models
                 return listRanIndex;
             }
         }
-        private static int CurrentIndex
+        /// <summary>
+        /// index of current index of song is playing
+        /// </summary>
+        public static int CurrentIndex
         {
             get
             {
-                for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
+                for (int i = 0; i < PlayQueue.Count; i++)
                 {
-                    if (MediaHelpers.PlayQueue[ListIndexPlayQueue[i]].FilePath == PlayMedia.Path)
+                    if (PlayQueue[ListIndexPlayQueue[i]].FilePath == PlayMedia.Path)
                     {
                         return i;
                     }

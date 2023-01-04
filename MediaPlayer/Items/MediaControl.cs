@@ -8,8 +8,8 @@ using TagLib;
 namespace MediaPlayer.Items
 {
     // khi bam vao bai hat, them vao queue (done)
-    // add to queue thi them vao cuoi queue
-    // play next thi them vao queue nhung o sau bai dang hat
+    // add to queue thi them vao cuoi queue (done)
+    // play next thi them vao queue nhung o sau bai dang hat (done)
     // bam play list thi clear queue, play list
     // play next play list la chay sau khi het play tiep
     public partial class MediaControl : UserControl
@@ -236,6 +236,7 @@ namespace MediaPlayer.Items
         }
         private void gunaCircleButton_next_Click(object sender, EventArgs e)
         {
+            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
             if (PlayMedia.IsFirst == false) return;
             // listIndexPlay has array 0 1 2 3 4 ...
             // in suffer Mode 0 1 3 2 5 4 ....
@@ -261,6 +262,7 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_prev_Click(object sender, EventArgs e)
         {
+            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
             if (PlayMedia.IsFirst == false) return;
             for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
             {

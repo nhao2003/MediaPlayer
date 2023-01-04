@@ -104,15 +104,41 @@ namespace MediaPlayer.Items
             addPlayList.ShowDialog();
             Form_Main.Instance.userControl_Library.UpdateScreen();
         }
-
+        /// <summary>
+        /// add to the end of the queue
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="System.NotImplementedException"></exception>
         private void PlayQueue_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
-        }
+            if (media != null)
+            {
+                MediaHelpers.AddToQueue(media);
+                //MessageBox.Show(MediaHelpers.PlayQueue.Count.ToString());
 
+            }
+            else
+            {
+                throw new System.NotImplementedException();
+            }
+        }
+        /// <summary>
+        /// add this media next to the current playing media
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="System.NotImplementedException"></exception>
         private void PlayNext_Click(object sender, System.EventArgs e)
         {
-            throw new System.NotImplementedException();
+            if (media != null)
+            {
+                MediaHelpers.AddNextToCurrrentPlaying(media);
+            }
+            else
+            {
+                throw new System.NotImplementedException();
+            }
         }
 
         private void Play_Click(object sender, System.EventArgs e)
