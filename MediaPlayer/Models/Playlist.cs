@@ -29,15 +29,7 @@ namespace MediaPlayer.Models
             {
                 try
                 {
-                    FileInfo file = new FileInfo(value);
-                    string FileName = playListID + file.Extension;
-                    if (backroundImageFileName == null)
-                        backroundImageFileName = Path.Combine(ImageBackgroundFolder, FileName);
-                    Directory.CreateDirectory(ImageBackgroundFolder);
-                    if (File.Exists(backroundImageFileName))
-                        File.Copy(value, backroundImageFileName, true);
-                    else
-                        File.Copy(value, backroundImageFileName);
+                    backroundImageFileName= value;
                 }
                 catch
                 {

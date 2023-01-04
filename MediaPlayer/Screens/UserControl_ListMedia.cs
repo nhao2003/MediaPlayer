@@ -153,10 +153,10 @@ namespace MediaPlayer.Widgets
 
         private void btn_Refresh_Click(object sender, EventArgs e)
         {
-            Refresh();
+            UpdateScreen();
         }
 
-        public void Refresh()
+        public void UpdateScreen()
         {
             if (this._mediaTypeOfScreen == MediaTypes.Audio)
             {

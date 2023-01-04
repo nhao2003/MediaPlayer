@@ -12,7 +12,6 @@ namespace MediaPlayer.Models
     /// </summary>
     public class Media
     {
-        private string id;
         private string title;
         private string artists;
         private string album;
@@ -24,10 +23,7 @@ namespace MediaPlayer.Models
         private TagLib.File others;
         private MediaTypes mediaType;
         public MediaTypes MediaTypes { get { return mediaType; } }
-        /// <summary>
-        /// Lấy ID
-        /// </summary>
-        public string Id => id;
+
         /// <summary>
         /// Tên playlist
         /// </summary>
@@ -152,7 +148,6 @@ namespace MediaPlayer.Models
         /// <param name="mediaImage">Ảnh</param>
         public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
         {
-            this.id = Guid.NewGuid().ToString("N");
             this.title = (title != null) ? title : "Unknown";
             this.artists = (artist != null) ? artist : "Unknown";
             this.album = (album != null) ? album : "Unknown";
@@ -169,7 +164,6 @@ namespace MediaPlayer.Models
         public Media(string path)
         {
             TagLib.File taglib = TagLib.File.Create(path);
-            this.id = Guid.NewGuid().ToString("N");
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
             this.artists = (taglib.Tag.Album != null) ? string.Join(", ", taglib.Tag.Album) : "Unknow";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
@@ -208,7 +202,7 @@ namespace MediaPlayer.Models
 
         public Media()
         {
-            this.id = Guid.NewGuid().ToString("N");
+
         }
 
     }

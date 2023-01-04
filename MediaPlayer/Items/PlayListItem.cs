@@ -22,7 +22,7 @@ namespace MediaPlayer.Items
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == MouseButtons.Right)
             {
-                PlayListContextMenu contextMenu = new PlayListContextMenu(playlist);
+                ContextMenu contextMenu = new ContextMenu(playlist);
                 contextMenu.Show(ToolStripDropDown.MousePosition);
             }else
                 Form_Main.Instance.DisplayPlayList(playlist);

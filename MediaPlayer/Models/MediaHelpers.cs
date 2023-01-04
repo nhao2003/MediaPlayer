@@ -61,6 +61,10 @@ namespace MediaPlayer.Models
                 MessageBox.Show("Đã xóa");
             }
         }
+        public static void DeleteMediaFromPlaylist(string playlistid)
+        {
+            database.DeleteMediasInGivenPlaylist(playlistid);
+        }
         /// <summary>
         /// List các bài nhạc
         /// </summary>

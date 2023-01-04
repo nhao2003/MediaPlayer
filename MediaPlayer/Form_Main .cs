@@ -126,8 +126,8 @@ namespace MediaPlayer
                 Dock = DockStyle.Fill,
             };
             this.tabPage_Home.Controls.Add(this.userControl_Home1);
-            this.userControl_Music.Refresh();
-            this.UserControl_Video.Refresh();
+            this.userControl_Music.UpdateScreen();
+            this.UserControl_Video.UpdateScreen();
         }
 
         GunaButton fakeBtn = new GunaButton();

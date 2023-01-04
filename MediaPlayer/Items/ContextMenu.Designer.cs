@@ -2,7 +2,7 @@
 
 namespace MediaPlayer.Items
 {
-    partial class PlayListContextMenu
+    partial class ContextMenu
     {
         /// <summary>
         /// Required designer variable.

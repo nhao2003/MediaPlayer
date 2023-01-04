@@ -6,11 +6,20 @@ using System.Windows.Forms;
 
 namespace MediaPlayer.Items
 {
-    public partial class PlayListContextMenu : GunaContextMenuStrip
+    public partial class ContextMenu : GunaContextMenuStrip
     {
         private Playlist playlist;
-        public PlayListContextMenu(Playlist playlist)
+        private Media media;
+        public ContextMenu(Playlist playlist)
         {
+            this.media = null;
+            this.playlist = playlist;
+            InitializeComponent();
+            InitializeAddtoDrop();
+        }
+        public ContextMenu(Media media, Playlist playlist = null)
+        {
+            this.media = media;
             this.playlist = playlist;
             InitializeComponent();
             InitializeAddtoDrop();
@@ -35,26 +44,56 @@ namespace MediaPlayer.Items
             PlayQueue.Click+= PlayQueue_Click;
             FavoriteList.Click+= FavoriteList_Click;
             Rename.Click += Rename_Click;
+            if (playlist == null)
+            {
+                Rename.Visible= false;
+                Rename.Enabled= false;
+            }
+            if(media != null && playlist == null)
+            {
+                Delete.Visible= false;
+                Delete.Enabled= false;
+            }
         }
 
         private void Rename_Click(object sender, EventArgs e)
         {
-            AddPlayList addPlayList = new AddPlayList(playlist);
-            addPlayList.ShowDialog();
-            Form_Main.Instance.userControl_Library.UpdateScreen();
+            if(media== null)
+            {
+                AddPlayList addPlayList = new AddPlayList(playlist);
+                addPlayList.ShowDialog();
+                Form_Main.Instance.userControl_Library.UpdateScreen();
+            }
+            
         }
 
         private void Btn_Delete_Click(object sender, EventArgs e)
         {
-            MediaHelpers.DeletePlayList(playlist);
-            Form_Main.Instance.userControl_Library.UpdateScreen();
+            if(media == null)
+            {
+                MediaHelpers.DeletePlayList(playlist);
+                Form_Main.Instance.userControl_Library.UpdateScreen();
+            }
+            else
+            {
+
+            }
         }
 
         private void Item_AddToPlayList(object sender, EventArgs e)
         {
-            ToolStripMenuItem item = (ToolStripMenuItem)sender;
-            int index = MediaHelpers.AllPlayList.FindIndex(fi => fi.PlayListID == (string)item.Tag);
-            MediaHelpers.AllPlayList[index].AddRangeMedia(playlist.ListMedia);
+            if(media != null)
+            {
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                int index = MediaHelpers.AllPlayList.FindIndex(fi => fi.PlayListID == (string)item.Tag);
+                MediaHelpers.AllPlayList[index].AddMedia(media);
+            }
+            else
+            {
+                ToolStripMenuItem item = (ToolStripMenuItem)sender;
+                int index = MediaHelpers.AllPlayList.FindIndex(fi => fi.PlayListID == (string)item.Tag);
+                MediaHelpers.AllPlayList[index].AddRangeMedia(playlist.ListMedia);
+            }
         }
 
 

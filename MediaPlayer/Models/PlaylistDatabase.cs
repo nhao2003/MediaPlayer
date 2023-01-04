@@ -41,10 +41,11 @@ namespace MediaPlayer.Models
             {
                 CreateTable(createPlaylistMediasTable);
             }
-            catch (Exception ex)
+            catch
             {
                 MessageBox.Show("Error Creating PlaylistMedias Table");
             }
+            DeleteNotExistMedias();
         }
 
 

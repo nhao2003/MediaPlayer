@@ -97,7 +97,7 @@
             this.btn_Refresh.OnPressedColor = System.Drawing.Color.Black;
             this.btn_Refresh.Size = new System.Drawing.Size(50, 50);
             this.btn_Refresh.TabIndex = 30;
-            this.btn_Refresh.Text = "Refresh";
+            this.btn_Refresh.Text = "UpdateScreen";
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // lb_SortBy
@@ -163,7 +163,7 @@
             this.gunaCircleButton1.OnPressedColor = System.Drawing.Color.Black;
             this.gunaCircleButton1.Size = new System.Drawing.Size(61, 62);
             this.gunaCircleButton1.TabIndex = 24;
-            this.gunaCircleButton1.Text = "Refresh";
+            this.gunaCircleButton1.Text = "UpdateScreen";
             // 
             // gunaLabel3
             // 
