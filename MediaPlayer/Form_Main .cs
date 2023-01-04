@@ -89,7 +89,8 @@ namespace MediaPlayer
             {
                 if (media != null)
                     MediaControl.getPathOfSong(media);
-                    MediaHelpers.AddToQueue(media);
+                if(MediaHelpers.isPlayingPlaylist == false) MediaHelpers.AddToQueue(media);
+                MediaControl.UpdateListIndexPlay();
             }
             else
             {

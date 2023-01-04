@@ -13,6 +13,7 @@ namespace MediaPlayer.Models
         private static string videoPathFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyVideos);
         private static List<Media> playQueue = new List<Media>();
         private static List<int> listIndexDefalt = new List<int>();// list index of playQueue
+        public static bool isPlayingPlaylist = false;
         public static PlaylistDatabase Database
         {
             set { database = value; }
@@ -81,6 +82,14 @@ namespace MediaPlayer.Models
         {
             set => playQueue = value;
             get => playQueue;
+        }
+        
+        public static void PlayThePlaylist(Playlist pl)
+        {
+            isPlayingPlaylist = true;
+            playQueue.Clear();
+            playQueue = new List<Media>(pl.ListMedia);
+            Form_Main.Instance.ClassifyMedia(playQueue[0]);
         }
         /// <summary>
         /// list index of playQueue

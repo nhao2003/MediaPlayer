@@ -28,6 +28,7 @@ namespace MediaPlayer.Items
                 return;
             }
             Form_Main.Instance.ClassifyMedia(_media);
+            MediaHelpers.isPlayingPlaylist = false;
             Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
         }
 

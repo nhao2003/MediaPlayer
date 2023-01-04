@@ -142,11 +142,13 @@ namespace MediaPlayer.Items
             if (media != null)
             {
                 Form_Main.Instance.ClassifyMedia(media);
+                MediaHelpers.isPlayingPlaylist = false;
                 Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(media);
             }
             else
             {
-                throw new System.NotImplementedException();
+                //throw new System.NotImplementedException();
+                MediaHelpers.PlayThePlaylist(playlist);
             }
         }
     }

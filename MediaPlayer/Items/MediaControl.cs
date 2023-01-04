@@ -26,7 +26,12 @@ namespace MediaPlayer.Items
             MusicRow test = new MusicRow();
             PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
             datasend(this);
-            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
+            UpdateListIndexPlay();
+        }
+        internal void UpdateListIndexPlay()
+        {
+            if(PlayMedia.Suffle == false)
+                listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
         }
         internal void transferDataFromLib(Media media)
         {
@@ -62,7 +67,7 @@ namespace MediaPlayer.Items
             // gan nhac cho trang songPlaying
             Form_Main.Instance.userControl_Playing.Media = media;
             // tang them mot don vi cho listIndexPlay
-            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
+            UpdateListIndexPlay();
         }
 
         public void pauseCurrentPlayer()
@@ -236,17 +241,16 @@ namespace MediaPlayer.Items
         }
         private void gunaCircleButton_next_Click(object sender, EventArgs e)
         {
-            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
             if (PlayMedia.IsFirst == false) return;
             // listIndexPlay has array 0 1 2 3 4 ...
             // in suffer Mode 0 1 3 2 5 4 ....
             for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
             {
-                //MessageBox.Show(i.ToString());
                 if (MediaHelpers.PlayQueue[listIndexPlay[i]].FilePath == PlayMedia.Path)
                 {
                     if (i != MediaHelpers.PlayQueue.Count - 1)
                     {
+                        //MessageBox.Show(listIndexPlay[i + 1].ToString());
                         getPathOfSong(MediaHelpers.PlayQueue[listIndexPlay[i + 1]]);
                         PlayMedia.playSong();
                     }
@@ -262,7 +266,6 @@ namespace MediaPlayer.Items
 
         private void gunaCircleButton_prev_Click(object sender, EventArgs e)
         {
-            listIndexPlay = new List<int>(MediaHelpers.ListIndexPlayQueue);
             if (PlayMedia.IsFirst == false) return;
             for (int i = 0; i < MediaHelpers.PlayQueue.Count; i++)
             {
@@ -385,7 +388,7 @@ namespace MediaPlayer.Items
                 btn_Suffle.Image = Resources.suffle_hover;
                 btn_Suffle.OnHoverImage = Resources.suffle_hover;
                 PlayMedia.Suffle = true;
-                listIndexPlay = MediaHelpers.ListRanDomIndex;
+                listIndexPlay = new List<int>(MediaHelpers.ListRanDomIndex);
             }
         }
     }
