@@ -33,9 +33,10 @@ namespace MediaPlayer.Models
             }
 
             string createPlaylistMediasTable = "CREATE TABLE IF NOT EXISTS PlaylistMedias(" +
-                "MediaPath VARCHAR(4000) PRIMARY KEY NOT NULL," +
+                "MediaPath VARCHAR(4000)," +
                 "PlaylistID VARCHAR(4000)," +
                 "FOREIGN KEY (PlaylistID) REFERENCES Playlist(PlaylistID)" +
+                "PRIMARY KEY(MediaPath, PlaylistID)" +
                 ")";
             try
             {
@@ -244,6 +245,21 @@ namespace MediaPlayer.Models
             RunSqlCommand(sqlCommand);
             playlistDatabaseConnection.Close();
         }
+
+        public void DeleteMediaInAPlaylist(string mediaPath, string playlistID)
+        {
+            if (playlistDatabaseConnection.State == System.Data.ConnectionState.Closed)
+            {
+                playlistDatabaseConnection.Open();
+            }
+            string deleteQuery = "DELETE FROM PlaylistMedias " +
+                "WHERE MediaPath = @mediaPath AND PlaylistID = @playlistID";
+            var sqlCommand = new SQLiteCommand(deleteQuery, playlistDatabaseConnection);
+            AddValueIntoPlaylistMediasinSQLCommand(new Playlist(playlistID), new Media(mediaPath), sqlCommand);
+            RunSqlCommand(sqlCommand);
+            playlistDatabaseConnection.Close();
+        }
+
         public void DeleteNotExistMedias()
         {
             playlistDatabaseConnection.Open();
