@@ -42,8 +42,9 @@ namespace MediaPlayer.Widgets
                 gunaPanel2.GradientColor1 = ImageTools.GetDominantColor(_playlist.BackGroundImage as Bitmap);
                 pic_Avatar.Image = _playlist.BackGroundImage;
                 CaculateDuration();
-                DisplayMediaItems(Playlist.SortListAToZ(_playlist.ListMedia));
-
+                GetAuthors();
+                //DisplayMediaItems(Playlist.SortListAToZ(_playlist.ListMedia));
+                DisplayMediaItems(_listMedia);
             }
         }
         private void CaculateDuration()
@@ -62,6 +63,26 @@ namespace MediaPlayer.Widgets
                 lb_SumDuration.Text += $"● About 1 hour {sum / 60} minutues";
             else
                 lb_SumDuration.Text += $"● About {sum / 60} hours {sum / 60} minutues";
+        }
+        private void GetAuthors()
+        {
+            string a = "";
+            int i = 0;
+            foreach(Media media in _listMedia)
+            {
+                if (i > 1)
+                {
+                    a += media.Artists;
+                    break;
+                }
+                else
+                {
+                    a += media.Artists + ", ";
+                }
+                i++;
+            }
+            if (_listMedia.Count > 3) a += " and more";
+            lb_authors.Text = a;
         }
         public void setMediaType()
         {
@@ -93,6 +114,30 @@ namespace MediaPlayer.Widgets
             }
         }
 
+        private void DisplayMediaItems(List<Media> list)
+        {
+            try
+            {
+                pn_Songs.Controls.Clear();
+                int top = 0;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    top = i*75;
+                    MusicRow musicRow = new MusicRow()
+                    {
+                        Location = new Point(100, top),
+                        Anchor = AnchorStyles.Left | AnchorStyles.Right,
+                        Dock = DockStyle.Top,
+                    };
+                    musicRow.Media = list[i];
+                    pn_Songs.Controls.Add(musicRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private List<string> filePaths = new List<string>();
 
         public UserControl_PlayList()

@@ -83,6 +83,16 @@ namespace MediaPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back_btn {
+            get {
+                object obj = ResourceManager.GetObject("back_btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back_hover {
             get {
                 object obj = ResourceManager.GetObject("back_hover", resourceCulture);
@@ -363,6 +373,16 @@ namespace MediaPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pause_green {
+            get {
+                object obj = ResourceManager.GetObject("pause_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pause_hover {
             get {
                 object obj = ResourceManager.GetObject("pause_hover", resourceCulture);
@@ -376,6 +396,16 @@ namespace MediaPlayer.Properties {
         internal static System.Drawing.Bitmap play {
             get {
                 object obj = ResourceManager.GetObject("play", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap play_green {
+            get {
+                object obj = ResourceManager.GetObject("play_green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

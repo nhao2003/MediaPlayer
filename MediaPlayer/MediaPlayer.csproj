@@ -531,6 +531,8 @@
     <None Include="Resources\not_favorite_hover.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\play_green.png" />
+    <None Include="Resources\pause_green.png" />
     <None Include="Resources\paint-palette-100.png" />
     <None Include="Resources\paint-brush-100.png" />
     <None Include="Resources\suffle_hover.png" />
@@ -545,6 +547,7 @@
     <None Include="Resources\Full_Screen.png" />
     <None Include="Resources\Full_Screen_Hover.png" />
     <None Include="Resources\hide_control.png" />
+    <None Include="Resources\back_btn.png" />
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
