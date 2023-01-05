@@ -123,6 +123,7 @@ namespace MediaPlayer.Models
                 }
             }
             PlayQueue.Add(media);
+            Form_Main.Instance.userControl_PlayList.UpdateScreen();
             Form_Main.Instance.MediaControl.UpdateListIndexPlay();
         }
         /// <summary>

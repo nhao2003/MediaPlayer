@@ -531,6 +531,8 @@
     <None Include="Resources\not_favorite_hover.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\pause_nobackrgound.png" />
+    <None Include="Resources\play_nobackground.png" />
     <None Include="Resources\play_green.png" />
     <None Include="Resources\pause_green.png" />
     <None Include="Resources\paint-palette-100.png" />

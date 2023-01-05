@@ -23,7 +23,7 @@ namespace MediaPlayer.Items
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == MouseButtons.Right)
             {
-                ContextMenu contextMenu = new ContextMenu(_media);
+                ContextMenu contextMenu = new ContextMenu(new Media(_media.FilePath));
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }

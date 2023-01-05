@@ -551,7 +551,6 @@ namespace MediaPlayer
             this.userControl_Playing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.userControl_Playing.Dock = System.Windows.Forms.DockStyle.Fill;
             this.userControl_Playing.Location = new System.Drawing.Point(0, 0);
-            this.userControl_Playing.Media = null;
             this.userControl_Playing.Name = "userControl_Playing";
             this.userControl_Playing.Size = new System.Drawing.Size(946, 607);
             this.userControl_Playing.TabIndex = 0;

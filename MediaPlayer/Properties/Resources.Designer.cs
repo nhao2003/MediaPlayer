@@ -393,6 +393,16 @@ namespace MediaPlayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pause_nobackrgound {
+            get {
+                object obj = ResourceManager.GetObject("pause_nobackrgound", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap play {
             get {
                 object obj = ResourceManager.GetObject("play", resourceCulture);
@@ -416,6 +426,16 @@ namespace MediaPlayer.Properties {
         internal static System.Drawing.Bitmap play_hover {
             get {
                 object obj = ResourceManager.GetObject("play_hover", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap play_nobackground {
+            get {
+                object obj = ResourceManager.GetObject("play_nobackground", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
