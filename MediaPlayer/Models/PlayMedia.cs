@@ -58,7 +58,7 @@ namespace MediaPlayer.Models
         {
             get
             {
-                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+                if (player.playState == WMPLib.WMPPlayState.wmppsPlaying || player.playState == WMPLib.WMPPlayState.wmppsPaused)
                     return player.Ctlcontrols.currentPositionString;
                 return "00:00";
             }
