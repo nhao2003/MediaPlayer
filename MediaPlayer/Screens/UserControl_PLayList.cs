@@ -10,6 +10,7 @@ using TagLib;
 using Guna.UI.WinForms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using MediaPlayer.Properties;
+using ContextMenu = MediaPlayer.Items.ContextMenu;
 
 namespace MediaPlayer.Widgets
 {
@@ -222,7 +223,8 @@ namespace MediaPlayer.Widgets
         }
         private void btn_more_Click(object sender, EventArgs e)
         {
-            // them context menu
+            ContextMenu menu = new ContextMenu(_playlist);
+            menu.Show(MousePosition);
         }
     }
 }

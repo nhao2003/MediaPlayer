@@ -73,10 +73,10 @@
             this.MediaTrackBar.Name = "MediaTrackBar";
             this.MediaTrackBar.Size = new System.Drawing.Size(475, 26);
             this.MediaTrackBar.TabIndex = 15;
-            this.MediaTrackBar.TrackColor = System.Drawing.Color.DeepSkyBlue;
-            this.MediaTrackBar.TrackHoverColor = System.Drawing.Color.DodgerBlue;
-            this.MediaTrackBar.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
-            this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.DodgerBlue;
+            this.MediaTrackBar.TrackColor = System.Drawing.Color.White;
+            this.MediaTrackBar.TrackHoverColor = System.Drawing.Color.Lime;
+            this.MediaTrackBar.TrackIdleColor = System.Drawing.Color.Silver;
+            this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.Lime;
             this.MediaTrackBar.Value = 0;
             this.MediaTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MediaTrackBar_MouseDown);
             // 
@@ -100,10 +100,10 @@
             this.gunaTrackBar_Volume.Name = "gunaTrackBar_Volume";
             this.gunaTrackBar_Volume.Size = new System.Drawing.Size(160, 26);
             this.gunaTrackBar_Volume.TabIndex = 20;
-            this.gunaTrackBar_Volume.TrackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gunaTrackBar_Volume.TrackHoverColor = System.Drawing.Color.DodgerBlue;
-            this.gunaTrackBar_Volume.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
-            this.gunaTrackBar_Volume.TrackPressedColor = System.Drawing.Color.DodgerBlue;
+            this.gunaTrackBar_Volume.TrackColor = System.Drawing.Color.White;
+            this.gunaTrackBar_Volume.TrackHoverColor = System.Drawing.Color.Lime;
+            this.gunaTrackBar_Volume.TrackIdleColor = System.Drawing.Color.Silver;
+            this.gunaTrackBar_Volume.TrackPressedColor = System.Drawing.Color.Lime;
             this.gunaTrackBar_Volume.Value = 100;
             this.gunaTrackBar_Volume.Scroll += new System.Windows.Forms.ScrollEventHandler(this.gunaTrackBar_Volume_Scroll);
             // 

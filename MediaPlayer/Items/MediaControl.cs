@@ -295,14 +295,6 @@ namespace MediaPlayer.Items
             }
         }
 
-        private void gunaCircleButton_Like_Click(object sender, EventArgs e)
-        {
-            //VideoPlayer video = new VideoPlayer();
-            //video.Width = 900;
-            //video.Height = 600;
-            //video.ShowDialog();
-        }
-
         // Sync with video
         public VideoPlayer videoScreen = new VideoPlayer();
         public void SyncWithVideo(Media media, WMPLib.WMPPlayState status, bool isClosing)

@@ -25,10 +25,5 @@ namespace MediaPlayer.Widgets
             panel_Home.Controls.Add(RecentMusic);
             panel_Home.Controls.Add(RecentVideo);
         }
-
-        private void panel_Home_Scroll(object sender, ScrollEventArgs e)
-        {
-            panel_Home.VerticalScroll.Value += 10;
-        }
     }
 }

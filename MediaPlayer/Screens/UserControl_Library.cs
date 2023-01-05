@@ -1,6 +1,8 @@
 ﻿using MediaPlayer.Items;
 using MediaPlayer.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using TagLib;
 
@@ -10,19 +12,29 @@ namespace MediaPlayer.Widgets
     {
         public delegate void Send(string path, MediaTypes mediaTypes);
         public Send sendPath;
+        private List<Playlist> playlist = new List<Playlist>();
         public UserControl_Library()
         {
             InitializeComponent();
+            playlist = MediaHelpers.AllPlayList.OrderBy(x => x.PlayListName).ToList();
             UpdateScreen();
         }
         private void cb_SortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cb_SortBy.SelectedIndex == 0)
+            {
+                playlist = MediaHelpers.AllPlayList.OrderBy(x => x.PlayListName).ToList();
+            }
+            else
+            {
+                playlist = MediaHelpers.AllPlayList.OrderBy(x => x.DateCreated).ToList();
+            }
             UpdateScreen();
         }
         public void UpdateScreen()
         {
             pn_Display.Controls.Clear();
-            MediaHelpers.AllPlayList.ForEach(pl =>
+            playlist.ForEach(pl =>
             {
                 PlayListItem item = new PlayListItem(pl);
                 Panel panel = new Panel();

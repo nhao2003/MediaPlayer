@@ -53,7 +53,6 @@ namespace MediaPlayer.Widgets
             this.panel_Home.Name = "panel_Home";
             this.panel_Home.Size = new System.Drawing.Size(1084, 583);
             this.panel_Home.TabIndex = 4;
-            this.panel_Home.Scroll += new System.Windows.Forms.ScrollEventHandler(this.panel_Home_Scroll);
             // 
             // suggestBar1
             // 
@@ -90,7 +89,7 @@ namespace MediaPlayer.Widgets
 
         }
         #endregion
-        private Guna.UI.WinForms.GunaGradient2Panel panel_Home;
+        public Guna.UI.WinForms.GunaGradient2Panel panel_Home;
         public SuggestBar suggestBar1;
         private GunaLabel gunaLabel_Recent;
     }

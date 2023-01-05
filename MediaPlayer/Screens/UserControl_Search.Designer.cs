@@ -32,8 +32,8 @@
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.pn_Search = new Guna.UI.WinForms.GunaPanel();
             this.lb_Title = new Guna.UI.WinForms.GunaLabel();
+            this.pn_Search = new Guna.UI.WinForms.GunaPanel();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.gunaElipsePanel1.SuspendLayout();
@@ -78,7 +78,7 @@
             this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.White;
             this.gunaTextBox1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.gunaTextBox1.ForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Location = new System.Drawing.Point(72, 5);
+            this.gunaTextBox1.Location = new System.Drawing.Point(68, 5);
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.PasswordChar = '\0';
             this.gunaTextBox1.SelectedText = "";
@@ -102,19 +102,10 @@
             this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 136);
             this.gunaElipsePanel1.TabIndex = 3;
             // 
-            // pn_Search
-            // 
-            this.pn_Search.AutoScroll = true;
-            this.pn_Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.pn_Search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Search.Location = new System.Drawing.Point(0, 136);
-            this.pn_Search.Name = "pn_Search";
-            this.pn_Search.Size = new System.Drawing.Size(1084, 509);
-            this.pn_Search.TabIndex = 4;
-            // 
             // lb_Title
             // 
             this.lb_Title.AutoSize = true;
+            this.lb_Title.Dock = System.Windows.Forms.DockStyle.Top;
             this.lb_Title.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Title.ForeColor = System.Drawing.Color.White;
             this.lb_Title.Location = new System.Drawing.Point(0, 0);
@@ -124,6 +115,16 @@
             this.lb_Title.TabIndex = 4;
             this.lb_Title.Text = "Search";
             this.lb_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pn_Search
+            // 
+            this.pn_Search.AutoScroll = true;
+            this.pn_Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.pn_Search.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_Search.Location = new System.Drawing.Point(0, 136);
+            this.pn_Search.Name = "pn_Search";
+            this.pn_Search.Size = new System.Drawing.Size(1084, 509);
+            this.pn_Search.TabIndex = 4;
             // 
             // UserControl_Search
             // 

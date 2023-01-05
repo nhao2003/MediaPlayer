@@ -38,26 +38,14 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.video_library_path = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaElipsePanel3 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.choose_theme_ComboBox = new Guna.UI.WinForms.GunaComboBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.gunaElipsePanel4 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.choose_color_ComboBox = new Guna.UI.WinForms.GunaComboBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.choose_music_path_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.music_library_path = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.gunaElipsePanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.gunaElipsePanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gunaElipsePanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -226,158 +214,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Video labrary locations";
             // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunaLabel2.ForeColor = System.Drawing.Color.White;
-            this.gunaLabel2.Location = new System.Drawing.Point(9, 303);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(296, 59);
-            this.gunaLabel2.TabIndex = 2;
-            this.gunaLabel2.Text = "Personalization";
-            // 
-            // gunaElipsePanel3
-            // 
-            this.gunaElipsePanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaElipsePanel3.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel3.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.gunaElipsePanel3.Controls.Add(this.choose_theme_ComboBox);
-            this.gunaElipsePanel3.Controls.Add(this.pictureBox3);
-            this.gunaElipsePanel3.Controls.Add(this.label3);
-            this.gunaElipsePanel3.Location = new System.Drawing.Point(16, 366);
-            this.gunaElipsePanel3.Margin = new System.Windows.Forms.Padding(4);
-            this.gunaElipsePanel3.Name = "gunaElipsePanel3";
-            this.gunaElipsePanel3.Radius = 12;
-            this.gunaElipsePanel3.Size = new System.Drawing.Size(1045, 65);
-            this.gunaElipsePanel3.TabIndex = 3;
-            // 
-            // choose_theme_ComboBox
-            // 
-            this.choose_theme_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.choose_theme_ComboBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "Light",
-            "Dart"});
-            this.choose_theme_ComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.choose_theme_ComboBox.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_theme_ComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_theme_ComboBox.BorderSize = 0;
-            this.choose_theme_ComboBox.DisplayMember = "2";
-            this.choose_theme_ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.choose_theme_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.choose_theme_ComboBox.FocusedColor = System.Drawing.Color.Empty;
-            this.choose_theme_ComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.choose_theme_ComboBox.ForeColor = System.Drawing.Color.White;
-            this.choose_theme_ComboBox.FormattingEnabled = true;
-            this.choose_theme_ComboBox.Items.AddRange(new object[] {
-            "Light",
-            "Dart"});
-            this.choose_theme_ComboBox.Location = new System.Drawing.Point(899, 17);
-            this.choose_theme_ComboBox.Name = "choose_theme_ComboBox";
-            this.choose_theme_ComboBox.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.choose_theme_ComboBox.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.choose_theme_ComboBox.Radius = 5;
-            this.choose_theme_ComboBox.Size = new System.Drawing.Size(128, 31);
-            this.choose_theme_ComboBox.TabIndex = 7;
-            this.choose_theme_ComboBox.Tag = "";
-            this.choose_theme_ComboBox.ValueMember = "2";
-            this.choose_theme_ComboBox.SelectedValueChanged += new System.EventHandler(this.choose_theme_ComboBox_SelectedValueChanged);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::MediaPlayer.Properties.Resources.paint_brush_100;
-            this.pictureBox3.Location = new System.Drawing.Point(8, 16);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(49, 34);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 1;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(61, 21);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(95, 23);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "App theme";
-            // 
-            // gunaElipsePanel4
-            // 
-            this.gunaElipsePanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaElipsePanel4.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel4.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.gunaElipsePanel4.Controls.Add(this.choose_color_ComboBox);
-            this.gunaElipsePanel4.Controls.Add(this.pictureBox4);
-            this.gunaElipsePanel4.Controls.Add(this.label4);
-            this.gunaElipsePanel4.Location = new System.Drawing.Point(14, 445);
-            this.gunaElipsePanel4.Margin = new System.Windows.Forms.Padding(4);
-            this.gunaElipsePanel4.Name = "gunaElipsePanel4";
-            this.gunaElipsePanel4.Radius = 12;
-            this.gunaElipsePanel4.Size = new System.Drawing.Size(1047, 65);
-            this.gunaElipsePanel4.TabIndex = 3;
-            // 
-            // choose_color_ComboBox
-            // 
-            this.choose_color_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.choose_color_ComboBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "Green",
-            "Blue",
-            "Red",
-            "Yellow"});
-            this.choose_color_ComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.choose_color_ComboBox.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_color_ComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_color_ComboBox.BorderSize = 0;
-            this.choose_color_ComboBox.DisplayMember = "2";
-            this.choose_color_ComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.choose_color_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.choose_color_ComboBox.FocusedColor = System.Drawing.Color.Empty;
-            this.choose_color_ComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.choose_color_ComboBox.ForeColor = System.Drawing.Color.White;
-            this.choose_color_ComboBox.FormattingEnabled = true;
-            this.choose_color_ComboBox.Items.AddRange(new object[] {
-            "Light",
-            "Dart"});
-            this.choose_color_ComboBox.Location = new System.Drawing.Point(901, 17);
-            this.choose_color_ComboBox.Name = "choose_color_ComboBox";
-            this.choose_color_ComboBox.OnHoverItemBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.choose_color_ComboBox.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.choose_color_ComboBox.Radius = 5;
-            this.choose_color_ComboBox.Size = new System.Drawing.Size(128, 31);
-            this.choose_color_ComboBox.TabIndex = 7;
-            this.choose_color_ComboBox.Tag = "";
-            this.choose_color_ComboBox.ValueMember = "2";
-            this.choose_color_ComboBox.SelectedValueChanged += new System.EventHandler(this.choose_color_ComboBox_SelectedValueChanged);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::MediaPlayer.Properties.Resources.paint_palette_100;
-            this.pictureBox4.Location = new System.Drawing.Point(10, 16);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(49, 33);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(62, 21);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 23);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Accent color";
-            // 
             // gunaElipsePanel1
             // 
             this.gunaElipsePanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -522,15 +358,23 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Music labrary locations";
             // 
+            // gunaLabel2
+            // 
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel2.ForeColor = System.Drawing.Color.White;
+            this.gunaLabel2.Location = new System.Drawing.Point(9, 303);
+            this.gunaLabel2.Name = "gunaLabel2";
+            this.gunaLabel2.Size = new System.Drawing.Size(296, 59);
+            this.gunaLabel2.TabIndex = 2;
+            this.gunaLabel2.Text = "Personalization";
+            // 
             // UserControl_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.Controls.Add(this.gunaElipsePanel4);
             this.Controls.Add(this.gunaElipsePanel1);
             this.Controls.Add(this.gunaElipsePanel2);
-            this.Controls.Add(this.gunaElipsePanel3);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.gunaLabel_Recent);
@@ -540,12 +384,6 @@
             this.gunaElipsePanel2.ResumeLayout(false);
             this.gunaElipsePanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.gunaElipsePanel3.ResumeLayout(false);
-            this.gunaElipsePanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.gunaElipsePanel4.ResumeLayout(false);
-            this.gunaElipsePanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.gunaElipsePanel1.ResumeLayout(false);
             this.gunaElipsePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -560,13 +398,6 @@
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel3;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label3;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel4;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label video_library_path;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton choose_videos_path_btn;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
@@ -574,7 +405,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label music_library_path;
         private System.Windows.Forms.Label label5;
-        private Guna.UI.WinForms.GunaComboBox choose_theme_ComboBox;
-        private Guna.UI.WinForms.GunaComboBox choose_color_ComboBox;
+        private Guna.UI.WinForms.GunaLabel gunaLabel2;
     }
 }
