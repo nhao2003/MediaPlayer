@@ -25,6 +25,9 @@ namespace MediaPlayer.Widgets
             MediaHelpers.AllPlayList.ForEach(pl =>
             {
                 PlayListItem item = new PlayListItem(pl);
+                Panel panel = new Panel();
+                panel.Width = 8;
+                pn_Display.Controls.Add(panel);
                 pn_Display.Controls.Add(item);
             });
         }

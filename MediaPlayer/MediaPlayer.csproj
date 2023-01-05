@@ -550,6 +550,7 @@
     <None Include="Resources\Full_Screen_Hover.png" />
     <None Include="Resources\hide_control.png" />
     <None Include="Resources\back_btn.png" />
+    <None Include="Resources\dots.png" />
     <Content Include="Resources\logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -73,7 +73,8 @@ namespace MediaPlayer
         {
             MainPages.SetPage(n);
             if (n == 2) _oldButton = btn_Music;
-            else _oldButton = btn_Video;
+            else if(n == 3) _oldButton = btn_Music;
+            else _oldButton = btn_Library;
             if (_oldButton != null)
             {
                 _oldButton.Image = _oldButton.OnHoverImage;

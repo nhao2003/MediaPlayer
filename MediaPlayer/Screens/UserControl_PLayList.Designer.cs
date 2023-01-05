@@ -28,25 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_PlayList));
             this.lb_Title = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaGradient2Panel();
             this.gunaCircleButton1 = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
-            this.lb_SumDuration = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.lb_authors = new Guna.UI.WinForms.GunaLabel();
+            this.lb_SumDuration = new Guna.UI.WinForms.GunaLabel();
             this.gunaComboBox2 = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaCircleButton2 = new Guna.UI.WinForms.GunaCircleButton();
             this.pn_Display = new Guna.UI.WinForms.GunaGradient2Panel();
             this.pn_Songs = new System.Windows.Forms.Panel();
-            this.gunaCircleButton3 = new Guna.UI.WinForms.GunaCircleButton();
             this.gunaButton2 = new Guna.UI.WinForms.GunaButton();
             this.btn_back = new Guna.UI.WinForms.GunaCircleButton();
+            this.btn_play = new Guna.UI.WinForms.GunaCircleButton();
             this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
+            this.btn_more = new Guna.UI.WinForms.GunaCircleButton();
+            this.timerPlaylist = new System.Windows.Forms.Timer(this.components);
             this.gunaPanel2.SuspendLayout();
             this.pn_Display.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
@@ -70,8 +73,9 @@
             // 
             this.gunaPanel2.BackColor = System.Drawing.Color.Transparent;
             this.gunaPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.gunaPanel2.Controls.Add(this.btn_more);
             this.gunaPanel2.Controls.Add(this.btn_back);
-            this.gunaPanel2.Controls.Add(this.gunaCircleButton3);
+            this.gunaPanel2.Controls.Add(this.btn_play);
             this.gunaPanel2.Controls.Add(this.pic_Avatar);
             this.gunaPanel2.Controls.Add(this.gunaCircleButton1);
             this.gunaPanel2.Controls.Add(this.gunaLabel3);
@@ -155,20 +159,6 @@
             this.gunaComboBox1.Size = new System.Drawing.Size(139, 31);
             this.gunaComboBox1.TabIndex = 26;
             // 
-            // lb_SumDuration
-            // 
-            this.lb_SumDuration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_SumDuration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_SumDuration.ForeColor = System.Drawing.Color.White;
-            this.lb_SumDuration.Location = new System.Drawing.Point(352, 264);
-            this.lb_SumDuration.Margin = new System.Windows.Forms.Padding(0);
-            this.lb_SumDuration.Name = "lb_SumDuration";
-            this.lb_SumDuration.Size = new System.Drawing.Size(620, 28);
-            this.lb_SumDuration.TabIndex = 2;
-            this.lb_SumDuration.Text = "Time";
-            this.lb_SumDuration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
@@ -196,6 +186,20 @@
             this.lb_authors.TabIndex = 2;
             this.lb_authors.Text = "Minh, Hào, Bảo";
             this.lb_authors.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lb_SumDuration
+            // 
+            this.lb_SumDuration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lb_SumDuration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_SumDuration.ForeColor = System.Drawing.Color.White;
+            this.lb_SumDuration.Location = new System.Drawing.Point(352, 264);
+            this.lb_SumDuration.Margin = new System.Windows.Forms.Padding(0);
+            this.lb_SumDuration.Name = "lb_SumDuration";
+            this.lb_SumDuration.Size = new System.Drawing.Size(620, 28);
+            this.lb_SumDuration.TabIndex = 2;
+            this.lb_SumDuration.Text = "Time";
+            this.lb_SumDuration.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // gunaComboBox2
             // 
@@ -289,35 +293,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pn_Songs.AutoScroll = true;
-            this.pn_Songs.Location = new System.Drawing.Point(10, 0);
+            this.pn_Songs.Location = new System.Drawing.Point(10, 6);
             this.pn_Songs.Name = "pn_Songs";
-            this.pn_Songs.Size = new System.Drawing.Size(1074, 508);
+            this.pn_Songs.Size = new System.Drawing.Size(1074, 502);
             this.pn_Songs.TabIndex = 33;
-            // 
-            // gunaCircleButton3
-            // 
-            this.gunaCircleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaCircleButton3.Animated = true;
-            this.gunaCircleButton3.AnimationHoverSpeed = 0.07F;
-            this.gunaCircleButton3.AnimationSpeed = 0.03F;
-            this.gunaCircleButton3.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton3.BorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton3.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaCircleButton3.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaCircleButton3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaCircleButton3.ForeColor = System.Drawing.Color.White;
-            this.gunaCircleButton3.Image = global::MediaPlayer.Properties.Resources.play_green;
-            this.gunaCircleButton3.ImageSize = new System.Drawing.Size(70, 70);
-            this.gunaCircleButton3.Location = new System.Drawing.Point(990, 222);
-            this.gunaCircleButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gunaCircleButton3.Name = "gunaCircleButton3";
-            this.gunaCircleButton3.OnHoverBaseColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton3.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaCircleButton3.OnHoverForeColor = System.Drawing.Color.Transparent;
-            this.gunaCircleButton3.OnHoverImage = global::MediaPlayer.Properties.Resources.play_green;
-            this.gunaCircleButton3.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaCircleButton3.Size = new System.Drawing.Size(70, 70);
-            this.gunaCircleButton3.TabIndex = 32;
             // 
             // gunaButton2
             // 
@@ -358,16 +337,43 @@
             this.btn_back.ForeColor = System.Drawing.Color.White;
             this.btn_back.Image = global::MediaPlayer.Properties.Resources.back_btn;
             this.btn_back.ImageSize = new System.Drawing.Size(30, 30);
-            this.btn_back.Location = new System.Drawing.Point(1030, 43);
+            this.btn_back.Location = new System.Drawing.Point(994, 41);
             this.btn_back.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_back.Name = "btn_back";
             this.btn_back.OnHoverBaseColor = System.Drawing.Color.Transparent;
             this.btn_back.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btn_back.OnHoverForeColor = System.Drawing.Color.Transparent;
-            this.btn_back.OnHoverImage = global::MediaPlayer.Properties.Resources.play_hover;
+            this.btn_back.OnHoverImage = global::MediaPlayer.Properties.Resources.back_btn;
             this.btn_back.OnPressedColor = System.Drawing.Color.Black;
             this.btn_back.Size = new System.Drawing.Size(30, 30);
             this.btn_back.TabIndex = 32;
+            this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
+            // 
+            // btn_play
+            // 
+            this.btn_play.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_play.Animated = true;
+            this.btn_play.AnimationHoverSpeed = 0.07F;
+            this.btn_play.AnimationSpeed = 0.03F;
+            this.btn_play.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_play.BorderColor = System.Drawing.Color.Black;
+            this.btn_play.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_play.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_play.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_play.ForeColor = System.Drawing.Color.White;
+            this.btn_play.Image = global::MediaPlayer.Properties.Resources.play_green;
+            this.btn_play.ImageSize = new System.Drawing.Size(70, 70);
+            this.btn_play.Location = new System.Drawing.Point(990, 222);
+            this.btn_play.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_play.Name = "btn_play";
+            this.btn_play.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_play.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_play.OnHoverForeColor = System.Drawing.Color.Transparent;
+            this.btn_play.OnHoverImage = global::MediaPlayer.Properties.Resources.play_green;
+            this.btn_play.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_play.Size = new System.Drawing.Size(70, 70);
+            this.btn_play.TabIndex = 32;
+            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
             // 
             // pic_Avatar
             // 
@@ -409,6 +415,36 @@
             this.gunaButton1.TabIndex = 25;
             this.gunaButton1.Text = "Add music";
             // 
+            // btn_more
+            // 
+            this.btn_more.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_more.Animated = true;
+            this.btn_more.AnimationHoverSpeed = 0.07F;
+            this.btn_more.AnimationSpeed = 0.03F;
+            this.btn_more.BaseColor = System.Drawing.Color.Transparent;
+            this.btn_more.BorderColor = System.Drawing.Color.Black;
+            this.btn_more.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_more.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_more.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_more.ForeColor = System.Drawing.Color.White;
+            this.btn_more.Image = global::MediaPlayer.Properties.Resources.dots;
+            this.btn_more.ImageSize = new System.Drawing.Size(30, 30);
+            this.btn_more.Location = new System.Drawing.Point(1030, 41);
+            this.btn_more.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_more.Name = "btn_more";
+            this.btn_more.OnHoverBaseColor = System.Drawing.Color.Transparent;
+            this.btn_more.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_more.OnHoverForeColor = System.Drawing.Color.Transparent;
+            this.btn_more.OnHoverImage = global::MediaPlayer.Properties.Resources.dots;
+            this.btn_more.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_more.Size = new System.Drawing.Size(30, 30);
+            this.btn_more.TabIndex = 32;
+            this.btn_more.Click += new System.EventHandler(this.btn_more_Click);
+            // 
+            // timerPlaylist
+            // 
+            this.timerPlaylist.Tick += new System.EventHandler(this.timerPlaylist_Tick);
+            // 
             // UserControl_PlayList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -444,7 +480,9 @@
         private Guna.UI.WinForms.GunaCircleButton gunaCircleButton2;
         private Guna.UI.WinForms.GunaGradient2Panel pn_Display;
         private Guna.UI.WinForms.GunaCircleButton btn_back;
-        private Guna.UI.WinForms.GunaCircleButton gunaCircleButton3;
+        private Guna.UI.WinForms.GunaCircleButton btn_play;
         private System.Windows.Forms.Panel pn_Songs;
+        private Guna.UI.WinForms.GunaCircleButton btn_more;
+        private System.Windows.Forms.Timer timerPlaylist;
     }
 }

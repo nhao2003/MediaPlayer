@@ -11,6 +11,7 @@ namespace MediaPlayer.Items
         public delegate void PassDataBetweenForms(Media media);
         static MediaControl mediaControl;
         private string filePath;
+        public bool isPlayList = false;
         public void GetMediaControl(MediaControl control)
         {
             mediaControl = control;
@@ -31,13 +32,14 @@ namespace MediaPlayer.Items
             }
         }
 
-        public MusicRow(Media media = null)
+        public MusicRow(Media media = null, bool isPlayList = false)
         {
             InitializeComponent();
             if(media != null)
             {
                 Media = media;
             }
+            this.isPlayList = isPlayList;
         }
 
         public void InitializeSongItem(Media initializeMedia)
@@ -87,16 +89,34 @@ namespace MediaPlayer.Items
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
-            MediaHelpers.isPlayingPlaylist = false;
-            Form_Main.Instance.ClassifyMedia(_media);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
+            if (isPlayList == false)
+            {
+                MediaHelpers.isPlayingPlaylist = false;
+                Form_Main.Instance.ClassifyMedia(_media);
+                Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
+            }
+            else
+            {
+                // this row is in play list
+                Form_Main.Instance.ClassifyMedia(_media);
+                Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
+            }
         }
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            MediaHelpers.isPlayingPlaylist = false;
-            Form_Main.Instance.ClassifyMedia(_media);
-            Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
+            if(isPlayList == false)
+            {
+                MediaHelpers.isPlayingPlaylist = false;
+                Form_Main.Instance.ClassifyMedia(_media);
+                Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
+            }
+            else
+            {
+                // this row is in play list
+                Form_Main.Instance.ClassifyMedia(_media);
+                Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
+            }
         }
     }
 }

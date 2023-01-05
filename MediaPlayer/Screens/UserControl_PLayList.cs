@@ -8,6 +8,8 @@ using System.Linq;
 using System.Windows.Forms;
 using TagLib;
 using Guna.UI.WinForms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using MediaPlayer.Properties;
 
 namespace MediaPlayer.Widgets
 {
@@ -44,7 +46,7 @@ namespace MediaPlayer.Widgets
                 CaculateDuration();
                 GetAuthors();
                 //DisplayMediaItems(Playlist.SortListAToZ(_playlist.ListMedia));
-                DisplayMediaItems(_listMedia);
+                DisplayMediaItems();
             }
         }
         private void CaculateDuration()
@@ -114,22 +116,21 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        private void DisplayMediaItems(List<Media> list)
+        public void DisplayMediaItems()
         {
             try
             {
                 pn_Songs.Controls.Clear();
                 int top = 0;
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < _listMedia.Count; i++)
                 {
                     top = i*75;
-                    MusicRow musicRow = new MusicRow()
+                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], true)
                     {
                         Location = new Point(100, top),
                         Anchor = AnchorStyles.Left | AnchorStyles.Right,
                         Dock = DockStyle.Top,
                     };
-                    musicRow.Media = list[i];
                     pn_Songs.Controls.Add(musicRow);
                 }
             }
@@ -145,6 +146,7 @@ namespace MediaPlayer.Widgets
             InitializeComponent();
             //manageSort = new SortHandling(pn_Display as G);
             setMediaType();
+            timerPlaylist.Start();
 
         }
 
@@ -163,6 +165,38 @@ namespace MediaPlayer.Widgets
             {
                 _listMedia = MediaHelpers.listVideos;
             }
+        }
+
+        private void btn_play_Click(object sender, EventArgs e)
+        {
+            if (MediaHelpers.isPlayingPlaylist == true) return;
+            MediaHelpers.PlayThePlaylist(_playlist);
+            btn_play.Image = Resources.pause_green;
+            btn_play.OnHoverImage = Resources.pause_green;
+        }
+
+        private void btn_back_Click(object sender, EventArgs e)
+        {
+            Form_Main.Instance.ChangePage(4);
+        }
+
+
+        private void timerPlaylist_Tick(object sender, EventArgs e)
+        {
+            if(MediaHelpers.isPlayingPlaylist == true)
+            {
+                btn_play.Image = Resources.pause_green;
+                btn_play.OnHoverImage = Resources.pause_green;
+            }
+            else
+            {
+                btn_play.Image = Resources.play_green;
+                btn_play.OnHoverImage = Resources.play_green;
+            }
+        }
+        private void btn_more_Click(object sender, EventArgs e)
+        {
+            // them context menu
         }
     }
 }

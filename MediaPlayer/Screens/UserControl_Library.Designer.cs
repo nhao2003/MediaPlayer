@@ -30,12 +30,14 @@ namespace MediaPlayer.Widgets
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lb_Title = new Guna.UI.WinForms.GunaLabel();
             this.cb_SortBy = new Guna.UI.WinForms.GunaComboBox();
             this.lb_SortBy = new System.Windows.Forms.Label();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.AddNewPlayList_Play = new Guna.UI.WinForms.GunaButton();
             this.pn_Display = new System.Windows.Forms.FlowLayoutPanel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.gunaPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,5 +166,6 @@ namespace MediaPlayer.Widgets
         private Guna.UI.WinForms.GunaPanel gunaPanel2;
         private Guna.UI.WinForms.GunaButton AddNewPlayList_Play;
         private System.Windows.Forms.FlowLayoutPanel pn_Display;
+        private Timer timer1;
     }
 }
