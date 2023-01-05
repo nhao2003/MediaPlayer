@@ -144,6 +144,33 @@ namespace MediaPlayer.Models
             Form_Main.Instance.MediaControl.UpdateListIndexPlay();
         }
         /// <summary>
+        /// Add a playlist to play queue, not delete if media is exit
+        /// </summary>
+        /// <param name="pl"></param>
+        public static void AddPlaylistToQueue(Playlist pl)
+        {
+            for(int i = 0; i < pl.ListMedia.Count; i++)
+            {
+                PlayQueue.Add(pl.ListMedia[i]);
+            }
+            Form_Main.Instance.MediaControl.UpdateListIndexPlay();
+        }
+        /// <summary>
+        /// add this media next to the current media is playing
+        /// </summary>
+        /// <param name="media"></param>
+        public static void AddPlaylistNextToCurrrentPlaying(Playlist pl)
+        {
+            int position = CurrentIndex + 1;
+            for (int i = 0; i < pl.ListMedia.Count; i++)
+            {
+                // insert this media next to current playing
+                PlayQueue.Insert(position, pl.ListMedia[i]);
+                position++;
+            }
+            Form_Main.Instance.MediaControl.UpdateListIndexPlay();
+        }
+        /// <summary>
         /// Random mode
         /// </summary>
         /// <returns></returns>

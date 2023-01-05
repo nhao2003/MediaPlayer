@@ -10,8 +10,8 @@ namespace MediaPlayer.Items
     // khi bam vao bai hat, them vao queue (done)
     // add to queue thi them vao cuoi queue (done)
     // play next thi them vao queue nhung o sau bai dang hat (done)
-    // bam play list thi clear queue, play list
-    // play next play list la chay sau khi het play tiep
+    // bam play list thi clear queue, play list (done)
+    // play next play list la chay sau khi het play tiep (done)
     public partial class MediaControl : UserControl
     {
         public Media _media = null;

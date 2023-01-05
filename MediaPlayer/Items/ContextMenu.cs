@@ -116,7 +116,7 @@ namespace MediaPlayer.Items
             }
             else
             {
-                throw new System.NotImplementedException();
+                MediaHelpers.AddPlaylistToQueue(playlist);
             }
         }
         /// <summary>
@@ -133,7 +133,7 @@ namespace MediaPlayer.Items
             }
             else
             {
-                throw new System.NotImplementedException();
+                MediaHelpers.AddPlaylistNextToCurrrentPlaying(playlist);
             }
         }
 
