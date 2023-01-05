@@ -41,6 +41,7 @@ namespace MediaPlayer.Widgets
         int radius = 0;
         private void RotationTimer_Tick(object sender, EventArgs e)
         {
+            if (_media.MediaTypes != TagLib.MediaTypes.Audio) return;
             if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsPlaying)
             {
                 RotationTimer.Interval = 25;

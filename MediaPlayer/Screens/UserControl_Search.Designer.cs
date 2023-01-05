@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
             this.pn_Search = new Guna.UI.WinForms.GunaPanel();
+            this.lb_Title = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.gunaElipsePanel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // gunaLabel_Recent
-            // 
-            this.gunaLabel_Recent.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaLabel_Recent.ForeColor = System.Drawing.Color.White;
-            this.gunaLabel_Recent.Location = new System.Drawing.Point(3, 0);
-            this.gunaLabel_Recent.Name = "gunaLabel_Recent";
-            this.gunaLabel_Recent.Size = new System.Drawing.Size(201, 69);
-            this.gunaLabel_Recent.TabIndex = 2;
-            this.gunaLabel_Recent.Text = "Search";
             // 
             // gunaElipsePanel2
             // 
@@ -57,10 +47,10 @@
             this.gunaElipsePanel2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.gunaElipsePanel2.Controls.Add(this.gunaPictureBox1);
             this.gunaElipsePanel2.Controls.Add(this.gunaTextBox1);
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(36, 52);
+            this.gunaElipsePanel2.Location = new System.Drawing.Point(11, 65);
             this.gunaElipsePanel2.Name = "gunaElipsePanel2";
             this.gunaElipsePanel2.Radius = 20;
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(705, 50);
+            this.gunaElipsePanel2.Size = new System.Drawing.Size(858, 50);
             this.gunaElipsePanel2.TabIndex = 3;
             // 
             // gunaPictureBox1
@@ -92,7 +82,7 @@
             this.gunaTextBox1.Name = "gunaTextBox1";
             this.gunaTextBox1.PasswordChar = '\0';
             this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(541, 38);
+            this.gunaTextBox1.Size = new System.Drawing.Size(694, 38);
             this.gunaTextBox1.TabIndex = 1;
             this.gunaTextBox1.Text = "Nhập tên nhạc / Album / Ca sĩ";
             this.gunaTextBox1.TextChanged += new System.EventHandler(this.EventSearchText);
@@ -103,13 +93,13 @@
             // 
             this.gunaElipsePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.gunaElipsePanel1.Controls.Add(this.lb_Title);
             this.gunaElipsePanel1.Controls.Add(this.gunaElipsePanel2);
-            this.gunaElipsePanel1.Controls.Add(this.gunaLabel_Recent);
             this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaElipsePanel1.ForeColor = System.Drawing.Color.White;
             this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
             this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 120);
+            this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 136);
             this.gunaElipsePanel1.TabIndex = 3;
             // 
             // pn_Search
@@ -117,10 +107,23 @@
             this.pn_Search.AutoScroll = true;
             this.pn_Search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.pn_Search.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Search.Location = new System.Drawing.Point(0, 120);
+            this.pn_Search.Location = new System.Drawing.Point(0, 136);
             this.pn_Search.Name = "pn_Search";
-            this.pn_Search.Size = new System.Drawing.Size(1084, 525);
+            this.pn_Search.Size = new System.Drawing.Size(1084, 509);
             this.pn_Search.TabIndex = 4;
+            // 
+            // lb_Title
+            // 
+            this.lb_Title.AutoSize = true;
+            this.lb_Title.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Title.ForeColor = System.Drawing.Color.White;
+            this.lb_Title.Location = new System.Drawing.Point(0, 0);
+            this.lb_Title.Margin = new System.Windows.Forms.Padding(0);
+            this.lb_Title.Name = "lb_Title";
+            this.lb_Title.Size = new System.Drawing.Size(173, 62);
+            this.lb_Title.TabIndex = 4;
+            this.lb_Title.Text = "Search";
+            this.lb_Title.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // UserControl_Search
             // 
@@ -135,17 +138,17 @@
             this.gunaElipsePanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.gunaElipsePanel1.ResumeLayout(false);
+            this.gunaElipsePanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI.WinForms.GunaLabel gunaLabel_Recent;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
         private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
         private Guna.UI.WinForms.GunaPanel pn_Search;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        private Guna.UI.WinForms.GunaLabel lb_Title;
     }
 }

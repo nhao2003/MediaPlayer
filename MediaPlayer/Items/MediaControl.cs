@@ -67,6 +67,7 @@ namespace MediaPlayer.Items
 
             // gan nhac cho trang songPlaying
             Form_Main.Instance.userControl_Playing.UpdateScreen();
+            Form_Main.Instance.userControl_PlayList.UpdateColorRow();
             // tang them mot don vi cho listIndexPlay
             UpdateListIndexPlay();
         }

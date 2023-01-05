@@ -194,6 +194,32 @@ namespace MediaPlayer.Widgets
                 btn_play.OnHoverImage = Resources.play_green;
             }
         }
+
+        public void UpdateColorRow()
+        {
+            try
+            {
+                pn_Songs.Controls.Clear();
+                int top = 0;
+                for (int i = 0; i < _listMedia.Count; i++)
+                {
+                    top = i * 75;
+                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], true)
+                    {
+                        Location = new Point(100, top),
+                        Anchor = AnchorStyles.Left | AnchorStyles.Right,
+                        Dock = DockStyle.Top,
+                        IsHover = (PlayMedia.Path == _listMedia[_listMedia.Count - 1 - i].FilePath),
+                        IsPlaying = (PlayMedia.Path == _listMedia[_listMedia.Count - 1 - i].FilePath),
+                    };
+                    pn_Songs.Controls.Add(musicRow);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void btn_more_Click(object sender, EventArgs e)
         {
             // them context menu
