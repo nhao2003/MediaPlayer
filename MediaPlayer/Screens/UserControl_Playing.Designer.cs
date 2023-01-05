@@ -65,9 +65,9 @@
             this.lb_NextAuthor.BackColor = System.Drawing.Color.Transparent;
             this.lb_NextAuthor.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.lb_NextAuthor.ForeColor = System.Drawing.Color.White;
-            this.lb_NextAuthor.Location = new System.Drawing.Point(20, 482);
+            this.lb_NextAuthor.Location = new System.Drawing.Point(25, 494);
             this.lb_NextAuthor.Name = "lb_NextAuthor";
-            this.lb_NextAuthor.Size = new System.Drawing.Size(362, 56);
+            this.lb_NextAuthor.Size = new System.Drawing.Size(362, 43);
             this.lb_NextAuthor.TabIndex = 10;
             this.lb_NextAuthor.Text = "Tên ca sĩ";
             this.lb_NextAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -113,7 +113,7 @@
             this.btn_Play.Image = global::MediaPlayer.Properties.Resources.play_nobackground;
             this.btn_Play.ImageOffsetX = 10;
             this.btn_Play.ImageSize = new System.Drawing.Size(32, 32);
-            this.btn_Play.Location = new System.Drawing.Point(96, 541);
+            this.btn_Play.Location = new System.Drawing.Point(99, 559);
             this.btn_Play.Name = "btn_Play";
             this.btn_Play.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
             this.btn_Play.OnHoverBorderColor = System.Drawing.Color.Black;

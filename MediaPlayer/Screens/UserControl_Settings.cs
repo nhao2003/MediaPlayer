@@ -15,18 +15,12 @@ namespace MediaPlayer.Widgets
         public string musicFolderPath = MediaHelpers.MusicPathFolder;
         public string videoFolderPath = MediaHelpers.VideoPathFolder;
 
-        public List<string> themes = new List<string>() { "Dark", "Light" };
-        public List<string> colors = new List<string>() { "Green", "Blue", "Red", "Yellow" };
-
         public UserControl_Settings()
         {
             InitializeComponent();
 
             music_library_path.Text = musicFolderPath;
             video_library_path.Text = videoFolderPath;
-
-            choose_theme_ComboBox.DataSource = themes;
-            choose_color_ComboBox.DataSource = colors;
         }
 
         private void choose_music_path_btn_Click(object sender, EventArgs e)

@@ -39,13 +39,14 @@ namespace MediaPlayer
             if (_oldButton != null)
             {
                 if (button.Text == _oldButton.Text)
-                    return;
+                    goto ChangePage;
                 _oldButton.Image = (Image)_oldButton.Tag;
                 _oldButton.ForeColor = Color.Silver;
             }
             button.ForeColor = Color.White;
             button.Image = button.OnHoverImage;
             _oldButton = button;
+            ChangePage:
             switch (button.Text)
             {
                 case "Trang chủ":
