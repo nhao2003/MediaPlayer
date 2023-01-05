@@ -30,18 +30,99 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_Playing));
-            this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
             this.RotationTimer = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbSong = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbArtist = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lb_Duration = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lb_dateAdd = new System.Windows.Forms.Label();
+            this.lb_NextName = new Guna.UI.WinForms.GunaLabel();
+            this.lb_NextAuthor = new Guna.UI.WinForms.GunaLabel();
+            this.pn_Display = new Guna.UI.WinForms.GunaPanel();
+            this.lb_Queue = new Guna.UI.WinForms.GunaLabel();
+            this.btn_Play = new Guna.UI.WinForms.GunaButton();
+            this.pic_Avatar = new Guna.UI.WinForms.GunaPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pic_Avatar)).BeginInit();
             this.SuspendLayout();
+            // 
+            // RotationTimer
+            // 
+            this.RotationTimer.Interval = 25;
+            this.RotationTimer.Tick += new System.EventHandler(this.RotationTimer_Tick);
+            // 
+            // lb_NextName
+            // 
+            this.lb_NextName.AutoEllipsis = true;
+            this.lb_NextName.BackColor = System.Drawing.Color.Transparent;
+            this.lb_NextName.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
+            this.lb_NextName.ForeColor = System.Drawing.Color.White;
+            this.lb_NextName.Location = new System.Drawing.Point(25, 393);
+            this.lb_NextName.Name = "lb_NextName";
+            this.lb_NextName.Size = new System.Drawing.Size(362, 54);
+            this.lb_NextName.TabIndex = 9;
+            this.lb_NextName.Text = "Tên bài hát";
+            this.lb_NextName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lb_NextAuthor
+            // 
+            this.lb_NextAuthor.AutoEllipsis = true;
+            this.lb_NextAuthor.BackColor = System.Drawing.Color.Transparent;
+            this.lb_NextAuthor.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lb_NextAuthor.ForeColor = System.Drawing.Color.White;
+            this.lb_NextAuthor.Location = new System.Drawing.Point(25, 447);
+            this.lb_NextAuthor.Name = "lb_NextAuthor";
+            this.lb_NextAuthor.Size = new System.Drawing.Size(362, 56);
+            this.lb_NextAuthor.TabIndex = 10;
+            this.lb_NextAuthor.Text = "Tên ca sĩ";
+            this.lb_NextAuthor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pn_Display
+            // 
+            this.pn_Display.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pn_Display.BackColor = System.Drawing.Color.Transparent;
+            this.pn_Display.Location = new System.Drawing.Point(471, 96);
+            this.pn_Display.Name = "pn_Display";
+            this.pn_Display.Size = new System.Drawing.Size(610, 546);
+            this.pn_Display.TabIndex = 5;
+            // 
+            // lb_Queue
+            // 
+            this.lb_Queue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lb_Queue.AutoEllipsis = true;
+            this.lb_Queue.AutoSize = true;
+            this.lb_Queue.BackColor = System.Drawing.Color.Transparent;
+            this.lb_Queue.Font = new System.Drawing.Font("Segoe UI", 32F, System.Drawing.FontStyle.Bold);
+            this.lb_Queue.ForeColor = System.Drawing.Color.White;
+            this.lb_Queue.Location = new System.Drawing.Point(474, 21);
+            this.lb_Queue.Name = "lb_Queue";
+            this.lb_Queue.Size = new System.Drawing.Size(423, 72);
+            this.lb_Queue.TabIndex = 9;
+            this.lb_Queue.Text = "Danh sách phát";
+            // 
+            // btn_Play
+            // 
+            this.btn_Play.AnimationHoverSpeed = 0.07F;
+            this.btn_Play.AnimationSpeed = 0.03F;
+            this.btn_Play.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Play.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.btn_Play.BorderColor = System.Drawing.Color.Black;
+            this.btn_Play.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Play.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Play.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_Play.ForeColor = System.Drawing.Color.White;
+            this.btn_Play.Image = global::MediaPlayer.Properties.Resources.play_nobackground;
+            this.btn_Play.ImageOffsetX = 10;
+            this.btn_Play.ImageSize = new System.Drawing.Size(32, 32);
+            this.btn_Play.Location = new System.Drawing.Point(99, 506);
+            this.btn_Play.Name = "btn_Play";
+            this.btn_Play.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
+            this.btn_Play.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.btn_Play.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Play.OnHoverImage = null;
+            this.btn_Play.OnPressedColor = System.Drawing.Color.Black;
+            this.btn_Play.Radius = 25;
+            this.btn_Play.Size = new System.Drawing.Size(214, 55);
+            this.btn_Play.TabIndex = 11;
+            this.btn_Play.Text = "Đang phát";
+            this.btn_Play.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_Play.Click += new System.EventHandler(this.btn_Play_Click);
             // 
             // pic_Avatar
             // 
@@ -59,128 +140,17 @@
             this.pic_Avatar.TabStop = false;
             this.pic_Avatar.Click += new System.EventHandler(this.pic_Avatar_Click);
             // 
-            // RotationTimer
-            // 
-            this.RotationTimer.Interval = 25;
-            this.RotationTimer.Tick += new System.EventHandler(this.RotationTimer_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(413, 82);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(115, 35);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Name: ";
-            // 
-            // lbSong
-            // 
-            this.lbSong.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbSong.AutoEllipsis = true;
-            this.lbSong.BackColor = System.Drawing.Color.Transparent;
-            this.lbSong.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbSong.ForeColor = System.Drawing.Color.Black;
-            this.lbSong.Location = new System.Drawing.Point(602, 82);
-            this.lbSong.Name = "lbSong";
-            this.lbSong.Size = new System.Drawing.Size(468, 44);
-            this.lbSong.TabIndex = 4;
-            this.lbSong.Text = "songName";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(413, 148);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 35);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Artists: ";
-            // 
-            // lbArtist
-            // 
-            this.lbArtist.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbArtist.AutoEllipsis = true;
-            this.lbArtist.BackColor = System.Drawing.Color.Transparent;
-            this.lbArtist.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lbArtist.ForeColor = System.Drawing.Color.Black;
-            this.lbArtist.Location = new System.Drawing.Point(602, 148);
-            this.lbArtist.Name = "lbArtist";
-            this.lbArtist.Size = new System.Drawing.Size(468, 44);
-            this.lbArtist.TabIndex = 4;
-            this.lbArtist.Text = "songName";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(413, 212);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 35);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Duration:";
-            // 
-            // lb_Duration
-            // 
-            this.lb_Duration.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_Duration.AutoEllipsis = true;
-            this.lb_Duration.BackColor = System.Drawing.Color.Transparent;
-            this.lb_Duration.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_Duration.ForeColor = System.Drawing.Color.Black;
-            this.lb_Duration.Location = new System.Drawing.Point(602, 212);
-            this.lb_Duration.Name = "lb_Duration";
-            this.lb_Duration.Size = new System.Drawing.Size(468, 44);
-            this.lb_Duration.TabIndex = 4;
-            this.lb_Duration.Text = "songName";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(413, 280);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(183, 35);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "DateAdded:";
-            // 
-            // lb_dateAdd
-            // 
-            this.lb_dateAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_dateAdd.AutoEllipsis = true;
-            this.lb_dateAdd.BackColor = System.Drawing.Color.Transparent;
-            this.lb_dateAdd.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.lb_dateAdd.ForeColor = System.Drawing.Color.Black;
-            this.lb_dateAdd.Location = new System.Drawing.Point(602, 280);
-            this.lb_dateAdd.Name = "lb_dateAdd";
-            this.lb_dateAdd.Size = new System.Drawing.Size(468, 44);
-            this.lb_dateAdd.TabIndex = 4;
-            this.lb_dateAdd.Text = "songName";
-            // 
             // UserControl_Playing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.lb_dateAdd);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.lb_Duration);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.lbArtist);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.lbSong);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_Play);
+            this.Controls.Add(this.lb_Queue);
+            this.Controls.Add(this.lb_NextName);
+            this.Controls.Add(this.lb_NextAuthor);
+            this.Controls.Add(this.pn_Display);
             this.Controls.Add(this.pic_Avatar);
             this.Name = "UserControl_Playing";
             this.Size = new System.Drawing.Size(1084, 645);
@@ -194,13 +164,10 @@
         #endregion
         private Guna.UI.WinForms.GunaPictureBox pic_Avatar;
         private System.Windows.Forms.Timer RotationTimer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbSong;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label lbArtist;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lb_Duration;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lb_dateAdd;
+        private Guna.UI.WinForms.GunaLabel lb_NextName;
+        private Guna.UI.WinForms.GunaLabel lb_NextAuthor;
+        private Guna.UI.WinForms.GunaPanel pn_Display;
+        private Guna.UI.WinForms.GunaLabel lb_Queue;
+        private Guna.UI.WinForms.GunaButton btn_Play;
     }
 }

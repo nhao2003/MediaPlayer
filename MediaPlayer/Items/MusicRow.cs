@@ -49,15 +49,32 @@ namespace MediaPlayer.Items
             filePath = initializeMedia.FilePath;
             _media = initializeMedia;
         }
-
+        private bool isHover = false;
+        public bool IsHover
+        {
+            get => isHover;
+            set
+            {
+                isHover = value;
+                if (value)
+                {
+                    panel_MusicRow.BaseColor = Color.FromArgb(40, 40, 40);
+                }
+                else
+                {
+                    panel_MusicRow.BaseColor = Color.Transparent;
+                }
+            }
+        }
+        public bool IsPlaying = false;
         private void MusicRow_MouseEnter(object sender, EventArgs e)
         {
-            panel_MusicRow.BaseColor = Color.FromArgb(40, 40, 40);
+            IsHover = true;
         }
 
         private void MusicRow_MouseLeave(object sender, EventArgs e)
         {
-            panel_MusicRow.BaseColor = Color.Transparent;
+             IsHover = IsPlaying;
         }
 
         private void MusicRow_Click(object sender, EventArgs e)

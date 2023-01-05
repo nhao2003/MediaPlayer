@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using TagLib;
+using WMPLib;
 
 namespace MediaPlayer.Items
 {
@@ -65,7 +66,7 @@ namespace MediaPlayer.Items
             PlayMedia.playSong();
 
             // gan nhac cho trang songPlaying
-            Form_Main.Instance.userControl_Playing.Media = media;
+            Form_Main.Instance.userControl_Playing.UpdateScreen();
             // tang them mot don vi cho listIndexPlay
             UpdateListIndexPlay();
         }
@@ -118,6 +119,7 @@ namespace MediaPlayer.Items
                     btn_Play.OnHoverImage = Resources.pause_hover;
                     PlayMedia.playSong();
                 }
+                Form_Main.Instance.userControl_Playing.IsPlaying = (PlayMedia.Status == WMPPlayState.wmppsPlaying);
             }
             catch (Exception ex)
             {

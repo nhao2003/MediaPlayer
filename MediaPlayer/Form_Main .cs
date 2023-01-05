@@ -135,6 +135,7 @@ namespace MediaPlayer
         public void ViewPlayingSong()
         {
             MainPages.SetPage(7);
+            userControl_Playing.UpdateScreen();
             _oldButton.Image = (Image)_oldButton.Tag;
             _oldButton.ForeColor = Color.Silver;
             _oldButton = fakeBtn;

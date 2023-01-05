@@ -1,7 +1,10 @@
-﻿using MediaPlayer.Models;
+﻿using MediaPlayer.Items;
+using MediaPlayer.Models;
+using MediaPlayer.Properties;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using WMPLib;
 
 namespace MediaPlayer.Widgets
 {
@@ -18,11 +21,10 @@ namespace MediaPlayer.Widgets
                 _media = value;
                 pic_Avatar.Image = _media.Image;
                 this.BackgroundImage = ImageTools.GaussianBlur(_media.Image, radial: 100);
-                lbSong.Text = _media.Title;
-                lbArtist.Text = _media.Artists;
-                lb_Duration.Text = _media.DurationText;
-                lb_dateAdd.Text = _media.DateAdded.ToString();
                 RotationTimer.Start();
+                lb_NextName.Text = _media.Title;
+                lb_NextAuthor.Text = _media.Artists;
+                IsPlaying = (PlayMedia.Status == WMPPlayState.wmppsPlaying);
             }
         }
         public UserControl_Playing()
@@ -47,7 +49,7 @@ namespace MediaPlayer.Widgets
                 // rotate
                 if (angle > 360) angle = 0;
                 else angle += 1f;
-                Bitmap img = (Bitmap)Media.Image;
+                Bitmap img = (Bitmap)MediaHelpers.PlayQueue[MediaHelpers.CurrentIndex].Image;
                 img = RotateImage(img, angle);
                 pic_Avatar.Image = img;
             }
@@ -61,7 +63,7 @@ namespace MediaPlayer.Widgets
                 {
                     angle += 10f;
                     if (360 - angle < 10) angle = 360;
-                    Bitmap img = (Bitmap)Media.Image;
+                    Bitmap img = (Bitmap)MediaHelpers.PlayQueue[MediaHelpers.CurrentIndex].Image;
                     img = RotateImage(img, angle);
                     pic_Avatar.Image = img;
                 }
@@ -87,8 +89,46 @@ namespace MediaPlayer.Widgets
 
             return rotatedImage;
         }
+        public void UpdateScreen()
+        {
+            pn_Display.Controls.Clear();
+            if (MediaHelpers.PlayQueue.Count == 0) return;
+            Media = MediaHelpers.listSongs.Find(x => x.FilePath == PlayMedia.Path);
+            RotationTimer.Start();
+            for (int i = MediaHelpers.PlayQueue.Count - 1; i >= 0; i--)
+            {
+                MusicRow row = new MusicRow(MediaHelpers.PlayQueue[i])
+                {
+                    Dock = DockStyle.Top,
+                    IsHover = (PlayMedia.Path == MediaHelpers.PlayQueue[i].FilePath),
+                    IsPlaying = (PlayMedia.Path == MediaHelpers.PlayQueue[i].FilePath),
+                };
 
+                pn_Display.Controls.Add(row);
+            }
+        }
         private void pic_Avatar_Click(object sender, EventArgs e)
+        {
+            Form_Main.Instance.MediaControl.click_btn_play();
+        }
+        private bool isPlaying = false;
+        public bool IsPlaying {
+            set
+            {
+                if (value)
+                {
+                    btn_Play.Image = Resources.pause_nobackrgound;
+                    btn_Play.Text = "Tạm dừng";
+                }
+                else
+                {
+                    btn_Play.Image = Resources.play_nobackground;
+                    btn_Play.Text = "Tiếp tục phát";
+                }
+                isPlaying = value;
+            }
+        }
+        private void btn_Play_Click(object sender, EventArgs e)
         {
             Form_Main.Instance.MediaControl.click_btn_play();
         }
