@@ -37,7 +37,6 @@ namespace MediaPlayer
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Main));
-            Utilities.BunifuPages.BunifuAnimatorNS.Animation animation2 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
             this.userControl_Music = new MediaPlayer.Widgets.UserControl_ListMedia();
             this.UserControl_Video = new MediaPlayer.Widgets.UserControl_ListMedia();
             this.gunaPanel_MediaControl = new Guna.UI.WinForms.GunaPanel();
@@ -50,7 +49,7 @@ namespace MediaPlayer
             this.btn_Search = new Guna.UI.WinForms.GunaButton();
             this.btn_Home = new Guna.UI.WinForms.GunaButton();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
-            this.Logo = new Guna.UI.WinForms.GunaGradientTileButton();
+            this.Logo = new Guna.UI.WinForms.GunaTileButton();
             this.tabPage_Settings = new System.Windows.Forms.TabPage();
             this.userControl_Settings1 = new MediaPlayer.Widgets.UserControl_Settings();
             this.tabPage_Library = new System.Windows.Forms.TabPage();
@@ -341,28 +340,27 @@ namespace MediaPlayer
             this.Logo.AnimationHoverSpeed = 0.07F;
             this.Logo.AnimationSpeed = 0.03F;
             this.Logo.BackColor = System.Drawing.Color.Transparent;
-            this.Logo.BaseColor1 = System.Drawing.Color.Aqua;
-            this.Logo.BaseColor2 = System.Drawing.Color.LawnGreen;
             this.Logo.BorderColor = System.Drawing.Color.Black;
+            this.Logo.BaseColor = System.Drawing.Color.Transparent;
             this.Logo.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Logo.FocusedColor = System.Drawing.Color.Empty;
+            this.Logo.FocusedColor = System.Drawing.Color.Black;
             this.Logo.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
             this.Logo.ForeColor = System.Drawing.Color.White;
-            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.Image = global::MediaPlayer.Properties.Resources.logo;
             this.Logo.ImageSize = new System.Drawing.Size(52, 52);
             this.Logo.Location = new System.Drawing.Point(9, 5);
             this.Logo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Logo.Name = "Logo";
-            this.Logo.OnHoverBaseColor1 = System.Drawing.Color.White;
-            this.Logo.OnHoverBaseColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Logo.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.Logo.OnHoverBaseColor= System.Drawing.Color.Black;
             this.Logo.OnHoverForeColor = System.Drawing.Color.White;
             this.Logo.OnHoverImage = null;
             this.Logo.OnPressedColor = System.Drawing.Color.Black;
             this.Logo.Radius = 15;
             this.Logo.Size = new System.Drawing.Size(204, 94);
             this.Logo.TabIndex = 0;
-            this.Logo.Text = "User name";
+            this.Logo.Text = "Media Player";
+            this.Logo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             // 
             // tabPage_Settings
             // 
@@ -496,23 +494,6 @@ namespace MediaPlayer
             this.MainPages.SelectedIndex = 0;
             this.MainPages.Size = new System.Drawing.Size(954, 636);
             this.MainPages.TabIndex = 15;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 1F;
-            this.MainPages.Transition = animation2;
-            this.MainPages.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Transparent;
             // 
             // tabPage_Playlist
             // 
@@ -596,7 +577,7 @@ namespace MediaPlayer
         private GunaButton btn_Search;
         private GunaButton btn_Home;
         private GunaPanel gunaPanel1;
-        private GunaGradientTileButton Logo;
+        private GunaTileButton Logo;
         public MediaControl MediaControl;
         private TabPage tabPage_Settings;
         private UserControl_Settings userControl_Settings1;

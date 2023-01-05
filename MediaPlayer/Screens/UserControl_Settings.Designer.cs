@@ -1,4 +1,6 @@
-﻿namespace MediaPlayer.Widgets
+﻿using Guna.UI.WinForms;
+
+namespace MediaPlayer.Widgets
 {
     partial class UserControl_Settings
     {
@@ -28,22 +30,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControl_Settings));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.gunaLabel_Recent = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.choose_videos_path_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.choose_videos_path_btn = new Guna.UI.WinForms.GunaButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.video_library_path = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.choose_music_path_btn = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
+            this.choose_music_path_btn = new Guna.UI.WinForms.GunaButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.music_library_path = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
+            this.lb_Hao = new Guna.UI.WinForms.GunaLabel();
+            this.Hao_Mail = new System.Windows.Forms.LinkLabel();
+            this.Hao_Facebook = new System.Windows.Forms.LinkLabel();
+            this.Hao_Github = new System.Windows.Forms.LinkLabel();
+            this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
+            this.lb_AboutProject = new Guna.UI.WinForms.GunaLabel();
+            this.link_SourceCode = new System.Windows.Forms.LinkLabel();
             this.gunaElipsePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gunaElipsePanel1.SuspendLayout();
@@ -89,94 +102,30 @@
             // 
             // choose_videos_path_btn
             // 
-            this.choose_videos_path_btn.AllowAnimations = true;
-            this.choose_videos_path_btn.AllowMouseEffects = true;
-            this.choose_videos_path_btn.AllowToggling = false;
             this.choose_videos_path_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.choose_videos_path_btn.AnimationSpeed = 200;
-            this.choose_videos_path_btn.AutoGenerateColors = false;
-            this.choose_videos_path_btn.AutoRoundBorders = false;
-            this.choose_videos_path_btn.AutoSizeLeftIcon = true;
-            this.choose_videos_path_btn.AutoSizeRightIcon = true;
-            this.choose_videos_path_btn.BackColor = System.Drawing.Color.Transparent;
-            this.choose_videos_path_btn.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_videos_path_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("choose_videos_path_btn.BackgroundImage")));
-            this.choose_videos_path_btn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_videos_path_btn.ButtonText = "Choose folder";
-            this.choose_videos_path_btn.ButtonTextMarginLeft = 0;
-            this.choose_videos_path_btn.ColorContrastOnClick = 45;
-            this.choose_videos_path_btn.ColorContrastOnHover = 45;
+            this.choose_videos_path_btn.AnimationHoverSpeed = 0.07F;
+            this.choose_videos_path_btn.AnimationSpeed = 0.03F;
+            this.choose_videos_path_btn.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.choose_videos_path_btn.BorderColor = System.Drawing.Color.Black;
             this.choose_videos_path_btn.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges1.BottomLeft = true;
-            borderEdges1.BottomRight = true;
-            borderEdges1.TopLeft = true;
-            borderEdges1.TopRight = true;
-            this.choose_videos_path_btn.CustomizableEdges = borderEdges1;
             this.choose_videos_path_btn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.choose_videos_path_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.choose_videos_path_btn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.choose_videos_path_btn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.choose_videos_path_btn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.choose_videos_path_btn.FocusedColor = System.Drawing.Color.Empty;
             this.choose_videos_path_btn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.choose_videos_path_btn.ForeColor = System.Drawing.Color.White;
-            this.choose_videos_path_btn.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.choose_videos_path_btn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.choose_videos_path_btn.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.choose_videos_path_btn.IconMarginLeft = 11;
-            this.choose_videos_path_btn.IconPadding = 10;
-            this.choose_videos_path_btn.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.choose_videos_path_btn.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.choose_videos_path_btn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.choose_videos_path_btn.IconSize = 25;
-            this.choose_videos_path_btn.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_videos_path_btn.IdleBorderRadius = 12;
-            this.choose_videos_path_btn.IdleBorderThickness = 1;
-            this.choose_videos_path_btn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_videos_path_btn.IdleIconLeftImage = null;
-            this.choose_videos_path_btn.IdleIconRightImage = null;
-            this.choose_videos_path_btn.IndicateFocus = false;
-            this.choose_videos_path_btn.Location = new System.Drawing.Point(899, 13);
+            this.choose_videos_path_btn.ForeColor = System.Drawing.Color.Black;
+            this.choose_videos_path_btn.Image = null;
+            this.choose_videos_path_btn.ImageSize = new System.Drawing.Size(20, 20);
+            this.choose_videos_path_btn.Location = new System.Drawing.Point(866, 13);
             this.choose_videos_path_btn.Margin = new System.Windows.Forms.Padding(4);
             this.choose_videos_path_btn.Name = "choose_videos_path_btn";
-            this.choose_videos_path_btn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.choose_videos_path_btn.OnDisabledState.BorderRadius = 12;
-            this.choose_videos_path_btn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_videos_path_btn.OnDisabledState.BorderThickness = 1;
-            this.choose_videos_path_btn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.choose_videos_path_btn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.choose_videos_path_btn.OnDisabledState.IconLeftImage = null;
-            this.choose_videos_path_btn.OnDisabledState.IconRightImage = null;
-            this.choose_videos_path_btn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.choose_videos_path_btn.onHoverState.BorderRadius = 12;
-            this.choose_videos_path_btn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_videos_path_btn.onHoverState.BorderThickness = 1;
-            this.choose_videos_path_btn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.choose_videos_path_btn.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.choose_videos_path_btn.onHoverState.IconLeftImage = null;
-            this.choose_videos_path_btn.onHoverState.IconRightImage = null;
-            this.choose_videos_path_btn.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_videos_path_btn.OnIdleState.BorderRadius = 12;
-            this.choose_videos_path_btn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_videos_path_btn.OnIdleState.BorderThickness = 1;
-            this.choose_videos_path_btn.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_videos_path_btn.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.choose_videos_path_btn.OnIdleState.IconLeftImage = null;
-            this.choose_videos_path_btn.OnIdleState.IconRightImage = null;
-            this.choose_videos_path_btn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.choose_videos_path_btn.OnPressedState.BorderRadius = 12;
-            this.choose_videos_path_btn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_videos_path_btn.OnPressedState.BorderThickness = 1;
-            this.choose_videos_path_btn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.choose_videos_path_btn.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.choose_videos_path_btn.OnPressedState.IconLeftImage = null;
-            this.choose_videos_path_btn.OnPressedState.IconRightImage = null;
-            this.choose_videos_path_btn.Size = new System.Drawing.Size(128, 34);
+            this.choose_videos_path_btn.OnHoverBaseColor = System.Drawing.Color.Lime;
+            this.choose_videos_path_btn.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.choose_videos_path_btn.OnHoverForeColor = System.Drawing.Color.White;
+            this.choose_videos_path_btn.OnHoverImage = null;
+            this.choose_videos_path_btn.OnPressedColor = System.Drawing.Color.Black;
+            this.choose_videos_path_btn.Radius = 15;
+            this.choose_videos_path_btn.Size = new System.Drawing.Size(161, 34);
             this.choose_videos_path_btn.TabIndex = 2;
-            this.choose_videos_path_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.choose_videos_path_btn.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.choose_videos_path_btn.TextMarginLeft = 0;
-            this.choose_videos_path_btn.TextPadding = new System.Windows.Forms.Padding(0);
-            this.choose_videos_path_btn.UseDefaultRadiusAndThickness = true;
+            this.choose_videos_path_btn.Text = "Choose Video Folder";
             this.choose_videos_path_btn.Click += new System.EventHandler(this.choose_videos_path_btn_Click);
             // 
             // pictureBox2
@@ -233,94 +182,30 @@
             // 
             // choose_music_path_btn
             // 
-            this.choose_music_path_btn.AllowAnimations = true;
-            this.choose_music_path_btn.AllowMouseEffects = true;
-            this.choose_music_path_btn.AllowToggling = false;
             this.choose_music_path_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.choose_music_path_btn.AnimationSpeed = 200;
-            this.choose_music_path_btn.AutoGenerateColors = false;
-            this.choose_music_path_btn.AutoRoundBorders = false;
-            this.choose_music_path_btn.AutoSizeLeftIcon = true;
-            this.choose_music_path_btn.AutoSizeRightIcon = true;
-            this.choose_music_path_btn.BackColor = System.Drawing.Color.Transparent;
-            this.choose_music_path_btn.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_music_path_btn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("choose_music_path_btn.BackgroundImage")));
-            this.choose_music_path_btn.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_music_path_btn.ButtonText = "Choose folder";
-            this.choose_music_path_btn.ButtonTextMarginLeft = 0;
-            this.choose_music_path_btn.ColorContrastOnClick = 45;
-            this.choose_music_path_btn.ColorContrastOnHover = 45;
+            this.choose_music_path_btn.AnimationHoverSpeed = 0.07F;
+            this.choose_music_path_btn.AnimationSpeed = 0.03F;
+            this.choose_music_path_btn.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.choose_music_path_btn.BorderColor = System.Drawing.Color.Black;
             this.choose_music_path_btn.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges2.BottomLeft = true;
-            borderEdges2.BottomRight = true;
-            borderEdges2.TopLeft = true;
-            borderEdges2.TopRight = true;
-            this.choose_music_path_btn.CustomizableEdges = borderEdges2;
             this.choose_music_path_btn.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.choose_music_path_btn.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.choose_music_path_btn.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.choose_music_path_btn.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.choose_music_path_btn.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.choose_music_path_btn.FocusedColor = System.Drawing.Color.Empty;
             this.choose_music_path_btn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.choose_music_path_btn.ForeColor = System.Drawing.Color.White;
-            this.choose_music_path_btn.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.choose_music_path_btn.IconLeftCursor = System.Windows.Forms.Cursors.Default;
-            this.choose_music_path_btn.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
-            this.choose_music_path_btn.IconMarginLeft = 11;
-            this.choose_music_path_btn.IconPadding = 10;
-            this.choose_music_path_btn.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.choose_music_path_btn.IconRightCursor = System.Windows.Forms.Cursors.Default;
-            this.choose_music_path_btn.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
-            this.choose_music_path_btn.IconSize = 25;
-            this.choose_music_path_btn.IdleBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_music_path_btn.IdleBorderRadius = 12;
-            this.choose_music_path_btn.IdleBorderThickness = 1;
-            this.choose_music_path_btn.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_music_path_btn.IdleIconLeftImage = null;
-            this.choose_music_path_btn.IdleIconRightImage = null;
-            this.choose_music_path_btn.IndicateFocus = false;
-            this.choose_music_path_btn.Location = new System.Drawing.Point(899, 13);
+            this.choose_music_path_btn.ForeColor = System.Drawing.Color.Black;
+            this.choose_music_path_btn.Image = null;
+            this.choose_music_path_btn.ImageSize = new System.Drawing.Size(20, 20);
+            this.choose_music_path_btn.Location = new System.Drawing.Point(866, 13);
             this.choose_music_path_btn.Margin = new System.Windows.Forms.Padding(4);
             this.choose_music_path_btn.Name = "choose_music_path_btn";
-            this.choose_music_path_btn.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.choose_music_path_btn.OnDisabledState.BorderRadius = 12;
-            this.choose_music_path_btn.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_music_path_btn.OnDisabledState.BorderThickness = 1;
-            this.choose_music_path_btn.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.choose_music_path_btn.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
-            this.choose_music_path_btn.OnDisabledState.IconLeftImage = null;
-            this.choose_music_path_btn.OnDisabledState.IconRightImage = null;
-            this.choose_music_path_btn.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.choose_music_path_btn.onHoverState.BorderRadius = 12;
-            this.choose_music_path_btn.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_music_path_btn.onHoverState.BorderThickness = 1;
-            this.choose_music_path_btn.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.choose_music_path_btn.onHoverState.ForeColor = System.Drawing.Color.White;
-            this.choose_music_path_btn.onHoverState.IconLeftImage = null;
-            this.choose_music_path_btn.onHoverState.IconRightImage = null;
-            this.choose_music_path_btn.OnIdleState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_music_path_btn.OnIdleState.BorderRadius = 12;
-            this.choose_music_path_btn.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_music_path_btn.OnIdleState.BorderThickness = 1;
-            this.choose_music_path_btn.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(84)))), ((int)(((byte)(160)))), ((int)(((byte)(124)))));
-            this.choose_music_path_btn.OnIdleState.ForeColor = System.Drawing.Color.White;
-            this.choose_music_path_btn.OnIdleState.IconLeftImage = null;
-            this.choose_music_path_btn.OnIdleState.IconRightImage = null;
-            this.choose_music_path_btn.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.choose_music_path_btn.OnPressedState.BorderRadius = 12;
-            this.choose_music_path_btn.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
-            this.choose_music_path_btn.OnPressedState.BorderThickness = 1;
-            this.choose_music_path_btn.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            this.choose_music_path_btn.OnPressedState.ForeColor = System.Drawing.Color.White;
-            this.choose_music_path_btn.OnPressedState.IconLeftImage = null;
-            this.choose_music_path_btn.OnPressedState.IconRightImage = null;
-            this.choose_music_path_btn.Size = new System.Drawing.Size(128, 34);
+            this.choose_music_path_btn.OnHoverBaseColor = System.Drawing.Color.Lime;
+            this.choose_music_path_btn.OnHoverBorderColor = System.Drawing.Color.Black;
+            this.choose_music_path_btn.OnHoverForeColor = System.Drawing.Color.White;
+            this.choose_music_path_btn.OnHoverImage = null;
+            this.choose_music_path_btn.OnPressedColor = System.Drawing.Color.Black;
+            this.choose_music_path_btn.Radius = 15;
+            this.choose_music_path_btn.Size = new System.Drawing.Size(161, 34);
             this.choose_music_path_btn.TabIndex = 2;
-            this.choose_music_path_btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.choose_music_path_btn.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.choose_music_path_btn.TextMarginLeft = 0;
-            this.choose_music_path_btn.TextPadding = new System.Windows.Forms.Padding(0);
-            this.choose_music_path_btn.UseDefaultRadiusAndThickness = true;
+            this.choose_music_path_btn.Text = "Choose Music Folder";
             this.choose_music_path_btn.Click += new System.EventHandler(this.choose_music_path_btn_Click);
             // 
             // pictureBox1
@@ -360,27 +245,210 @@
             // 
             // gunaLabel2
             // 
+            this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gunaLabel2.ForeColor = System.Drawing.Color.White;
-            this.gunaLabel2.Location = new System.Drawing.Point(9, 303);
+            this.gunaLabel2.Location = new System.Drawing.Point(9, 424);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(296, 59);
+            this.gunaLabel2.Size = new System.Drawing.Size(145, 41);
             this.gunaLabel2.TabIndex = 2;
-            this.gunaLabel2.Text = "Personalization";
+            this.gunaLabel2.Text = "About us";
+            // 
+            // lb_Hao
+            // 
+            this.lb_Hao.AutoSize = true;
+            this.lb_Hao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Hao.ForeColor = System.Drawing.Color.White;
+            this.lb_Hao.Location = new System.Drawing.Point(11, 488);
+            this.lb_Hao.Name = "lb_Hao";
+            this.lb_Hao.Size = new System.Drawing.Size(183, 28);
+            this.lb_Hao.TabIndex = 2;
+            this.lb_Hao.Text = "Nguyễn Nhật Hào";
+            // 
+            // Hao_Mail
+            // 
+            this.Hao_Mail.AutoSize = true;
+            this.Hao_Mail.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Hao_Mail.LinkColor = System.Drawing.Color.White;
+            this.Hao_Mail.Location = new System.Drawing.Point(13, 528);
+            this.Hao_Mail.Name = "Hao_Mail";
+            this.Hao_Mail.Size = new System.Drawing.Size(54, 23);
+            this.Hao_Mail.TabIndex = 4;
+            this.Hao_Mail.TabStop = true;
+            this.Hao_Mail.Text = "Gmail";
+            this.Hao_Mail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Hao_Mail_LinkClicked);
+            // 
+            // Hao_Facebook
+            // 
+            this.Hao_Facebook.AutoSize = true;
+            this.Hao_Facebook.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Hao_Facebook.LinkColor = System.Drawing.Color.White;
+            this.Hao_Facebook.Location = new System.Drawing.Point(76, 528);
+            this.Hao_Facebook.Name = "Hao_Facebook";
+            this.Hao_Facebook.Size = new System.Drawing.Size(81, 23);
+            this.Hao_Facebook.TabIndex = 4;
+            this.Hao_Facebook.TabStop = true;
+            this.Hao_Facebook.Text = "Facebook";
+            this.Hao_Facebook.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Hao_Facebook_LinkClicked);
+            // 
+            // Hao_Github
+            // 
+            this.Hao_Github.AutoSize = true;
+            this.Hao_Github.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.Hao_Github.LinkColor = System.Drawing.Color.White;
+            this.Hao_Github.Location = new System.Drawing.Point(173, 528);
+            this.Hao_Github.Name = "Hao_Github";
+            this.Hao_Github.Size = new System.Drawing.Size(62, 23);
+            this.Hao_Github.TabIndex = 4;
+            this.Hao_Github.TabStop = true;
+            this.Hao_Github.Text = "Github";
+            this.Hao_Github.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Hao_Github_LinkClicked);
+            // 
+            // gunaLabel3
+            // 
+            this.gunaLabel3.AutoSize = true;
+            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel3.ForeColor = System.Drawing.Color.White;
+            this.gunaLabel3.Location = new System.Drawing.Point(301, 488);
+            this.gunaLabel3.Name = "gunaLabel3";
+            this.gunaLabel3.Size = new System.Drawing.Size(155, 28);
+            this.gunaLabel3.TabIndex = 2;
+            this.gunaLabel3.Text = "Phan Văn Minh";
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.linkLabel1.LinkColor = System.Drawing.Color.White;
+            this.linkLabel1.Location = new System.Drawing.Point(303, 528);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(54, 23);
+            this.linkLabel1.TabIndex = 4;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Gmail";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.linkLabel2.LinkColor = System.Drawing.Color.White;
+            this.linkLabel2.Location = new System.Drawing.Point(366, 528);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(81, 23);
+            this.linkLabel2.TabIndex = 4;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Facebook";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.linkLabel3.LinkColor = System.Drawing.Color.White;
+            this.linkLabel3.Location = new System.Drawing.Point(463, 528);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(62, 23);
+            this.linkLabel3.TabIndex = 4;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Github";
+            // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunaLabel4.ForeColor = System.Drawing.Color.White;
+            this.gunaLabel4.Location = new System.Drawing.Point(592, 488);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(180, 28);
+            this.gunaLabel4.TabIndex = 2;
+            this.gunaLabel4.Text = "Nguyễn Tuấn Bảo";
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.linkLabel4.LinkColor = System.Drawing.Color.White;
+            this.linkLabel4.Location = new System.Drawing.Point(594, 528);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(54, 23);
+            this.linkLabel4.TabIndex = 4;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Gmail";
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.linkLabel5.LinkColor = System.Drawing.Color.White;
+            this.linkLabel5.Location = new System.Drawing.Point(657, 528);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(81, 23);
+            this.linkLabel5.TabIndex = 4;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "Facebook";
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.linkLabel6.LinkColor = System.Drawing.Color.White;
+            this.linkLabel6.Location = new System.Drawing.Point(754, 528);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(62, 23);
+            this.linkLabel6.TabIndex = 4;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Github";
+            // 
+            // lb_AboutProject
+            // 
+            this.lb_AboutProject.AutoSize = true;
+            this.lb_AboutProject.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_AboutProject.ForeColor = System.Drawing.Color.White;
+            this.lb_AboutProject.Location = new System.Drawing.Point(9, 322);
+            this.lb_AboutProject.Name = "lb_AboutProject";
+            this.lb_AboutProject.Size = new System.Drawing.Size(298, 41);
+            this.lb_AboutProject.TabIndex = 2;
+            this.lb_AboutProject.Text = "About Media Player";
+            // 
+            // link_SourceCode
+            // 
+            this.link_SourceCode.AutoSize = true;
+            this.link_SourceCode.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.link_SourceCode.LinkColor = System.Drawing.Color.White;
+            this.link_SourceCode.Location = new System.Drawing.Point(12, 375);
+            this.link_SourceCode.Name = "link_SourceCode";
+            this.link_SourceCode.Size = new System.Drawing.Size(104, 23);
+            this.link_SourceCode.TabIndex = 4;
+            this.link_SourceCode.TabStop = true;
+            this.link_SourceCode.Text = "Source code";
+            this.link_SourceCode.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_SourceCode_LinkClicked);
             // 
             // UserControl_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.linkLabel6);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.Hao_Github);
+            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.Hao_Facebook);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.link_SourceCode);
+            this.Controls.Add(this.Hao_Mail);
             this.Controls.Add(this.gunaElipsePanel1);
             this.Controls.Add(this.gunaElipsePanel2);
+            this.Controls.Add(this.gunaLabel4);
+            this.Controls.Add(this.gunaLabel3);
+            this.Controls.Add(this.lb_Hao);
+            this.Controls.Add(this.lb_AboutProject);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.gunaLabel_Recent);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "UserControl_Settings";
-            this.Size = new System.Drawing.Size(1084, 645);
+            this.Size = new System.Drawing.Size(1084, 671);
             this.gunaElipsePanel2.ResumeLayout(false);
             this.gunaElipsePanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -388,6 +456,7 @@
             this.gunaElipsePanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -398,13 +467,27 @@
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label video_library_path;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton choose_videos_path_btn;
+        private GunaButton choose_videos_path_btn;
         private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton choose_music_path_btn;
+        private GunaButton choose_music_path_btn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label music_library_path;
         private System.Windows.Forms.Label label5;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
+        private Guna.UI.WinForms.GunaLabel lb_Hao;
+        private System.Windows.Forms.Label video_library_path;
+        private System.Windows.Forms.LinkLabel Hao_Mail;
+        private System.Windows.Forms.LinkLabel Hao_Facebook;
+        private System.Windows.Forms.LinkLabel Hao_Github;
+        private Guna.UI.WinForms.GunaLabel gunaLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel linkLabel6;
+        private Guna.UI.WinForms.GunaLabel lb_AboutProject;
+        private System.Windows.Forms.LinkLabel link_SourceCode;
     }
 }

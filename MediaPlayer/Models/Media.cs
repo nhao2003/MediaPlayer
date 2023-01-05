@@ -171,7 +171,7 @@ namespace MediaPlayer.Models
                 {
                     var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
                     string fileName = "video_thumbnail" + title + ".jpg";
-                    if (System.IO.File.Exists(fileName) == false)
+                    if (!System.IO.File.Exists(fileName))
                     {
                         ffMpeg.GetVideoThumbnail(path, fileName, 5);
                     }
@@ -187,6 +187,5 @@ namespace MediaPlayer.Models
         {
 
         }
-
     }
 }

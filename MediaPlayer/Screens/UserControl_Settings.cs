@@ -1,6 +1,7 @@
 ﻿using MediaPlayer.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using TagLib;
 namespace MediaPlayer.Widgets
@@ -69,6 +70,24 @@ namespace MediaPlayer.Widgets
             //choose_color_ComboBox.SelectedItem
         }
 
+        private void Hao_Mail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=nhathaodev@gmail.com");
+        }
 
+        private void Hao_Facebook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/haosince2003/");
+        }
+
+        private void Hao_Github_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/nhao2003");
+        }
+
+        private void link_SourceCode_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/nhao2003/MediaPlayer");
+        }
     }
 }

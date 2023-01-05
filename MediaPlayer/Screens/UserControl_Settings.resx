@@ -117,29 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="choose_videos_path_btn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAIAAAAAiCAYAAACX6tEuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFcSURBVHhe7duhTsRAEAbglUgkEskjIJE4QrcNivAKCAR0
-        96glwfECszwE9iySNyBBkVBIcwYuQRy75Y4AN08w/z/JZ7pTNf9te0nX/a4T6TZqaU99Cnd1in22IBP6
-        WsK0knB+IN3mctx/y0vY8xKfcvP8381kRvj0Kb7kMOwvx/5d5UJemOk3kTkSZrVcHo/DL9t+Hv6z2kh2
-        SXxtpNty5blQtga1iQwLCy+T27L9T/UGsi6/8z2Wl793bZEwOO0i4WAAwDEA4BgAcAwAOAYAHAMAjgEA
-        xwCAYwDAMQDgGABwDAA4BgAcAwCOAQDHAIBjAMAxAOAYAHDlo1B+Eg7M+RQftAWC0Lta4nUOgbZIxpVD
-        wO5Iuu06hUFrINOGQ2l3x/OBTQpnPrUfShPZNG/S5GYc/qoqCVf5UfCmNJMtw9rwV1XJxU45K5j/GfCo
-        uDHlCGD+gd//bPtjOfcFO04Vk+a0oX8AAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="choose_music_path_btn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAIAAAAAiCAYAAACX6tEuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFcSURBVHhe7duhTsRAEAbglUgkEskjIJE4QrcNivAKCAR0
-        96glwfECszwE9iySNyBBkVBIcwYuQRy75Y4AN08w/z/JZ7pTNf9te0nX/a4T6TZqaU99Cnd1in22IBP6
-        WsK0knB+IN3mctx/y0vY8xKfcvP8381kRvj0Kb7kMOwvx/5d5UJemOk3kTkSZrVcHo/DL9t+Hv6z2kh2
-        SXxtpNty5blQtga1iQwLCy+T27L9T/UGsi6/8z2Wl793bZEwOO0i4WAAwDEA4BgAcAwAOAYAHAMAjgEA
-        xwCAYwDAMQDgGABwDAA4BgAcAwCOAQDHAIBjAMAxAOAYAHDlo1B+Eg7M+RQftAWC0Lta4nUOgbZIxpVD
-        wO5Iuu06hUFrINOGQ2l3x/OBTQpnPrUfShPZNG/S5GYc/qoqCVf5UfCmNJMtw9rwV1XJxU45K5j/GfCo
-        uDHlCGD+gd//bPtjOfcFO04Vk+a0oX8AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>
