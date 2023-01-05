@@ -52,6 +52,9 @@ namespace MediaPlayer.Widgets
                 Bitmap img = (Bitmap)MediaHelpers.PlayQueue[MediaHelpers.CurrentIndex].Image;
                 img = RotateImage(img, angle);
                 pic_Avatar.Image = img;
+
+                //btn play
+                IsPlaying = true;
             }
             else
             {
@@ -67,8 +70,9 @@ namespace MediaPlayer.Widgets
                     img = RotateImage(img, angle);
                     pic_Avatar.Image = img;
                 }
+                //btn play
+                IsPlaying = false;
             }
-
         }
         private Bitmap RotateImage(Bitmap bmp, float angle)
         {
@@ -118,12 +122,12 @@ namespace MediaPlayer.Widgets
                 if (value)
                 {
                     btn_Play.Image = Resources.pause_nobackrgound;
-                    btn_Play.Text = "Tạm dừng";
+                    btn_Play.Text = "   Tạm dừng";
                 }
                 else
                 {
                     btn_Play.Image = Resources.play_nobackground;
-                    btn_Play.Text = "Tiếp tục phát";
+                    btn_Play.Text = "   Tiếp tục phát";
                 }
                 isPlaying = value;
             }

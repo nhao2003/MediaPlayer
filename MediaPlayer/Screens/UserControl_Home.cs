@@ -8,13 +8,13 @@ namespace MediaPlayer.Widgets
     public partial class UserControl_Home : UserControl
     {
 
-        DisplayMediaItems RecentMusic = new DisplayMediaItems("Recent Music", MediaHelpers.listSongs, MediaTypes.Audio)
+        DisplayMediaItems RecentMusic = new DisplayMediaItems("Your Music", MediaHelpers.listSongs, MediaTypes.Audio)
         {
             Dock = DockStyle.Bottom,
 
         };
 
-        private DisplayMediaItems RecentVideo = new DisplayMediaItems("Recent Video", MediaHelpers.listVideos, MediaTypes.Video)
+        private DisplayMediaItems RecentVideo = new DisplayMediaItems("Your Video", MediaHelpers.listVideos, MediaTypes.Video)
         {
             Dock = DockStyle.Bottom,
         };
