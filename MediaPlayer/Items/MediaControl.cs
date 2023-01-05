@@ -144,6 +144,8 @@ namespace MediaPlayer.Items
             }
             else if (PlayMedia.player.playState == WMPLib.WMPPlayState.wmppsStopped)
             {
+                btn_Play.Image = Resources.play_hover;
+                btn_Play.OnHoverImage = Resources.play_hover;
                 if (PlayMedia.Repeat == RepeatMode.One)
                 {
                     // lap lai bai hat
@@ -168,6 +170,8 @@ namespace MediaPlayer.Items
             // adjust song
             if (PlayMedia.IsFirst == false) return;
             PlayMedia.setCurrentPosition(e.X, MediaTrackBar.Width);
+            PlayMedia.setCurrentTimePlay();
+            timeSongPlay.Text = PlayMedia.CurrentPositionstringSong;
         }
         private void GunaTrackBar_Volume_MouseWheel(object sender, MouseEventArgs e)
         {
@@ -258,6 +262,13 @@ namespace MediaPlayer.Items
                     {
                         getPathOfSong(MediaHelpers.PlayQueue[listIndexPlay[0]]);
                         PlayMedia.playSong();
+                    }
+                    else
+                    {
+                        MediaTrackBar.Value = 0;
+                        timeSongPlay.Text = "00:00";
+                        PlayMedia.CurrentTimePlay = 0;
+                        PlayMedia.setCurrentTimePlay();
                     }
                     return;
                 }
