@@ -163,5 +163,17 @@ namespace MediaPlayer.Widgets
             }
             SortMediaAToZ();
         }
+
+        private void btn_Suffle_Play_Click(object sender, EventArgs e)
+        {
+            if (this._mediaTypeOfScreen == MediaTypes.Audio)
+            {
+                MediaHelpers.PlayThePlaylist(MediaHelpers.listSongs);
+            }
+            else if (this._mediaTypeOfScreen == MediaTypes.Video)
+            {
+                // hong lam j het
+            }
+        }
     }
 }

@@ -74,8 +74,10 @@
             // 
             // pn_Display
             // 
-            this.pn_Display.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.pn_Display.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pn_Display.AutoScroll = true;
             this.pn_Display.BackColor = System.Drawing.Color.Transparent;
             this.pn_Display.Location = new System.Drawing.Point(450, 96);
             this.pn_Display.Name = "pn_Display";
@@ -93,7 +95,7 @@
             this.lb_Queue.ForeColor = System.Drawing.Color.White;
             this.lb_Queue.Location = new System.Drawing.Point(453, 21);
             this.lb_Queue.Name = "lb_Queue";
-            this.lb_Queue.Size = new System.Drawing.Size(342, 60);
+            this.lb_Queue.Size = new System.Drawing.Size(338, 59);
             this.lb_Queue.TabIndex = 9;
             this.lb_Queue.Text = "Danh sách phát";
             // 

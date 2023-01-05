@@ -103,7 +103,7 @@ namespace MediaPlayer.Widgets
             this.gunaPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.gunaPanel2.Location = new System.Drawing.Point(0, 0);
             this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(1084, 123);
+            this.gunaPanel2.Size = new System.Drawing.Size(1084, 134);
             this.gunaPanel2.TabIndex = 6;
             // 
             // AddNewPlayList_Play
@@ -111,7 +111,7 @@ namespace MediaPlayer.Widgets
             this.AddNewPlayList_Play.AnimationHoverSpeed = 0.07F;
             this.AddNewPlayList_Play.AnimationSpeed = 0.03F;
             this.AddNewPlayList_Play.BackColor = System.Drawing.Color.Transparent;
-            this.AddNewPlayList_Play.BaseColor = System.Drawing.Color.Lime;
+            this.AddNewPlayList_Play.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
             this.AddNewPlayList_Play.BorderColor = System.Drawing.Color.Black;
             this.AddNewPlayList_Play.DialogResult = System.Windows.Forms.DialogResult.None;
             this.AddNewPlayList_Play.FocusedColor = System.Drawing.Color.Empty;
@@ -119,7 +119,7 @@ namespace MediaPlayer.Widgets
             this.AddNewPlayList_Play.ForeColor = System.Drawing.Color.Black;
             this.AddNewPlayList_Play.Image = global::MediaPlayer.Properties.Resources.new_playlist;
             this.AddNewPlayList_Play.ImageSize = new System.Drawing.Size(20, 20);
-            this.AddNewPlayList_Play.Location = new System.Drawing.Point(14, 69);
+            this.AddNewPlayList_Play.Location = new System.Drawing.Point(14, 74);
             this.AddNewPlayList_Play.Name = "AddNewPlayList_Play";
             this.AddNewPlayList_Play.OnHoverBaseColor = System.Drawing.Color.Lime;
             this.AddNewPlayList_Play.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -127,7 +127,7 @@ namespace MediaPlayer.Widgets
             this.AddNewPlayList_Play.OnHoverImage = null;
             this.AddNewPlayList_Play.OnPressedColor = System.Drawing.Color.Black;
             this.AddNewPlayList_Play.Radius = 15;
-            this.AddNewPlayList_Play.Size = new System.Drawing.Size(157, 43);
+            this.AddNewPlayList_Play.Size = new System.Drawing.Size(141, 43);
             this.AddNewPlayList_Play.TabIndex = 6;
             this.AddNewPlayList_Play.Text = "New playlist";
             this.AddNewPlayList_Play.Click += new System.EventHandler(this.AddNewPlayList_Play_Click);
@@ -137,9 +137,9 @@ namespace MediaPlayer.Widgets
             this.pn_Display.AutoScroll = true;
             this.pn_Display.BackColor = System.Drawing.Color.Transparent;
             this.pn_Display.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_Display.Location = new System.Drawing.Point(0, 123);
+            this.pn_Display.Location = new System.Drawing.Point(0, 134);
             this.pn_Display.Name = "pn_Display";
-            this.pn_Display.Size = new System.Drawing.Size(1084, 522);
+            this.pn_Display.Size = new System.Drawing.Size(1084, 511);
             this.pn_Display.TabIndex = 7;
             // 
             // UserControl_Library

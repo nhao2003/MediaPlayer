@@ -236,15 +236,15 @@
             this.btn_Suffle_Play.AnimationHoverSpeed = 0.07F;
             this.btn_Suffle_Play.AnimationSpeed = 0.03F;
             this.btn_Suffle_Play.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Suffle_Play.BaseColor = System.Drawing.Color.Lime;
+            this.btn_Suffle_Play.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
             this.btn_Suffle_Play.BorderColor = System.Drawing.Color.Black;
             this.btn_Suffle_Play.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_Suffle_Play.FocusedColor = System.Drawing.Color.Empty;
             this.btn_Suffle_Play.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_Suffle_Play.ForeColor = System.Drawing.Color.White;
-            this.btn_Suffle_Play.Image = global::MediaPlayer.Properties.Resources.suffle_hover;
+            this.btn_Suffle_Play.Image = global::MediaPlayer.Properties.Resources.play;
             this.btn_Suffle_Play.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Suffle_Play.Location = new System.Drawing.Point(14, 78);
+            this.btn_Suffle_Play.Location = new System.Drawing.Point(14, 88);
             this.btn_Suffle_Play.Name = "btn_Suffle_Play";
             this.btn_Suffle_Play.OnHoverBaseColor = System.Drawing.Color.Lime;
             this.btn_Suffle_Play.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -252,9 +252,10 @@
             this.btn_Suffle_Play.OnHoverImage = null;
             this.btn_Suffle_Play.OnPressedColor = System.Drawing.Color.Black;
             this.btn_Suffle_Play.Radius = 15;
-            this.btn_Suffle_Play.Size = new System.Drawing.Size(157, 43);
+            this.btn_Suffle_Play.Size = new System.Drawing.Size(90, 43);
             this.btn_Suffle_Play.TabIndex = 6;
-            this.btn_Suffle_Play.Text = "Suffle and play";
+            this.btn_Suffle_Play.Text = "Play";
+            this.btn_Suffle_Play.Click += new System.EventHandler(this.btn_Suffle_Play_Click);
             // 
             // pn_Display
             // 

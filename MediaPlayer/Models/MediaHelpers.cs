@@ -91,6 +91,12 @@ namespace MediaPlayer.Models
             playQueue = new List<Media>(pl.ListMedia);
             Form_Main.Instance.ClassifyMedia(playQueue[0]);
         }
+        public static void PlayThePlaylist(List<Media> pl)
+        {
+            playQueue.Clear();
+            playQueue = new List<Media>(pl);
+            Form_Main.Instance.ClassifyMedia(playQueue[0]);
+        }
         /// <summary>
         /// list index of playQueue
         /// </summary>
