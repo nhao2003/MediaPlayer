@@ -24,7 +24,7 @@ namespace MediaPlayer.Items
         {
             InitializeComponent();
             Title = title;
-            for (int i = displatList.Count - 1; i >= 0; i--)
+            for (int i = 0; i < displatList.Count; i++)
             {
                 MusicRow musicRow = new MusicRow()
                 {

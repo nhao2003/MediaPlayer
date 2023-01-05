@@ -31,9 +31,13 @@ namespace MediaPlayer.Items
             }
         }
 
-        public MusicRow()
+        public MusicRow(Media media = null)
         {
             InitializeComponent();
+            if(media != null)
+            {
+                Media = media;
+            }
         }
 
         public void InitializeSongItem(Media initializeMedia)

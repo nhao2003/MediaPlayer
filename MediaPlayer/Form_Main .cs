@@ -116,8 +116,7 @@ namespace MediaPlayer
 
         public void DisplayPlayList(Playlist playlist)
         {
-            userControl_PlayList.Title = playlist.PlayListName;
-            userControl_PlayList.ListMedia = playlist.ListMedia;
+            userControl_PlayList.Playlist = playlist;
             MainPages.SetPage(6);
         }
         public void rebuildHome()

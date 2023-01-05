@@ -100,13 +100,11 @@ namespace MediaPlayer.Widgets
         /// <summary>
         /// Initialize data
         /// </summary>
-        static SortHandling manageSort;
         private List<string> filePaths = new List<string>();
 
         public UserControl_ListMedia()
         {
             InitializeComponent();
-            manageSort = new SortHandling(pn_Display);
             setMediaType();
 
         }
@@ -121,7 +119,6 @@ namespace MediaPlayer.Widgets
             try
             {
                 // Goi ham xoa cac category panel, music panel
-                manageSort.ResetUserControl();
                 // Dua tren lua chon tren combobox ma tien hanh sort
                 string selectedChoice = cb_SortBy.SelectedItem.ToString();
                 switch (selectedChoice)

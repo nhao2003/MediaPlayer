@@ -63,7 +63,7 @@ namespace MediaPlayer
             this.userControl_Home1 = new MediaPlayer.Widgets.UserControl_Home();
             this.MainPages = new Bunifu.UI.WinForms.BunifuPages();
             this.tabPage_Playlist = new System.Windows.Forms.TabPage();
-            this.userControl_PlayList = new MediaPlayer.Widgets.UserControl_ListMedia();
+            this.userControl_PlayList = new MediaPlayer.Widgets.UserControl_PlayList();
             this.tabPage_Playing = new System.Windows.Forms.TabPage();
             this.userControl_Playing = new MediaPlayer.Widgets.UserControl_Playing();
             this.gunaPanel_MediaControl.SuspendLayout();
@@ -612,7 +612,7 @@ namespace MediaPlayer
         private UserControl_ListMedia UserControl_Video;
         public UserControl_Library userControl_Library;
         private TabPage tabPage_Playlist;
-        public UserControl_ListMedia userControl_PlayList;
+        public UserControl_PlayList userControl_PlayList;
         private Bunifu.UI.WinForms.BunifuPages MainPages;
         private TabPage tabPage_Playing;
         public UserControl_Playing userControl_Playing;

@@ -8,7 +8,6 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Search : UserControl
     {
-        static SortHandling searchAndSort;
         private List<Media> textSearchMedia = new List<Media>();
         public List<Media> MergeSongListAndVideoList
         {
@@ -22,7 +21,6 @@ namespace MediaPlayer.Widgets
         public UserControl_Search()
         {
             InitializeComponent();
-            searchAndSort = new SortHandling(pn_Search);
         }
 
         private void gunaTextBox1_Enter(object sender, EventArgs e)
@@ -48,11 +46,18 @@ namespace MediaPlayer.Widgets
             string searchText = gunaTextBox1.Text;
 
             SearchSongByText(searchText);
-            searchAndSort.ResetUserControl();
+            pn_Search.Controls.Clear();
 
             if (textSearchMedia.Count > 0)
             {
-                searchAndSort.LoadSongOntoScreen(textSearchMedia);
+                textSearchMedia.ForEach(x =>
+                {
+                    MusicRow musicRow = new MusicRow(x)
+                    {
+                        Dock = DockStyle.Top
+                    };
+                    pn_Search.Controls.Add(musicRow);
+                });
             }
         }
 

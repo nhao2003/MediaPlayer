@@ -17,7 +17,7 @@ namespace MediaPlayer.Widgets
                 if (value == null) return;
                 _media = value;
                 pic_Avatar.Image = _media.Image;
-                this.BackgroundImage = GaussianBlur.Blur(_media.Image, radial: 100);
+                this.BackgroundImage = ImageTools.GaussianBlur(_media.Image, radial: 100);
                 lbSong.Text = _media.Title;
                 lbArtist.Text = _media.Artists;
                 lb_Duration.Text = _media.DurationText;
