@@ -153,7 +153,7 @@ namespace MediaPlayer.Models
         {
             TagLib.File taglib = TagLib.File.Create(path);
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
-            this.artists = (taglib.Tag.Album != null) ? string.Join(", ", taglib.Tag.Album) : "Unknow";
+            this.artists = (taglib.Tag.Album != null) ? string.Join(", ", taglib.Tag.Album) : "Unknown";
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = System.IO.File.GetCreationTime(path);
             this.filePath = path;
