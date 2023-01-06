@@ -432,5 +432,10 @@ namespace MediaPlayer.Items
             // Set it to same effect as stretch image
             AudioVisualizer.AutoScaleMode = AutoScaleMode.Dpi;
         }
+        protected override void OnHandleDestroyed(EventArgs e)
+        {
+            AudioVisualizer.Stop();
+            base.OnHandleDestroyed(e);
+        }
     }
 }
