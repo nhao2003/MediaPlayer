@@ -53,7 +53,6 @@ namespace MediaPlayer.Models
             {
                 database.DeletePlaylist(allPlayList[index].PlayListID);
                 allPlayList.RemoveAt(index);
-                MessageBox.Show("Đã xóa");
             }
         }
         public static void DeleteMediaFromPlaylist(string mediaPath, string playlistID)
