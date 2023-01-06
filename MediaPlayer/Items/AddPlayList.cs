@@ -40,6 +40,7 @@ namespace MediaPlayer.Items
                 Tag = playlist;
                 MediaHelpers.AddPlayList(playlist);
             }
+            Form_Main.Instance.userControl_Library.UpdateScreen();
             DialogResult = DialogResult.OK;
         }
 

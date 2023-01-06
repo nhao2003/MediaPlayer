@@ -215,7 +215,7 @@ namespace MediaPlayer.Models
                         return i;
                     }
                 }
-                return -1;
+                return 0;
             }
         }
         /// <summary>
