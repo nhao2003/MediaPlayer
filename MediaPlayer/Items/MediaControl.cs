@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using TagLib;
 using WMPLib;
-
 namespace MediaPlayer.Items
 {
     // khi bam vao bai hat, them vao queue (done)
@@ -28,6 +27,8 @@ namespace MediaPlayer.Items
             PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
             datasend(this);
             UpdateListIndexPlay();
+
+            SetAudioVisualizer();
         }
         internal void UpdateListIndexPlay()
         {
@@ -63,6 +64,7 @@ namespace MediaPlayer.Items
             timerSong.Enabled = true;
             btn_Play.Image = Resources.pause_hover;
             btn_Play.OnHoverImage = Resources.pause_hover;
+            AudioVisualizer.Start();
             PlayMedia.playSong();
 
             // gan nhac cho trang songPlaying
@@ -80,6 +82,7 @@ namespace MediaPlayer.Items
                 timerSong.Enabled = false;
                 btn_Play.Image = Resources.play_hover;
                 btn_Play.OnHoverImage = Resources.play_hover;
+                AudioVisualizer.Stop();
                 PlayMedia.pauseSong();
             }
         }
@@ -104,13 +107,16 @@ namespace MediaPlayer.Items
                     timerSong.Enabled = false;
                     btn_Play.Image = Resources.play_hover;
                     btn_Play.OnHoverImage = Resources.play_hover;
+                    AudioVisualizer.Stop();
                     PlayMedia.pauseSong();
                 }
                 else if (PlayMedia.Status == WMPLib.WMPPlayState.wmppsPaused)
                 {
                     btn_Play.Image = Resources.pause_hover;
                     btn_Play.OnHoverImage = Resources.pause_hover;
+                    AudioVisualizer.Start();
                     PlayMedia.continueSong();
+                    
                     timerSong.Enabled = true;
                 }
                 else
@@ -118,6 +124,7 @@ namespace MediaPlayer.Items
                     timerSong.Enabled = true;
                     btn_Play.Image = Resources.pause_hover;
                     btn_Play.OnHoverImage = Resources.pause_hover;
+                    AudioVisualizer.Start();
                     PlayMedia.playSong();
                 }
                 Form_Main.Instance.userControl_Playing.IsPlaying = (PlayMedia.Status == WMPPlayState.wmppsPlaying);
@@ -396,6 +403,34 @@ namespace MediaPlayer.Items
                 PlayMedia.Suffle = true;
                 listIndexPlay = new List<int>(MediaHelpers.ListRanDomIndex);
             }
+        }
+
+        private void SetAudioVisualizer()
+        {
+
+            //Set the mode
+            AudioVisualizer.Mode = CSAudioVisualization.Mode.WasapiLoopbackCapture;
+
+            //Set the device index
+            //audioVisualization1.DeviceIndex = cboAudioSource.SelectedIndex;
+
+            //Set the quality
+            AudioVisualizer.HighQuality = true;
+
+            //Set the interval
+            AudioVisualizer.Interval = 40;
+
+            //Set the background color
+            AudioVisualizer.BackColor = System.Drawing.Color.FromArgb(24, 24, 24);
+
+            //Set the base color
+            AudioVisualizer.ColorBase = System.Drawing.Color.White;
+
+            //Set the max color
+            AudioVisualizer.ColorMax = System.Drawing.Color.Black;
+
+            // Set it to same effect as stretch image
+            AudioVisualizer.AutoScaleMode = AutoScaleMode.Dpi;
         }
     }
 }
