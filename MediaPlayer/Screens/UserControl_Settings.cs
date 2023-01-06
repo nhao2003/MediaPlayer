@@ -89,5 +89,20 @@ namespace MediaPlayer.Widgets
         {
             Process.Start("https://github.com/nhao2003/MediaPlayer");
         }
+
+        private void minh_mail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/haosince2003/");
+        }
+
+        private void minh_face_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/profile.php?id=100010998288078");
+        }
+
+        private void minh_git_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/minhphan46");
+        }
     }
 }
