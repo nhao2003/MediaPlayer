@@ -104,5 +104,20 @@ namespace MediaPlayer.Widgets
         {
             Process.Start("https://github.com/SurgeousJP");
         }
+
+        private void minh_mail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=21522345@gm.uit.edu.vn");
+        }
+
+        private void minh_face_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/profile.php?id=100010998288078");
+        }
+
+        private void minh_git_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/minhphan46");
+        }
     }
 }

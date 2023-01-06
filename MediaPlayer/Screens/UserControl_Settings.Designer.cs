@@ -48,9 +48,9 @@ namespace MediaPlayer.Widgets
             this.Hao_Facebook = new System.Windows.Forms.LinkLabel();
             this.Hao_Github = new System.Windows.Forms.LinkLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
-            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.minh_mail = new System.Windows.Forms.LinkLabel();
+            this.minh_face = new System.Windows.Forms.LinkLabel();
+            this.minh_git = new System.Windows.Forms.LinkLabel();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.Bao_Gmail = new System.Windows.Forms.LinkLabel();
             this.Bao_Facebook = new System.Windows.Forms.LinkLabel();
@@ -317,41 +317,44 @@ namespace MediaPlayer.Widgets
             this.gunaLabel3.TabIndex = 2;
             this.gunaLabel3.Text = "Phan Văn Minh";
             // 
-            // linkLabel1
+            // minh_mail
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(303, 528);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(54, 23);
-            this.linkLabel1.TabIndex = 4;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Gmail";
+            this.minh_mail.AutoSize = true;
+            this.minh_mail.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.minh_mail.LinkColor = System.Drawing.Color.White;
+            this.minh_mail.Location = new System.Drawing.Point(303, 528);
+            this.minh_mail.Name = "minh_mail";
+            this.minh_mail.Size = new System.Drawing.Size(54, 23);
+            this.minh_mail.TabIndex = 4;
+            this.minh_mail.TabStop = true;
+            this.minh_mail.Text = "Gmail";
+            this.minh_mail.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.minh_mail_LinkClicked);
             // 
-            // linkLabel2
+            // minh_face
             // 
-            this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.linkLabel2.LinkColor = System.Drawing.Color.White;
-            this.linkLabel2.Location = new System.Drawing.Point(366, 528);
-            this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(81, 23);
-            this.linkLabel2.TabIndex = 4;
-            this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "Facebook";
+            this.minh_face.AutoSize = true;
+            this.minh_face.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.minh_face.LinkColor = System.Drawing.Color.White;
+            this.minh_face.Location = new System.Drawing.Point(366, 528);
+            this.minh_face.Name = "minh_face";
+            this.minh_face.Size = new System.Drawing.Size(81, 23);
+            this.minh_face.TabIndex = 4;
+            this.minh_face.TabStop = true;
+            this.minh_face.Text = "Facebook";
+            this.minh_face.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.minh_face_LinkClicked);
             // 
-            // linkLabel3
+            // minh_git
             // 
-            this.linkLabel3.AutoSize = true;
-            this.linkLabel3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.linkLabel3.LinkColor = System.Drawing.Color.White;
-            this.linkLabel3.Location = new System.Drawing.Point(463, 528);
-            this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(62, 23);
-            this.linkLabel3.TabIndex = 4;
-            this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "Github";
+            this.minh_git.AutoSize = true;
+            this.minh_git.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.minh_git.LinkColor = System.Drawing.Color.White;
+            this.minh_git.Location = new System.Drawing.Point(463, 528);
+            this.minh_git.Name = "minh_git";
+            this.minh_git.Size = new System.Drawing.Size(62, 23);
+            this.minh_git.TabIndex = 4;
+            this.minh_git.TabStop = true;
+            this.minh_git.Text = "Github";
+            this.minh_git.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.minh_git_LinkClicked);
             // 
             // gunaLabel4
             // 
@@ -432,12 +435,18 @@ namespace MediaPlayer.Widgets
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.linkLabel6);
+            this.Controls.Add(this.minh_git);
             this.Controls.Add(this.Bao_Github);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.Hao_Github);
+            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.minh_face);
             this.Controls.Add(this.Bao_Facebook);
             this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.Hao_Facebook);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.minh_mail);
             this.Controls.Add(this.Bao_Gmail);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.link_SourceCode);
@@ -485,9 +494,9 @@ namespace MediaPlayer.Widgets
         private System.Windows.Forms.LinkLabel Hao_Facebook;
         private System.Windows.Forms.LinkLabel Hao_Github;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel minh_mail;
+        private System.Windows.Forms.LinkLabel minh_face;
+        private System.Windows.Forms.LinkLabel minh_git;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private System.Windows.Forms.LinkLabel Bao_Gmail;
         private System.Windows.Forms.LinkLabel Bao_Facebook;
