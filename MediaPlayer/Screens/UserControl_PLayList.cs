@@ -126,7 +126,7 @@ namespace MediaPlayer.Widgets
                 for (int i = 0; i < _listMedia.Count; i++)
                 {
                     top = i*75;
-                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], true)
+                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], _playlist.PlayListID)
                     {
                         Location = new Point(100, top),
                         Anchor = AnchorStyles.Left | AnchorStyles.Right,
@@ -170,7 +170,7 @@ namespace MediaPlayer.Widgets
 
         private void btn_play_Click(object sender, EventArgs e)
         {
-            if (MediaHelpers.isPlayingPlaylist == true) return;
+            if (MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID) return;
             MediaHelpers.PlayThePlaylist(_playlist);
             btn_play.Image = Resources.pause_green;
             btn_play.OnHoverImage = Resources.pause_green;
@@ -184,7 +184,7 @@ namespace MediaPlayer.Widgets
 
         private void timerPlaylist_Tick(object sender, EventArgs e)
         {
-            if(MediaHelpers.isPlayingPlaylist == true)
+            if(MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID)
             {
                 btn_play.Image = Resources.pause_green;
                 btn_play.OnHoverImage = Resources.pause_green;
@@ -205,7 +205,7 @@ namespace MediaPlayer.Widgets
                 for (int i = 0; i < _listMedia.Count; i++)
                 {
                     top = i * 75;
-                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], true)
+                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], _playlist.PlayListID)
                     {
                         Location = new Point(100, top),
                         Anchor = AnchorStyles.Left | AnchorStyles.Right,

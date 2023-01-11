@@ -14,6 +14,7 @@ namespace MediaPlayer.Models
         private static List<Media> playQueue = new List<Media>();
         private static List<int> listIndexDefalt = new List<int>();// list index of playQueue
         public static bool isPlayingPlaylist = false;
+        public static string playListPlayingId = null;
         public static PlaylistDatabase Database
         {
             set { database = value; }
@@ -86,13 +87,16 @@ namespace MediaPlayer.Models
         
         public static void PlayThePlaylist(Playlist pl)
         {
+            if (pl.ListMedia.Count == 0) return;
             isPlayingPlaylist = true;
+            playListPlayingId = pl.PlayListID;
             playQueue.Clear();
             playQueue = new List<Media>(pl.ListMedia);
             Form_Main.Instance.ClassifyMedia(playQueue[0]);
         }
         public static void PlayThePlaylist(List<Media> pl)
         {
+            if (pl.Count == 0) return;
             playQueue.Clear();
             playQueue = new List<Media>(pl);
             Form_Main.Instance.ClassifyMedia(playQueue[0]);

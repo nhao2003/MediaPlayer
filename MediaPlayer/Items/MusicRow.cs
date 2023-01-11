@@ -11,7 +11,7 @@ namespace MediaPlayer.Items
         public delegate void PassDataBetweenForms(Media media);
         static MediaControl mediaControl;
         private string filePath;
-        public bool isPlayList = false;
+        public string playListID = null;
         public void GetMediaControl(MediaControl control)
         {
             mediaControl = control;
@@ -32,14 +32,14 @@ namespace MediaPlayer.Items
             }
         }
 
-        public MusicRow(Media media = null, bool isPlayList = false)
+        public MusicRow(Media media = null, string playListId = null)
         {
             InitializeComponent();
             if(media != null)
             {
                 Media = media;
             }
-            this.isPlayList = isPlayList;
+            this.playListID = playListId;
         }
 
         public void InitializeSongItem(Media initializeMedia)
@@ -89,7 +89,7 @@ namespace MediaPlayer.Items
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
-            if (isPlayList == false)
+            if (playListID == null)
             {
                 MediaHelpers.isPlayingPlaylist = false;
                 Form_Main.Instance.ClassifyMedia(_media);
@@ -105,7 +105,7 @@ namespace MediaPlayer.Items
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            if(isPlayList == false)
+            if (playListID == null)
             {
                 MediaHelpers.isPlayingPlaylist = false;
                 Form_Main.Instance.ClassifyMedia(_media);
