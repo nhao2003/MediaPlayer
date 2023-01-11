@@ -170,10 +170,21 @@ namespace MediaPlayer.Widgets
 
         private void btn_play_Click(object sender, EventArgs e)
         {
-            if (MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID) return;
-            MediaHelpers.PlayThePlaylist(_playlist);
-            btn_play.Image = Resources.pause_green;
-            btn_play.OnHoverImage = Resources.pause_green;
+            if (MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID)
+            {
+                // neu dang phat playlist va dung play cua minh thi stop
+                Form_Main.Instance.MediaControl.pauseCurrentPlayer();
+                MediaHelpers.isPlayingPlaylist = false;
+                MediaHelpers.playListPlayingId = null;
+                btn_play.Image = Resources.play_green;
+                btn_play.OnHoverImage = Resources.play_green;
+            }
+            else
+            {
+                MediaHelpers.PlayThePlaylist(_playlist);
+                btn_play.Image = Resources.pause_green;
+                btn_play.OnHoverImage = Resources.pause_green;
+            }
         }
 
         private void btn_back_Click(object sender, EventArgs e)

@@ -98,6 +98,8 @@ namespace MediaPlayer.Items
             else
             {
                 // this row is in play list
+                MediaHelpers.isPlayingPlaylist = true;
+                MediaHelpers.playListPlayingId = playListID;
                 Form_Main.Instance.ClassifyMedia(_media);
                 Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
             }
@@ -114,6 +116,8 @@ namespace MediaPlayer.Items
             else
             {
                 // this row is in play list
+                MediaHelpers.isPlayingPlaylist = true;
+                MediaHelpers.playListPlayingId = playListID;
                 Form_Main.Instance.ClassifyMedia(_media);
                 Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
             }
