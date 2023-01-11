@@ -19,9 +19,9 @@ namespace MediaPlayer.Widgets
             playlist = MediaHelpers.AllPlayList.OrderBy(x => x.PlayListName).ToList();
             UpdateScreen();
         }
-        private void cb_SortBy_SelectedIndexChanged(object sender, EventArgs e)
+        private void SortPlaylist()
         {
-            if(cb_SortBy.SelectedIndex == 0)
+            if (cb_SortBy.SelectedIndex == 0)
             {
                 playlist = MediaHelpers.AllPlayList.OrderBy(x => x.PlayListName).ToList();
             }
@@ -29,11 +29,17 @@ namespace MediaPlayer.Widgets
             {
                 playlist = MediaHelpers.AllPlayList.OrderBy(x => x.DateCreated).ToList();
             }
+            
+        }
+        private void cb_SortBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SortPlaylist();
             UpdateScreen();
         }
         public void UpdateScreen()
         {
             pn_Display.Controls.Clear();
+            SortPlaylist();
             playlist.ForEach(pl =>
             {
                 PlayListItem item = new PlayListItem(pl);

@@ -77,6 +77,7 @@ namespace MediaPlayer.Items
                 MediaHelpers.DeleteMediaFromPlaylist(media.FilePath, playlist.PlayListID);
                 Form_Main.Instance.userControl_PlayList.DisplayMediaItems();
             }
+            
         }
 
         private void Item_AddToPlayList(object sender, EventArgs e)
