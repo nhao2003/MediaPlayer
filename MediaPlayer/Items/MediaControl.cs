@@ -407,7 +407,6 @@ namespace MediaPlayer.Items
 
         private void SetAudioVisualizer()
         {
-
             //Set the mode
             AudioVisualizer.Mode = CSAudioVisualization.Mode.WasapiLoopbackCapture;
 

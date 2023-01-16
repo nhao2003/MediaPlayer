@@ -3,8 +3,8 @@ using System;
 using System.Drawing;
 using System.IO;
 using TagLib;
-
-
+using System.Windows.Forms;
+using System.Collections.Generic;
 namespace MediaPlayer.Models
 {
     /// <summary>
@@ -67,6 +67,7 @@ namespace MediaPlayer.Models
                 return image;
             }
         }
+
         /// <summary>
         /// Duration dưới dạng TimeSpan
         /// Muốn lấy tổng thời gian gian tính bằng dây có thể dùng duration.TotalSeconds
@@ -170,12 +171,12 @@ namespace MediaPlayer.Models
                 try
                 {
                     var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
-                    string fileName = "video_thumbnail" + title + ".jpg";
-                    if (!System.IO.File.Exists(fileName))
+                    string thumbnailPath = "video_thumbnail" + title + ".jpg";
+                    if (!System.IO.File.Exists(thumbnailPath))
                     {
-                        ffMpeg.GetVideoThumbnail(path, fileName, 5);
+                        ffMpeg.GetVideoThumbnail(path, thumbnailPath, 5);
                     }
-                    this.image = Image.FromFile(fileName);
+                    this.image = Image.FromFile(thumbnailPath);
                 }
                 catch
                 {
