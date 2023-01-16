@@ -252,6 +252,7 @@
     <Compile Include="Items\MusicRow.Designer.cs">
       <DependentUpon>MusicRow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Diacritics.cs" />
     <Compile Include="Models\PlaylistDatabase.cs" />
     <Compile Include="Models\GaussianBlur.cs" />
     <Compile Include="Models\MediaHelpers.cs" />

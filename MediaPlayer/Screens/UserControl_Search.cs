@@ -63,38 +63,19 @@ namespace MediaPlayer.Widgets
             }
         }
 
-        static string RemoveDiacritics(string text)
-        {
-            var normalizedString = text.Normalize(NormalizationForm.FormD);
-            var stringBuilder = new StringBuilder(capacity: normalizedString.Length);
-
-            for (int i = 0; i < normalizedString.Length; i++)
-            {
-                char c = normalizedString[i];
-                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
-                {
-                    stringBuilder.Append(c);
-                }
-            }
-
-            return stringBuilder
-                .ToString()
-                .Normalize(NormalizationForm.FormC);
-        }
-
         private void SearchSongByText(string searchText)
         {
-            searchText = searchText.Trim();
-            searchText = RemoveDiacritics(searchText);
-
             textSearchMedia = new List<Media>();
+            searchText = searchText.Trim();
+            bool isNotHaveDiacritics = Diacritics.CheckNoDiacriticsInText(searchText);
 
             foreach (var item in MergeSongListAndVideoList)
             {
-                string title = RemoveDiacritics(item.Title);
-                string album = RemoveDiacritics(item.Album);
-                string artists = RemoveDiacritics(item.Artists);
+                // If there's no diacritics in searchText -> Proceed to search diacritics insensitively
+                // Else search diacritics sensitively
+                string title = isNotHaveDiacritics == true ? Diacritics.RemoveDiacritics(item.Title) : item.Title;
+                string album = isNotHaveDiacritics == true ? Diacritics.RemoveDiacritics(item.Album) : item.Album;
+                string artists = isNotHaveDiacritics == true ? Diacritics.RemoveDiacritics(item.Artists) : item.Artists;
 
                 bool isFoundTitle = title.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
                 bool isFoundAlbum = album.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
