@@ -15,19 +15,13 @@ namespace MediaPlayer.Items
     public partial class MediaControl : UserControl
     {
         public Media _media = null;
-        public delegate void PassMediaControl(MediaControl control);
         public bool isPlayingVideo = false;
         List<int> listIndexPlay;
         public MediaControl()
         {
             InitializeComponent();
             gunaTrackBar_Volume.MouseWheel += GunaTrackBar_Volume_MouseWheel;
-
-            MusicRow test = new MusicRow();
-            PassMediaControl datasend = new PassMediaControl(test.GetMediaControl);
-            datasend(this);
             UpdateListIndexPlay();
-
             SetAudioVisualizer();
         }
         internal void UpdateListIndexPlay()
