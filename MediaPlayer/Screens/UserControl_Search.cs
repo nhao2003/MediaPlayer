@@ -3,6 +3,8 @@ using MediaPlayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
+using System.Text;
 using System.Windows.Forms;
 namespace MediaPlayer.Widgets
 {
@@ -61,15 +63,42 @@ namespace MediaPlayer.Widgets
             }
         }
 
+        static string RemoveDiacritics(string text)
+        {
+            var normalizedString = text.Normalize(NormalizationForm.FormD);
+            var stringBuilder = new StringBuilder(capacity: normalizedString.Length);
+
+            for (int i = 0; i < normalizedString.Length; i++)
+            {
+                char c = normalizedString[i];
+                var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
+                if (unicodeCategory != UnicodeCategory.NonSpacingMark)
+                {
+                    stringBuilder.Append(c);
+                }
+            }
+
+            return stringBuilder
+                .ToString()
+                .Normalize(NormalizationForm.FormC);
+        }
+
         private void SearchSongByText(string searchText)
         {
+            searchText = searchText.Trim();
+            searchText = RemoveDiacritics(searchText);
+
             textSearchMedia = new List<Media>();
 
             foreach (var item in MergeSongListAndVideoList)
             {
-                bool isFoundTitle = item.Title.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool isFoundAlbum = item.Album.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool isFoundArtists = item.Artists.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
+                string title = RemoveDiacritics(item.Title);
+                string album = RemoveDiacritics(item.Album);
+                string artists = RemoveDiacritics(item.Artists);
+
+                bool isFoundTitle = title.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
+                bool isFoundAlbum = album.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
+                bool isFoundArtists = artists.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
 
                 if (isFoundTitle == true || isFoundArtists == true || isFoundAlbum == true)
                 {
