@@ -42,6 +42,12 @@ namespace MediaPlayer.Widgets
         }
         private MediaTypes _mediaTypeOfScreen;
 
+        public UserControl_ListMedia()
+        {
+            InitializeComponent();
+            setMediaType();
+        }
+
         public void setMediaType()
         {
             if (_listMedia.Equals(MediaHelpers.listSongs))
@@ -52,61 +58,6 @@ namespace MediaPlayer.Widgets
             {
                 _mediaTypeOfScreen = MediaTypes.Video;
             }
-        }
-
-        public void SortMediaAToZ()
-        {
-            IEnumerable<IGrouping<char, Media>> sortByAToZ = Playlist.SortListAToZ(_listMedia);
-            DisplayMediaItems(sortByAToZ);
-        }
-
-        public void SortMediaByDateAdded()
-        {
-            IEnumerable<IGrouping<string, Media>> sortByDateAdded = Playlist.SortListDateAdded(_listMedia);
-            DisplayMediaItems(sortByDateAdded);
-        }
-
-        public void SortMediaByAlbum()
-        {
-            IEnumerable<IGrouping<string, Media>> sortByAlbum = Playlist.SortListAlbum(_listMedia);
-            DisplayMediaItems(sortByAlbum);
-        }
-
-        public void SortMediaByArtists()
-        {
-            IEnumerable<IGrouping<string, Media>> sortByArtists = Playlist.SortListArtists(_listMedia);
-            DisplayMediaItems(sortByArtists);
-        }
-
-        private void DisplayMediaItems<T>(IEnumerable<IGrouping<T, Media>> sortResult)
-        {
-            pn_Display.Controls.Clear();
-            try
-            {
-                foreach (var group in sortResult)
-                {
-
-                    GroupMedia temp = new GroupMedia(group.Key.ToString(), group.ToList());
-                    temp.Dock = DockStyle.Top;
-                    pn_Display.Controls.Add(temp);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        /// <summary>
-        /// Initialize data
-        /// </summary>
-        private List<string> filePaths = new List<string>();
-
-        public UserControl_ListMedia()
-        {
-            InitializeComponent();
-            setMediaType();
-
         }
 
         /// <summary>
@@ -162,6 +113,49 @@ namespace MediaPlayer.Widgets
                 _listMedia = MediaHelpers.listVideos;
             }
             SortMediaAToZ();
+        }
+
+        public void SortMediaAToZ()
+        {
+            IEnumerable<IGrouping<char, Media>> sortByAToZ = Playlist.SortListAToZ(_listMedia);
+            DisplayMediaItems(sortByAToZ);
+        }
+
+        public void SortMediaByDateAdded()
+        {
+            IEnumerable<IGrouping<string, Media>> sortByDateAdded = Playlist.SortListDateAdded(_listMedia);
+            DisplayMediaItems(sortByDateAdded);
+        }
+
+        public void SortMediaByAlbum()
+        {
+            IEnumerable<IGrouping<string, Media>> sortByAlbum = Playlist.SortListAlbum(_listMedia);
+            DisplayMediaItems(sortByAlbum);
+        }
+
+        public void SortMediaByArtists()
+        {
+            IEnumerable<IGrouping<string, Media>> sortByArtists = Playlist.SortListArtists(_listMedia);
+            DisplayMediaItems(sortByArtists);
+        }
+
+        private void DisplayMediaItems<T>(IEnumerable<IGrouping<T, Media>> sortResult)
+        {
+            pn_Display.Controls.Clear();
+            try
+            {
+                foreach (var group in sortResult)
+                {
+
+                    GroupMedia temp = new GroupMedia(group.Key.ToString(), group.ToList());
+                    temp.Dock = DockStyle.Top;
+                    pn_Display.Controls.Add(temp);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btn_Suffle_Play_Click(object sender, EventArgs e)
