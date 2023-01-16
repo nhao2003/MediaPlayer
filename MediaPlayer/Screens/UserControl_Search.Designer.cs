@@ -28,79 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gunaElipsePanel2 = new Guna.UI.WinForms.GunaElipsePanel();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaTextBox1 = new Guna.UI.WinForms.GunaTextBox();
-            this.gunaElipsePanel1 = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pn_EnterSearch = new Guna.UI.WinForms.GunaElipsePanel();
+            this.pb_IconSearch = new Guna.UI.WinForms.GunaPictureBox();
+            this.tbEnterTextSearch = new Guna.UI.WinForms.GunaTextBox();
+            this.pn_HeaderSearch = new Guna.UI.WinForms.GunaElipsePanel();
             this.lb_Title = new Guna.UI.WinForms.GunaLabel();
             this.pn_Search = new Guna.UI.WinForms.GunaPanel();
-            this.gunaElipsePanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
-            this.gunaElipsePanel1.SuspendLayout();
+            this.pn_EnterSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconSearch)).BeginInit();
+            this.pn_HeaderSearch.SuspendLayout();
             this.SuspendLayout();
             // 
-            // gunaElipsePanel2
+            // pn_EnterSearch
             // 
-            this.gunaElipsePanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.pn_EnterSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaElipsePanel2.BackColor = System.Drawing.Color.Transparent;
-            this.gunaElipsePanel2.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaElipsePanel2.Controls.Add(this.gunaPictureBox1);
-            this.gunaElipsePanel2.Controls.Add(this.gunaTextBox1);
-            this.gunaElipsePanel2.Location = new System.Drawing.Point(11, 65);
-            this.gunaElipsePanel2.Name = "gunaElipsePanel2";
-            this.gunaElipsePanel2.Radius = 20;
-            this.gunaElipsePanel2.Size = new System.Drawing.Size(858, 50);
-            this.gunaElipsePanel2.TabIndex = 3;
+            this.pn_EnterSearch.BackColor = System.Drawing.Color.Transparent;
+            this.pn_EnterSearch.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pn_EnterSearch.Controls.Add(this.pb_IconSearch);
+            this.pn_EnterSearch.Controls.Add(this.tbEnterTextSearch);
+            this.pn_EnterSearch.Location = new System.Drawing.Point(11, 65);
+            this.pn_EnterSearch.Name = "pn_EnterSearch";
+            this.pn_EnterSearch.Radius = 20;
+            this.pn_EnterSearch.Size = new System.Drawing.Size(858, 50);
+            this.pn_EnterSearch.TabIndex = 3;
             // 
-            // gunaPictureBox1
+            // pb_IconSearch
             // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Image = global::MediaPlayer.Properties.Resources.search;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(29, 5);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(33, 38);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox1.TabIndex = 2;
-            this.gunaPictureBox1.TabStop = false;
+            this.pb_IconSearch.BaseColor = System.Drawing.Color.White;
+            this.pb_IconSearch.Image = global::MediaPlayer.Properties.Resources.search;
+            this.pb_IconSearch.Location = new System.Drawing.Point(29, 5);
+            this.pb_IconSearch.Name = "pb_IconSearch";
+            this.pb_IconSearch.Size = new System.Drawing.Size(33, 38);
+            this.pb_IconSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_IconSearch.TabIndex = 2;
+            this.pb_IconSearch.TabStop = false;
             // 
-            // gunaTextBox1
+            // tbEnterTextSearch
             // 
-            this.gunaTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbEnterTextSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gunaTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaTextBox1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaTextBox1.BorderSize = 0;
-            this.gunaTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gunaTextBox1.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaTextBox1.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.gunaTextBox1.FocusedForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.gunaTextBox1.ForeColor = System.Drawing.Color.White;
-            this.gunaTextBox1.Location = new System.Drawing.Point(68, 5);
-            this.gunaTextBox1.Name = "gunaTextBox1";
-            this.gunaTextBox1.PasswordChar = '\0';
-            this.gunaTextBox1.SelectedText = "";
-            this.gunaTextBox1.Size = new System.Drawing.Size(694, 38);
-            this.gunaTextBox1.TabIndex = 1;
-            this.gunaTextBox1.Text = "Nhập tên nhạc / Album / Ca sĩ";
-            this.gunaTextBox1.TextChanged += new System.EventHandler(this.EventSearchText);
-            this.gunaTextBox1.Enter += new System.EventHandler(this.gunaTextBox1_Enter);
-            this.gunaTextBox1.Leave += new System.EventHandler(this.gunaTextBox1_Leave);
+            this.tbEnterTextSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEnterTextSearch.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEnterTextSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEnterTextSearch.BorderSize = 0;
+            this.tbEnterTextSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbEnterTextSearch.FocusedBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEnterTextSearch.FocusedBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbEnterTextSearch.FocusedForeColor = System.Drawing.Color.White;
+            this.tbEnterTextSearch.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.tbEnterTextSearch.ForeColor = System.Drawing.Color.White;
+            this.tbEnterTextSearch.Location = new System.Drawing.Point(68, 5);
+            this.tbEnterTextSearch.Name = "tbEnterTextSearch";
+            this.tbEnterTextSearch.PasswordChar = '\0';
+            this.tbEnterTextSearch.SelectedText = "";
+            this.tbEnterTextSearch.Size = new System.Drawing.Size(694, 38);
+            this.tbEnterTextSearch.TabIndex = 1;
+            this.tbEnterTextSearch.Text = "Nhập tên nhạc / Album / Ca sĩ";
+            this.tbEnterTextSearch.TextChanged += new System.EventHandler(this.EventSearchText);
+            this.tbEnterTextSearch.Enter += new System.EventHandler(this.EventTextBoxSearch_Enter);
+            this.tbEnterTextSearch.Leave += new System.EventHandler(this.EventTextBoxSearch_Leave);
             // 
-            // gunaElipsePanel1
+            // pn_HeaderSearch
             // 
-            this.gunaElipsePanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.gunaElipsePanel1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
-            this.gunaElipsePanel1.Controls.Add(this.lb_Title);
-            this.gunaElipsePanel1.Controls.Add(this.gunaElipsePanel2);
-            this.gunaElipsePanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gunaElipsePanel1.ForeColor = System.Drawing.Color.White;
-            this.gunaElipsePanel1.Location = new System.Drawing.Point(0, 0);
-            this.gunaElipsePanel1.Name = "gunaElipsePanel1";
-            this.gunaElipsePanel1.Size = new System.Drawing.Size(1084, 136);
-            this.gunaElipsePanel1.TabIndex = 3;
+            this.pn_HeaderSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.pn_HeaderSearch.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.pn_HeaderSearch.Controls.Add(this.lb_Title);
+            this.pn_HeaderSearch.Controls.Add(this.pn_EnterSearch);
+            this.pn_HeaderSearch.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pn_HeaderSearch.ForeColor = System.Drawing.Color.White;
+            this.pn_HeaderSearch.Location = new System.Drawing.Point(0, 0);
+            this.pn_HeaderSearch.Name = "pn_HeaderSearch";
+            this.pn_HeaderSearch.Size = new System.Drawing.Size(1084, 136);
+            this.pn_HeaderSearch.TabIndex = 3;
             // 
             // lb_Title
             // 
@@ -132,24 +132,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
             this.Controls.Add(this.pn_Search);
-            this.Controls.Add(this.gunaElipsePanel1);
+            this.Controls.Add(this.pn_HeaderSearch);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "UserControl_Search";
             this.Size = new System.Drawing.Size(1084, 645);
-            this.gunaElipsePanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-            this.gunaElipsePanel1.ResumeLayout(false);
-            this.gunaElipsePanel1.PerformLayout();
+            this.pn_EnterSearch.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_IconSearch)).EndInit();
+            this.pn_HeaderSearch.ResumeLayout(false);
+            this.pn_HeaderSearch.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel2;
-        private Guna.UI.WinForms.GunaTextBox gunaTextBox1;
-        private Guna.UI.WinForms.GunaElipsePanel gunaElipsePanel1;
+        private Guna.UI.WinForms.GunaElipsePanel pn_EnterSearch;
+        private Guna.UI.WinForms.GunaTextBox tbEnterTextSearch;
+        private Guna.UI.WinForms.GunaElipsePanel pn_HeaderSearch;
         private Guna.UI.WinForms.GunaPanel pn_Search;
-        private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
+        private Guna.UI.WinForms.GunaPictureBox pb_IconSearch;
         private Guna.UI.WinForms.GunaLabel lb_Title;
     }
 }

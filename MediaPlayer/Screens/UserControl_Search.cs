@@ -10,8 +10,7 @@ namespace MediaPlayer.Widgets
 {
     public partial class UserControl_Search : UserControl
     {
-        private List<Media> textSearchMedia = new List<Media>();
-        public List<Media> MergeSongListAndVideoList
+        public List<Media> AllMedias
         {
             get
             {
@@ -25,57 +24,64 @@ namespace MediaPlayer.Widgets
             InitializeComponent();
         }
 
-        private void gunaTextBox1_Enter(object sender, EventArgs e)
+        private void EventTextBoxSearch_Enter(object sender, EventArgs e)
         {
-            if (gunaTextBox1.Text == "Nhập tên nhạc / Album / Ca sĩ")
+            if (tbEnterTextSearch.Text == "Nhập tên nhạc / Album / Ca sĩ")
             {
-                gunaTextBox1.Text = "";
-                gunaTextBox1.ForeColor = Color.Black;
+                tbEnterTextSearch.Text = "";
+                tbEnterTextSearch.ForeColor = Color.Black;
             }
         }
 
-        private void gunaTextBox1_Leave(object sender, EventArgs e)
+        private void EventTextBoxSearch_Leave(object sender, EventArgs e)
         {
-            if (gunaTextBox1.Text == "")
+            if (tbEnterTextSearch.Text == "")
             {
-                gunaTextBox1.Text = "Nhập tên nhạc / Album / Ca sĩ";
-                gunaTextBox1.ForeColor = Color.Green;
+                tbEnterTextSearch.Text = "Nhập tên nhạc / Album / Ca sĩ";
+                tbEnterTextSearch.ForeColor = Color.Green;
             }
         }
 
         private void EventSearchText(object sender, EventArgs e)
         {
-            string searchText = gunaTextBox1.Text;
-
-            SearchSongByText(searchText);
             pn_Search.Controls.Clear();
-
-            if (textSearchMedia.Count > 0)
-            {
-                textSearchMedia.ForEach(x =>
-                {
-                    MusicRow musicRow = new MusicRow(x)
-                    {
-                        Dock = DockStyle.Top
-                    };
-                    pn_Search.Controls.Add(musicRow);
-                });
-            }
+            string searchText = tbEnterTextSearch.Text;
+            List<Media> listOfSearchMedias = new List<Media>(ReturnMediaListsSearchedByText(searchText));
+            if (listOfSearchMedias.Count > 0) LoadMediasOntoScreen(listOfSearchMedias);
         }
 
-        private void SearchSongByText(string searchText)
+        private void LoadMediasOntoScreen(List<Media> listOfSearchMedias)
         {
-            textSearchMedia = new List<Media>();
+            listOfSearchMedias.ForEach(x =>
+            {
+                MusicRow musicRow = new MusicRow(x)
+                {
+                    Dock = DockStyle.Top
+                };
+                pn_Search.Controls.Add(musicRow);
+            });
+        }
+
+        private List<Media> ReturnMediaListsSearchedByText(string searchText)
+        {
+            var result = new List<Media>();
             searchText = searchText.Trim();
             bool isNotHaveDiacritics = Diacritics.CheckNoDiacriticsInText(searchText);
 
-            foreach (var item in MergeSongListAndVideoList)
+            foreach (var item in AllMedias)
             {
                 // If there's no diacritics in searchText -> Proceed to search diacritics insensitively
                 // Else search diacritics sensitively
-                string title = isNotHaveDiacritics == true ? Diacritics.RemoveDiacritics(item.Title) : item.Title;
-                string album = isNotHaveDiacritics == true ? Diacritics.RemoveDiacritics(item.Album) : item.Album;
-                string artists = isNotHaveDiacritics == true ? Diacritics.RemoveDiacritics(item.Artists) : item.Artists;
+                string title = 
+                    isNotHaveDiacritics == true ? 
+                    Diacritics.RemoveDiacritics(item.Title) : 
+                    item.Title;
+                string album = isNotHaveDiacritics == true ? 
+                    Diacritics.RemoveDiacritics(item.Album) : 
+                    item.Album;
+                string artists = isNotHaveDiacritics == true ? 
+                    Diacritics.RemoveDiacritics(item.Artists) : 
+                    item.Artists;
 
                 bool isFoundTitle = title.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
                 bool isFoundAlbum = album.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
@@ -83,9 +89,10 @@ namespace MediaPlayer.Widgets
 
                 if (isFoundTitle == true || isFoundArtists == true || isFoundAlbum == true)
                 {
-                    textSearchMedia.Add(item);
+                    result.Add(item);
                 }
             }
+            return result;
         }
     }
 }
