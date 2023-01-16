@@ -421,7 +421,7 @@
             this.Controls.Add(this.Media_Pages);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "VideoPlayer";
-            this.Text = "VideoPlayer";
+            this.Text = "Media Player";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.VideoPlayer_FormClosing);
             this.Load += new System.EventHandler(this.VideoPlayer_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VideoPlayer_KeyDown);
