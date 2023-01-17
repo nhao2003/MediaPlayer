@@ -174,7 +174,8 @@ namespace MediaPlayer.Models
                 }
             }
             // insert this media next to current playing
-            PlayQueue.Insert(CurrentIndex+1, media);
+            if (PlayQueue.Count == 0) PlayQueue.Add(media);
+            else PlayQueue.Insert(CurrentIndex+1, media);
             Form_Main.Instance.MediaControl.UpdateListIndexPlay();
         }
         /// <summary>
