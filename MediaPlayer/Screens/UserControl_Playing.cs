@@ -23,7 +23,7 @@ namespace MediaPlayer.Widgets
                 this.BackgroundImage = ImageTools.GaussianBlur(_media.Image, radial: 100);
                 RotationTimer.Start();
                 lb_NextName.Text = _media.Title;
-                lb_NextAuthor.Text = _media.Artists;
+                lb_NextAuthor.Text = _media.ArtistsString;
                 IsPlaying = (PlayMedia.Status == WMPPlayState.wmppsPlaying);
             }
         }

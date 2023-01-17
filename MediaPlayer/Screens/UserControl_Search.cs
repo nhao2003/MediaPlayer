@@ -69,7 +69,7 @@ namespace MediaPlayer.Widgets
             {
                 bool isFoundTitle = item.Title.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
                 bool isFoundAlbum = item.Album.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
-                bool isFoundArtists = item.Artists.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
+                bool isFoundArtists = item.ArtistsString.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0;
 
                 if (isFoundTitle == true || isFoundArtists == true || isFoundAlbum == true)
                 {

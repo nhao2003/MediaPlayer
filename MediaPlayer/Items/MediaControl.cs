@@ -49,7 +49,7 @@ namespace MediaPlayer.Items
             }
             if (media != null) _media = media;
             gunaLabel_SongName.Text = media.Title;
-            gunaLabel_NameAthor.Text = media.Artists;
+            gunaLabel_NameAthor.Text = media.ArtistsString;
             gunaPictureBox_SongImage.Image = media.Image;
             MediaTrackBar.Maximum = (int)media.Duration.TotalSeconds;
             MediaTrackBar.Value = 0;
@@ -301,7 +301,7 @@ namespace MediaPlayer.Items
         {
             // ten, anh, thoi luong
             gunaLabel_SongName.Text = media.Title;
-            gunaLabel_NameAthor.Text = media.Artists;
+            gunaLabel_NameAthor.Text = media.ArtistsString;
             SetIconVolume();
             gunaPictureBox_SongImage.Image = media.Image;
             MediaTrackBar.Maximum = (int)media.Duration.TotalSeconds;

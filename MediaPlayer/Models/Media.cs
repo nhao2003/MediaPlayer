@@ -1,7 +1,10 @@
 ﻿using MediaPlayer.Properties;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
+using System.Messaging;
 using TagLib;
 
 
@@ -13,7 +16,7 @@ namespace MediaPlayer.Models
     public class Media
     {
         private string title;
-        private string artists;
+        private List<string> artists;
         private string album;
         private string filePath;
         private Image image;
@@ -38,13 +41,39 @@ namespace MediaPlayer.Models
         /// <summary>
         /// Tên ca sĩ
         /// </summary>
-        public string Artists
+        public List<string> Artists
         {
             set => artists = value;
             get
             {
-                if (artists == null) return "Unknown";
+                if (artists == null)
+                {
+                    artists = new List<string>()
+                    {
+                        "Unknow"
+                    };
+                }
                 return artists;
+            }
+        }
+        public string ArtistsString
+        {
+            get
+            {
+                if(artists == null)
+                {
+                    return "Unknown";
+                }
+                string txt = "";
+                for (int i = 0; i < artists.Count; i++)
+                {
+                    txt += artists[i].Trim();
+                    if(i+1 < artists.Count)
+                    {
+                        txt += ", ";
+                    }
+                }
+                return txt;
             }
         }
         public string Album
@@ -123,41 +152,21 @@ namespace MediaPlayer.Models
         /// Các thông tin khác
         /// </summary>
         public TagLib.File Others => others;
-
-
-        /// <summary>
-        /// Khởi tạo bài hát
-        /// </summary>
-        /// <param name="title">Tên bài hát</param>
-        /// <param name="artist">Nghệ sĩ</param>
-        /// <param name="duration">Thời lượng</param>
-        /// <param name="dateAdded">Ngày thêm</param>
-        /// <param name="path">Đường dẫn</param>
-        /// <param name="mediaImage">Ảnh</param>
-        public Media(string title, string artist, TimeSpan duration, DateTime dateAdded, string path, Image mediaImage)
-        {
-            this.title = (title != null) ? title : "Unknown";
-            this.artists = (artist != null) ? artist : "Unknown";
-            this.album = (album != null) ? album : "Unknown";
-            this.duration = (duration != null) ? duration : new TimeSpan(0, 0, 0);
-            this.dateAdded = System.IO.File.GetCreationTime(path);
-            this.filePath = path;
-            this.image = mediaImage;
-            this.others = TagLib.File.Create(path);
-        }
         /// <summary>
         /// Tạo bài hát bằng đường dẫn
         /// </summary>
         /// <param name="path">Đường dẫn bài hát</param>
+        [Obsolete]
         public Media(string path)
         {
             TagLib.File taglib = TagLib.File.Create(path);
             this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
-            this.artists = (taglib.Tag.Album != null) ? string.Join(", ", taglib.Tag.Album) : "Unknow";
+            this.artists = (taglib.Tag.Artists.Length != 0) ? taglib.Tag.Artists[0].Split(',').ToList():null;
             this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
             this.dateAdded = System.IO.File.GetCreationTime(path);
             this.filePath = path;
             this.mediaType = taglib.Properties.MediaTypes;
+            this.album = taglib.Tag.Album;
             this.others = taglib;
 
             if (taglib.Tag.Pictures.Length > 0)
