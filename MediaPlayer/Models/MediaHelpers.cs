@@ -96,6 +96,7 @@ namespace MediaPlayer.Models
         public static void PlayThePlaylist(List<Media> pl)
         {
             if (pl.Count == 0) return;
+            isPlayingPlaylist = true;
             playQueue.Clear();
             playQueue = new List<Media>(pl);
             Form_Main.Instance.ClassifyMedia(playQueue[0]);

@@ -325,6 +325,11 @@ namespace MediaPlayer.Items
 
         private void gunaPictureBox_SongImage_Click(object sender, EventArgs e)
         {
+            showSongAndVideo();
+        }
+
+        public void showSongAndVideo()
+        {
             if (isPlayingVideo) return;
             if (PlayMedia.IsFirst == false) return;
             if (_media.MediaTypes == MediaTypes.Audio)
