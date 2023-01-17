@@ -126,7 +126,7 @@ namespace MediaPlayer.Widgets
                 for (int i = 0; i < _listMedia.Count; i++)
                 {
                     top = i*75;
-                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], true)
+                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], _playlist.PlayListID)
                     {
                         Location = new Point(100, top),
                         Anchor = AnchorStyles.Left | AnchorStyles.Right,
@@ -170,10 +170,21 @@ namespace MediaPlayer.Widgets
 
         private void btn_play_Click(object sender, EventArgs e)
         {
-            if (MediaHelpers.isPlayingPlaylist == true) return;
-            MediaHelpers.PlayThePlaylist(_playlist);
-            btn_play.Image = Resources.pause_green;
-            btn_play.OnHoverImage = Resources.pause_green;
+            if (MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID)
+            {
+                // neu dang phat playlist va dung play cua minh thi stop
+                Form_Main.Instance.MediaControl.pauseCurrentPlayer();
+                MediaHelpers.isPlayingPlaylist = false;
+                MediaHelpers.playListPlayingId = null;
+                btn_play.Image = Resources.play_green;
+                btn_play.OnHoverImage = Resources.play_green;
+            }
+            else
+            {
+                MediaHelpers.PlayThePlaylist(_playlist);
+                btn_play.Image = Resources.pause_green;
+                btn_play.OnHoverImage = Resources.pause_green;
+            }
         }
 
         private void btn_back_Click(object sender, EventArgs e)
@@ -184,7 +195,7 @@ namespace MediaPlayer.Widgets
 
         private void timerPlaylist_Tick(object sender, EventArgs e)
         {
-            if(MediaHelpers.isPlayingPlaylist == true)
+            if(MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID)
             {
                 btn_play.Image = Resources.pause_green;
                 btn_play.OnHoverImage = Resources.pause_green;
@@ -205,7 +216,7 @@ namespace MediaPlayer.Widgets
                 for (int i = 0; i < _listMedia.Count; i++)
                 {
                     top = i * 75;
-                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], true)
+                    MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], _playlist.PlayListID)
                     {
                         Location = new Point(100, top),
                         Anchor = AnchorStyles.Left | AnchorStyles.Right,

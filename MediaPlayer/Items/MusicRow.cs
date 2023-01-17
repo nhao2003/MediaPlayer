@@ -26,14 +26,14 @@ namespace MediaPlayer.Items
             }
         }
 
-        public MusicRow(Media media = null, bool isPlayList = false)
+        public MusicRow(Media media = null, string playListId = null)
         {
             InitializeComponent();
             if(media != null)
             {
                 Media = media;
             }
-            this.isPlayList = isPlayList;
+            this.playListID = playListId;
         }
 
         public void InitializeSongItem(Media initializeMedia)
@@ -83,7 +83,7 @@ namespace MediaPlayer.Items
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
             }
-            if (isPlayList == false)
+            if (playListID == null)
             {
                 MediaHelpers.isPlayingPlaylist = false;
                 Form_Main.Instance.ClassifyMedia(_media);
@@ -92,6 +92,8 @@ namespace MediaPlayer.Items
             else
             {
                 // this row is in play list
+                MediaHelpers.isPlayingPlaylist = true;
+                MediaHelpers.playListPlayingId = playListID;
                 Form_Main.Instance.ClassifyMedia(_media);
                 Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
             }
@@ -99,7 +101,7 @@ namespace MediaPlayer.Items
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            if(isPlayList == false)
+            if (playListID == null)
             {
                 MediaHelpers.isPlayingPlaylist = false;
                 Form_Main.Instance.ClassifyMedia(_media);
@@ -108,6 +110,8 @@ namespace MediaPlayer.Items
             else
             {
                 // this row is in play list
+                MediaHelpers.isPlayingPlaylist = true;
+                MediaHelpers.playListPlayingId = playListID;
                 Form_Main.Instance.ClassifyMedia(_media);
                 Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
             }
