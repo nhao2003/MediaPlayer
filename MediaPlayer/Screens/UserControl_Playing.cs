@@ -102,7 +102,7 @@ namespace MediaPlayer.Widgets
             RotationTimer.Start();
             for (int i = MediaHelpers.PlayQueue.Count - 1; i >= 0; i--)
             {
-                MusicRow row = new MusicRow(MediaHelpers.PlayQueue[i])
+                MusicRow row = new MusicRow(MediaHelpers.PlayQueue[i], "playall")
                 {
                     Dock = DockStyle.Top,
                     IsHover = (PlayMedia.Path == MediaHelpers.PlayQueue[i].FilePath),
