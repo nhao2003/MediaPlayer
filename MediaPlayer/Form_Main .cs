@@ -87,12 +87,13 @@ namespace MediaPlayer
         public VideoPlayer videoScreen = new VideoPlayer();
         public void ClassifyMedia(Media media)
         {
-            if (media.MediaTypes == MediaTypes.Audio)
+            if (media.MediaTypes == MediaTypes.Audio)       
             {
+                if(MediaHelpers.isPlayingPlaylist == false) 
+                    MediaHelpers.AddToQueue(media);
+                MediaControl.UpdateListIndexPlay();
                 if (media != null)
                     MediaControl.getPathOfSong(media);
-                if(MediaHelpers.isPlayingPlaylist == false) MediaHelpers.AddToQueue(media);
-                MediaControl.UpdateListIndexPlay();
             }
             else
             {

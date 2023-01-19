@@ -107,13 +107,7 @@ namespace MediaPlayer.Items
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            if (playListID == null)
-            {
-                MediaHelpers.isPlayingPlaylist = false;
-                Form_Main.Instance.ClassifyMedia(_media);
-                Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
-            }
-            else
+            if (playListID != null)
             {
                 // this row is in play list
                 MediaHelpers.isPlayingPlaylist = true;
