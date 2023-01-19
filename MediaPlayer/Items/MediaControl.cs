@@ -152,7 +152,9 @@ namespace MediaPlayer.Items
                 if (PlayMedia.Repeat == RepeatMode.One)
                 {
                     // lap lai bai hat
-                    timerSong.Enabled = true;
+                    PlayMedia.CurrentTimePlay = 0;
+                    PlayMedia.setCurrentTimePlay();
+                    //timerSong.Enabled = true;
                     PlayMedia.playSong();
                 }
                 else
