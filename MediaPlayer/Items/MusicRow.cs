@@ -9,7 +9,7 @@ namespace MediaPlayer.Items
     {
         private Media _media;
         private string filePath;
-        public bool isPlayList = false;
+        public string playListID;
         public Media Media
         {
             get
