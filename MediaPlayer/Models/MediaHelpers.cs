@@ -247,6 +247,22 @@ namespace MediaPlayer.Models
             }
         }
         /// <summary>
+        /// check if this media is exit in play queue
+        /// </summary>
+        /// <param name="media"></param>
+        /// <returns></returns>
+        public static bool isExitInPlayQueue(Media media)
+        {
+            foreach(Media mediaTemp in PlayQueue)
+            {
+                if(mediaTemp.FilePath == media.FilePath)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        /// <summary>
         /// Đường dẫn thư mục nhạc
         /// </summary>
         public static string MusicPathFolder

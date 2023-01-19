@@ -98,7 +98,6 @@ namespace MediaPlayer.Items
             }
             else
             {
-                // this row is in play list
                 MediaHelpers.isPlayingPlaylist = true;
                 MediaHelpers.playListPlayingId = playListID;
                 Form_Main.Instance.ClassifyMedia(_media);

@@ -90,8 +90,20 @@ namespace MediaPlayer
         {
             if (media.MediaTypes == MediaTypes.Audio)       
             {
-                if(MediaHelpers.isPlayingPlaylist == false) 
+                if(MediaHelpers.isPlayingPlaylist == false)
+                {
+                    // neu ko phai playlist thi them vao
                     MediaHelpers.AddToQueue(media);
+                }
+                else
+                {
+                    // neu la playlist va trong queue chua co thi them vao
+                    //MessageBox.Show(media.PlaylistID.ToString());
+                    if (!MediaHelpers.isExitInPlayQueue(media))
+                    {
+                        MediaHelpers.AddToQueue(media);
+                    }
+                }
                 MediaControl.UpdateListIndexPlay();
                 if (media != null)
                     MediaControl.getPathOfSong(media);
