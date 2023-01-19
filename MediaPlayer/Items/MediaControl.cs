@@ -400,7 +400,7 @@ namespace MediaPlayer.Items
                 btn_Suffle.Image = Resources.suffle_hover;
                 btn_Suffle.OnHoverImage = Resources.suffle_hover;
                 PlayMedia.Suffle = true;
-                listIndexPlay = new List<int>(MediaHelpers.ListRanDomIndex);
+                listIndexPlay = new List<int>(MediaHelpers.ListRandomIndex);
             }
         }
 
