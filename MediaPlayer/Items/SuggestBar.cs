@@ -38,6 +38,10 @@ namespace MediaPlayer.Items
             {
                 Form_Main.Instance.ViewPlayingSong();
             }
+            else
+            {
+                Form_Main.Instance.MediaControl.showSongAndVideo();
+            }
         }
     }
 }

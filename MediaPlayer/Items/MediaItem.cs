@@ -13,7 +13,7 @@ namespace MediaPlayer.Items
             this._media = media;
             InitializeComponent();
             label_NameSong.Text = media.Title;
-            label_Author.Text = media.Artists;
+            label_Author.Text = media.ArtistsString;
             pic_SongPic.Image = media.Image;
 
         }

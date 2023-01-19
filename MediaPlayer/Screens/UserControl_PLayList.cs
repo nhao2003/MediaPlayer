@@ -45,7 +45,7 @@ namespace MediaPlayer.Widgets
                 gunaPanel2.GradientColor1 = ImageTools.GetDominantColor(_playlist.BackGroundImage as Bitmap);
                 pic_Avatar.Image = _playlist.BackGroundImage;
                 CaculateDuration();
-                GetAuthors();
+                GetArtists();
                 //DisplayMediaItems(Playlist.SortListAToZ(_playlist.ListMedia));
                 DisplayMediaItems();
             }
@@ -67,7 +67,7 @@ namespace MediaPlayer.Widgets
             else
                 lb_SumDuration.Text += $"● About {sum / 60} hours {sum / 60} minutues";
         }
-        private void GetAuthors()
+        private void GetArtists()
         {
             string a = "";
             int i = 0;
@@ -75,12 +75,12 @@ namespace MediaPlayer.Widgets
             {
                 if (i > 1)
                 {
-                    a += media.Artists;
+                    a += media.ArtistsString;
                     break;
                 }
                 else
                 {
-                    a += media.Artists + ", ";
+                    a += media.ArtistsString + ", ";
                 }
                 i++;
             }

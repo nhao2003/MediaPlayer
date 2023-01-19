@@ -166,7 +166,7 @@ namespace MediaPlayer.Widgets
             }
             else if (this._mediaTypeOfScreen == MediaTypes.Video)
             {
-                // hong lam j het
+                MediaHelpers.PlayVideo(MediaHelpers.listVideos[0]);
             }
         }
     }

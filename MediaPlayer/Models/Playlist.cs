@@ -105,8 +105,8 @@ namespace MediaPlayer.Models
         public static IEnumerable<IGrouping<string, Media>> SortListArtists(List<Media> list)
         {
             IEnumerable<IGrouping<string, Media>> res = from song in list
-                                                        orderby song.Artists ascending
-                                                        group song by song.Artists;
+                                                        orderby song.ArtistsString ascending
+                                                        group song by song.ArtistsString;
             return res.Reverse();
         }
     }

@@ -22,7 +22,7 @@ namespace MediaPlayer.Items
                 pic_Song.Image = _media.Image;
                 label_NameSong.Text = _media.Title;
                 label_Duration.Text = _media.DurationText;
-                label_NameSinger.Text = _media.Artists;
+                label_NameSinger.Text = _media.ArtistsString;
             }
         }
 
@@ -40,7 +40,7 @@ namespace MediaPlayer.Items
         {
             pic_Song.Image = initializeMedia.Image;
             label_NameSong.Text = initializeMedia.Title;
-            label_NameSinger.Text = initializeMedia.Artists;
+            label_NameSinger.Text = initializeMedia.ArtistsString;
             label_Duration.Text = initializeMedia.DurationText;
             filePath = initializeMedia.FilePath;
             _media = initializeMedia;

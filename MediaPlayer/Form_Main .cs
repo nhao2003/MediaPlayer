@@ -96,23 +96,7 @@ namespace MediaPlayer
             }
             else
             {
-                try
-                {
-                    if (videoScreen.Visible == false)
-                    {
-                        videoScreen = new VideoPlayer();
-                        videoScreen.Show();
-                    }
-                    MediaControl.pauseCurrentPlayer();
-                    videoScreen.getPathOfSong(media);
-                    MediaControl.isPlayingVideo = true;
-                    MediaControl.videoScreen = videoScreen;
-                    this.Hide();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                MediaHelpers.PlayVideo(media);
             }
         }
 

@@ -23,7 +23,7 @@ namespace MediaPlayer.Widgets
                 this.BackgroundImage = ImageTools.GaussianBlur(_media.Image, radial: 100);
                 RotationTimer.Start();
                 lb_NextName.Text = _media.Title;
-                lb_NextAuthor.Text = _media.Artists;
+                lb_NextAuthor.Text = _media.ArtistsString;
                 IsPlaying = (PlayMedia.Status == WMPPlayState.wmppsPlaying);
             }
         }
@@ -102,7 +102,7 @@ namespace MediaPlayer.Widgets
             RotationTimer.Start();
             for (int i = MediaHelpers.PlayQueue.Count - 1; i >= 0; i--)
             {
-                MusicRow row = new MusicRow(MediaHelpers.PlayQueue[i])
+                MusicRow row = new MusicRow(MediaHelpers.PlayQueue[i], "playall")
                 {
                     Dock = DockStyle.Top,
                     IsHover = (PlayMedia.Path == MediaHelpers.PlayQueue[i].FilePath),

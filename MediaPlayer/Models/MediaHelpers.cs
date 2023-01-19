@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaPlayer.Items;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using TagLib;
@@ -96,9 +97,32 @@ namespace MediaPlayer.Models
         public static void PlayThePlaylist(List<Media> pl)
         {
             if (pl.Count == 0) return;
+            isPlayingPlaylist = true;
             playQueue.Clear();
             playQueue = new List<Media>(pl);
             Form_Main.Instance.ClassifyMedia(playQueue[0]);
+        }
+
+        public static void PlayVideo(Media media)
+        {
+            try
+            {
+                if(media == null) return;
+                if (Form_Main.Instance.videoScreen.Visible == false)
+                {
+                    Form_Main.Instance.videoScreen = new VideoPlayer();
+                    Form_Main.Instance.videoScreen.Show();
+                }
+                Form_Main.Instance.MediaControl.pauseCurrentPlayer();
+                Form_Main.Instance.videoScreen.getPathOfSong(media);
+                Form_Main.Instance.MediaControl.isPlayingVideo = true;
+                Form_Main.Instance.MediaControl.videoScreen = Form_Main.Instance.videoScreen;
+                Form_Main.Instance.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         /// <summary>
         /// list index of playQueue
@@ -150,7 +174,8 @@ namespace MediaPlayer.Models
                 }
             }
             // insert this media next to current playing
-            PlayQueue.Insert(CurrentIndex+1, media);
+            if (PlayQueue.Count == 0) PlayQueue.Add(media);
+            else PlayQueue.Insert(CurrentIndex+1, media);
             Form_Main.Instance.MediaControl.UpdateListIndexPlay();
         }
         /// <summary>
