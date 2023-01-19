@@ -179,10 +179,11 @@ namespace MediaPlayer.Models
                 try
                 {
                     var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
-                    string fileName = "video_thumbnail" + title + ".jpg";
+                    string fileName = Environment.CurrentDirectory + "\\Video Thumbnail\\ " + title + ".jpg";
+                    Directory.CreateDirectory(Environment.CurrentDirectory + "\\Video Thumbnail");
                     if (!System.IO.File.Exists(fileName))
                     {
-                        ffMpeg.GetVideoThumbnail(path, fileName, 5);
+                        ffMpeg.GetVideoThumbnail(path, fileName, 1);
                     }
                     this.image = Image.FromFile(fileName);
                 }

@@ -84,7 +84,8 @@ namespace MediaPlayer.Items
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == MouseButtons.Right)
             {
-                ContextMenu contextMenu = new ContextMenu(_media);
+                Media media = new Media(_media.FilePath);
+                ContextMenu contextMenu = new ContextMenu(media);
                 contextMenu.Play.Click += contextMenuPlay_click;
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;

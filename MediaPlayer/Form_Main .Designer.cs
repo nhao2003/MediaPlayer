@@ -24,7 +24,7 @@ namespace MediaPlayer
             {
                 components.Dispose();
             }
-            //PlayMedia.thread.Interrupt();
+            DeleteAllPictures();
             base.Dispose(disposing);
         }
 

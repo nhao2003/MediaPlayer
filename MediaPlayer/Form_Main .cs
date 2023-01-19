@@ -4,6 +4,7 @@ using MediaPlayer.Models;
 using MediaPlayer.Widgets;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using TagLib;
 
@@ -126,6 +127,19 @@ namespace MediaPlayer
             _oldButton.Image = (Image)_oldButton.Tag;
             _oldButton.ForeColor = Color.Silver;
             _oldButton = fakeBtn;
+        }
+        private void DeleteAllPictures()
+        {
+            string[] allFiles = Directory.GetFiles(Environment.CurrentDirectory + "\\Video Thumbnail");
+            foreach (string file in allFiles)
+            {
+                try
+                {
+                    System.IO.File.Delete(file);
+                } catch {
+                    continue;
+                }
+            }
         }
     }
 }
