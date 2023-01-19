@@ -9,6 +9,14 @@ namespace MediaPlayer.Models
 {
     static class Diacritics
     {
+        internal static List<string> RemoveDiacriticsForAList(List<string> textList)
+        {
+            for (int textListIndex = 0; textListIndex < textList.Count; textListIndex++)
+            {
+                textList[textListIndex] = RemoveDiacritics(textList[textListIndex]);
+            }
+            return textList;
+        }
         internal static string RemoveDiacritics(string text)
         {
             var normalizedString = text.Normalize(NormalizationForm.FormD);

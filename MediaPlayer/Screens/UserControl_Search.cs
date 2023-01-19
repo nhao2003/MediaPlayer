@@ -47,19 +47,20 @@ namespace MediaPlayer.Widgets
             pn_Search.Controls.Clear();
             string searchText = tbEnterTextSearch.Text;
             List<Media> listOfSearchMedias = new List<Media>(ReturnMediaListsSearchedByText(searchText));
-            if (listOfSearchMedias.Count > 0) LoadMediasOntoScreen(listOfSearchMedias);
+            LoadMediasOntoScreen(listOfSearchMedias);
         }
 
         private void LoadMediasOntoScreen(List<Media> listOfSearchMedias)
         {
-            listOfSearchMedias.ForEach(x =>
-            {
-                MusicRow musicRow = new MusicRow(x)
+            if (listOfSearchMedias.Count <= 0) return;
+                listOfSearchMedias.ForEach(x =>
                 {
-                    Dock = DockStyle.Top
-                };
-                pn_Search.Controls.Add(musicRow);
-            });
+                    MusicRow musicRow = new MusicRow(x)
+                    {
+                        Dock = DockStyle.Top
+                    };
+                    pn_Search.Controls.Add(musicRow);
+                });
         }
 
         private List<Media> ReturnMediaListsSearchedByText(string searchText)
@@ -68,31 +69,41 @@ namespace MediaPlayer.Widgets
             searchText = searchText.Trim();
             bool isNotHaveDiacritics = Diacritics.CheckNoDiacriticsInText(searchText);
 
-            foreach (var item in AllMedias)
+            foreach (var media in AllMedias)
             {
                 // If there's no diacritics in searchText -> Proceed to search diacritics insensitively
                 // Else search diacritics sensitively
                 string title = 
-                    isNotHaveDiacritics == true ? 
-                    Diacritics.RemoveDiacritics(item.Title) : 
-                    item.Title;
+                    isNotHaveDiacritics == true ?
+                    Diacritics.RemoveDiacritics(media.Title) :
+                    media.Title;
                 string album = isNotHaveDiacritics == true ? 
-                    Diacritics.RemoveDiacritics(item.Album) : 
-                    item.Album;
-                string artists = isNotHaveDiacritics == true ? 
-                    Diacritics.RemoveDiacritics(item.Artists) : 
-                    item.Artists;
+                    Diacritics.RemoveDiacritics(media.Album) :
+                    media.Album;
+                List<string> artists = isNotHaveDiacritics == true ? 
+                    Diacritics.RemoveDiacriticsForAList(media.Artists) :
+                    media.Artists;
 
                 bool isFoundTitle = title.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
                 bool isFoundAlbum = album.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
-                bool isFoundArtists = artists.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
+                bool isFoundArtists = CheckArtistExistsInList(artists, searchText);
 
                 if (isFoundTitle == true || isFoundArtists == true || isFoundAlbum == true)
                 {
-                    result.Add(item);
+                    result.Add(media);
                 }
             }
             return result;
+        }
+
+        private bool CheckArtistExistsInList(List<string> listArtists, string searchText)
+        {
+            foreach (var artist in listArtists)
+            {
+                bool isFoundArtists = artist.IndexOf(searchText, StringComparison.InvariantCultureIgnoreCase) >= 0;
+                if (isFoundArtists == true) return true;
+            }
+            return false;
         }
     }
 }

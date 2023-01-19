@@ -7,7 +7,6 @@ using System.Linq;
 using System.Messaging;
 using TagLib;
 using System.Windows.Forms;
-using System.Collections.Generic;
 namespace MediaPlayer.Models
 {
     /// <summary>
@@ -50,7 +49,7 @@ namespace MediaPlayer.Models
                 {
                     artists = new List<string>()
                     {
-                        "Unknow"
+                        "Unknown"
                     };
                 }
                 return artists;
