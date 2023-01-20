@@ -186,7 +186,7 @@ namespace MediaPlayer.Models
                     {
                         ffMpeg.GetVideoThumbnail(path, fileName, 1);
                     }
-                    this.image = Image.FromFile(thumbnailPath);
+                    this.image = Image.FromFile(fileName);
                 }
                 catch
                 {
