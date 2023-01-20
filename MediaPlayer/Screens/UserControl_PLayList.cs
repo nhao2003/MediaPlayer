@@ -39,7 +39,7 @@ namespace MediaPlayer.Widgets
             get => _playlist;
             set
             {
-                _playlist= value;
+                _playlist = value;
                 lb_Title.Text = _playlist.PlayListName;
                 _listMedia = _playlist.ListMedia;
                 gunaPanel2.GradientColor1 = ImageTools.GetDominantColor(_playlist.BackGroundImage as Bitmap);
@@ -60,9 +60,9 @@ namespace MediaPlayer.Widgets
             lb_SumDuration.Text = $"{_listMedia.Count} Media";
             if (_listMedia.Count > 1)
                 lb_SumDuration.Text += "s ";
-            if(sum < 60)
+            if (sum < 60)
                 lb_SumDuration.Text += $"● About {sum} minutes.";
-            else if(sum/60 < 2)
+            else if (sum / 60 < 2)
                 lb_SumDuration.Text += $"● About 1 hour {sum / 60} minutues";
             else
                 lb_SumDuration.Text += $"● About {sum / 60} hours {sum / 60} minutues";
@@ -71,7 +71,7 @@ namespace MediaPlayer.Widgets
         {
             string a = "";
             int i = 0;
-            foreach(Media media in _listMedia)
+            foreach (Media media in _listMedia)
             {
                 if (i > 1)
                 {
@@ -125,7 +125,7 @@ namespace MediaPlayer.Widgets
                 int top = 0;
                 for (int i = 0; i < _listMedia.Count; i++)
                 {
-                    top = i*75;
+                    top = i * 75;
                     MusicRow musicRow = new MusicRow(_listMedia[_listMedia.Count - 1 - i], _playlist.PlayListID)
                     {
                         Location = new Point(100, top),
@@ -195,7 +195,7 @@ namespace MediaPlayer.Widgets
 
         private void timerPlaylist_Tick(object sender, EventArgs e)
         {
-            if(MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID)
+            if (MediaHelpers.isPlayingPlaylist == true && MediaHelpers.playListPlayingId == _playlist.PlayListID)
             {
                 btn_play.Image = Resources.pause_green;
                 btn_play.OnHoverImage = Resources.pause_green;
@@ -236,6 +236,7 @@ namespace MediaPlayer.Widgets
         {
             ContextMenu menu = new ContextMenu(_playlist);
             menu.Show(MousePosition);
+            menu.Delete.Click += btn_back_Click;
         }
     }
 }

@@ -4,6 +4,7 @@ using MediaPlayer.Models;
 using MediaPlayer.Widgets;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using TagLib;
 
@@ -87,12 +88,25 @@ namespace MediaPlayer
         public VideoPlayer videoScreen = new VideoPlayer();
         public void ClassifyMedia(Media media)
         {
-            if (media.MediaTypes == MediaTypes.Audio)
+            if (media.MediaTypes == MediaTypes.Audio)       
             {
+                if(MediaHelpers.isPlayingPlaylist == false)
+                {
+                    // neu ko phai playlist thi them vao
+                    MediaHelpers.AddToQueue(media);
+                }
+                else
+                {
+                    // neu la playlist va trong queue chua co thi them vao
+                    //MessageBox.Show(media.PlaylistID.ToString());
+                    if (!MediaHelpers.isExitInPlayQueue(media))
+                    {
+                        MediaHelpers.AddToQueue(media);
+                    }
+                }
+                MediaControl.UpdateListIndexPlay();
                 if (media != null)
                     MediaControl.getPathOfSong(media);
-                if(MediaHelpers.isPlayingPlaylist == false) MediaHelpers.AddToQueue(media);
-                MediaControl.UpdateListIndexPlay();
             }
             else
             {
@@ -125,6 +139,19 @@ namespace MediaPlayer
             _oldButton.Image = (Image)_oldButton.Tag;
             _oldButton.ForeColor = Color.Silver;
             _oldButton = fakeBtn;
+        }
+        private void DeleteAllPictures()
+        {
+            string[] allFiles = Directory.GetFiles(Environment.CurrentDirectory + "\\Video Thumbnail");
+            foreach (string file in allFiles)
+            {
+                try
+                {
+                    System.IO.File.Delete(file);
+                } catch {
+                    continue;
+                }
+            }
         }
     }
 }

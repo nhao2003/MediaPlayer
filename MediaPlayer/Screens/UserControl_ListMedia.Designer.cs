@@ -97,7 +97,7 @@
             this.btn_Refresh.OnPressedColor = System.Drawing.Color.Black;
             this.btn_Refresh.Size = new System.Drawing.Size(63, 50);
             this.btn_Refresh.TabIndex = 30;
-            this.btn_Refresh.Text = "UpdateScreen";
+            this.btn_Refresh.Text = "Refresh";
             this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // lb_SortBy

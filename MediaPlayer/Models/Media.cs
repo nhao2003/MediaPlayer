@@ -6,7 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Messaging;
 using TagLib;
-using System.Windows.Forms;
+
+
 namespace MediaPlayer.Models
 {
     /// <summary>
@@ -179,10 +180,11 @@ namespace MediaPlayer.Models
                 try
                 {
                     var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
-                    string thumbnailPath = "video_thumbnail" + title + ".jpg";
-                    if (!System.IO.File.Exists(thumbnailPath))
+                    string fileName = Environment.CurrentDirectory + "\\Video Thumbnail\\ " + title + ".jpg";
+                    Directory.CreateDirectory(Environment.CurrentDirectory + "\\Video Thumbnail");
+                    if (!System.IO.File.Exists(fileName))
                     {
-                        ffMpeg.GetVideoThumbnail(path, thumbnailPath, 5);
+                        ffMpeg.GetVideoThumbnail(path, fileName, 1);
                     }
                     this.image = Image.FromFile(thumbnailPath);
                 }

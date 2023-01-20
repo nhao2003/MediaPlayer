@@ -10,6 +10,7 @@ namespace MediaPlayer.Items
     {
         private Playlist playlist;
         private Media media;
+        public bool isDeletedPlaylist = false;
         public ContextMenu(Playlist playlist)
         {
             this.media = null;
@@ -71,6 +72,7 @@ namespace MediaPlayer.Items
             {
                 MediaHelpers.DeletePlayList(playlist);
                 Form_Main.Instance.userControl_Library.UpdateScreen();
+                isDeletedPlaylist = true;
             }
             else if (media != null && playlist != null)
             {
@@ -102,6 +104,16 @@ namespace MediaPlayer.Items
         {
             AddPlayList addPlayList = new AddPlayList();
             addPlayList.ShowDialog();
+            int index = MediaHelpers.AllPlayList.FindIndex(fi => fi.PlayListID == (addPlayList.Tag as Playlist).PlayListID);
+            if (media != null)
+            {
+                if (media.MediaTypes != TagLib.MediaTypes.Audio) return;
+                MediaHelpers.AllPlayList[index].AddMedia(media);
+            }
+            else
+            {
+                MediaHelpers.AllPlayList[index].AddRangeMedia(playlist.ListMedia);
+            }
             Form_Main.Instance.userControl_Library.UpdateScreen();
         }
         /// <summary>

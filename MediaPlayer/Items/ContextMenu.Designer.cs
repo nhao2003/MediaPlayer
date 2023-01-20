@@ -151,6 +151,6 @@ namespace MediaPlayer.Items
         private ToolStripSeparator AddTo_Separator;
         private ToolStripMenuItem NewPlaylist;
         private ToolStripMenuItem Rename;
-        private ToolStripMenuItem Delete;
+        public ToolStripMenuItem Delete;
     }
 }

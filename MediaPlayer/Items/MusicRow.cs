@@ -78,7 +78,8 @@ namespace MediaPlayer.Items
             MouseEventArgs me = (MouseEventArgs)e;
             if (me.Button == MouseButtons.Right)
             {
-                ContextMenu contextMenu = new ContextMenu(_media);
+                Media media = new Media(_media.FilePath);
+                ContextMenu contextMenu = new ContextMenu(media);
                 contextMenu.Play.Click += contextMenuPlay_click;
                 contextMenu.Show(ToolStripDropDown.MousePosition);
                 return;
@@ -91,7 +92,6 @@ namespace MediaPlayer.Items
             }
             else
             {
-                // this row is in play list
                 MediaHelpers.isPlayingPlaylist = true;
                 MediaHelpers.playListPlayingId = playListID;
                 Form_Main.Instance.ClassifyMedia(_media);
@@ -101,13 +101,7 @@ namespace MediaPlayer.Items
 
         private void contextMenuPlay_click(object sender, EventArgs e)
         {
-            if (playListID == null)
-            {
-                MediaHelpers.isPlayingPlaylist = false;
-                Form_Main.Instance.ClassifyMedia(_media);
-                Form_Main.Instance.userControl_Home1.suggestBar1.changeImage(_media);
-            }
-            else
+            if (playListID != null)
             {
                 // this row is in play list
                 MediaHelpers.isPlayingPlaylist = true;

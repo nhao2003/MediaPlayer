@@ -2,6 +2,7 @@
 using MediaPlayer.Properties;
 using System;
 using System.Windows.Forms;
+using Utilities.BunifuCircleProgress.Transitions;
 
 namespace MediaPlayer
 {
@@ -294,29 +295,67 @@ namespace MediaPlayer
         {
             FullScreen = !FullScreen;
         }
+        private void VideoShortcut(int KeyValue)
+        {
+            switch (KeyValue)
+            {
+                case 27:
+                    FullScreen = false;
+                    break;
+                case 32:
+                    btn_play.PerformClick();
+                    break;
+                case 37:
+                    btn_giam.PerformClick();
+                    break;
+                case 39:
+                    btn_tang.PerformClick();
+                    break;
+                case 38:
+                    if (gunaTrackBar_Volume.Value + 5 >= 100)
+                    {
+                        gunaTrackBar_Volume.Value = 100;
+                        break;
+                    }
+                    gunaTrackBar_Volume.Value += 5;
+                    break;
+                case 40:
+                    if (gunaTrackBar_Volume.Value - 5 <= 0)
+                    {
+                        gunaTrackBar_Volume.Value = 0;
+                        break;
+                    }
+                    gunaTrackBar_Volume.Value -= 5;
+                    break;
+                case 70:
+                    FullScreen = !FullScreen;
+                    break;
 
+            }
+        }
         private void VideoPlayer_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                FullScreen = false;
-            }
+            VideoShortcut(e.KeyValue);
         }
 
         private void player_KeyDownEvent(object sender, AxWMPLib._WMPOCXEvents_KeyDownEvent e)
         {
-            if (e.nKeyCode == 27)
-            {
-                FullScreen = false;
-            }
+            VideoShortcut(e.nKeyCode);
         }
 
         private void panel1_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape && WindowState == FormWindowState.Maximized)
-            {
-                FullScreen = false;
-            }
+            VideoShortcut(e.KeyValue);
+        }
+
+        private void gunaTrackBar_Volume_ValueChanged(object sender, EventArgs e)
+        {
+            player.settings.volume = gunaTrackBar_Volume.Value;
+        }
+
+        private void player_ClickEvent_1(object sender, AxWMPLib._WMPOCXEvents_ClickEvent e)
+        {
+            btn_play.PerformClick();
         }
     }
 }
