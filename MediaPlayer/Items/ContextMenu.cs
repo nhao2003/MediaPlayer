@@ -149,6 +149,11 @@ namespace MediaPlayer.Items
             {
                 MediaHelpers.AddPlaylistNextToCurrrentPlaying(playlist);
             }
+            // check dont play media
+            if (PlayMedia.IsFirst == false && MediaHelpers.PlayQueue.Count != 0)
+            {
+                Form_Main.Instance.MediaControl.getPathOfSong(MediaHelpers.PlayQueue[0]);
+            }
         }
 
         private void Play_Click(object sender, System.EventArgs e)

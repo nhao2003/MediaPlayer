@@ -196,7 +196,10 @@ namespace MediaPlayer.Models
         /// <param name="media"></param>
         public static void AddPlaylistNextToCurrrentPlaying(Playlist pl)
         {
-            int position = CurrentIndex + 1;
+            int position;
+            if (PlayQueue.Count == 0) position = 0;
+            else position = CurrentIndex + 1;
+
             for (int i = 0; i < pl.ListMedia.Count; i++)
             {
                 // insert this media next to current playing
