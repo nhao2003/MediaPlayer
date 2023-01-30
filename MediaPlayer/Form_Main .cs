@@ -142,6 +142,8 @@ namespace MediaPlayer
         }
         private void DeleteAllPictures()
         {
+            if (!Directory.Exists(Environment.CurrentDirectory + "\\Video Thumbnail"))
+                return;
             string[] allFiles = Directory.GetFiles(Environment.CurrentDirectory + "\\Video Thumbnail");
             foreach (string file in allFiles)
             {
