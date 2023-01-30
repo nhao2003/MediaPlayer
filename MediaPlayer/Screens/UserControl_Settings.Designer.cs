@@ -160,9 +160,9 @@ namespace MediaPlayer.Widgets
             this.label2.Location = new System.Drawing.Point(61, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(184, 23);
+            this.label2.Size = new System.Drawing.Size(179, 23);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Video labrary locations";
+            this.label2.Text = "Video library locations";
             // 
             // gunaElipsePanel1
             // 
@@ -241,9 +241,9 @@ namespace MediaPlayer.Widgets
             this.label5.Location = new System.Drawing.Point(61, 21);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(184, 23);
+            this.label5.Size = new System.Drawing.Size(179, 23);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Music labrary locations";
+            this.label5.Text = "Music library locations";
             // 
             // gunaLabel2
             // 
@@ -435,20 +435,14 @@ namespace MediaPlayer.Widgets
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            //this.Controls.Add(this.linkLabel6);
             this.Controls.Add(this.minh_git);
             this.Controls.Add(this.Bao_Github);
-            //this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.Hao_Github);
-            //this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.minh_face);
             this.Controls.Add(this.Bao_Facebook);
-            //this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.Hao_Facebook);
-            //this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.minh_mail);
             this.Controls.Add(this.Bao_Gmail);
-            //this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.link_SourceCode);
             this.Controls.Add(this.Hao_Mail);
             this.Controls.Add(this.gunaElipsePanel1);
