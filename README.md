@@ -34,7 +34,10 @@ MediaPlayer là một ứng dụng phương tiện cung cấp các chức năng 
 - [Taglib Sharp](https://github.com/mono/taglib-sharp)
 - ...
 
-# Nhóm thực viện đồ án và phân chia công việc
+# Nhóm thực hiện đồ án 
 - **21520620 - Nguyễn Tuấn Bảo**
 - **21522046 - Nguyễn Nhật Hào**
 - **21522345 - Phan Văn Minh**
+
+# Link video demo đồ án
+https://drive.google.com/file/d/1T6kD7kJ-6MIKDyeTA5hq2ycp6Elf7pV9/view?usp=sharing
