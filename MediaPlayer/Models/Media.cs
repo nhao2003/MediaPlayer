@@ -160,40 +160,43 @@ namespace MediaPlayer.Models
         [Obsolete]
         public Media(string path)
         {
-            TagLib.File taglib = TagLib.File.Create(path);
-            this.title = (taglib.Tag.Title != null) ? taglib.Tag.Title.ToString() : Path.GetFileNameWithoutExtension(path);
-            this.artists = (taglib.Tag.Artists.Length != 0) ? taglib.Tag.Artists[0].Split(',').ToList():null;
-            this.duration = (taglib.Properties.Duration != null) ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
-            this.dateAdded = System.IO.File.GetCreationTime(path);
-            this.filePath = path;
-            this.mediaType = taglib.Properties.MediaTypes;
-            this.album = taglib.Tag.Album;
-            this.others = taglib;
+            using (TagLib.File taglib = TagLib.File.Create(path))
+            {
+                this.title = taglib.Tag.Title ?? Path.GetFileNameWithoutExtension(path);
+                this.artists = taglib.Tag.Artists.Length != 0 ? taglib.Tag.Artists[0].Split(',').ToList() : null;
+                this.duration = taglib.Properties.Duration != null ? taglib.Properties.Duration : new TimeSpan(0, 0, 0);
+                this.dateAdded = System.IO.File.GetCreationTime(path);
+                this.filePath = path;
+                this.mediaType = taglib.Properties.MediaTypes;
+                this.album = taglib.Tag.Album;
+                this.others = taglib;
 
-            if (taglib.Tag.Pictures.Length > 0)
-            {
-                var bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
-                this.image = Image.FromStream(new MemoryStream(bin));
-            }
-            else
-            {
-                try
+                if (taglib.Tag.Pictures.Length > 0)
                 {
-                    var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
-                    string fileName = Environment.CurrentDirectory + "\\Video Thumbnail\\ " + title + ".jpg";
-                    Directory.CreateDirectory(Environment.CurrentDirectory + "\\Video Thumbnail");
-                    if (!System.IO.File.Exists(fileName))
-                    {
-                        ffMpeg.GetVideoThumbnail(path, fileName, 1);
-                    }
-                    this.image = Image.FromFile(fileName);
+                    byte[] bin = (byte[])(taglib.Tag.Pictures[0].Data.Data);
+                    this.image = Image.FromStream(new MemoryStream(bin));
                 }
-                catch
+                else
                 {
-                    this.image = Resources.defaultImage;
+                    try
+                    {
+                        var ffMpeg = new NReco.VideoConverter.FFMpegConverter();
+                        string fileName = Path.Combine(Environment.CurrentDirectory, "Video Thumbnail", $"{title}.jpg");
+                        Directory.CreateDirectory(Path.Combine(Environment.CurrentDirectory, "Video Thumbnail"));
+                        if (!System.IO.File.Exists(fileName))
+                        {
+                            ffMpeg.GetVideoThumbnail(path, fileName, 1);
+                        }
+                        this.image = Image.FromFile(fileName);
+                    }
+                    catch
+                    {
+                        this.image = Resources.defaultImage;
+                    }
                 }
             }
         }
+
         public Media()
         {
 

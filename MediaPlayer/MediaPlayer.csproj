@@ -198,12 +198,6 @@
     <Compile Include="Items\AddPlayList.Designer.cs">
       <DependentUpon>AddPlayList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Items\CategoryPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Items\CategoryPanel.Designer.cs">
-      <DependentUpon>CategoryPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="Items\ContextMenu.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -252,11 +246,11 @@
     <Compile Include="Items\MusicRow.Designer.cs">
       <DependentUpon>MusicRow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Diacritics.cs" />
-    <Compile Include="Models\PlaylistDatabase.cs" />
-    <Compile Include="Models\GaussianBlur.cs" />
-    <Compile Include="Models\MediaHelpers.cs" />
-    <Compile Include="Models\PlayMedia.cs" />
+    <Compile Include="Tools\Diacritics.cs" />
+    <Compile Include="Tools\PlaylistDatabase.cs" />
+    <Compile Include="Tools\GaussianBlur.cs" />
+    <Compile Include="Tools\MediaHelpers.cs" />
+    <Compile Include="Tools\PlayMedia.cs" />
     <Compile Include="Models\Playlist.cs" />
     <Compile Include="Models\Media.cs" />
     <Compile Include="Program.cs" />
@@ -324,9 +318,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Items\AddPlayList.resx">
       <DependentUpon>AddPlayList.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Items\CategoryPanel.resx">
-      <DependentUpon>CategoryPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Items\ContextMenu.resx">
       <DependentUpon>ContextMenu.cs</DependentUpon>

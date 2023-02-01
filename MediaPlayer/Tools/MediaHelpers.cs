@@ -295,45 +295,45 @@ namespace MediaPlayer.Models
         /// <exception cref="Exception"></exception>
         public static void FetchListMedia(MediaTypes mediaTypes)
         {
-            string SearchPattern;
+            string searchPattern;
+            List<Media> listMedia = new List<Media>();
             string path;
-            if (mediaTypes == MediaTypes.Audio)
+
+            switch (mediaTypes)
             {
-                SearchPattern = "*.mp3";
-                path = musicPathFolder;
-                listSongs = new List<Media>();
+                case MediaTypes.Audio:
+                    searchPattern = "*.mp3";
+                    path = musicPathFolder;
+                    listMedia = listSongs = new List<Media>();
+                    break;
+                case MediaTypes.Video:
+                    searchPattern = "*.mp4";
+                    path = videoPathFolder;
+                    listMedia = listVideos = new List<Media>();
+                    break;
+                default:
+                    throw new Exception("MediaTypes is invalid");
             }
-            else if (mediaTypes == MediaTypes.Video)
-            {
-                SearchPattern = "*.mp4";
-                path = videoPathFolder;
-                listVideos = new List<Media>();
-            }
-            else
-            {
-                throw new Exception("MediaTypes is invalid");
-            }
+
             string[] filePaths = { };
-            // chon file =======================================================
+
             try
             {
                 filePaths = System.IO.Directory.GetFiles(
                     path,
-                    SearchPattern,
+                    searchPattern,
                     System.IO.SearchOption.AllDirectories);
             }
             catch
             {
                 MessageBox.Show("Duong dan" + path + " khong ton tai");
             }
-            //===================================================================
-            Media tmp;
-            for (int i = 0; i < filePaths.Length; i++)
+
+            foreach (string filePath in filePaths)
             {
-                tmp = new Media(filePaths[i]);
-                if (mediaTypes == MediaTypes.Audio) listSongs.Add(tmp);
-                else listVideos.Add(tmp);
+                listMedia.Add(item: new Media(filePath));
             }
         }
+
     }
 }
