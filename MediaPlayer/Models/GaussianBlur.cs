@@ -90,9 +90,10 @@ namespace MediaPlayer.Models
         private void gaussBlur_4(int[] source, int[] dest, int r)
         {
             var bxs = boxesForGauss(r, 3);
-            boxBlur_4(source, dest, _width, _height, (bxs[0] - 1) / 2);
-            boxBlur_4(dest, source, _width, _height, (bxs[1] - 1) / 2);
-            boxBlur_4(source, dest, _width, _height, (bxs[2] - 1) / 2);
+                boxBlur_4(source, dest, _width, _height, (bxs[0] - 1) / 2);
+                boxBlur_4(dest, source, _width, _height, (bxs[1] - 1) / 2);
+                boxBlur_4(source, dest, _width, _height, (bxs[2] - 1) / 2);
+            
         }
 
         private int[] boxesForGauss(int sigma, int n)
@@ -113,75 +114,101 @@ namespace MediaPlayer.Models
         private void boxBlur_4(int[] source, int[] dest, int w, int h, int r)
         {
             for (var i = 0; i < source.Length; i++) dest[i] = source[i];
-            boxBlurH_4(dest, source, w, h, r);
-            boxBlurT_4(source, dest, w, h, r);
+                boxBlurH_4(dest, source, w, h, r);
+                boxBlurT_4(source, dest, w, h, r);
         }
 
         private void boxBlurH_4(int[] source, int[] dest, int w, int h, int r)
         {
-            var iar = (double)1 / (r + r + 1);
-            Parallel.For(0, h, _pOptions, i =>
+            try
             {
-                var ti = i * w;
-                var li = ti;
-                var ri = ti + r;
-                var fv = source[ti];
-                var lv = source[ti + w - 1];
-                var val = (r + 1) * fv;
-                for (var j = 0; j < r; j++) val += source[ti + j];
-                for (var j = 0; j <= r; j++)
+                var iar = (double)1 / (r + r + 1);
+                Parallel.For(0, h, _pOptions, i =>
                 {
-                    val += source[ri++] - fv;
-                    dest[ti++] = (int)Math.Round(val * iar);
-                }
-                for (var j = r + 1; j < w - r; j++)
-                {
-                    val += source[ri++] - dest[li++];
-                    dest[ti++] = (int)Math.Round(val * iar);
-                }
-                for (var j = w - r; j < w; j++)
-                {
-                    val += lv - source[li++];
-                    dest[ti++] = (int)Math.Round(val * iar);
-                }
-            });
+                    var ti = i * w;
+                    var li = ti;
+                    var ri = ti + r;
+                    var fv = source[ti];
+                    var lv = source[ti + w - 1];
+                    var val = (r + 1) * fv;
+                    for (var j = 0; j < r; j++) val += source[ti + j];
+                    for (var j = 0; j <= r; j++)
+                    {   if (ri < source.Length)
+                        val += source[ri++] - fv;
+                        dest[ti++] = (int)Math.Round(val * iar);
+                    }
+                    for (var j = r + 1; j < w - r; j++)
+                    {
+                        if (ri < source.Length && ti < dest.Length)
+                            val += source[ri++] - dest[li++];
+                        if (ti < dest.Length)
+                        dest[ti++] = (int)Math.Round(val * iar);
+                    }
+                    for (var j = w - r; j < w; j++)
+                    {
+                        if (li < source.Length)
+                        val += lv - source[li++];
+                        if (ti < dest.Length)
+                            dest[ti++] = (int)Math.Round(val * iar);
+                    }
+                });
+            }
+            catch(Exception ex)
+            {
+                // Do nothing
+            }
+            
         }
 
         private void boxBlurT_4(int[] source, int[] dest, int w, int h, int r)
         {
-            var iar = (double)1 / (r + r + 1);
-            Parallel.For(0, w, _pOptions, i =>
+            try
             {
-                var ti = i;
-                var li = ti;
-                var ri = ti + r * w;
-                var fv = source[ti];
-                var lv = source[ti + w * (h - 1)];
-                var val = (r + 1) * fv;
-                for (var j = 0; j < r; j++) val += source[ti + j * w];
-                for (var j = 0; j <= r; j++)
+                var iar = (double)1 / (r + r + 1);
+                Parallel.For(0, w, _pOptions, i =>
                 {
-                    val += source[ri] - fv;
-                    dest[ti] = (int)Math.Round(val * iar);
-                    ri += w;
-                    ti += w;
-                }
-                for (var j = r + 1; j < h - r; j++)
-                {
-                    val += source[ri] - source[li];
-                    dest[ti] = (int)Math.Round(val * iar);
-                    li += w;
-                    ri += w;
-                    ti += w;
-                }
-                for (var j = h - r; j < h; j++)
-                {
-                    val += lv - source[li];
-                    dest[ti] = (int)Math.Round(val * iar);
-                    li += w;
-                    ti += w;
-                }
-            });
+                    var ti = i;
+                    var li = ti;
+                    var ri = ti + r * w;
+                    var fv = source[ti];
+                    var lv = source[ti + w * (h - 1)];
+                    var val = (r + 1) * fv;
+                    for (var j = 0; j < r; j++) val += source[ti + j * w];
+                    for (var j = 0; j <= r; j++)
+                    {
+                        if (ri < source.Length)
+                        val += source[ri] - fv;
+                        if (ti < dest.Length)
+                        dest[ti] = (int)Math.Round(val * iar);
+                        ri += w;
+                        ti += w;
+                    }
+                    for (var j = r + 1; j < h - r; j++)
+                    {
+                        if (ri < source.Length && li < source.Length)
+                        val += source[ri] - source[li];
+                        if (ti < dest.Length)
+                        dest[ti] = (int)Math.Round(val * iar);
+                        li += w;
+                        ri += w;
+                        ti += w;
+                    }
+                    for (var j = h - r; j < h; j++)
+                    {
+                        if (li < source.Length)
+                        val += lv - source[li];
+                        if (ti < dest.Length)
+                        dest[ti] = (int)Math.Round(val * iar);
+                        li += w;
+                        ti += w;
+                    }
+                });
+            }
+            catch(Exception ex)
+            {
+                // Do nothing
+            }
+            
         }
         public static System.Drawing.Color GetDominantColor(Bitmap bmp)
         {

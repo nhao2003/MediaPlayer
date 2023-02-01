@@ -90,6 +90,21 @@ namespace MediaPlayer.Widgets
             Process.Start("https://github.com/nhao2003/MediaPlayer");
         }
 
+        private void Bao_Gmail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=21520620@gm.uit.edu.vn");
+        }
+
+        private void Bao_Facebook_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.facebook.com/profile.php?id=100019291111366");
+        }
+
+        private void Bao_Github_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://github.com/SurgeousJP");
+        }
+
         private void minh_mail_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Process.Start("https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=21522345@gm.uit.edu.vn");

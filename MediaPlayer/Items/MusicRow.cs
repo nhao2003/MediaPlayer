@@ -8,14 +8,8 @@ namespace MediaPlayer.Items
     public partial class MusicRow : UserControl
     {
         private Media _media;
-        public delegate void PassDataBetweenForms(Media media);
-        static MediaControl mediaControl;
         private string filePath;
-        public string playListID = null;
-        public void GetMediaControl(MediaControl control)
-        {
-            mediaControl = control;
-        }
+        public string playListID;
         public Media Media
         {
             get

@@ -50,7 +50,7 @@ namespace MediaPlayer.Models
                 {
                     artists = new List<string>()
                     {
-                        "Unknow"
+                        "Unknown"
                     };
                 }
                 return artists;
@@ -96,6 +96,7 @@ namespace MediaPlayer.Models
                 return image;
             }
         }
+
         /// <summary>
         /// Duration dưới dạng TimeSpan
         /// Muốn lấy tổng thời gian gian tính bằng dây có thể dùng duration.TotalSeconds

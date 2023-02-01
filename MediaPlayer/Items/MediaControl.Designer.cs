@@ -46,6 +46,7 @@
             this.btn_Play = new Guna.UI.WinForms.GunaCircleButton();
             this.timerSong = new System.Windows.Forms.Timer(this.components);
             this.gunaPictureBox_SongImage = new Guna.UI.WinForms.GunaPictureBox();
+            this.AudioVisualizer = new CSAudioVisualization.AudioVisualization();
             this.panel1.SuspendLayout();
             this.gunaPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox_SongImage)).BeginInit();
@@ -154,7 +155,7 @@
             this.gunaLabel_NameAthor.ForeColor = System.Drawing.Color.White;
             this.gunaLabel_NameAthor.Location = new System.Drawing.Point(120, 48);
             this.gunaLabel_NameAthor.Name = "gunaLabel_NameAthor";
-            this.gunaLabel_NameAthor.Size = new System.Drawing.Size(189, 56);
+            this.gunaLabel_NameAthor.Size = new System.Drawing.Size(189, 27);
             this.gunaLabel_NameAthor.TabIndex = 7;
             this.gunaLabel_NameAthor.Text = "Tên ca sĩ";
             // 
@@ -338,16 +339,44 @@
             this.gunaPictureBox_SongImage.TabStop = false;
             this.gunaPictureBox_SongImage.Click += new System.EventHandler(this.gunaPictureBox_SongImage_Click);
             // 
+            // AudioVisualizer
+            // 
+            this.AudioVisualizer.AudioSource = null;
+            this.AudioVisualizer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.AudioVisualizer.BarCount = 50;
+            this.AudioVisualizer.BarSpacing = 2;
+            this.AudioVisualizer.ColorBase = System.Drawing.Color.DarkRed;
+            this.AudioVisualizer.ColorMax = System.Drawing.Color.Snow;
+            this.AudioVisualizer.DeviceIndex = 0;
+            this.AudioVisualizer.FileName = null;
+            this.AudioVisualizer.HighQuality = true;
+            this.AudioVisualizer.Interval = 40;
+            this.AudioVisualizer.IsXLogScale = true;
+            this.AudioVisualizer.Location = new System.Drawing.Point(124, 79);
+            this.AudioVisualizer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.AudioVisualizer.MaximumFrequency = 10000;
+            this.AudioVisualizer.MessageArgs = null;
+            this.AudioVisualizer.Name = "AudioVisualizer";
+            this.AudioVisualizer.pic3DGraph = null;
+            this.AudioVisualizer.Size = new System.Drawing.Size(90, 24);
+            this.AudioVisualizer.TabIndex = 15;
+            this.AudioVisualizer.UseAverage = true;
+            this.AudioVisualizer.UserKey = "Your registration key";
+            this.AudioVisualizer.UserName = "Your email";
+            this.AudioVisualizer.VisMode = CSAudioVisualization.GraphMode.ModeSpectrum;
+            // 
             // MediaControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.Controls.Add(this.AudioVisualizer);
             this.Controls.Add(this.gunaPanel);
             this.Controls.Add(this.gunaLabel_SongName);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gunaPictureBox_SongImage);
             this.Controls.Add(this.gunaLabel_NameAthor);
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MediaControl";
             this.Size = new System.Drawing.Size(1200, 120);
@@ -377,5 +406,6 @@
         private Guna.UI.WinForms.GunaCircleButton btn_Volume;
         private System.Windows.Forms.Timer timerSong;
         public Guna.UI.WinForms.GunaTrackBar MediaTrackBar;
+        private CSAudioVisualization.AudioVisualization AudioVisualizer;
     }
 }

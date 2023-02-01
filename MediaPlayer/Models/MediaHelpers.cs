@@ -212,7 +212,7 @@ namespace MediaPlayer.Models
         /// Random mode
         /// </summary>
         /// <returns></returns>
-        public static List<int> ListRanDomIndex
+        public static List<int> ListRandomIndex
         {
             get
             {
