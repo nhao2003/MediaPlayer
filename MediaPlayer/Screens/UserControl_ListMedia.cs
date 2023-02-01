@@ -166,6 +166,7 @@ namespace MediaPlayer.Widgets
             }
             else if (this._mediaTypeOfScreen == MediaTypes.Video)
             {
+                if(MediaHelpers.listVideos.Count> 0) 
                 MediaHelpers.PlayVideo(MediaHelpers.listVideos[0]);
             }
         }
