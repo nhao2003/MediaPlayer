@@ -21,6 +21,7 @@ namespace MediaPlayer.Items
             {
                 this.playlist = playlist;
                 tb_NamePlayList.Text = playlist.PlayListName;
+                pic_BackGround.Image = playlist.BackGroundImage;
                 isRename = true;
                 btn_Save_Or_Rename.Text = @"Rename";
             }
@@ -73,7 +74,7 @@ namespace MediaPlayer.Items
                 sep = "|";
             }
             openFileDialog.Filter = string.Format("{0}{1}{2} ({3})|{3}", openFileDialog.Filter, sep, "All Files", "*.*");
-            openFileDialog.DefaultExt = ".png";
+            openFileDialog.DefaultExt = ".";
 
             DialogResult result = openFileDialog.ShowDialog();
 

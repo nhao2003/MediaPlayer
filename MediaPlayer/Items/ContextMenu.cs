@@ -86,7 +86,6 @@ namespace MediaPlayer.Items
         {
             if (media != null)
             {
-                if (media.MediaTypes != TagLib.MediaTypes.Audio) return;
                 ToolStripMenuItem item = (ToolStripMenuItem)sender;
                 int index = MediaHelpers.AllPlayList.FindIndex(fi => fi.PlayListID == (string)item.Tag);
                 MediaHelpers.AllPlayList[index].AddMedia(media);
@@ -108,6 +107,7 @@ namespace MediaPlayer.Items
             if (media != null)
             {
                 if (media.MediaTypes != TagLib.MediaTypes.Audio) return;
+                if(index != -1)
                 MediaHelpers.AllPlayList[index].AddMedia(media);
             }
             else

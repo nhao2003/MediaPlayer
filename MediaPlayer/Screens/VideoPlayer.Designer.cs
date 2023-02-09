@@ -298,10 +298,10 @@
             this.MediaTrackBar.Name = "MediaTrackBar";
             this.MediaTrackBar.Size = new System.Drawing.Size(1029, 23);
             this.MediaTrackBar.TabIndex = 0;
-            this.MediaTrackBar.TrackColor = System.Drawing.Color.DimGray;
-            this.MediaTrackBar.TrackHoverColor = System.Drawing.Color.Gray;
-            this.MediaTrackBar.TrackIdleColor = System.Drawing.Color.Silver;
-            this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.Black;
+            this.MediaTrackBar.TrackColor = System.Drawing.Color.DeepSkyBlue;
+            this.MediaTrackBar.TrackHoverColor = System.Drawing.Color.DodgerBlue;
+            this.MediaTrackBar.TrackIdleColor = System.Drawing.SystemColors.ActiveBorder;
+            this.MediaTrackBar.TrackPressedColor = System.Drawing.Color.DodgerBlue;
             this.MediaTrackBar.Value = 0;
             this.MediaTrackBar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VideoPlayer_KeyDown);
             this.MediaTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MediaTrackBar_MouseDown);
