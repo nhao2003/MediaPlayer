@@ -1,6 +1,11 @@
 # MediaPlayer
 MediaPlayer là một ứng dụng phương tiện cung cấp các chức năng tương đồng với Windows Media Player trên nền tảng Windows.
 
+# Hướng dẫn cài đặt (clone):
+- Clone project về
+- Mở thư mục MediaPlayer và giải nén file MediaPlayer.rar
+- Build project
+
 # Nguồn dữ liệu (Data source) 
 - Chủ yếu là các file nhạc lưu trên ổ đĩa.
 - Hỗ trợ các định dạng sau:
