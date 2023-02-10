@@ -172,11 +172,12 @@ namespace MediaPlayer
         }
         public void setCurrentPosition(int mousePosition, int progressBarWidth)
         {
-            player.Ctlcontrols.currentPosition = player.currentMedia.duration * mousePosition / progressBarWidth;
+            /*player.Ctlcontrols.currentPosition = player.currentMedia.duration * mousePosition / progressBarWidth;
             // currrent position
             currentTimePlay = player.Ctlcontrols.currentPosition;
             // text time current
-            timeSongPlay.Text = getCurrentPositionstringSong();
+            timeSongPlay.Text = getCurrentPositionstringSong();*/
+            updateCurrentPosition(player.currentMedia.duration * mousePosition / progressBarWidth);
         }
         // volume
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
@@ -211,14 +212,30 @@ namespace MediaPlayer
             gunaTrackBar_Volume.Value = n;
             player.settings.volume = n;
         }
+        // this fuction will update the current position of trackbar
+        void updateCurrentPosition(double value)
+        {
+
+            player.Ctlcontrols.currentPosition = value;
+            // currrent position
+            currentTimePlay = player.Ctlcontrols.currentPosition;
+            // text time current
+            timeSongPlay.Text = getCurrentPositionstringSong();
+            // value of trackbar
+            MediaTrackBar.Value = (int)player.Ctlcontrols.currentPosition;
+        }
         // time song
         private void btn_giam_Click(object sender, EventArgs e)
         {
             try
             {
                 if (currentTimePlay - timeSkip >= 0)
-                    player.Ctlcontrols.currentPosition = currentTimePlay - timeSkip;
-                else player.Ctlcontrols.currentPosition = 0;
+                {
+                    updateCurrentPosition(currentTimePlay - timeSkip);
+                    click_btn_play();
+                    click_btn_play();
+                }
+                else updateCurrentPosition(0);
             }
             catch (Exception ex)
             {
@@ -226,14 +243,18 @@ namespace MediaPlayer
             }
 
         }
-
+        
         private void btn_tang_Click(object sender, EventArgs e)
         {
             try
             {
                 if (currentTimePlay + timeSkip <= MediaTrackBar.Maximum)
-                    player.Ctlcontrols.currentPosition = currentTimePlay + timeSkip;
-                else player.Ctlcontrols.currentPosition = MediaTrackBar.Maximum;
+                {
+                    updateCurrentPosition(currentTimePlay + timeSkip);
+                    click_btn_play();
+                    click_btn_play();
+                }
+                else updateCurrentPosition(MediaTrackBar.Maximum);
             }
             catch (Exception ex)
             {
