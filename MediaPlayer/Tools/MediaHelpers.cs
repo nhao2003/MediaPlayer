@@ -48,6 +48,7 @@ namespace MediaPlayer.Models
             allPlayList.Add(playlist);
             database.InsertPlaylist(playlist);
         }
+
         public static void DeletePlayList(Playlist playlist)
         {
             int index = allPlayList.FindIndex(x => x.PlayListID == playlist.PlayListID);

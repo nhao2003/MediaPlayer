@@ -92,7 +92,7 @@ namespace MediaPlayer
         }
         private string getCurrentPositionstringSong()
         {
-            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying)
+            if (player.playState == WMPLib.WMPPlayState.wmppsPlaying || player.playState == WMPLib.WMPPlayState.wmppsPaused)
                 return player.Ctlcontrols.currentPositionString;
             return "00:00";
         }
@@ -173,6 +173,10 @@ namespace MediaPlayer
         public void setCurrentPosition(int mousePosition, int progressBarWidth)
         {
             player.Ctlcontrols.currentPosition = player.currentMedia.duration * mousePosition / progressBarWidth;
+            // currrent position
+            currentTimePlay = player.Ctlcontrols.currentPosition;
+            // text time current
+            timeSongPlay.Text = getCurrentPositionstringSong();
         }
         // volume
         private void gunaTrackBar_Volume_Scroll(object sender, ScrollEventArgs e)
